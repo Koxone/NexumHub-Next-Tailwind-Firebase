@@ -4,15 +4,14 @@ import { useEffect, useRef } from 'react';
 import { usePendingModal } from '@/Stores/usePendingModal';
 
 export default function TaskAndPendingModal({
-  onAccept, // optional callback
-  onDecline, // optional callback
-  staticBackdrop = true, // if true, clicking backdrop won't close the modal
+  onAccept,
+  onDecline,
+  staticBackdrop = true,
 }) {
   const { isOpen, close } = usePendingModal();
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
 
-  // Close on ESC
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e) => {
@@ -22,7 +21,6 @@ export default function TaskAndPendingModal({
     return () => document.removeEventListener('keydown', onKey);
   }, [isOpen, close]);
 
-  // Focus management + lock page scroll while modal is open
   useEffect(() => {
     if (!isOpen) return;
     const t = setTimeout(() => closeBtnRef.current?.focus(), 0);
@@ -36,7 +34,6 @@ export default function TaskAndPendingModal({
 
   if (!isOpen) return null;
 
-  // Backdrop click handler (respect staticBackdrop)
   const handleBackdrop = () => {
     if (!staticBackdrop) close();
   };

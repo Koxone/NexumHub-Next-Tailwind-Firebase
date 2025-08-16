@@ -1,13 +1,15 @@
 'use client';
 
 import Title from '@/Components/Text/Title';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTaskModal } from '@/Stores/useTaskModal';
 
 export default function CreateTaskModal({ onSubmit }) {
   const { isOpen, close } = useTaskModal();
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const [selectedTags, setSelectedTags] = useState([]);
 
   // Close on ESC
   useEffect(() => {
@@ -154,6 +156,60 @@ export default function CreateTaskModal({ onSubmit }) {
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
                   </select>
+                </div>
+
+                {/* Tags */}
+                <div className="col-span-2 sm:col-span-1">
+                  <label
+                    htmlFor="tags"
+                    className="mb-2 block text-sm font-medium text-white"
+                  >
+                    Tags
+                  </label>
+
+                  <div className="relative">
+                    {/* Trigger button */}
+                    <button
+                      type="button"
+                      className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-left text-sm text-white"
+                      onClick={() => setOpen((prev) => !prev)} 
+                    >
+                      {selectedTags.length > 0
+                        ? selectedTags.join(', ')
+                        : 'Select Tags'}
+                    </button>
+
+                    {/* Dropdown with checkboxes */}
+                    {open && (
+                      <div className="absolute z-10 mt-1 w-full rounded-lg border border-gray-500 bg-gray-700 shadow-lg">
+                        {['UI', 'UX', 'Feature', 'Bug', 'Enhancement'].map(
+                          (tag, i, arr) => (
+                            <label
+                              key={tag}
+                              className={`flex cursor-pointer items-center gap-2 p-2 text-sm text-white hover:bg-gray-600 ${i === 0 ? 'rounded-t-lg' : ''} ${i === arr.length - 1 ? 'rounded-b-lg' : ''}`}
+                            >
+                              <input
+                                type="checkbox"
+                                value={tag.toLowerCase()}
+                                checked={selectedTags.includes(tag)}
+                                onChange={(e) => {
+                                  if (e.target.checked) {
+                                    setSelectedTags([...selectedTags, tag]);
+                                  } else {
+                                    setSelectedTags(
+                                      selectedTags.filter((t) => t !== tag)
+                                    );
+                                  }
+                                }}
+                                className="rounded border-gray-500 bg-gray-600"
+                              />
+                              {tag}
+                            </label>
+                          )
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Description */}

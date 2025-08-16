@@ -22,7 +22,7 @@ function SidebarMenu() {
   const router = useRouter();
 
   const { toggle } = useMobileMenu();
-  const { open } = useTaskModal();
+  const { openTask } = useTaskModal();
   const { open: openPending } = usePendingModal();
   const onLinkClick = (path) => {
     router.push(path);
@@ -43,34 +43,41 @@ function SidebarMenu() {
         icon={Presentation}
         text="Projects"
       />
-      <MenuButton
+      {/* <MenuButton
         aria="Go to Tasks Button"
         icon={SquareCheck}
         text="Pending Tasks"
-      />
+      /> */}
       <MenuButton
         aria="Create a new Task Button"
         icon={ClipboardList}
         text="Create Task"
-        onClick={open}
+        onClick={openTask}
       />
-      <MenuButton
+      {/* <MenuButton
         aria="Go to Approval Button"
         icon={CheckCircle}
         text="Pending Approval"
         onClick={openPending}
-      />
+      /> */}
       <MenuButton
         aria="Go to Search Projects Button"
         icon={Search}
         text="Search"
+        disabled
       />
       <MenuButton
         aria="Go to Settings Button"
         icon={Settings}
         text="Settings"
+        disabled
       />
-      <MenuButton aria="Go to User Account Button" icon={User} text="User" />
+      <MenuButton
+        disabled
+        aria="Go to User Account Button"
+        icon={User}
+        text="User"
+      />
     </div>
   );
 }

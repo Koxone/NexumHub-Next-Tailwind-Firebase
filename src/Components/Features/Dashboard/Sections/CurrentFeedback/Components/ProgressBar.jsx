@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ProgressBar({ tasks = 10, percent = 45 }) {
+function ProgressBar({ tasks = 10, percent = 45, pending = 5 }) {
   const pct = Math.max(0, Math.min(100, percent));
 
   const barColor =
@@ -8,9 +8,9 @@ function ProgressBar({ tasks = 10, percent = 45 }) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex items-center justify-start gap-4 divide-x divide-white text-sm text-white md:text-[9px] lg:text-sm">
+      <div className="flex items-center justify-start divide-x divide-white text-sm text-white md:text-[9px] lg:text-sm">
         <p className="pr-2">{tasks} Tasks</p>
-        <p className="pl-2">{pct}%</p>
+        <p className="pl-2">{pending} Pending Approval</p>
       </div>
 
       <div

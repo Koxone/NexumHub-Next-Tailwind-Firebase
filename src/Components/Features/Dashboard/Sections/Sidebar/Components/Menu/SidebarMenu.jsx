@@ -16,12 +16,14 @@ import {
 import { useRouter } from 'next/navigation';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
 import { useTaskModal } from '@/Stores/useTaskModal';
+import { usePendingModal } from '@/Stores/usePendingModal';
 
 function SidebarMenu() {
   const router = useRouter();
 
   const { toggle } = useMobileMenu();
   const { open } = useTaskModal();
+  const { open: openPending } = usePendingModal();
   const onLinkClick = (path) => {
     router.push(path);
     toggle();
@@ -56,6 +58,7 @@ function SidebarMenu() {
         aria="Go to Approval Button"
         icon={CheckCircle}
         text="Pending Approval"
+        onClick={openPending}
       />
       <MenuButton
         aria="Go to Search Projects Button"

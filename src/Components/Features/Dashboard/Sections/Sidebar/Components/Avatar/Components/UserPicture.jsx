@@ -11,12 +11,9 @@ function UserPicture() {
   return (
     <div className="relative z-10 h-[60px] w-[60px] rounded-full">
       {/* Imagen */}
-      <div
-        title="User Avatar Picture"
-        className="absolute inset-0 overflow-hidden rounded-full"
-      >
+      <div className="absolute inset-0 overflow-hidden rounded-full">
         <Image
-          alt="User avatar"
+          alt="User avatar picture"
           src="/FotoPerfil.png"
           fill
           className="object-cover"

@@ -3,7 +3,7 @@ import React from 'react';
 
 function Logo() {
   return (
-    <div title="Logo Image" className="relative h-[60px] max-w-[150px]">
+    <div className="relative h-[60px] max-w-[150px]">
       <Image
         alt="Logo Image"
         src="/Images/Logos/Koxland-Logo-Letters.svg"

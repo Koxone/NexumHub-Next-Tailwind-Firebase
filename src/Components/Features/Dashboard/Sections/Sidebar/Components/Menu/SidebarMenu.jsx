@@ -15,11 +15,13 @@ import {
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
+import { useTaskModal } from '@/Stores/useTaskModal';
 
 function SidebarMenu() {
   const router = useRouter();
 
   const { toggle } = useMobileMenu();
+  const { open } = useTaskModal();
   const onLinkClick = (path) => {
     router.push(path);
     toggle();
@@ -48,6 +50,7 @@ function SidebarMenu() {
         aria="Create a new Task Button"
         icon={ClipboardList}
         text="Create Task"
+        onClick={open}
       />
       <MenuButton
         aria="Go to Approval Button"

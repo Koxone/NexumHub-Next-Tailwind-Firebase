@@ -2,6 +2,7 @@ import Dashboard from '@/Components/Features/Dashboard/Dashboard';
 import LatestProjects from '@/Components/Features/Dashboard/Sections/CurrentFeedback/LatestProjects';
 import Pending from '@/Components/Features/Dashboard/Sections/Pending/Pending';
 import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
+import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal';
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <TopBar />
       <LatestProjects />
       <Pending />
+      <CreateTaskModal />
     </div>
   );
 }

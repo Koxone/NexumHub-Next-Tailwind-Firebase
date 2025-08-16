@@ -1,13 +1,18 @@
+'use client';
+
 import React from 'react';
 import Avatars from './Avatars';
 import MenuButton from './MenuButton';
-import Title from './Title';
 import ProgressBar from './ProgressBar';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-export default function ProjectCard({ src = '', color = '' }) {
+export default function ProjectCard({ src = '', color = '', path }) {
+  const router = useRouter();
   return (
     <div
+      onClick={() => router.push(`/projects/open`)}
+      // onClick={() => router.push(`/projects/${path}`)}
       className={`grid aspect-square grid-cols-1 grid-rows-[auto_1fr_auto] rounded-lg border ${color} p-4`}
     >
       {/* Avatars and Menu Button */}

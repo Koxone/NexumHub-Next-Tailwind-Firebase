@@ -2,6 +2,9 @@ import '@/app/globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import localFont from 'next/font/local';
 import SideBar from '@/Components/Features/Dashboard/Sections/Sidebar/SideBar';
+import MobileSideBar from '@/Components/Features/Dashboard/Custom/MobileSideBar';
+import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';
+import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal';
 
 export const metadata = {
   title: {
@@ -95,6 +98,9 @@ export default function RootLayout({ children }) {
       <body className="bg-bg-secondary h-full">
         <div className="bg-bg-main grid h-full w-full border border-neutral-700/40 shadow-2xl md:grid-cols-[auto_1fr]">
           <SideBar />
+          <MobileSideBar />
+          <CreateTaskModal />
+          <TaskAndPendingModal />
           <div className="grid min-h-full min-w-0 grid-rows-[auto_auto_1fr]">
             {children}
           </div>

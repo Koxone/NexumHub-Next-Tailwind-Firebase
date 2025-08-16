@@ -1,41 +1,21 @@
 import React from 'react';
 import Title from '@/Components/Text/Title';
 import PendingCard from '../Cards/PendingCard';
+import AnimatedList from '@/Components/Features/Dashboard/Custom/AnimatedList';
 
 function Tasks() {
   return (
     <div className="flex flex-col gap-2">
       <Title title="Tasks For Today" />
       <div className="grid h-full auto-rows-auto gap-2">
-        <PendingCard
+        <AnimatedList
           type="task"
           project="fws"
-          title="FitWorld Shop"
-          subtitle="Revisar Inventario"
-        />
-        <PendingCard
-          type="task"
-          project="testigo"
-          title="TestigoMX"
-          subtitle="Revisar Inventario"
-        />
-        <PendingCard
-          type="task"
-          project="testigo"
-          title="TestigoMX"
-          subtitle="Revisar Inventario"
-        />
-        <PendingCard
-          type="task"
-          project="learn"
-          title="Learn-Frontend"
-          subtitle="Revisar Inventario"
-        />
-        <PendingCard
-          type="task"
-          project="learn"
-          title="Learn-Frontend"
-          subtitle="Revisar Inventario"
+          title="Tasks For Today"
+          subtitle="Manage your tasks efficiently"
+          showGradients={false}
+          enableArrowNavigation={true}
+          displayScrollbar={false}
         />
       </div>
     </div>

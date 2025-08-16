@@ -12,12 +12,21 @@ import {
   CheckCircle,
   Menu,
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 function SidebarMenu() {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col items-start gap-4">
-      <MenuButton aria="Go to Home Button" icon={Home} text="Home" />
       <MenuButton
+        onClick={() => router.push('/')}
+        aria="Go to Home Button"
+        icon={Home}
+        text="Home"
+      />
+      <MenuButton
+        onClick={() => router.push('/projects')}
         aria="Go to Projects Button"
         icon={Presentation}
         text="Projects"

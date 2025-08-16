@@ -1,18 +1,18 @@
 import React from 'react';
-import CurrentFeedbackCard from './Components/CurrentFeedbackCard';
+import ProjectCard from './Components/ProjectCard';
 import Title from '@/Components/Text/Title';
 
-function CurrentFeedback() {
+function LatestProjects() {
   return (
     <div className="flex flex-col gap-4 px-8">
       <Title title="Latest Projects" />
       <div className="grid w-full grid-cols-3 grid-rows-1 gap-2">
-        <CurrentFeedbackCard />
-        <CurrentFeedbackCard />
-        <CurrentFeedbackCard />
+        <ProjectCard src="fws.svg" />
+        <ProjectCard src="TestigoMX.svg" />
+        <ProjectCard src="Learn-Frontend.svg" />
       </div>
     </div>
   );
 }
 
-export default CurrentFeedback;
+export default LatestProjects;

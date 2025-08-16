@@ -5,7 +5,7 @@ import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
 
 export default function Home() {
   return (
-    <div className="grid min-h-full grid-rows-[auto_auto_1fr]">
+    <div className="grid min-h-full w-full max-w-[1200px] grid-rows-[auto_auto_1fr] mx-auto">
       <TopBar />
       <LatestProjects />
       <Pending />

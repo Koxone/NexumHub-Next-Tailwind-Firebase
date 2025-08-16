@@ -5,7 +5,7 @@ import Logo from './Components/Logo/Logo';
 import Avatar from './Components/Avatar/Avatar';
 import SidebarMenu from './Components/Menu/SidebarMenu';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
-import MobileSidebarToggleButton from './Components/MobileButton/MobileMenuButton';
+import MobileSidebarToggleButton from './Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
 
 function SideBar() {
   const { isOpen } = useMobileMenu();

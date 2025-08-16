@@ -13,20 +13,27 @@ import {
   Menu,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useMobileMenu } from '@/Stores/useMobileMenu';
 
 function SidebarMenu() {
   const router = useRouter();
 
+  const { toggle } = useMobileMenu();
+  const onLinkClick = (path) => {
+    router.push(path);
+    toggle();
+  };
+
   return (
     <div className="flex flex-col items-start gap-4">
       <MenuButton
-        onClick={() => router.push('/')}
+        onClick={() => onLinkClick('/')}
         aria="Go to Home Button"
         icon={Home}
         text="Home"
       />
       <MenuButton
-        onClick={() => router.push('/projects')}
+        onClick={() => onLinkClick('/projects')}
         aria="Go to Projects Button"
         icon={Presentation}
         text="Projects"

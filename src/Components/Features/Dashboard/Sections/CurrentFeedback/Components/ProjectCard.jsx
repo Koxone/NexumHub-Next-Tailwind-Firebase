@@ -5,10 +5,10 @@ import Title from './Title';
 import ProgressBar from './ProgressBar';
 import Image from 'next/image';
 
-export default function ProjectCard({ src }) {
+export default function ProjectCard({ src = '', color = '' }) {
   return (
     <div
-      className={`grid aspect-square grid-cols-1 grid-rows-[auto_1fr_auto] rounded-lg border bg-blue-400/50 p-4`}
+      className={`grid aspect-square grid-cols-1 grid-rows-[auto_1fr_auto] rounded-lg border ${color} p-4`}
     >
       {/* Avatars and Menu Button */}
       <div className="flex h-fit items-center justify-between">

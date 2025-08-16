@@ -9,27 +9,32 @@ function ApprovePending() {
       <div className="grid h-full auto-rows-auto gap-2">
         <PendingCard
           type="approval"
-          title="FitWorld Shop"
+          project="testigo"
+          title="TestigoMX"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="approval"
-          title="FitWorld Shop"
+          project="testigo"
+          title="TestigoMX"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="approval"
-          title="FitWorld Shop"
+          project="testigo"
+          title="TestigoMX"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="approval"
-          title="FitWorld Shop"
+          project="testigo"
+          title="TestigoMX"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="approval"
-          title="FitWorld Shop"
+          project="testigo"
+          title="TestigoMX"
           subtitle="Revisar Inventario"
         />
       </div>

@@ -1,15 +1,21 @@
 import React from 'react';
 
-function PendingCard({ title, subtitle, type = 'task' }) {
+function PendingCard({ title, subtitle, type = 'task', project }) {
   let bgClass = '';
   let borderClass = '';
 
   if (type === 'task') {
     bgClass = 'bg-white';
-    borderClass = 'border-l-4 border-l-blue-500';
   } else if (type === 'approval') {
     bgClass = 'bg-yellow-50';
-    borderClass = 'border-l-4 border-l-red-500';
+  }
+
+  if (project === 'fws') {
+    borderClass = 'border-l-4 border-l-red-600';
+  } else if (project === 'testigo') {
+    borderClass = 'border-l-4 border-l-neutral-600';
+  } else if (project === 'learn') {
+    borderClass = 'border-l-4 border-l-blue-600';
   }
 
   return (

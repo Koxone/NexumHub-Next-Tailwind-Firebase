@@ -6,30 +6,35 @@ function Tasks() {
   return (
     <div className="flex flex-col gap-2">
       <Title title="Tasks For Today" />
-      <div className="grid auto-rows-auto h-full gap-2">
+      <div className="grid h-full auto-rows-auto gap-2">
         <PendingCard
           type="task"
+          project="fws"
           title="FitWorld Shop"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="task"
-          title="FitWorld Shop"
+          project="testigo"
+          title="TestigoMX"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="task"
-          title="FitWorld Shop"
+          project="testigo"
+          title="TestigoMX"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="task"
-          title="FitWorld Shop"
+          project="learn"
+          title="Learn-Frontend"
           subtitle="Revisar Inventario"
         />
         <PendingCard
           type="task"
-          title="FitWorld Shop"
+          project="learn"
+          title="Learn-Frontend"
           subtitle="Revisar Inventario"
         />
       </div>

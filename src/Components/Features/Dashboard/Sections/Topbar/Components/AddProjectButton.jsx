@@ -1,0 +1,14 @@
+import React from 'react';
+
+function AddProjectButton() {
+  return (
+    <button
+      aria-label="Create a New Project Button"
+      className="w-fit cursor-pointer rounded-lg border bg-neutral-700 px-3 py-2 text-white transition-all duration-200 ease-in-out hover:bg-neutral-600"
+    >
+      Add New Project
+    </button>
+  );
+}
+
+export default AddProjectButton;

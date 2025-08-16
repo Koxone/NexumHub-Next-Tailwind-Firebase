@@ -1,14 +1,17 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 function Logo() {
+  const router = useRouter();
   return (
-    <div title="Logo Image" className="relative h-[60px] max-w-[150px]">
+    <div className="relative h-[60px] w-[200px] max-w-[150px]">
       <Image
+        onClick={() => router.push('/')}
         alt="Logo Image"
-        src="/Images/Logos/Koxland-Logo-Letters.svg"
+        src="/Images/Logos/Nexum-Logo-White.svg"
         fill
-        className="h-auto w-full object-contain"
+        className="h-auto w-full cursor-pointer object-contain"
         priority
       />
     </div>

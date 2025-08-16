@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Design System → Tailwind v4 tokens (IntelliSense-ready) */
 @theme {
   /* --- Colors --- */
@@ -10,6 +14,8 @@
   --color-sky: #62bcfa;
   --color-peach: #f49f85;
   --color-bg: #ebe3d8;
+  --color-bg-main: #101828;
+  --color-bg-secondary: #101328;
   --color-bg-soft: #f2faff;
   --color-white: #ffffff;
 
@@ -82,4 +88,58 @@
   .tracking-h4 {
     letter-spacing: var(--tracking-h4);
   }
+}
+
+/* ScrollBar Styles */
+/* ===== Scrollbar Style Global ===== */
+::-webkit-scrollbar {
+  width: 8px; /* ancho vertical */
+  height: 8px; /* alto horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* color del fondo */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a3a3a3; /* color del thumb */
+  border-radius: 9999px; /* pill shape */
+  border: 2px solid transparent; /* "padding" alrededor */
+  background-clip: content-box; /* respeta el padding */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #737373; /* color al hover */
+}
+
+/* Para Firefox */
+* {
+  scrollbar-width: thin; /* "auto" | "thin" | "none" */
+  scrollbar-color: #a3a3a3 transparent; /* thumb | track */
+}
+
+
+/* Notification Bell */
+/* comment: Bell swing animation on hover */
+@keyframes bell-swing {
+  0%   { transform: rotate(0); }
+  15%  { transform: rotate(15deg); }
+  30%  { transform: rotate(-12deg); }
+  45%  { transform: rotate(8deg); }
+  60%  { transform: rotate(-5deg); }
+  75%  { transform: rotate(3deg); }
+  100% { transform: rotate(0); }
+}
+
+.bell-swing { 
+  transform-origin: top center; /* comment: pivot like a real bell */
+}
+
+.group:hover .bell-swing {
+  animation: bell-swing 0.8s ease-out both;
+}
+
+/* comment: respect users that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .bell-swing { animation: none; }
 }

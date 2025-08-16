@@ -1,6 +1,6 @@
 import '@/app/globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import I18nProvider from '@/Providers/I18nProvider';
+import I18nProvider from '@/providers/I18nProvider';
 import localFont from 'next/font/local';
 import SideBar from '@/Components/Features/Dashboard/Sections/Sidebar/SideBar';
 

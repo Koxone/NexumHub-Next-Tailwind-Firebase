@@ -1,13 +1,10 @@
 import { BellRing } from 'lucide-react';
-import Image from 'next/image';
 import React from 'react';
 
-function NotificationBell() {
+export default function NotificationBell() {
   return (
-    <div className="flex w-fit cursor-pointer items-center justify-center rounded-lg border bg-neutral-700 px-3 py-2 text-white transition-all duration-200 ease-in-out hover:bg-neutral-600">
-      <BellRing />
+    <div className="group flex w-fit cursor-pointer items-center justify-center rounded-lg border bg-neutral-700 px-3.5 py-2 text-white transition-colors duration-200 ease-in-out hover:bg-neutral-600">
+      <BellRing className="bell-swing h-5 w-5" />
     </div>
   );
 }
-
-export default NotificationBell;

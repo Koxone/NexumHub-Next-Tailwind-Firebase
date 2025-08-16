@@ -17,14 +17,14 @@ export default function ProjectCard({ src }) {
       </div>
 
       {/* Project Image */}
-      <div className="relative h-full w-full max-w-[200px] justify-self-center">
+      <div className="group relative h-full w-full max-w-[200px] cursor-pointer justify-self-center">
         <Image
           src={`/Images/Logos/${src}`}
           alt="Project Logo"
           fill
           sizes="100px"
           priority
-          className="object-contain"
+          className="object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
         />
       </div>
 

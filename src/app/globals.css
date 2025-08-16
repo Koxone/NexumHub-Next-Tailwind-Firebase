@@ -117,3 +117,29 @@ html {
   scrollbar-width: thin; /* "auto" | "thin" | "none" */
   scrollbar-color: #a3a3a3 transparent; /* thumb | track */
 }
+
+
+/* Notification Bell */
+/* comment: Bell swing animation on hover */
+@keyframes bell-swing {
+  0%   { transform: rotate(0); }
+  15%  { transform: rotate(15deg); }
+  30%  { transform: rotate(-12deg); }
+  45%  { transform: rotate(8deg); }
+  60%  { transform: rotate(-5deg); }
+  75%  { transform: rotate(3deg); }
+  100% { transform: rotate(0); }
+}
+
+.bell-swing { 
+  transform-origin: top center; /* comment: pivot like a real bell */
+}
+
+.group:hover .bell-swing {
+  animation: bell-swing 0.8s ease-out both;
+}
+
+/* comment: respect users that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .bell-swing { animation: none; }
+}

@@ -4,7 +4,7 @@ import { Menu } from 'lucide-react';
 import React, { useRef } from 'react';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
 
-function MobileMenuButton() {
+function MobileSidebarToggleButton() {
   const { isOpen, toggle } = useMobileMenu();
   const btnRef = useRef(null);
 
@@ -26,4 +26,4 @@ function MobileMenuButton() {
   );
 }
 
-export default MobileMenuButton;
+export default MobileSidebarToggleButton;

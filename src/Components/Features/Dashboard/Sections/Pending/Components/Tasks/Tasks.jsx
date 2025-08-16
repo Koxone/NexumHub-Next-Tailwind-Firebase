@@ -6,7 +6,7 @@ function Tasks() {
   return (
     <div className="flex flex-col gap-2">
       <Title title="Tasks For Today" />
-      <div className="flex h-full flex-col justify-between">
+      <div className="grid auto-rows-auto h-full gap-2">
         <PendingCard
           type="task"
           title="FitWorld Shop"

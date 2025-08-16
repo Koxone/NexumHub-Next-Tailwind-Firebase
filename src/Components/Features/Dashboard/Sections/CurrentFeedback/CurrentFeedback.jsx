@@ -4,7 +4,7 @@ import Title from '@/Components/Text/Title';
 
 function CurrentFeedback() {
   return (
-    <div className="flex flex-col gap-4 px-8 pb-8">
+    <div className="flex flex-col gap-4 px-8">
       <Title title="Latest Projects" />
       <div className="grid w-full grid-cols-3 grid-rows-1 gap-2">
         <CurrentFeedbackCard />

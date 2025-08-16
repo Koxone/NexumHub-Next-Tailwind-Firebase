@@ -14,7 +14,7 @@ function PendingCard({ title, subtitle, type = 'task' }) {
 
   return (
     <div
-      className={`flex cursor-pointer flex-col gap-1 rounded-lg border border-neutral-200 px-4 py-2 shadow-sm transition-all duration-200 ease-in-out hover:scale-105 ${bgClass} ${borderClass}`}
+      className={`flex cursor-pointer flex-col gap-1 rounded-lg border border-neutral-200 px-4 py-1 shadow-sm transition-all duration-200 ease-in-out hover:scale-105 ${bgClass} ${borderClass}`}
     >
       <h4 className="text-base font-medium">{title}</h4>
       <p className="text-xs text-neutral-700">{subtitle}</p>

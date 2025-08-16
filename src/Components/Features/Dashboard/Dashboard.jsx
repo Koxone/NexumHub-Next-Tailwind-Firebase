@@ -6,14 +6,13 @@ import Pending from './Sections/Pending/Pending';
 
 function Dashboard() {
   return (
-    <div className="bg-bg-secondary grid h-full w-full grid-cols-[auto_1fr_auto] rounded-lg border border-neutral-700/40 shadow-2xl">
+    <div className="bg-bg-main grid h-full w-full grid-cols-[auto_1fr] rounded-lg border border-neutral-700/40 shadow-2xl">
       <SideBar />
-      <div className="grid grid-rows-[auto_auto_1fr]">
+      <div className="grid min-h-full grid-rows-[auto_auto_1fr]">
         <TopBar />
         <CurrentFeedback />
         <Pending />
       </div>
-      <SideBar />
     </div>
   );
 }

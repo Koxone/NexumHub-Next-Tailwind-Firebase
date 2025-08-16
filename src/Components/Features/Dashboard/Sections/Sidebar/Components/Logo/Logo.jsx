@@ -3,7 +3,7 @@ import React from 'react';
 
 function Logo() {
   return (
-    <div className="relative h-[60px] max-w-[150px]">
+    <div className="relative h-[60px] w-[200px] max-w-[150px]">
       <Image
         alt="Logo Image"
         src="/Images/Logos/Nexum-Logo-White.svg"

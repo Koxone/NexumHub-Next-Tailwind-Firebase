@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import MenuButton from './Components/MenuButton';
 import {
@@ -8,9 +10,10 @@ import {
   User,
   ClipboardList,
   CheckCircle,
+  Menu,
 } from 'lucide-react';
 
-function Menu() {
+function SidebarMenu() {
   return (
     <div className="flex flex-col items-start gap-4">
       <MenuButton aria="Go to Home Button" icon={Home} text="Home" />
@@ -44,4 +47,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default SidebarMenu;

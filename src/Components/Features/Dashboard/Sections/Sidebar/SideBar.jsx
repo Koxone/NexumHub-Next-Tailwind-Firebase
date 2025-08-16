@@ -24,8 +24,6 @@ function SideBar() {
           : 'pointer-events-none scale-95 opacity-0',
         'md:pointer-events-auto md:scale-100 md:opacity-100',
       ].join(' ')}
-      aria-hidden={!isOpen}
-      inert={!isOpen}
     >
       <div className="grid w-full grid-cols-[auto_1fr] items-center gap-4">
         <MobileMenuButton />

@@ -1,9 +1,14 @@
 import Dashboard from '@/Components/Features/Dashboard/Dashboard';
+import CurrentFeedback from '@/Components/Features/Dashboard/Sections/CurrentFeedback/CurrentFeedback';
+import Pending from '@/Components/Features/Dashboard/Sections/Pending/Pending';
+import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
 
 export default function Home() {
   return (
-    <main className="flex h-full w-full items-center justify-center px-4 py-10">
-      <Dashboard />
-    </main>
+    <div className="grid min-h-full grid-rows-[auto_auto_1fr]">
+        <TopBar />
+        <CurrentFeedback />
+        <Pending />
+      </div>
   );
 }

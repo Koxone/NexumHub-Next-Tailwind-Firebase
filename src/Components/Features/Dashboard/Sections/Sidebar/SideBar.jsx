@@ -14,7 +14,7 @@ function SideBar() {
     <div
       id="mobile-menu"
       className={[
-        'bg-bg-main absolute h-full max-h-[790px] w-fit md:relative md:max-h-full',
+        'bg-bg-main absolute z-50 h-full max-h-[790px] w-fit md:relative md:max-h-full',
         'flex grid-cols-1 grid-rows-[auto_auto_1fr] flex-col gap-6 md:grid',
         'rounded-tl-lg rounded-bl-lg p-8',
         'before:absolute before:top-[20px] before:right-0 before:bottom-[20px] before:w-px before:bg-gray-400/40',

@@ -3,6 +3,7 @@ import Greeting from './Components/Greeting';
 import { Search } from 'lucide-react';
 import AddProjectButton from './Components/AddProjectButton';
 import MobileMenuButton from '../Sidebar/Components/MobileButton/MobileMenuButton';
+import NotificationBell from './Components/NotificationBell';
 
 function TopBar() {
   return (
@@ -11,7 +12,7 @@ function TopBar() {
         <MobileMenuButton />
         <Greeting />
       </div>
-      <AddProjectButton />
+      <NotificationBell />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Title({ title }) {
-  return <h3 className="text-lg font-bold text-white">{title}</h3>;
+  return <p className="text-lg font-bold text-white">{title}</p>;
 }
 
 export default Title;

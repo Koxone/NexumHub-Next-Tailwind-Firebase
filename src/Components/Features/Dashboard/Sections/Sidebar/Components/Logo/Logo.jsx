@@ -6,7 +6,7 @@ function Logo() {
     <div className="relative h-[60px] max-w-[150px]">
       <Image
         alt="Logo Image"
-        src="/Images/Logos/Koxland-Logo-Letters.svg"
+        src="/Images/Logos/Nexum-Logo-White.svg"
         fill
         className="h-auto w-full object-contain"
         priority

@@ -11,7 +11,7 @@ function Greeting() {
 
   return (
     <div>
-      <h1 className="text-h1 font-bold">Hello, Carlos</h1>
+      <h1 className="text-h1 font-bold text-white">Hello, Carlos</h1>
       <p className="text-xs text-neutral-500">Today is {formattedDate}</p>
     </div>
   );

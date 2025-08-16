@@ -7,7 +7,7 @@ function MenuButton() {
       aria-label="Project feedback menu (already submitted)"
       className="cursor-pointer"
     >
-      <EllipsisVertical />
+      <EllipsisVertical className="text-white" />
     </button>
   );
 }

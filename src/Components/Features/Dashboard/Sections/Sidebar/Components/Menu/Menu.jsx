@@ -1,6 +1,14 @@
 import React from 'react';
 import MenuButton from './Components/MenuButton';
-import { Home, Presentation, Search, Settings, User } from 'lucide-react';
+import {
+  Home,
+  Presentation,
+  Search,
+  Settings,
+  User,
+  ClipboardList,
+  CheckCircle,
+} from 'lucide-react';
 
 function Menu() {
   return (
@@ -10,6 +18,16 @@ function Menu() {
         aria="Go to Projects Button"
         icon={Presentation}
         text="Projects"
+      />
+      <MenuButton
+        aria="Go to Tasks Button"
+        icon={ClipboardList}
+        text="Pending Tasks"
+      />
+      <MenuButton
+        aria="Go to Approval Button"
+        icon={CheckCircle}
+        text="Pending Approval"
       />
       <MenuButton
         aria="Go to Search Projects Button"

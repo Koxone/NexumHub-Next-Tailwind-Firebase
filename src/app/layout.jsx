@@ -16,7 +16,7 @@ const inter = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.className} h-full`}>
-      <body className="bg-bg h-full">
+      <body className="bg-bg-main h-full">
         <div className="mx-auto flex h-full max-w-[1280px]">
           <I18nProvider>{children}</I18nProvider>
           <SpeedInsights />

@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+/* Design System → Tailwind v4 tokens (IntelliSense-ready) */
+@theme {
+  /* --- Colors --- */
+  --color-primary: #ad1fea;
+  --color-secondary: #4661e6;
+  --color-navy: #3a4374;
+  --color-slate: #647196;
+  --color-sky: #62bcfa;
+  --color-peach: #f49f85;
+  --color-bg: #ebe3d8;
+  --color-bg-soft: #f2faff;
+  --color-white: #ffffff;
+
+  /* Optional aliases for semantics */
+  --color-text: var(--color-navy);
+  --color-text-muted: var(--color-slate);
+
+  /* --- Spacing (used by p-*, m-*, gap-* ) --- */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+
+  /* --- Radius (used by rounded-*) --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* --- Shadows (used by shadow-*) --- */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.08);
+  --shadow-md: 0 8px 20px rgb(55 63 104 / 0.18);
+  --shadow-lg: 0 12px 30px rgb(0 0 0 / 0.2);
+
+  /* --- Typography --- */
+  --font-sans:
+    'Jost', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+
+  /* Headings */
+  --text-h1: 24px;
+  --leading-h1: 35px;
+  --tracking-h1: 0.25px;
+
+  --text-h2: 20px;
+  --leading-h2: 29px;
+  --tracking-h2: 0.25px;
+
+  --text-h3: 18px;
+  --leading-h3: 26px;
+  --tracking-h3: 0.25px;
+
+  --text-h4: 14px;
+  --leading-h4: 20px;
+  --tracking-h4: 0.2px;
+
+  /* Body */
+  --text-body-1: 16px;
+  --leading-body-1: 23px;
+
+  --text-body-2: 15px;
+  --leading-body-2: 22px;
+}
+
+/* Optional utilities for tracking classes if you want them as single tokens */
+@layer utilities {
+  .tracking-h1 {
+    letter-spacing: var(--tracking-h1);
+  }
+  .tracking-h2 {
+    letter-spacing: var(--tracking-h2);
+  }
+  .tracking-h3 {
+    letter-spacing: var(--tracking-h3);
+  }
+  .tracking-h4 {
+    letter-spacing: var(--tracking-h4);
+  }
+}

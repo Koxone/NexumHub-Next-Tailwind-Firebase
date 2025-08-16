@@ -8,6 +8,7 @@ import {
   Search,
   Settings,
   User,
+  SquareCheck,
   ClipboardList,
   CheckCircle,
   Menu,
@@ -40,8 +41,13 @@ function SidebarMenu() {
       />
       <MenuButton
         aria="Go to Tasks Button"
-        icon={ClipboardList}
+        icon={SquareCheck}
         text="Pending Tasks"
+      />
+      <MenuButton
+        aria="Create a new Task Button"
+        icon={ClipboardList}
+        text="Create Task"
       />
       <MenuButton
         aria="Go to Approval Button"

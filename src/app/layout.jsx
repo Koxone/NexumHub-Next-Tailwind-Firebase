@@ -96,14 +96,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.className} h-screen`}>
       <body className="bg-bg-main h-screen overflow-x-hidden">
-        <div className=" grid h-screen w-screen  lg:grid-cols-[auto_1fr]">
+        <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
           <SideBar />
+
+          <div className="mx-auto grid w-full max-w-[1280px] grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
+            {children}
+          </div>
+
           <MobileSideBar />
           <CreateTaskModal />
           <TaskAndPendingModal />
-          <div className="mx-auto grid max-w-[1280px] grid-rows-[auto_auto_1fr] self-center">
-            {children}
-          </div>
         </div>
         <SpeedInsights />
       </body>

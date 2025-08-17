@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import SideBar from '@/Components/Features/Dashboard/Sections/Sidebar/SideBar';
 import MobileSideBar from '@/Components/Features/Dashboard/Custom/MobileSideBar';
 import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';
-import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal';
+import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
 
 export const metadata = {
   title: {

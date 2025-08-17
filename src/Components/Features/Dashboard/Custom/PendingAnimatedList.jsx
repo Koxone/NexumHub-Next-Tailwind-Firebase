@@ -228,11 +228,11 @@ export default function PendingAnimatedList({
                 onClick={() => setSelectedIndex(index)}
               >
                 <div
-                  className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4  transition-colors duration-200 hover:bg-[#161b22]`}
+                  className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]`}
                 >
                   <div className="mb-2">
                     <div className="mb-2 flex items-center justify-between">
-                      <h4 className="truncate text-base font-semibold text-white">
+                      <h4 className="truncate text-base font-semibold text-white capitalize">
                         {title}
                       </h4>
                       {priority && priority !== 'normal' && (
@@ -347,7 +347,7 @@ export default function PendingAnimatedList({
             <img
               src={selectedImage}
               alt="Full size preview"
-              className="max-w-full rounded-lg object-contain "
+              className="max-w-full rounded-lg object-contain"
               onClick={(e) => e.stopPropagation()}
             />
           </div>

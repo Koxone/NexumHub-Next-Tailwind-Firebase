@@ -37,6 +37,10 @@ export default function PendingAnimatedList({
   const listRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
+  // Image modal states
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
   const [topGradientOpacity, setTopGradientOpacity] = useState(0);
   const [bottomGradientOpacity, setBottomGradientOpacity] = useState(1);
 
@@ -58,6 +62,34 @@ export default function PendingAnimatedList({
     setTopGradientOpacity(isAtTop ? 0 : 1);
     setBottomGradientOpacity(isAtBottom ? 0 : 1);
   };
+
+  // Image modal functions
+  const openImageModal = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setSelectedImage(null);
+    setIsImageModalOpen(false);
+  };
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && isImageModalOpen) {
+        closeImageModal();
+      }
+    };
+
+    if (isImageModalOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isImageModalOpen]);
 
   // -----------------FIREBASE-------------------------------------
   // Firebase States
@@ -166,6 +198,22 @@ export default function PendingAnimatedList({
             const priority = pending.priority || 'normal';
             const tags = pending.tags || [];
 
+            // Get image URL based on collection
+            let imageUrl = null;
+            if (
+              pending.collection === 'objects' &&
+              pending.imageUrls &&
+              pending.imageUrls.length > 0
+            ) {
+              imageUrl = pending.imageUrls[0];
+            } else if (
+              (pending.collection === 'reportLost' ||
+                pending.collection === 'reportMissing') &&
+              pending.posterUrl
+            ) {
+              imageUrl = pending.posterUrl;
+            }
+
             // Format createdAt date
             const formatDate = (timestamp) => {
               if (!timestamp) return 'No Date';
@@ -250,9 +298,30 @@ export default function PendingAnimatedList({
                     </div>
                   </div>
 
-                  <p className="line-clamp-3 text-sm text-neutral-300">
-                    {description}
-                  </p>
+                  {/* Content section with description and image */}
+                  <div className="flex items-start gap-3">
+                    <p className="line-clamp-3 flex-1 text-sm text-neutral-300">
+                      {description}
+                    </p>
+
+                    {/* Image section */}
+                    {imageUrl && (
+                      <div className="flex-shrink-0">
+                        <img
+                          src={imageUrl}
+                          alt="Preview"
+                          className="h-16 w-16 cursor-pointer rounded-lg border border-neutral-700 object-cover transition-colors hover:border-neutral-500"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openImageModal(imageUrl);
+                          }}
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
 
                   <div className="mt-4 flex flex-wrap gap-1">
                     {tags.map((tag, idx) => (
@@ -281,6 +350,32 @@ export default function PendingAnimatedList({
             style={{ opacity: bottomGradientOpacity }}
           />
         </>
+      )}
+
+      {/* Image Modal */}
+      {isImageModalOpen && selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={closeImageModal}
+        >
+          <div className="relative max-h-[90vh] max-w-[90vw] p-4">
+            {/* Close button */}
+            <button
+              className="absolute -top-2 -right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-white transition-colors hover:bg-red-700"
+              onClick={closeImageModal}
+            >
+              ✕
+            </button>
+
+            {/* Image */}
+            <img
+              src={selectedImage}
+              alt="Full size preview"
+              className="max-h-full max-w-full rounded-lg object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

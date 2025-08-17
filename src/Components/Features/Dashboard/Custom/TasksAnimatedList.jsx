@@ -3,6 +3,10 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 
+// Firebase
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+
 const AnimatedItem = ({ children, index, onMouseEnter, onClick }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { amount: 0.5, triggerOnce: false });
@@ -23,7 +27,7 @@ const AnimatedItem = ({ children, index, onMouseEnter, onClick }) => {
   );
 };
 
-export default function AnimatedList({
+export default function TasksAnimatedList({
   items = [
     'Item 1',
     'Item 2',
@@ -41,35 +45,15 @@ export default function AnimatedList({
     'Item 14',
     'Item 15',
   ],
-  type = 'task',
-  project,
-  title = 'Tasks For Today',
-  subtitle = 'Manage your tasks efficiently',
+  collectionName = 'tasks',
   showGradients = false,
   enableArrowNavigation = true,
   displayScrollbar = false,
   className = '',
-  itemClassName = '',
 }) {
   const listRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [keyboardNav, setKeyboardNav] = useState(false);
-
-  let bgClass = '';
-  if (type === 'task') {
-    bgClass = 'bg-white';
-  } else if (type === 'approval') {
-    bgClass = 'bg-yellow-50';
-  }
-
-  let borderClass = '';
-  if (project === 'fws') {
-    borderClass = 'border-l-4 border-l-red-600';
-  } else if (project === 'testigo') {
-    borderClass = 'border-l-4 border-l-neutral-600';
-  } else if (project === 'learn') {
-    borderClass = 'border-l-4 border-l-blue-600';
-  }
 
   const [topGradientOpacity, setTopGradientOpacity] = useState(0);
   const [bottomGradientOpacity, setBottomGradientOpacity] = useState(1);
@@ -134,9 +118,32 @@ export default function AnimatedList({
   const scrollStyle = displayScrollbar
     ? {}
     : {
-        scrollbarWidth: 'none', 
+        scrollbarWidth: 'none',
         msOverflowStyle: 'none',
       };
+
+  // -----------------FIREBASE-------------------------------------
+  // Firebase States
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, collectionName));
+        const tasksArray = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setTasks(tasksArray);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching tasks:', error);
+      }
+    };
+
+    fetchTasks();
+  }, []);
 
   return (
     <div className={`relative w-full ${className}`}>
@@ -156,25 +163,49 @@ export default function AnimatedList({
           `}</style>
         )}
 
-        {items.map((item, index) => (
+        {tasks.map((task, index) => (
           <AnimatedItem
-            key={index}
+            key={task.id}
             index={index}
             onMouseEnter={() => setSelectedIndex(index)}
             onClick={() => setSelectedIndex(index)}
           >
             <div
-              className={[
-                'rounded-lg p-4 transition-all duration-150 ease-in-out',
-                'bg-[#111] hover:bg-blue-200/100',
-                bgClass,
-                borderClass,
-                selectedIndex === index ? 'bg-[#222]' : '',
-                itemClassName,
-              ].join(' ')}
+              className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4 shadow-md transition-colors duration-200 hover:bg-[#161b22]`}
             >
-              <h4 className="text-base font-medium">{title}</h4>
-              <p className="text-xs text-neutral-700">{subtitle}</p>
+              <div className="mb-2 flex items-center justify-between">
+                <h4 className="truncate text-base font-semibold text-white">
+                  {task.name}
+                </h4>
+                <span
+                  className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white ${
+                    task.priority === 'urgent'
+                      ? 'bg-red-600'
+                      : task.priority === 'high'
+                        ? 'bg-orange-500'
+                        : task.priority === 'medium'
+                          ? 'bg-yellow-500 text-black'
+                          : 'bg-green-500 text-black'
+                  } `}
+                >
+                  {task.priority}
+                </span>
+              </div>
+
+              <p className="line-clamp-3 text-sm text-neutral-300">
+                {task.description}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-1">
+                {task.tags?.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-neutral-300"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </AnimatedItem>
         ))}

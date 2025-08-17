@@ -10,6 +10,11 @@
 !.yarn/releases
 !.yarn/versions
 
+# Firebase
+/firebase.json
+/firestore.indexes.json
+/storage.rules
+
 # testing
 /coverage
 
@@ -39,3 +44,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*.local

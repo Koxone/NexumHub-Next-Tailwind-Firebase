@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #101828;
 }
 
 /* Design System → Tailwind v4 tokens (IntelliSense-ready) */

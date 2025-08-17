@@ -94,14 +94,14 @@ const inter = localFont({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.className} h-full`}>
-      <body className="bg-bg-secondary h-full">
-        <div className="bg-bg-main grid h-full w-full border border-neutral-700/40 shadow-2xl lg:grid-cols-[auto_1fr]">
+    <html lang="en" className={`${inter.className} h-screen`}>
+      <body className="bg-bg-main h-screen overflow-x-hidden">
+        <div className=" grid h-screen w-screen  lg:grid-cols-[auto_1fr]">
           <SideBar />
           <MobileSideBar />
           <CreateTaskModal />
           <TaskAndPendingModal />
-          <div className="grid mx-auto min-h-full max-w-[1280px] min-w-0 grid-rows-[auto_auto_1fr]">
+          <div className="mx-auto grid max-w-[1280px] grid-rows-[auto_auto_1fr] self-center">
             {children}
           </div>
         </div>

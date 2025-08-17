@@ -142,7 +142,7 @@ export default function PendingAnimatedList({
     <div className={`relative w-full ${className}`}>
       <div
         ref={listRef}
-        className={`max-h-[390px] overflow-y-auto md:max-h-[340px] ${
+        className={`overflow-y-auto ${
           displayScrollbar
             ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-[4px] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-track]:bg-[#060010]'
             : 'no-scrollbar'
@@ -228,7 +228,7 @@ export default function PendingAnimatedList({
                 onClick={() => setSelectedIndex(index)}
               >
                 <div
-                  className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4 shadow-md transition-colors duration-200 hover:bg-[#161b22]`}
+                  className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4  transition-colors duration-200 hover:bg-[#161b22]`}
                 >
                   <div className="mb-2">
                     <div className="mb-2 flex items-center justify-between">
@@ -334,7 +334,7 @@ export default function PendingAnimatedList({
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={closeImageModal}
         >
-          <div className="relative max-h-[90vh] max-w-[90vw] p-4">
+          <div className="relative max-w-[90vw] p-4">
             {/* Close button */}
             <button
               className="absolute -top-2 -right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-white transition-colors hover:bg-red-700"
@@ -347,7 +347,7 @@ export default function PendingAnimatedList({
             <img
               src={selectedImage}
               alt="Full size preview"
-              className="max-h-full max-w-full rounded-lg object-contain shadow-2xl"
+              className="max-w-full rounded-lg object-contain "
               onClick={(e) => e.stopPropagation()}
             />
           </div>

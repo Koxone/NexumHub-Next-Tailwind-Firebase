@@ -1,5 +1,6 @@
 'use client';
 
+import PendingAnimatedList from '@/Components/Features/Dashboard/Custom/PendingAnimatedList';
 import TasksAnimatedList from '@/Components/Features/Dashboard/Custom/TasksAnimatedList';
 import ProjectCard from '@/Components/Features/Dashboard/Sections/CurrentFeedback/Components/ProjectCard';
 import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
@@ -15,7 +16,7 @@ export default function Projects() {
         {/* Hero */}
         <div className="no-scrollbar flex flex-col gap-4 [scroll-behavior:smooth]">
           <Title title="Learn-Frontend" />
-          <div className="mx-auto grid w-full max-w-[1200px] flex-1 grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mx-auto grid w-full max-w-[1200px] flex-1 grid-cols-2 gap-4 md:grid-cols-3 md:grid-rows-1 xl:grid-cols-4">
             <ProjectCard src="Learn-Frontend.svg" color="bg-blue-500/30" />
 
             {/* Analytics */}
@@ -26,7 +27,7 @@ export default function Projects() {
               items={[
                 { label: 'Visitors', value: 0, color: 'bg-blue-600' },
                 { label: 'Bounce Rate', value: '0%', color: 'bg-blue-600' },
-                { label: 'Users', value: 0, color: 'bg-blue-600' },
+                // { label: 'Users', value: 0, color: 'bg-blue-600' },
                 { label: 'Active Users', value: 0, color: 'bg-blue-600' },
                 { label: 'Users Online', value: 0, color: 'bg-green-600' },
               ]}
@@ -53,7 +54,12 @@ export default function Projects() {
           </div>
           <div className="flex flex-col gap-4">
             <Title title="Pending on this Project" />
-            <TasksAnimatedList type="approval" />
+            <PendingAnimatedList
+              collectionNames={['objects', 'reportLost', 'reportMissing']}
+              showGradients={false}
+              enableArrowNavigation={true}
+              displayScrollbar={false}
+            />
           </div>
         </div>
       </div>

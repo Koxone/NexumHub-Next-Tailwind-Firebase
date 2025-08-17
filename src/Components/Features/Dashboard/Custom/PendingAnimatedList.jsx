@@ -29,7 +29,7 @@ const AnimatedItem = ({ children, index, onMouseEnter, onClick }) => {
 
 export default function PendingAnimatedList({
   collectionName = 'objects',
-  collectionNames = null, // New prop for multiple collections
+  collectionNames = null,
   showGradients = false,
   displayScrollbar = false,
   className = '',
@@ -99,7 +99,6 @@ export default function PendingAnimatedList({
   useEffect(() => {
     const fetchPendings = async () => {
       try {
-        // Determine which collections to fetch from
         const collectionsToFetch = collectionNames || [collectionName];
 
         console.log(
@@ -108,38 +107,22 @@ export default function PendingAnimatedList({
         );
         console.log('🔥 Using database:', dbTestigoMX.app.name);
 
-        // Fetch from all collections
         const allPendingsPromises = collectionsToFetch.map(async (colName) => {
           const querySnapshot = await getDocs(collection(dbTestigoMX, colName));
           return querySnapshot.docs.map((doc) => ({
             id: doc.id,
-            collection: colName, // Add collection name to identify source
+            collection: colName,
             ...doc.data(),
           }));
         });
 
-        // Wait for all collections to be fetched
         const allPendingsArrays = await Promise.all(allPendingsPromises);
 
-        // Flatten all arrays into a single array
         const allPendings = allPendingsArrays.flat();
 
-        // Filter only unauthorized items (authorized: false)
         const unauthorizedPendings = allPendings.filter(
           (item) => item.authorized === false
         );
-
-        console.log(
-          '🔥 PendingAnimatedList: Found',
-          allPendings.length,
-          'total documents'
-        );
-        console.log(
-          '🔥 PendingAnimatedList: Found',
-          unauthorizedPendings.length,
-          'unauthorized documents'
-        );
-        console.log('🔥 PendingAnimatedList: Data:', unauthorizedPendings);
 
         setPendings(unauthorizedPendings);
         setLoading(false);
@@ -191,14 +174,12 @@ export default function PendingAnimatedList({
 
         {!loading &&
           pendings.map((pending, index) => {
-            // Determine fields based on collection - support different schemas
             const title = pending.type || pending.tipo || 'No Title';
             const description =
               pending.description || pending.senas || 'No Description';
             const priority = pending.priority || 'normal';
             const tags = pending.tags || [];
 
-            // Get image URL based on collection
             let imageUrl = null;
             if (
               pending.collection === 'objects' &&
@@ -214,24 +195,19 @@ export default function PendingAnimatedList({
               imageUrl = pending.posterUrl;
             }
 
-            // Format createdAt date
             const formatDate = (timestamp) => {
               if (!timestamp) return 'No Date';
 
-              // Handle both Firestore Timestamp and regular date strings/objects
               let date;
               if (timestamp && typeof timestamp.toDate === 'function') {
-                // Firestore Timestamp
                 date = timestamp.toDate();
               } else if (
                 timestamp &&
                 typeof timestamp === 'object' &&
                 timestamp.seconds
               ) {
-                // Firestore Timestamp-like object
                 date = new Date(timestamp.seconds * 1000);
               } else {
-                // Regular date string or Date object
                 date = new Date(timestamp);
               }
 
@@ -261,7 +237,7 @@ export default function PendingAnimatedList({
                       </h4>
                       {priority && priority !== 'normal' && (
                         <span
-                          className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white ${
+                          className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white uppercase ${
                             priority === 'urgent'
                               ? 'bg-red-600'
                               : priority === 'high'

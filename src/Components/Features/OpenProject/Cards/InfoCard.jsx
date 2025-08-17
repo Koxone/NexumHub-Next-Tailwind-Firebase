@@ -2,23 +2,19 @@
 
 import React from 'react';
 
-/**
- * StatsCard
- * - Renders a titled card with an optional "View" link
- * - Shows a vertical list of items with a colored dot and a value
- * - Fully driven by props
- */
 export default function StatsCard({
   title = 'Stats',
-  linkText, // e.g. "View"
-  onLinkClick, // e.g. () => router.push('/analytics')
-  items = [], // [{ label: 'Visitors', value: 0, color: 'bg-blue-600' }]
-  className = '', // extra container classes
+  linkText,
+  onLinkClick,
+  items = [],
+  className = '',
 }) {
   return (
-    <div className={`rounded-lg border bg-white p-4 shadow-sm ${className}`}>
+    <div
+      className={`aspect-square h-full rounded-lg border bg-white p-4 shadow-sm ${className}`}
+    >
       {/* Header */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-2 flex items-center justify-between">
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
 
         {/* Render link only if provided */}

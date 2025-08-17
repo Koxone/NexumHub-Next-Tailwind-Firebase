@@ -178,7 +178,7 @@ export default function TasksAnimatedList({
                   {task.name}
                 </h4>
                 <span
-                  className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white ${
+                  className={`ml-2 uppercase inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white ${
                     task.priority === 'urgent'
                       ? 'bg-red-600'
                       : task.priority === 'high'

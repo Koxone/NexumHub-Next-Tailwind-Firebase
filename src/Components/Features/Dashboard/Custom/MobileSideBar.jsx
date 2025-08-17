@@ -48,7 +48,7 @@ export default function MobileSideBar() {
       {isOpen && (
         <div
           onClick={toggle}
-          className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[1px] md:hidden"
+          className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[1px] lg:hidden"
           aria-hidden="true"
         />
       )}
@@ -60,7 +60,7 @@ export default function MobileSideBar() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="drawer-navigation-label"
-        className={`bg-bg-main fixed top-0 left-0 z-40 h-screen w-fit overflow-y-auto p-8 transition-transform md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`bg-bg-main fixed top-0 left-0 z-40 h-screen w-fit overflow-y-auto p-8 transition-transform lg:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
         tabIndex={-1}
         onClickCapture={onLinkClick}
       >

@@ -96,7 +96,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.className} h-full`}>
       <body className="bg-bg-secondary h-full">
-        <div className="bg-bg-main grid h-full w-full border border-neutral-700/40 shadow-2xl md:grid-cols-[auto_1fr]">
+        <div className="bg-bg-main grid h-full w-full border border-neutral-700/40 shadow-2xl lg:grid-cols-[auto_1fr]">
           <SideBar />
           <MobileSideBar />
           <CreateTaskModal />

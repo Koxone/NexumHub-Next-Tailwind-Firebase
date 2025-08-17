@@ -1,17 +1,18 @@
 import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
-const externalFirebaseConfig = {
-  apiKey: 'AIzaSyCynmiUsJy6Ss5vpcIlgDXaoR1XwxfBG9o',
-  authDomain: 'testigomx-b0053.firebaseapp.com',
-  projectId: 'testigomx-b0053',
-  storageBucket: 'testigomx-b0053.firebasestorage.app', 
-  messagingSenderId: '761062163755',
-  appId: '1:761062163755:web:b5b91602e6c38f5ea3f16e',
+const testigoMxConfig = {
+  apiKey: process.env.NEXT_PUBLIC_TESTIGOMX_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_TESTIGOMX_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_TESTIGOMX_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_TESTIGOMX_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId:
+    process.env.NEXT_PUBLIC_TESTIGOMX_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_TESTIGOMX_FIREBASE_APP_ID,
 };
 
 const testigoMxApp =
   getApps().find((app) => app.name === 'TestigoMX') ||
-  initializeApp(externalFirebaseConfig, 'TestigoMX');
+  initializeApp(testigoMxConfig, 'TestigoMX');
 
 export const dbTestigoMX = getFirestore(testigoMxApp);

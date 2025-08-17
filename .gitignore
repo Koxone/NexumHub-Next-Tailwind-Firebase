@@ -14,8 +14,6 @@
 /firebase.json
 /firestore.indexes.json
 /storage.rules
-firebase.js
-firebaseTestigoMX.js
 
 # testing
 /coverage

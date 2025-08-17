@@ -9,10 +9,6 @@ function Tasks() {
       <Title title="Tasks For Today" />
       <div className="grid h-full auto-rows-auto gap-2">
         <TasksAnimatedList
-          type="task"
-          project="fws"
-          title="Tasks For Today"
-          subtitle="Manage your tasks efficiently"
           showGradients={false}
           enableArrowNavigation={true}
           displayScrollbar={false}

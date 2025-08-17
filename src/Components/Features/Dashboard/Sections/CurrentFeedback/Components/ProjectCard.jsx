@@ -1,39 +1,48 @@
 'use client';
 
 import React from 'react';
-import Avatars from './Avatars';
 import MenuButton from './MenuButton';
 import ProgressBar from './ProgressBar';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export default function ProjectCard({ src = '', color = '', path }) {
+export default function ProjectCard({
+  src = '',
+  color = '',
+  path,
+  blockClick = false,
+  className = '',
+}) {
   const router = useRouter();
+
+  const handleClick = () => {
+    if (!blockClick) router.push('/projects/open');
+  };
+
   return (
     <div
-      onClick={() => router.push(`/projects/open`)}
-      // onClick={() => router.push(`/projects/${path}`)}
-      className={`grid aspect-square grid-cols-1 grid-rows-[auto_1fr_auto] rounded-lg border ${color} p-4`}
+      onClick={handleClick}
+      className={`flex aspect-square w-full max-w-[300px] max-h-[300px] shrink-0 flex-col justify-between rounded-lg border ${color} p-4 ${className} `}
     >
-      {/* Avatars and Menu Button */}
-      <div className="flex h-fit items-center justify-between">
-        <Avatars />
+      <div data-nodrag="true" className="flex items-center justify-between">
         <MenuButton />
       </div>
 
-      {/* Project Image */}
-      <div className="group relative h-full w-full max-w-[200px] cursor-pointer justify-self-center">
+      <div
+        data-nodrag="true"
+        className="group relative w-full flex-1 cursor-pointer"
+      >
         <Image
           src={`/Images/Logos/${src}`}
           alt="Project Logo"
           fill
-          sizes="100px"
+          sizes="320px"
           priority
+          draggable={false}
           className="object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
         />
       </div>
 
-      {/* Progress Bar */}
       <ProgressBar />
     </div>
   );

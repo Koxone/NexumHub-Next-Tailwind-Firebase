@@ -55,13 +55,13 @@ export default function Projects() {
   ];
 
   return (
-    <div className="flex min-h-0 w-full max-w-[1200px] flex-col gap-4 justify-self-center overflow-hidden px-8">
+    <div className="flex min-h-0 w-full flex-col gap-4 justify-self-center overflow-hidden px-8">
       <TopBar padding="pt-8 pb-4" />
 
       <div className="no-scrollbar flex flex-col gap-4 overflow-y-auto [scroll-behavior:smooth]">
         <Title title="All Projects" />
 
-        <div className="mx-auto grid w-full max-w-[1200px] flex-1 grid-cols-2 gap-4 pb-8 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mx-auto grid w-full flex-1 grid-cols-1 gap-4 pb-8 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
           {cards.map((c, i) => (
             <AnimatedItem key={`${c.src}-${i}`} index={i}>
               <ProjectCard src={c.src} color={c.color} />

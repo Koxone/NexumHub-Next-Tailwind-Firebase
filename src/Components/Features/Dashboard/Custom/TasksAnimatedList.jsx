@@ -149,7 +149,7 @@ export default function TasksAnimatedList({
     <div className={`relative w-full ${className}`}>
       <div
         ref={listRef}
-        className={`max-h-[390px] overflow-y-auto md:max-h-[340px] ${
+        className={`overflow-y-auto ${
           displayScrollbar
             ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-[4px] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-track]:bg-[#060010]'
             : 'no-scrollbar'
@@ -171,14 +171,14 @@ export default function TasksAnimatedList({
             onClick={() => setSelectedIndex(index)}
           >
             <div
-              className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4 shadow-md transition-colors duration-200 hover:bg-[#161b22]`}
+              className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4  transition-colors duration-200 hover:bg-[#161b22]`}
             >
               <div className="mb-2 flex items-center justify-between">
                 <h4 className="truncate text-base font-semibold text-white">
                   {task.name}
                 </h4>
                 <span
-                  className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white ${
+                  className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white uppercase ${
                     task.priority === 'urgent'
                       ? 'bg-red-600'
                       : task.priority === 'high'

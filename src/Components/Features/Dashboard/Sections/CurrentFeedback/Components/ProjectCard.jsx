@@ -12,7 +12,7 @@ export default function ProjectCard({ src = '', color = '', path }) {
   return (
     <div
       onClick={() => router.push(`/projects/open`)}
-      className={`flex aspect-square max-w-[300px] shrink-0 w-full flex-col justify-between rounded-lg border ${color} p-4`}
+      className={`flex aspect-square max-h-[300px] w-full max-w-[300px] shrink-0 flex-col justify-between rounded-lg border ${color} p-4`}
     >
       {/* Avatars and Menu Button */}
       <div className="flex items-center justify-between">

@@ -27,7 +27,7 @@ const AnimatedItem = ({ children, index, onMouseEnter, onClick }) => {
   );
 };
 
-export default function AnimatedList({
+export default function TasksAnimatedList({
   items = [
     'Item 1',
     'Item 2',

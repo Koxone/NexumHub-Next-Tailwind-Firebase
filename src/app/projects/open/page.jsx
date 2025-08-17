@@ -1,6 +1,6 @@
 'use client';
 
-import AnimatedList from '@/Components/Features/Dashboard/Custom/AnimatedList';
+import TasksAnimatedList from '@/Components/Features/Dashboard/Custom/TasksAnimatedList';
 import ProjectCard from '@/Components/Features/Dashboard/Sections/CurrentFeedback/Components/ProjectCard';
 import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
 import StatsCard from '@/Components/Features/OpenProject/Cards/InfoCard';
@@ -49,11 +49,11 @@ export default function Projects() {
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-4">
             <Title title="Tasks for this Project" />
-            <AnimatedList type="task" />
+            <TasksAnimatedList type="task" />
           </div>
           <div className="flex flex-col gap-4">
             <Title title="Pending on this Project" />
-            <AnimatedList type="approval" />
+            <TasksAnimatedList type="approval" />
           </div>
         </div>
       </div>

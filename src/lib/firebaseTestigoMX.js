@@ -10,8 +10,8 @@ const externalFirebaseConfig = {
   appId: '1:761062163755:web:b5b91602e6c38f5ea3f16e',
 };
 
-const externalApp =
-  getApps().find((app) => app.name === 'external') ||
-  initializeApp(externalFirebaseConfig, 'external');
+const testigoMxApp =
+  getApps().find((app) => app.name === 'TestigoMX') ||
+  initializeApp(externalFirebaseConfig, 'TestigoMX');
 
-export const dbTestigoMX = getFirestore(externalApp);
+export const dbTestigoMX = getFirestore(testigoMxApp);

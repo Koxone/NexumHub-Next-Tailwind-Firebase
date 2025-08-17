@@ -101,7 +101,7 @@ export default function RootLayout({ children }) {
           <MobileSideBar />
           <CreateTaskModal />
           <TaskAndPendingModal />
-          <div className="grid min-h-full min-w-0 grid-rows-[auto_auto_1fr]">
+          <div className="grid mx-auto min-h-full max-w-[1280px] min-w-0 grid-rows-[auto_auto_1fr]">
             {children}
           </div>
         </div>

@@ -5,6 +5,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useTaskModal } from '@/Stores/useTaskModal';
 import { X, Plus } from 'lucide-react';
 
+// Firebase
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
 export default function CreateTaskModal({ onSubmit }) {
   // Zustand
   const { isOpen, close } = useTaskModal();
@@ -15,7 +19,6 @@ export default function CreateTaskModal({ onSubmit }) {
 
   // useState
   const [open, setOpen] = useState(false);
-  const [selectedTags, setSelectedTags] = useState([]);
 
   // Close on ESC
   useEffect(() => {
@@ -38,12 +41,49 @@ export default function CreateTaskModal({ onSubmit }) {
     }
   }, [isOpen]);
 
-  // Submit handler to collect form data
-  const handleSubmit = (e) => {
+  // ------------------FORM LOGIC--------------------------
+
+  // Form States
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    project: '',
+    priority: '',
+    description: '',
+  });
+
+  // Submit Button Animation State
+  const [status, setStatus] = useState('idle');
+
+  // Form onChange Function
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Form Handle Submit Function
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const data = Object.fromEntries(fd.entries());
-    onSubmit?.(data);
+    setStatus('loading');
+
+    try {
+      await addDoc(collection(db, 'tasks'), {
+        ...formData,
+        tags: selectedTags,
+        createdAt: serverTimestamp(),
+      });
+
+      setStatus('success');
+      setTimeout(() => {
+        close();
+        setFormData({ name: '', project: '', priority: '', description: '' });
+        setSelectedTags([]);
+      }, 1500);
+      setTimeout(() => setStatus('idle'), 1500);
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 1500);
+    }
   };
 
   if (!isOpen) return null;
@@ -99,6 +139,8 @@ export default function CreateTaskModal({ onSubmit }) {
                     name="name"
                     type="text"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                     className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
                     placeholder="Type task name"
                   />
@@ -115,7 +157,8 @@ export default function CreateTaskModal({ onSubmit }) {
                   <select
                     id="project"
                     name="project"
-                    defaultValue=""
+                    value={formData.project}
+                    onChange={handleChange}
                     className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
                   >
                     <option value="" disabled>
@@ -138,7 +181,8 @@ export default function CreateTaskModal({ onSubmit }) {
                   <select
                     id="priority"
                     name="priority"
-                    defaultValue=""
+                    value={formData.priority}
+                    onChange={handleChange}
                     className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
                   >
                     <option value="" disabled>
@@ -217,6 +261,8 @@ export default function CreateTaskModal({ onSubmit }) {
                     id="description"
                     name="description"
                     rows={4}
+                    value={formData.description}
+                    onChange={handleChange}
                     className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
                     placeholder="Write task description here"
                   />
@@ -226,10 +272,80 @@ export default function CreateTaskModal({ onSubmit }) {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800"
+                disabled={status === 'loading'}
+                className={`inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 ${
+                  status === 'loading'
+                    ? 'cursor-not-allowed bg-blue-400'
+                    : status === 'success'
+                      ? 'bg-green-600'
+                      : status === 'error'
+                        ? 'bg-red-600'
+                        : 'bg-blue-600 hover:bg-blue-800'
+                }`}
               >
-                <Plus />
-                Add new task
+                {status === 'loading' && (
+                  <svg
+                    className="h-4 w-4 animate-spin text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v8H4z"
+                    ></path>
+                  </svg>
+                )}
+
+                {status === 'success' && (
+                  <svg
+                    className="h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                )}
+
+                {status === 'error' && (
+                  <svg
+                    className="h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                )}
+
+                {status === 'idle' && <Plus />}
+
+                {status === 'idle' && 'Add new task'}
+                {status === 'loading' && 'Sending...'}
+                {status === 'success' && 'Success'}
+                {status === 'error' && 'Error'}
               </button>
             </form>
           </div>

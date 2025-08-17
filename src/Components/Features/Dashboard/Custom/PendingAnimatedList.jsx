@@ -29,6 +29,7 @@ const AnimatedItem = ({ children, index, onMouseEnter, onClick }) => {
 
 export default function PendingAnimatedList({
   collectionName = 'objects',
+  collectionNames = null, // New prop for multiple collections
   showGradients = false,
   displayScrollbar = false,
   className = '',
@@ -66,41 +67,61 @@ export default function PendingAnimatedList({
   useEffect(() => {
     const fetchPendings = async () => {
       try {
+        // Determine which collections to fetch from
+        const collectionsToFetch = collectionNames || [collectionName];
+
         console.log(
-          '🔥 PendingAnimatedList: Fetching from collection:',
-          collectionName
+          '🔥 PendingAnimatedList: Fetching from collections:',
+          collectionsToFetch
         );
         console.log('🔥 Using database:', dbTestigoMX.app.name);
 
-        const querySnapshot = await getDocs(
-          collection(dbTestigoMX, collectionName)
-        );
+        // Fetch from all collections
+        const allPendingsPromises = collectionsToFetch.map(async (colName) => {
+          const querySnapshot = await getDocs(collection(dbTestigoMX, colName));
+          return querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            collection: colName, // Add collection name to identify source
+            ...doc.data(),
+          }));
+        });
 
-        const pendingsArray = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+        // Wait for all collections to be fetched
+        const allPendingsArrays = await Promise.all(allPendingsPromises);
+
+        // Flatten all arrays into a single array
+        const allPendings = allPendingsArrays.flat();
+
+        // Filter only unauthorized items (authorized: false)
+        const unauthorizedPendings = allPendings.filter(
+          (item) => item.authorized === false
+        );
 
         console.log(
           '🔥 PendingAnimatedList: Found',
-          pendingsArray.length,
-          'documents'
+          allPendings.length,
+          'total documents'
         );
-        console.log('🔥 PendingAnimatedList: Data:', pendingsArray);
+        console.log(
+          '🔥 PendingAnimatedList: Found',
+          unauthorizedPendings.length,
+          'unauthorized documents'
+        );
+        console.log('🔥 PendingAnimatedList: Data:', unauthorizedPendings);
 
-        setPendings(pendingsArray);
+        setPendings(unauthorizedPendings);
         setLoading(false);
       } catch (error) {
         console.error(
-          '❌ Error fetching pendings from collection:',
-          collectionName,
+          '❌ Error fetching pendings from collections:',
+          collectionsToFetch,
           error
         );
       }
     };
 
     fetchPendings();
-  }, [collectionName]);
+  }, [collectionName, collectionNames]);
 
   return (
     <div className={`relative w-full ${className}`}>
@@ -137,52 +158,116 @@ export default function PendingAnimatedList({
         )}
 
         {!loading &&
-          pendings.map((pending, index) => (
-            <AnimatedItem
-              key={pending.id}
-              index={index}
-              onMouseEnter={() => setSelectedIndex(index)}
-              onClick={() => setSelectedIndex(index)}
-            >
-              <div
-                className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4 shadow-md transition-colors duration-200 hover:bg-[#161b22]`}
+          pendings.map((pending, index) => {
+            // Determine fields based on collection - support different schemas
+            const title = pending.type || pending.tipo || 'No Title';
+            const description =
+              pending.description || pending.senas || 'No Description';
+            const priority = pending.priority || 'normal';
+            const tags = pending.tags || [];
+
+            // Format createdAt date
+            const formatDate = (timestamp) => {
+              if (!timestamp) return 'No Date';
+
+              // Handle both Firestore Timestamp and regular date strings/objects
+              let date;
+              if (timestamp && typeof timestamp.toDate === 'function') {
+                // Firestore Timestamp
+                date = timestamp.toDate();
+              } else if (
+                timestamp &&
+                typeof timestamp === 'object' &&
+                timestamp.seconds
+              ) {
+                // Firestore Timestamp-like object
+                date = new Date(timestamp.seconds * 1000);
+              } else {
+                // Regular date string or Date object
+                date = new Date(timestamp);
+              }
+
+              return date.toLocaleDateString('es-ES', {
+                day: '2-digit',
+                month: '2-digit',
+                year: '2-digit',
+              });
+            };
+
+            const formattedDate = formatDate(pending.createdAt);
+
+            return (
+              <AnimatedItem
+                key={pending.id}
+                index={index}
+                onMouseEnter={() => setSelectedIndex(index)}
+                onClick={() => setSelectedIndex(index)}
               >
-                <div className="mb-2 flex items-center justify-between">
-                  <h4 className="truncate text-base font-semibold text-white">
-                    {pending.type}
-                  </h4>
-                  <span
-                    className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white ${
-                      pending.priority === 'urgent'
-                        ? 'bg-red-600'
-                        : pending.priority === 'high'
-                          ? 'bg-orange-500'
-                          : pending.priority === 'medium'
-                            ? 'bg-yellow-500 text-black'
-                            : 'bg-green-500 text-black'
-                    } `}
-                  >
-                    {pending.priority}
-                  </span>
-                </div>
+                <div
+                  className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4 shadow-md transition-colors duration-200 hover:bg-[#161b22]`}
+                >
+                  <div className="mb-2">
+                    <div className="mb-2 flex items-center justify-between">
+                      <h4 className="truncate text-base font-semibold text-white">
+                        {title}
+                      </h4>
+                      {priority && priority !== 'normal' && (
+                        <span
+                          className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white ${
+                            priority === 'urgent'
+                              ? 'bg-red-600'
+                              : priority === 'high'
+                                ? 'bg-orange-500'
+                                : priority === 'medium'
+                                  ? 'bg-yellow-500 text-black'
+                                  : 'bg-green-500 text-black'
+                          } `}
+                        >
+                          {priority}
+                        </span>
+                      )}
+                    </div>
 
-                <p className="line-clamp-3 text-sm text-neutral-300">
-                  {pending.description}
-                </p>
+                    <div className="flex items-center gap-2">
+                      {pending.collection && (
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                            pending.collection === 'objects'
+                              ? 'bg-green-600/20 text-green-400'
+                              : pending.collection === 'reportLost'
+                                ? 'bg-red-600/20 text-red-400'
+                                : pending.collection === 'reportMissing'
+                                  ? 'bg-orange-600/20 text-orange-400'
+                                  : 'bg-blue-600/20 text-blue-400'
+                          }`}
+                        >
+                          {pending.collection}
+                        </span>
+                      )}
+                      <span className="rounded-full bg-purple-600/20 px-2 py-0.5 text-[10px] font-medium text-purple-400">
+                        📅 {formattedDate}
+                      </span>
+                    </div>
+                  </div>
 
-                <div className="mt-4 flex flex-wrap gap-1">
-                  {pending.tags?.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-neutral-300"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
+                  <p className="line-clamp-3 text-sm text-neutral-300">
+                    {description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-1">
+                    {tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-neutral-300"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </AnimatedItem>
-          ))}
+              </AnimatedItem>
+            );
+          })}
       </div>
 
       {showGradients && (

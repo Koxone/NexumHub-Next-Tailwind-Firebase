@@ -8,7 +8,7 @@ function ApprovePending() {
       <Title title="Pending Approval" />
       <div className="grid h-full auto-rows-auto gap-2">
         <PendingAnimatedList
-          collectionName="objects"
+          collectionNames={['objects', 'reportLost', 'reportMissing']}
           showGradients={false}
           enableArrowNavigation={true}
           displayScrollbar={false}

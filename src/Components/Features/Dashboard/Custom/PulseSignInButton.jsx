@@ -8,9 +8,8 @@ function PulseSignInButton({ children, ...props }) {
   return (
     <motion.div
       className="inline-block"
-      initial={false}
+      initial={true}
       animate={{
-        // Always animate - more noticeable for call-to-action
         scale: [1, 1.04, 1],
         filter: [
           'drop-shadow(0 0 0px rgba(53,79,124,0))',

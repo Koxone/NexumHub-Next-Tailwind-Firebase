@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useAuth } from '@clerk/nextjs';
 
 // Clerk
 import {

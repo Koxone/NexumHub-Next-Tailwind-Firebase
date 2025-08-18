@@ -21,9 +21,22 @@ import { useTaskModal } from '@/Stores/useTaskModal';
 import { usePendingModal } from '@/Stores/usePendingModal';
 import { useProjectModal } from '@/Stores/useProjectModal';
 
+// Clerk
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  useUser,
+} from '@clerk/nextjs';
+
 function SidebarMenu() {
   const router = useRouter();
 
+  // Clerk
+  const { user } = useUser();
+
+  // Zustand
   const { toggle } = useMobileMenu();
   const { openTask } = useTaskModal();
   const { openProject } = useProjectModal();
@@ -54,13 +67,26 @@ function SidebarMenu() {
         onClick={() => onLinkClick('/projects')}
         aria="Go to Projects Button"
         icon={Presentation}
-        text="Projects"
+        text="My Projects"
       />
       <MenuButton
         onClick={handleGithub}
         aria="Go to Projects Button"
         icon={Github}
-        text="Github Repositories"
+        text="My Github"
+      />
+      <MenuButton
+        aria="Go to User Account Button"
+        icon={Linkedin}
+        text="My Linkedin"
+        onClick={handleLinkedIn}
+      />
+
+      <MenuButton
+        aria="Go to Search Projects Button"
+        icon={Download}
+        text="My Resume"
+        downloadResume
       />
 
       {/* <MenuButton
@@ -85,21 +111,8 @@ function SidebarMenu() {
         icon={CheckCircle}
         text="Pending Approval"
         onClick={openPending}
-      /> */}
-
-      <MenuButton
-        aria="Go to Search Projects Button"
-        icon={Download}
-        text="Resume"
-        downloadResume
       />
       <MenuButton
-        aria="Go to User Account Button"
-        icon={Linkedin}
-        text="My Linkedin"
-        onClick={handleLinkedIn}
-      />
-      {/* <MenuButton
         aria="Go to Settings Button"
         icon={Settings}
         text="Settings"

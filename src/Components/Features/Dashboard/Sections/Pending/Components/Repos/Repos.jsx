@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '@/Components/Text/Title';
 import PendingCard from '../Cards/PendingCard';
 import TasksAnimatedList from '@/Components/Features/Dashboard/Custom/TasksAnimatedList';
-import GitRepoAnimatedList from '@/Components/Features/Dashboard/Sections/Pending/GitRepoAnimatedList';
+import GitRepoAnimatedList from '@/Components/Features/Dashboard/Sections/Pending/Components/Repos/GitRepoAnimatedList/GitRepoAnimatedList';
 import { useAuth } from '@clerk/nextjs';
 
 function GithubRepos() {

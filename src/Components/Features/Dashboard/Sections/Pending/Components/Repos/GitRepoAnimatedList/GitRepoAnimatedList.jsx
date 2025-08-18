@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'motion/react';
 import { useAuth } from '@clerk/nextjs';
 
-import DevMessageCard from './Components/Repos/Components/DevMessageCard/DevMessageCard';
-import GitRepoCard from './Components/Repos/Components/GitRepoCard/GitRepoCard';
+import DevMessageCard from '../Components/DevMessageCard/DevMessageCard';
+import GitRepoCard from '../Components/GitRepoCard/GitRepoCard';
 
 export default function GitRepoAnimatedList({
   refreshMs = 1500000,

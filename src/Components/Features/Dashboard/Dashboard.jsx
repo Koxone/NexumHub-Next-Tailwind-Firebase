@@ -2,7 +2,7 @@ import React from 'react';
 import SideBar from './Sections/Sidebar/SideBar';
 import TopBar from './Sections/Topbar/TopBar';
 import LatestProjects from './Sections/CurrentFeedback/LatestProjects';
-import Pending from './Sections/Pending/Pending';
+import ReposAndMore from './Sections/ReposAndMore/ReposAndMore';
 
 function Dashboard() {
   return (
@@ -10,7 +10,7 @@ function Dashboard() {
       <SideBar />
       <div className="grid min-h-full grid-rows-[auto_auto_1fr]">
         <LatestProjects />
-        <Pending />
+        <ReposAndMore />
       </div>
     </div>
   );

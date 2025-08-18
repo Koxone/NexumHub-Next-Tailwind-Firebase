@@ -19,8 +19,8 @@ export default function GitRepoAnimatedList({
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState('');
 
-  // Pagination: show 5 and add 5 per click
-  const PAGE_SIZE = 5;
+  // Pagination: show 3
+  const PAGE_SIZE = 3;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const [topOpacity, setTopOpacity] = useState(0);

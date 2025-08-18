@@ -10,7 +10,7 @@ export async function GET(req) {
   try {
     // 1) Check if user is authenticated
     const { userId } = getAuth(req);
-    
+
     if (userId) {
       // Usuario autenticado - usar su token
       return await getUserRepos(userId);
@@ -18,12 +18,11 @@ export async function GET(req) {
       // Usuario no autenticado - mostrar tus repos
       return await getDefaultUserRepos();
     }
-
   } catch (error) {
     console.error('Error in GitHub repos API:', error);
     return new Response(JSON.stringify({ error: 'Internal server error' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
   }
 }
@@ -45,7 +44,10 @@ async function getUserRepos(userId) {
   } else {
     const { Clerk } = await import('@clerk/backend');
     const backendClient = Clerk({ secretKey: process.env.CLERK_SECRET_KEY });
-    tokenResp = await backendClient.users.getUserOauthAccessToken(userId, 'github');
+    tokenResp = await backendClient.users.getUserOauthAccessToken(
+      userId,
+      'github'
+    );
   }
 
   const arr = Array.isArray(tokenResp) ? tokenResp : tokenResp?.data;
@@ -57,10 +59,10 @@ async function getUserRepos(userId) {
         error: 'GitHub token not found',
         hint: 'Asegúrate que el usuario conectó GitHub y aceptó los scopes; cierra sesión y vuelve a entrar.',
       }),
-      { 
+      {
         status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      },
+        headers: { 'Content-Type': 'application/json' },
+      }
     );
   }
 
@@ -83,22 +85,25 @@ async function getDefaultUserRepos() {
 
   if (!gh.ok) {
     const details = await gh.text();
-    return new Response(JSON.stringify({ 
-      error: 'Failed to fetch default user repos', 
-      details,
-      hint: 'Verifica que el usuario por defecto existe y sus repos son públicos'
-    }), { 
-      status: 502,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return new Response(
+      JSON.stringify({
+        error: 'Failed to fetch default user repos',
+        details,
+        hint: 'Verifica que el usuario por defecto existe y sus repos son públicos',
+      }),
+      {
+        status: 502,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   }
 
   const repos = await gh.json();
   const data = normalizeRepos(repos);
 
-  return new Response(JSON.stringify(data), { 
+  return new Response(JSON.stringify(data), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
   });
 }
 
@@ -115,18 +120,21 @@ async function fetchGitHubRepos(accessToken, type) {
 
   if (!gh.ok) {
     const details = await gh.text();
-    return new Response(JSON.stringify({ error: 'GitHub fetch failed', details }), { 
-      status: 502,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return new Response(
+      JSON.stringify({ error: 'GitHub fetch failed', details }),
+      {
+        status: 502,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   }
 
   const repos = await gh.json();
   const data = normalizeRepos(repos);
 
-  return new Response(JSON.stringify(data), { 
+  return new Response(JSON.stringify(data), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
   });
 }
 
@@ -147,6 +155,7 @@ function normalizeRepos(repos) {
       pushed_at: r.pushed_at,
       updated_at: r.updated_at,
       owner_login: r.owner?.login,
+      topics: Array.isArray(r.topics) ? r.topics : [],
     }))
     .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 }

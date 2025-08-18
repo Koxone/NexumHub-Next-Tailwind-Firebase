@@ -8,6 +8,16 @@ import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModa
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
 import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/CreateProjectModal';
 
+// Clerk
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs';
+
 export const metadata = {
   title: {
     default: 'NexumHub - Project Control Center',
@@ -96,21 +106,23 @@ const inter = localFont({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.className} h-screen`}>
-      <body className="bg-bg-main h-screen overflow-x-hidden">
-        <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
-          <SideBar />
-          <div className="mx-auto grid w-full max-w-[1280px] grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
-            {children}
+    <ClerkProvider>
+      <html lang="en" className={`${inter.className} h-screen`}>
+        <body className="bg-bg-main h-screen overflow-x-hidden">
+          <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
+            <SideBar />
+            <div className="mx-auto grid w-full max-w-[1280px] grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
+              {children}
+            </div>
+            <MobileSideBar />
+            <CreateTaskModal />
+            <TaskAndPendingModal />
+            <CreateProjectModal />
           </div>
-          <MobileSideBar />
-          <CreateTaskModal />
-          <TaskAndPendingModal />
-          <CreateProjectModal />
-        </div>
-        <SpeedInsights />
-        <Analytics />
-      </body>
-    </html>
+          <SpeedInsights />
+          <Analytics />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

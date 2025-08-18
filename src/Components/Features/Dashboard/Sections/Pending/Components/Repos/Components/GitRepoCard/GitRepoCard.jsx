@@ -1,8 +1,14 @@
 import React from 'react';
 import AnimatedItem from '@/Components/AnimatedItem/AnimatedItem';
+import RepoName from './Components/RepoName';
+import RepoLanguage from './Components/RepoLanguage';
+import RepoVisibility from './Components/RepoVisibility';
+import RepoDescription from './Components/RepoDescription';
+import RepoStarsAndForks from './Components/RepoStarsAndForks';
+import RepoTopics from './Components/RepoTopics';
+import RepoDate from './Components/RepoDate';
 
 function GitRepoCard({ repo, index, setSelectedIndex }) {
-  // comments in English
   const handleEnter = () => setSelectedIndex?.(index);
   const handleClick = () => setSelectedIndex?.(index);
 
@@ -20,64 +26,29 @@ function GitRepoCard({ repo, index, setSelectedIndex }) {
       >
         <div className="mb-2 flex items-center justify-between">
           {/* Repo Name */}
-          <h4 className="truncate text-base font-semibold text-white">
-            {repo.name}
-          </h4>
+          <RepoName repo={repo} />
 
-          <div>
+          <div className="flex items-center gap-2">
             {/* Code Language */}
-            {repo.language && (
-              <span className="rounded-full bg-blue-500 px-2 py-0.5 text-xs">
-                {repo.language}
-              </span>
-            )}
+            <RepoLanguage repo={repo} />
 
             {/* Visibility */}
-            <span
-              className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium capitalize ${
-                repo.private
-                  ? 'bg-pink-600 text-white'
-                  : 'bg-emerald-500 text-black'
-              }`}
-            >
-              {repo.private ? 'private' : 'public'}
-            </span>
+            <RepoVisibility repo={repo} />
           </div>
         </div>
 
         {/* Description */}
-        <p className="line-clamp-2 text-sm text-neutral-300">
-          {repo.description || 'No description available'}
-        </p>
+        <RepoDescription repo={repo} />
 
         <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-neutral-400">
           {/* Stars and Forks */}
-          <div>
-            <span>⭐ {repo.stargazers_count}</span>
-            <span>🍴 {repo.forks_count}</span>
-          </div>
+          <RepoStarsAndForks repo={repo} />
 
           {/* topics */}
-          {Array.isArray(repo.topics) &&
-            repo.topics.slice(0, 6).map((t) => (
-              <span
-                key={t}
-                className="rounded-full bg-violet-500/15 px-2 py-0.5 text-violet-300 capitalize"
-              >
-                {t}
-              </span>
-            ))}
-
-          {repo.topics?.length > 6 && (
-            <span className="rounded-full bg-white/10 px-2 py-0.5">
-              +{repo.topics.length - 6}
-            </span>
-          )}
+          <RepoTopics repo={repo} />
 
           {/* Updated */}
-          <span className="ml-auto text-[11px]">
-            Updated {new Date(repo.updated_at).toLocaleDateString()}
-          </span>
+          <RepoDate repo={repo} />
         </div>
       </a>
     </AnimatedItem>

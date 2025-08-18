@@ -127,10 +127,10 @@ export default function GitRepoAnimatedList({
 
         {visibleRepos.map((repo, index) => (
           <GitRepoCard
-            key={repo.id} // el key va aquí
+            key={repo.id}
             repo={repo}
             index={index}
-            setSelectedIndex={setSelectedIndex} // pásalo
+            setSelectedIndex={setSelectedIndex}
           />
         ))}
 

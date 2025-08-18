@@ -12,7 +12,7 @@ function TopBar({ padding = 'p-8' }) {
         <MobileSidebarToggleButton />
         <Greeting />
       </div>
-      <NotificationBell />
+      {/* <NotificationBell /> */}
     </div>
   );
 }

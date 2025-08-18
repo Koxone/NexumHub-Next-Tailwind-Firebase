@@ -138,6 +138,13 @@ async function fetchGitHubRepos(accessToken, type) {
   });
 }
 
+// Get Repo Logo
+function buildPublicLogoUrl(owner, repo, branch, updatedAt) {
+  const base = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/.github/logo.svg`;
+  const t = updatedAt ? `?t=${encodeURIComponent(updatedAt)}` : '';
+  return `${base}${t}`;
+}
+
 // Función para normalizar repos
 function normalizeRepos(repos) {
   return repos
@@ -156,6 +163,13 @@ function normalizeRepos(repos) {
       updated_at: r.updated_at,
       owner_login: r.owner?.login,
       topics: Array.isArray(r.topics) ? r.topics : [],
+      default_branch: r.default_branch,
+      logo_url: buildPublicLogoUrl(
+        r.owner?.login,
+        r.name,
+        r.default_branch,
+        r.updated_at
+      ),
     }))
     .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 }

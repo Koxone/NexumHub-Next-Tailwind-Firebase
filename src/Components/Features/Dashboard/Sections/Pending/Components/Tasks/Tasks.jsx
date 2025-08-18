@@ -9,7 +9,7 @@ function Tasks() {
     <div className="flex flex-col gap-2">
       <Title title="Github Repositories" />
       <div className="grid h-full auto-rows-auto gap-2">
-        <GitHubReposList refreshMs={15000} showGradients />
+        <GitHubReposList refreshMs={1500000} showGradients />
       </div>
     </div>
   );

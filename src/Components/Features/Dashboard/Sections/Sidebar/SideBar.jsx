@@ -15,14 +15,11 @@ import {
   UserButton,
   useUser,
 } from '@clerk/nextjs';
+import PulseSignInButton from '../../Custom/PulseSignInButton';
 
 function SideBar() {
   const { isOpen } = useMobileMenu();
   const { user } = useUser();
-
-  const githubUsername =
-    user?.externalAccounts?.find((a) => a.provider === 'oauth_github')
-      ?.username || null;
 
   return (
     <div
@@ -46,9 +43,11 @@ function SideBar() {
         <SignInButton mode="modal">
           <div className="flex flex-col gap-4">
             <Avatar />
-            <button className="cursor-pointer rounded-md bg-[#354f7c] px-3 py-2 text-sm text-white hover:bg-[#2a3f61]">
-              Iniciar sesión
-            </button>
+            <PulseSignInButton>
+              <button className="w-full cursor-pointer rounded-md bg-[#4d74b8] px-3 py-2 text-sm text-white transition-all duration-200 ease-in-out hover:bg-[#2a3f61]">
+                Sign In
+              </button>
+            </PulseSignInButton>
           </div>
         </SignInButton>
       </SignedOut>

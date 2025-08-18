@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '@clerk/nextjs';
 
-import DevMessageCard from '../Components/DevMessageCard/DevMessageCard';
-import GitRepoCard from '../Components/GitRepoCard/GitRepoCard';
+import GitRepoCard from './GitRepoCard/GitRepoCard';
+import DevMessageCard from '../DevMessageCard/DevMessageCard';
 
 export default function GitRepoAnimatedList({
   refreshMs = 1500000,

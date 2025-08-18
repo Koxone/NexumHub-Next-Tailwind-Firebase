@@ -102,115 +102,97 @@ export default function GitHubReposList({
   };
 
   return (
-    <>
-      {/* Clerk SignedOut */}
-      <SignedOut>
-        <SignInButton mode="modal">
-          <div className="bg-bg-secondary flex h-fit flex-col items-center gap-4 rounded-lg border p-6 text-white">
-            <p>Para poder continuar, inicia sesión</p>
-            <button className="max-h-[50px] cursor-pointer rounded-md bg-[#354f7c] px-3 py-2 text-sm text-white hover:bg-[#2a3f61]">
-              Iniciar sesión
+    <div className={`relative w-full ${className}`}>
+      <div
+        ref={listRef}
+        className={`overflow-y-auto ${
+          displayScrollbar
+            ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-[4px] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-track]:bg-[#060010]'
+            : 'no-scrollbar'
+        }`}
+        style={scrollStyle}
+        onScroll={handleScroll}
+      >
+        {!displayScrollbar && (
+          <style>{`.no-scrollbar::-webkit-scrollbar{display:none}`}</style>
+        )}
+
+        {loading && (
+          <div className="py-6 text-center text-sm text-neutral-400">
+            Cargando repos…
+          </div>
+        )}
+
+        {err && (
+          <div className="py-2 text-center text-sm text-red-400">{err}</div>
+        )}
+
+        {!loading && !err && visibleRepos.length === 0 && (
+          <div className="py-6 text-center text-sm text-neutral-400">
+            No hay repos para mostrar
+          </div>
+        )}
+
+        {visibleRepos.map((repo, index) => (
+          <AnimatedItem
+            key={repo.id}
+            index={index}
+            onMouseEnter={() => setSelectedIndex(index)}
+            onClick={() => setSelectedIndex(index)}
+          >
+            <a
+              href={repo.html_url}
+              target="_blank"
+              rel="noreferrer"
+              className="group block rounded-xl border border-neutral-800 bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]"
+            >
+              <div className="mb-2 flex items-center justify-between">
+                <h4 className="truncate text-base font-semibold text-white">
+                  {repo.name}
+                </h4>
+                <span
+                  className={`ml-2 inline-block rounded-full px-2 py-0.5 text-[10px] font-medium uppercase ${
+                    repo.private
+                      ? 'bg-pink-600 text-white'
+                      : 'bg-emerald-500 text-black'
+                  }`}
+                >
+                  {repo.private ? 'private' : 'public'}
+                </span>
+              </div>
+
+              <p className="line-clamp-2 text-sm text-neutral-300">
+                {repo.description || 'Sin descripción'}
+              </p>
+
+              <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-neutral-400">
+                <span>⭐ {repo.stargazers_count}</span>
+                <span>🍴 {repo.forks_count}</span>
+                {repo.language && (
+                  <span className="rounded-full bg-white/10 px-2 py-0.5">
+                    {repo.language}
+                  </span>
+                )}
+                <span className="ml-auto text-[11px]">
+                  Actualizado {new Date(repo.updated_at).toLocaleDateString()}
+                </span>
+              </div>
+            </a>
+          </AnimatedItem>
+        ))}
+
+        {/* Ver más */}
+        {!loading && !err && hasMore && (
+          <div className="flex justify-center py-3">
+            <button
+              onClick={onShowMore}
+              className="cursor-pointer rounded-md bg-[#354f7c] px-4 py-2 text-sm text-white hover:bg-[#2a3f61]"
+            >
+              More
             </button>
           </div>
-        </SignInButton>
-      </SignedOut>
-
-      {/* Clerk SignedIn */}
-      <SignedIn>
-        <div className={`relative w-full ${className}`}>
-          <div
-            ref={listRef}
-            className={`overflow-y-auto ${
-              displayScrollbar
-                ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-[4px] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-track]:bg-[#060010]'
-                : 'no-scrollbar'
-            }`}
-            style={scrollStyle}
-            onScroll={handleScroll}
-          >
-            {!displayScrollbar && (
-              <style>{`.no-scrollbar::-webkit-scrollbar{display:none}`}</style>
-            )}
-
-            {loading && (
-              <div className="py-6 text-center text-sm text-neutral-400">
-                Cargando repos…
-              </div>
-            )}
-
-            {err && (
-              <div className="py-2 text-center text-sm text-red-400">{err}</div>
-            )}
-
-            {!loading && !err && visibleRepos.length === 0 && (
-              <div className="py-6 text-center text-sm text-neutral-400">
-                No hay repos para mostrar
-              </div>
-            )}
-
-            {visibleRepos.map((repo, index) => (
-              <AnimatedItem
-                key={repo.id}
-                index={index}
-                onMouseEnter={() => setSelectedIndex(index)}
-                onClick={() => setSelectedIndex(index)}
-              >
-                <a
-                  href={repo.html_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group block rounded-xl border border-neutral-800 bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]"
-                >
-                  <div className="mb-2 flex items-center justify-between">
-                    <h4 className="truncate text-base font-semibold text-white">
-                      {repo.name}
-                    </h4>
-                    <span
-                      className={`ml-2 inline-block rounded-full px-2 py-0.5 text-[10px] font-medium uppercase ${
-                        repo.private
-                          ? 'bg-pink-600 text-white'
-                          : 'bg-emerald-500 text-black'
-                      }`}
-                    >
-                      {repo.private ? 'private' : 'public'}
-                    </span>
-                  </div>
-
-                  <p className="line-clamp-2 text-sm text-neutral-300">
-                    {repo.description || 'Sin descripción'}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-neutral-400">
-                    <span>⭐ {repo.stargazers_count}</span>
-                    <span>🍴 {repo.forks_count}</span>
-                    {repo.language && (
-                      <span className="rounded-full bg-white/10 px-2 py-0.5">
-                        {repo.language}
-                      </span>
-                    )}
-                    <span className="ml-auto text-[11px]">
-                      Actualizado{' '}
-                      {new Date(repo.updated_at).toLocaleDateString()}
-                    </span>
-                  </div>
-                </a>
-              </AnimatedItem>
-            ))}
-
-            {/* Ver más */}
-            {!loading && !err && hasMore && (
-              <div className="flex justify-center py-3">
-                <button
-                  onClick={onShowMore}
-                  className="cursor-pointer rounded-md bg-[#354f7c] px-4 py-2 text-sm text-white hover:bg-[#2a3f61]"
-                >
-                  More
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </SignedIn>
-    </>
+        )}
+      </div>
+    </div>
   );
 }

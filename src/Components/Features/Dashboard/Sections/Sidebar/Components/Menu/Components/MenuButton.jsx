@@ -7,14 +7,35 @@ function MenuButton({
   onClick,
   notification,
   disabled = false,
+  downloadResume = false, // new prop
 }) {
+  // comments in English
+  const handleClick = (e) => {
+    if (disabled) return;
+
+    // If downloadResume is true, trigger download from /public
+    if (downloadResume) {
+      const link = document.createElement('a');
+      link.href = '/resume.docx'; // /public/resume.docx
+      link.download = 'resume.docx'; // suggested filename
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Preserve original onClick behavior if provided
+    if (typeof onClick === 'function') {
+      onClick(e);
+    }
+  };
+
   return (
     <li className="h-fit list-none">
       <button
-        onClick={onClick}
+        onClick={handleClick}
         aria-label={aria}
         disabled={disabled}
-        title={disabled ? 'Coming Soon' : ''} // Tooltip si está deshabilitado
+        title={disabled ? 'Coming Soon' : ''}
         className={`group flex items-center rounded-lg p-2 ${
           disabled
             ? 'cursor-not-allowed text-gray-400 opacity-50 dark:text-gray-500'

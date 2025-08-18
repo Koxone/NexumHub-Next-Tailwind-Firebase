@@ -2,10 +2,10 @@
 'use client';
 
 import React from 'react';
-import MenuButton from './MenuButton';
 import ProgressBar from './ProgressBar';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import PopoverButton from '@/Components/PopOver/PopoverButton';
 
 export default function ProjectCard({
   imageUrl = '',
@@ -14,6 +14,7 @@ export default function ProjectCard({
   blockClick = false,
   className = '',
   alt = 'Project Logo',
+  onDelete,
 }) {
   const router = useRouter();
 
@@ -31,7 +32,7 @@ export default function ProjectCard({
         className="flex items-center justify-between"
         onClick={(e) => e.stopPropagation()}
       >
-        <MenuButton />
+        <PopoverButton onClick={onDelete} />
       </div>
 
       <div

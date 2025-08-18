@@ -84,7 +84,7 @@ export default function CreateProjectModal({ onSubmit }) {
         name: formData.name,
         id: formData.id,
         url: formData.url,
-        imageUrl, 
+        imageUrl,
         createdAt: serverTimestamp(),
       });
 
@@ -136,7 +136,7 @@ export default function CreateProjectModal({ onSubmit }) {
                 ref={closeBtnRef}
                 type="button"
                 onClick={closeProject}
-                className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm text-gray-400 hover:bg-gray-600 hover:text-white"
+                className="ms-auto inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-sm text-gray-400 hover:bg-gray-600 hover:text-white"
                 aria-label="Close modal"
               >
                 <X />

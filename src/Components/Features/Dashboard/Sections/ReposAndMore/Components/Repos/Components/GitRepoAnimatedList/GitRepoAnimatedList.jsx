@@ -11,6 +11,7 @@ export default function GitRepoAnimatedList({
   displayScrollbar = false,
   showGradients = false,
   className = '',
+  showMore
 }) {
   const { isSignedIn, isLoaded } = useAuth();
   const listRef = useRef(null);
@@ -19,8 +20,8 @@ export default function GitRepoAnimatedList({
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState('');
 
-  // Pagination: show 3
-  const PAGE_SIZE = 3;
+  // Pagination: show 4
+  const PAGE_SIZE = 4;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const [topOpacity, setTopOpacity] = useState(0);
@@ -134,7 +135,7 @@ export default function GitRepoAnimatedList({
         ))}
 
         {/* Show More Button */}
-        {!loading && !err && hasMore && (
+        {showMore && !loading && !err && hasMore && (
           <div className="flex justify-center py-4">
             <button
               onClick={onShowMore}

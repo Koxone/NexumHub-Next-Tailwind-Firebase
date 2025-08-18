@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import GithubRepos from './Components/Repos/Repos';
+import GithubRepos from './Components/Repos/GithubRepos';
 import ApprovePending from './Components/ApprovePending/ApprovePending';
 
 export default function ReposAndMore() {

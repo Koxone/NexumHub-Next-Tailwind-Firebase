@@ -12,7 +12,7 @@ function GithubRepos() {
     <div className="flex flex-col gap-2">
       <div className="flex justify-between">
         {/* Title */}
-        <Title title="Github Repositories" />
+        <Title title="Latest Github Updates" />
 
         {/* State Indicator */}
         {isSignedIn && (
@@ -25,7 +25,7 @@ function GithubRepos() {
         )}
       </div>
       <div className="grid h-full auto-rows-auto gap-2">
-        <GitRepoAnimatedList refreshMs={1500000} showGradients />
+        <GitRepoAnimatedList />
       </div>
     </div>
   );

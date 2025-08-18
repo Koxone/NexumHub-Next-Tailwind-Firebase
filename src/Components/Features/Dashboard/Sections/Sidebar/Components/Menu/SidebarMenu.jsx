@@ -10,6 +10,7 @@ import {
   Settings,
   ClipboardPlus,
   User,
+  Github,
   Linkedin,
   FolderPlus,
   Download,
@@ -34,7 +35,12 @@ function SidebarMenu() {
   const handleLinkedIn = () => {
     const url = 'https://www.linkedin.com/in/carlos-d-leon/';
     const win = window.open(url, '_blank', 'noopener,noreferrer');
-    if (win) win.opener = null; 
+    if (win) win.opener = null;
+  };
+  const handleGithub = () => {
+    const url = 'https://github.com/Koxone';
+    const win = window.open(url, '_blank', 'noopener,noreferrer');
+    if (win) win.opener = null;
   };
   return (
     <div className="flex flex-col items-start gap-4">
@@ -49,6 +55,12 @@ function SidebarMenu() {
         aria="Go to Projects Button"
         icon={Presentation}
         text="Projects"
+      />
+      <MenuButton
+        onClick={handleGithub}
+        aria="Go to Projects Button"
+        icon={Github}
+        text="Github Repositories"
       />
 
       {/* <MenuButton
@@ -87,12 +99,12 @@ function SidebarMenu() {
         text="My Linkedin"
         onClick={handleLinkedIn}
       />
-      <MenuButton
+      {/* <MenuButton
         aria="Go to Settings Button"
         icon={Settings}
         text="Settings"
         disabled
-      />
+      /> */}
     </div>
   );
 }

@@ -4,11 +4,13 @@ import React, { useRef, useState } from 'react';
 import ProjectCard from './Components/ProjectCard';
 import Title from '@/Components/Text/Title';
 
+// Firebase
+import { useProjects } from '@/Hooks/Firebase/Projects/useProjects';
+
 export default function LatestProjects() {
   const scrollerRef = useRef(null);
   const [dragging, setDragging] = useState(false);
   const [blockClick, setBlockClick] = useState(false);
-
   const drag = useRef({
     id: null,
     active: false,
@@ -17,6 +19,11 @@ export default function LatestProjects() {
     moved: false,
     threshold: 6,
   });
+
+  // Firebase
+  const { data, loading } = useProjects();
+  if (loading) return <p className="text-gray-300">Loading projects…</p>;
+  if (!data.length) return <p className="text-gray-300">No projects yet.</p>;
 
   const onPointerDown = (e) => {
     if (e.pointerType !== 'mouse') return;
@@ -69,126 +76,15 @@ export default function LatestProjects() {
           dragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
       >
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="TestigoMX.svg"
-          color="bg-neutral-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="Learn-Frontend.svg"
-          color="bg-blue-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="TestigoMX.svg"
-          color="bg-neutral-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="Learn-Frontend.svg"
-          color="bg-blue-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="TestigoMX.svg"
-          color="bg-neutral-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="Learn-Frontend.svg"
-          color="bg-blue-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="TestigoMX.svg"
-          color="bg-neutral-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="Learn-Frontend.svg"
-          color="bg-blue-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="TestigoMX.svg"
-          color="bg-neutral-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="Learn-Frontend.svg"
-          color="bg-blue-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="fws.svg"
-          color="bg-red-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="TestigoMX.svg"
-          color="bg-neutral-500/30"
-          blockClick={blockClick}
-        />
-        <ProjectCard
-          src="Learn-Frontend.svg"
-          color="bg-blue-500/30"
-          blockClick={blockClick}
-        />
+        {data.map((p) => (
+          <ProjectCard
+            key={p.idDoc}
+            imageUrl={p.imageUrl}
+            color="border-gray-700"
+            path={`/projects/${p.id || p.idDoc}`}
+            alt={p.name}
+          />
+        ))}
       </div>
     </div>
   );

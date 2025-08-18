@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -14,4 +15,7 @@ const nexumHubApp =
   getApps().find((app) => app.name === 'NexumHub') ||
   initializeApp(firebaseConfig, 'NexumHub');
 
+const app = initializeApp(firebaseConfig);
+
 export const db = getFirestore(nexumHubApp);
+export const storage = getStorage(app);

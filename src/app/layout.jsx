@@ -5,6 +5,7 @@ import SideBar from '@/Components/Features/Dashboard/Sections/Sidebar/SideBar';
 import MobileSideBar from '@/Components/Features/Dashboard/Custom/MobileSideBar';
 import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
+import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/CreateProjectModal';
 
 export const metadata = {
   title: {
@@ -106,6 +107,7 @@ export default function RootLayout({ children }) {
           <MobileSideBar />
           <CreateTaskModal />
           <TaskAndPendingModal />
+          <CreateProjectModal />
         </div>
         <SpeedInsights />
       </body>

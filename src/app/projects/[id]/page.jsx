@@ -7,7 +7,75 @@ import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
 import StatsCard from '@/Components/Features/OpenProject/Cards/InfoCard';
 import Title from '@/Components/Text/Title';
 
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { db } from '@/lib/firebase';
+import {
+  collection,
+  doc,
+  getDocs,
+  onSnapshot,
+  query,
+  where,
+} from 'firebase/firestore';
+
 export default function Projects() {
+  const params = useParams();
+  const slug = params?.id; // /projects/[id]
+
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!slug) return;
+
+    let unsub = null;
+
+    (async () => {
+      const q = query(collection(db, 'projects'), where('id', '==', slug));
+      const snap = await getDocs(q);
+
+      if (!snap.empty) {
+        const d = snap.docs[0];
+        unsub = onSnapshot(doc(db, 'projects', d.id), (docSnap) => {
+          setProject(
+            docSnap.exists() ? { idDoc: docSnap.id, ...docSnap.data() } : null
+          );
+          setLoading(false);
+        });
+      } else {
+        unsub = onSnapshot(doc(db, 'projects', slug), (docSnap) => {
+          setProject(
+            docSnap.exists() ? { idDoc: docSnap.id, ...docSnap.data() } : null
+          );
+          setLoading(false);
+        });
+      }
+    })();
+
+    return () => unsub?.();
+  }, [slug]);
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="flex w-full flex-col gap-4 justify-self-center px-8">
+        <TopBar padding="pt-8 pb-4" />
+        <p className="text-gray-300">Loading project…</p>
+      </div>
+    );
+  }
+
+  // Not found
+  if (!project) {
+    return (
+      <div className="flex w-full flex-col gap-4 justify-self-center px-8">
+        <TopBar padding="pt-8 pb-4" />
+        <p className="text-gray-300">Project not found.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex w-full flex-col gap-4 justify-self-center px-8">
       <TopBar padding="pt-8 pb-4" />
@@ -15,25 +83,30 @@ export default function Projects() {
       <div className="flex flex-col gap-7">
         {/* Hero */}
         <div className="no-scrollbar flex flex-col gap-4 [scroll-behavior:smooth]">
-          <Title title="Learn-Frontend" />
+          <Title title={project.name || 'Project'} />
           <div className="mx-auto grid w-full flex-1 grid-cols-2 gap-4 md:grid-cols-3 md:grid-rows-1 xl:grid-cols-4">
-            <ProjectCard src="Learn-Frontend.svg" color="bg-blue-500/30" />
+            {/* Project card del proyecto actual (sin navegación) */}
+            <ProjectCard
+              imageUrl={project.imageUrl}
+              color="border-gray-700"
+              path="#"
+              alt={project.name}
+              blockClick={true}
+            />
 
-            {/* Analytics */}
+            {/* Analytics (placeholder) */}
             <StatsCard
               title="Project Analytics"
-              // linkText="View"
               onLinkClick={() => console.log('go to analytics')}
               items={[
                 { label: 'Visitors', value: 0, color: 'bg-blue-600' },
                 { label: 'Bounce Rate', value: '0%', color: 'bg-blue-600' },
-                // { label: 'Users', value: 0, color: 'bg-blue-600' },
                 { label: 'Active Users', value: 0, color: 'bg-blue-600' },
                 { label: 'Users Online', value: 0, color: 'bg-green-600' },
               ]}
             />
 
-            {/* Pending */}
+            {/* Pending (placeholder) */}
             <StatsCard
               title="Pending"
               items={[
@@ -46,7 +119,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* List */}
+        {/* Listas (placeholder; cuando quieras las filtramos por project.id) */}
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-4">
             <Title title="Tasks for this Project" />

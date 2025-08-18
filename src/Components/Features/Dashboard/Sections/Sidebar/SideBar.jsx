@@ -44,9 +44,12 @@ function SideBar() {
       {/* Clerk SignedOut */}
       <SignedOut>
         <SignInButton mode="modal">
-          <button className="cursor-pointer rounded-md bg-[#354f7c] px-3 py-2 text-sm text-white hover:bg-[#2a3f61]">
-            Iniciar sesión
-          </button>
+          <div className="flex flex-col gap-4">
+            <Avatar />
+            <button className="cursor-pointer rounded-md bg-[#354f7c] px-3 py-2 text-sm text-white hover:bg-[#2a3f61]">
+              Iniciar sesión
+            </button>
+          </div>
         </SignInButton>
       </SignedOut>
 

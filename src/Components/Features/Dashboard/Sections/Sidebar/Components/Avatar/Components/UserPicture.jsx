@@ -1,5 +1,6 @@
 'use client';
 
+import OwnerLastLogin from '@/Components/Features/Dashboard/Custom/OwnerLastLogin';
 import { AlarmClock } from 'lucide-react';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -37,9 +38,7 @@ function UserPicture() {
 
         {isInactive && !isOnline && (
           <>
-            {/* icono de reloj + texto horas */}
-            <AlarmClock className="h-3 w-3 text-orange-500" />
-            <p className="text-[10px] text-orange-500">20hrs</p>
+            <OwnerLastLogin />
           </>
         )}
       </div>

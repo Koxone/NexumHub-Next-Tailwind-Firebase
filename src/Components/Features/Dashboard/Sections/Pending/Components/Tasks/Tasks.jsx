@@ -7,10 +7,7 @@ import GitHubReposList from '@/Components/GitHubReposList';
 function Tasks() {
   return (
     <div className="flex flex-col gap-2">
-      <Title title="Public Repositories" />
-      <p className="text-xs text-neutral-400">
-        In order to show your own repositories, please sign in
-      </p>
+      <Title title="Github Repositories" />
       <div className="grid h-full auto-rows-auto gap-2">
         <GitHubReposList refreshMs={15000} showGradients />
       </div>

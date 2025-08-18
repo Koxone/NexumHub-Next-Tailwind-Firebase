@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
+import { useAuth } from '@clerk/nextjs';
 
 // Clerk
 import {
@@ -34,11 +35,12 @@ function AnimatedItem({ children, index, onMouseEnter, onClick }) {
 }
 
 export default function GitHubReposList({
-  refreshMs = 15000,
+  refreshMs = 15000, // polling interval
   displayScrollbar = false,
   showGradients = false,
   className = '',
 }) {
+  const { isSignedIn, isLoaded } = useAuth();
   const listRef = useRef(null);
   const [repos, setRepos] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -46,7 +48,6 @@ export default function GitHubReposList({
   const [err, setErr] = useState('');
 
   // Pagination: show 5 and add 5 per click
-  // comments in English
   const PAGE_SIZE = 5;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
@@ -76,19 +77,25 @@ export default function GitHubReposList({
       );
     } catch (e) {
       console.error(e);
-      setErr('No se pudieron cargar los repos.');
+      setErr(
+        isSignedIn
+          ? 'Unable to load your repositories.'
+          : 'Unable to load portfolio repositories.'
+      );
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
+    if (!isLoaded) return; // Esperar a que Clerk cargue
+
     load();
     if (refreshMs > 0) {
       const t = setInterval(load, refreshMs);
       return () => clearInterval(t);
     }
-  }, [refreshMs]);
+  }, [isSignedIn, isLoaded, refreshMs]);
 
   const scrollStyle = displayScrollbar
     ? {}
@@ -103,6 +110,64 @@ export default function GitHubReposList({
 
   return (
     <div className={`relative w-full ${className}`}>
+      {/* State Indicator */}
+      {isSignedIn && (
+        <div className="mb-4 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+            <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+            Your repositories
+          </span>
+        </div>
+      )}
+
+      {/* Mensaje informativo para visitantes */}
+      {!isSignedIn && !loading && (
+        <div className="mb-4 rounded-lg border border-violet-500/20 bg-gradient-to-r from-violet-500/5 to-blue-500/5 p-4 text-center">
+          {/* State Indicator */}
+          <div className="mb-4 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+              {isSignedIn ? (
+                <>
+                  <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                  Your repositories
+                </>
+              ) : (
+                <>
+                  <span className="h-2 w-2 rounded-full bg-violet-500"></span>
+                  Developer's showcase
+                </>
+              )}
+            </span>
+          </div>
+          <div className="mb-2 flex items-center justify-center gap-2">
+            <span className="text-lg">👋</span>
+            <span className="text-sm font-medium text-violet-300">
+              Welcome to my developer portfolio
+            </span>
+          </div>
+          <p className="mb-3 text-sm text-neutral-300">
+            You're currently viewing{' '}
+            <span className="font-semibold text-violet-400">
+              my projects and repositories
+            </span>
+            . Each one represents hours of passion, learning, and
+            problem-solving.
+          </p>
+          <div className="flex items-center justify-center gap-1 text-xs text-neutral-400">
+            <span>Want to showcase your own work?</span>
+
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="cursor-pointer font-medium text-violet-400 underline underline-offset-2 transition-colors hover:text-violet-300">
+                  Sign in
+                </button>
+              </SignInButton>
+            </SignedOut>
+            <span>to connect your GitHub and see your repositories here.</span>
+          </div>
+        </div>
+      )}
+
       <div
         ref={listRef}
         className={`overflow-y-auto ${
@@ -119,7 +184,9 @@ export default function GitHubReposList({
 
         {loading && (
           <div className="py-6 text-center text-sm text-neutral-400">
-            Cargando repos…
+            {isSignedIn
+              ? 'Loading your repositories…'
+              : 'Loading developer portfolio…'}
           </div>
         )}
 
@@ -129,7 +196,9 @@ export default function GitHubReposList({
 
         {!loading && !err && visibleRepos.length === 0 && (
           <div className="py-6 text-center text-sm text-neutral-400">
-            No hay repos para mostrar
+            {isSignedIn
+              ? 'No repositories found.'
+              : 'No repositories to display.'}
           </div>
         )}
 
@@ -162,7 +231,7 @@ export default function GitHubReposList({
               </div>
 
               <p className="line-clamp-2 text-sm text-neutral-300">
-                {repo.description || 'Sin descripción'}
+                {repo.description || 'No description available'}
               </p>
 
               <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-neutral-400">
@@ -174,21 +243,34 @@ export default function GitHubReposList({
                   </span>
                 )}
                 <span className="ml-auto text-[11px]">
-                  Actualizado {new Date(repo.updated_at).toLocaleDateString()}
+                  Updated {new Date(repo.updated_at).toLocaleDateString()}
                 </span>
               </div>
             </a>
           </AnimatedItem>
         ))}
 
-        {/* Ver más */}
+        {/* Show More Button */}
         {!loading && !err && hasMore && (
-          <div className="flex justify-center py-3">
+          <div className="flex justify-center py-4">
             <button
               onClick={onShowMore}
-              className="cursor-pointer rounded-md bg-[#354f7c] px-4 py-2 text-sm text-white hover:bg-[#2a3f61]"
+              className="group flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-blue-600 px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:from-violet-500 hover:to-blue-500 hover:shadow-lg hover:shadow-violet-500/25"
             >
-              More
+              <span>Show more</span>
+              <svg
+                className="h-4 w-4 transition-transform group-hover:translate-y-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
             </button>
           </div>
         )}

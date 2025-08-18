@@ -37,7 +37,7 @@ function DevMessageCard({ isSignedIn, isLoaded, loading, setLoading }) {
             <div className="mb-2 flex items-center justify-center gap-2">
               <span className="text-lg">👋</span>
               <span className="text-sm font-medium text-violet-300">
-                Welcome to my developer portfolio
+                Welcome to my Developer Portfolio
               </span>
             </div>
             <p className="mb-3 text-sm text-neutral-300">

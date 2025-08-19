@@ -1,61 +1,98 @@
-// comments in English
 'use client';
 
-import React, { useMemo } from 'react';
-import { useGithubRepos } from '@/Hooks/Github/useGithubRepos';
-import GitProjectCard from './Components/GitProjectCard/GitProjectCard';
+import React, { useRef, useState } from 'react';
+import Title from '@/Components/Text/Title';
+import RegularProjectCard from './Components/RegularProjectCard/RegularProjectCard';
 
-// Images by Github Repositorie
-const REPO_NAMES = [];
+// Zustand
+import { useProjectModal } from '@/Stores/useProjectModal';
 
-// Images by URL
-const IMAGE_URLS = [
-  'https://raw.githubusercontent.com/Koxone/TestigoMX-Next-Tailwind-Firebase-VercelBlob-API/refs/heads/main/.github/logo.svg?token=GHSAT0AAAAAADIQEE2DIYG47LYERFJOQGHU2FDZLNA',
-  'https://raw.githubusercontent.com/Koxone/FitWorldShop-Ecommerce-Next-Tailwind-Shopify-API/refs/heads/main/.github/logo.svg?token=GHSAT0AAAAAADIQEE2CWWXTRXVQYI3OJP6A2FDZODA',
-];
+// Lucide
+import { Plus } from 'lucide-react';
 
-export default function FeatureProjects() {
-  const { repos, loading, error } = useGithubRepos({ visibility: 'all' });
+export default function LatestProjects() {
+  const scrollerRef = useRef(null);
+  const [dragging, setDragging] = useState(false);
+  const [blockClick, setBlockClick] = useState(false);
 
-  const byName = useMemo(
-    () => Object.fromEntries(repos.map((r) => [r.name, r.logo_url])),
-    [repos]
-  );
+  const drag = useRef({
+    id: null,
+    active: false,
+    startX: 0,
+    startLeft: 0,
+    moved: false,
+    threshold: 6,
+  });
 
-  if (loading) return <p>Loading…</p>;
-  if (error) return <p>{error}</p>;
+  const onPointerDown = (e) => {
+    if (e.pointerType !== 'mouse') return;
+    if (e.target.closest('[data-nodrag="true"]')) return;
+    const el = scrollerRef.current;
+    drag.current.active = true;
+    drag.current.id = e.pointerId;
+    drag.current.startX = e.clientX;
+    drag.current.startLeft = el.scrollLeft;
+    drag.current.moved = false;
+    setBlockClick(false);
+    el.setPointerCapture?.(e.pointerId);
+    setDragging(true);
+  };
+
+  const onPointerMove = (e) => {
+    if (!drag.current.active) return;
+    const el = scrollerRef.current;
+    const dx = e.clientX - drag.current.startX;
+    if (!drag.current.moved && Math.abs(dx) <= drag.current.threshold) return;
+    if (!drag.current.moved) {
+      drag.current.moved = true;
+      setBlockClick(true);
+    }
+    el.scrollLeft = drag.current.startLeft - dx;
+    e.preventDefault();
+  };
+
+  const endDrag = () => {
+    const el = scrollerRef.current;
+    if (drag.current.id != null) el.releasePointerCapture?.(drag.current.id);
+    drag.current.active = false;
+    drag.current.id = null;
+    setDragging(false);
+    if (!drag.current.moved) setBlockClick(false);
+  };
 
   return (
-    <div className="flex gap-4">
-      {REPO_NAMES.map((name) => {
-        const logo = byName[name] || '';
-        return (
-          <GitProjectCard
-            key={`repo:${name}`}
-            imageUrl={logo}
-            color="border-gray-700"
-            path={`/projects/open?repo=${encodeURIComponent(name)}`}
-            alt={name}
-          />
-        );
-      })}
+    <div className="mb-6 flex flex-col gap-4 overflow-hidden px-8">
+      <Title title="Featured Projects" />
+      <div
+        ref={scrollerRef}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onPointerLeave={endDrag}
+        onDragStart={(e) => e.preventDefault()}
+        className={`no-scrollbar flex h-[300px] [touch-action:pan-x] gap-4 overflow-x-auto overflow-y-hidden select-none [scrollbar-gutter:stable] ${
+          dragging ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
+      >
+        <RegularProjectCard
+          description="Humanitarian full-stack platform for Mexico’s missing persons crisis."
+          stack="Next.js · Tailwind CSS · Firebase · Clerk"
+          src="/Images/ProjectCards/testigo.svg"
+        />
 
-      {IMAGE_URLS.map((item, i) => {
-        const url = typeof item === 'string' ? item : item.url;
-        const alt =
-          typeof item === 'string'
-            ? `Image ${i + 1}`
-            : item.alt || `Image ${i + 1}`;
-        return (
-          <GitProjectCard
-            key={`url:${i}`}
-            imageUrl={url}
-            color="border-gray-700"
-            path={`/projects/open?image=${encodeURIComponent(url)}`}
-            alt={alt}
-          />
-        );
-      })}
+        <RegularProjectCard
+          description="Full-stack Headless Shopify e-commerce with a fast, modern storefront."
+          stack="Next.js · Tailwind CSS · Firebase · Shopify · Storefront API"
+          src="/Images/ProjectCards/fws.svg"
+        />
+
+        <RegularProjectCard
+          description="Full-stack coupon generator with Apple and Google Wallet passes."
+          stack="React · Tailwind CSS · API · Apple Wallet · Google Wallet"
+          src="/Images/ProjectCards/sacbe.svg"
+        />
+      </div>
     </div>
   );
 }

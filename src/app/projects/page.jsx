@@ -14,6 +14,7 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { ref, deleteObject } from 'firebase/storage';
 import { Plus } from 'lucide-react';
 import { useProjectModal } from '@/Stores/useProjectModal';
+import ProjectsSection from '@/Components/Features/Koxland/ProjectSection/ProjectsSection';
 
 function AnimatedItem({ children, index }) {
   const ref = useRef(null);
@@ -97,6 +98,7 @@ export default function Projects() {
               onDelete={() => handleDelete(p)}
             />
           ))}
+          {/* <ProjectsSection /> */}
         </div>
       </div>
 

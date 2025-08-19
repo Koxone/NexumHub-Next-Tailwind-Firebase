@@ -2,6 +2,7 @@ import '@/app/globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import localFont from 'next/font/local';
+import I18nProvider from '@/components/providers/Languages/I18nProvider';
 import SideBar from '@/Components/Features/Dashboard/Sections/Sidebar/SideBar';
 import MobileSideBar from '@/Components/Features/Dashboard/Custom/MobileSideBar';
 import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';
@@ -112,7 +113,7 @@ export default function RootLayout({ children }) {
           <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
             <SideBar />
             <div className="mx-auto grid w-full max-w-[1280px] grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
-              {children}
+              <I18nProvider>{children}</I18nProvider>
             </div>
             <MobileSideBar />
             <CreateTaskModal />

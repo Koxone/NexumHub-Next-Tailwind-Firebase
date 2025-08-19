@@ -1,0 +1,99 @@
+{
+  "projects": {
+    "fws": {
+      "id": "fws",
+      "titleKey": "projects.fws.title",
+      "descriptionKey": "projects.fws.description",
+      "url": "https://fitworldshop.com",
+      "urlGit": "https://github.com/Koxone/FitWorldShop-Ecommerce-Next-Tailwind-Shopify-API",
+      "image": "/Images/ProjectCards/testigo.svg",
+      "featured": true,
+      "src": "fws",
+      "completed": true,
+      "active": true,
+      "updated": "projects.fws.updated",
+      "date": "projects.fws.date",
+      "lastUpdated": "2025-08-01",
+      "typeKey": "projects.fws.type",
+      "statusKey": "projects.fws.status",
+      "status": "projects.fws.statusProject",
+      "technologies": [
+        "Next.js",
+        "React",
+        "Tailwind",
+        "Firebase",
+        "Shopify API",
+        "Framer",
+        "i18"
+      ],
+      "tags": ["FullStack", "PWA", "Ecommerce"],
+      "teamSize": "1",
+      "overview": "projects.fws.overview",
+      "features": "projects.fws.features",
+      "projectFeatures": "projects.fws.projectFeatures"
+    },
+
+    "sacbe": {
+      "id": "sacbe",
+      "titleKey": "projects.sacbe.title",
+      "descriptionKey": "projects.sacbe.description",
+      "url": "https://tours.koxland.dev/",
+      "urlGit": "https://github.com/Koxone/Sacbe-Tours-Next-React-Tailwind",
+      "image": "/Images/ProjectCards/fws.svg",
+      "featured": true,
+      "src": "tours",
+      "completed": false,
+      "active": true,
+      "updated": "projects.sacbe.updated",
+      "date": "projects.sacbe.date",
+      "lastUpdated": "2025-08-01",
+      "typeKey": "projects.sacbe.type",
+      "statusKey": "projects.sacbe.status",
+      "status": "projects.sacbe.statusProject",
+      "technologies": [
+        "Next.js",
+        "React",
+        "Tailwind",
+        "Rest API",
+        "Bookun API",
+        "i18"
+      ],
+      "tags": ["WebApp", "Booking", "Tours"],
+      "teamSize": "1",
+      "overview": "projects.sacbe.overview",
+      "features": "projects.sacbe.features",
+      "projectFeatures": "projects.sacbe.projectFeatures"
+    },
+
+    "couponGenerator": {
+      "id": "couponGenerator",
+      "titleKey": "projects.couponGenerator.title",
+      "descriptionKey": "projects.couponGenerator.description",
+      "url": "https://discounts.sacbetransfers.com/",
+      "urlGit": "https://github.com/Koxone/Sacbe-Coupon-Generator-React-Tailwind",
+      "image": "/Images/ProjectCards/sacbe.svg",
+      "featured": true,
+      "src": "coupons",
+      "completed": true,
+      "active": true,
+      "updated": "projects.couponGenerator.updated",
+      "date": "projects.couponGenerator.date",
+      "lastUpdated": "2025-08-01",
+      "typeKey": "projects.couponGenerator.type",
+      "statusKey": "projects.couponGenerator.status",
+      "status": "projects.couponGenerator.statusProject",
+      "technologies": [
+        "React",
+        "Tailwind",
+        "API",
+        "Google Wallet",
+        "Apple Wallet"
+      ],
+      "tags": ["PWA", "Coupons", "API"],
+      "teamSize": "1",
+      "overview": "projects.couponGenerator.overview",
+      "features": "projects.couponGenerator.features",
+      "projectFeatures": "projects.couponGenerator.projectFeatures"
+    }
+  }
+}

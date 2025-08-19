@@ -11,6 +11,7 @@ import {
   ClipboardPlus,
   User,
   Github,
+  Send,
   Linkedin,
   FolderPlus,
   Download,
@@ -87,6 +88,12 @@ function SidebarMenu() {
         icon={Download}
         text="My Resume"
         downloadResume
+      />
+      <MenuButton
+        aria="Go to Search Projects Button"
+        icon={Send}
+        text="Contact"
+        contact={true}
       />
 
       {/* <MenuButton

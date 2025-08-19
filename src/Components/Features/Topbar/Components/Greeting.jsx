@@ -1,6 +1,6 @@
 'use client';
-
 import React from 'react';
+import MatrixText from '@/Components/UI/Text/MatrixText';
 
 // Clerk
 import {
@@ -26,18 +26,24 @@ function Greeting() {
   return (
     <div>
       <SignedOut>
-        <h1 className="text-h1 font-bold text-white">
-          Hello, I'am Carlos, Frontend Engineer
-        </h1>
-        <p className="text-base text-neutral-500">
+        <div className="">
+          <h1 className="text-4xl font-bold tracking-tight text-white capitalize md:text-4xl lg:text-4xl">
+            Carlos de Leon
+          </h1>
+          <MatrixText />
+        </div>
+
+        <p className="text-sm font-light text-neutral-400 sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
           Specializing in React, Next.js & Firebase integrations
         </p>
       </SignedOut>
       <SignedIn>
-        <h1 className="text-h1 font-bold text-white capitalize">
+        <h1 className="text-4xl font-bold tracking-tight text-white capitalize md:text-4xl lg:text-4xl">
           Hello {user?.externalAccounts?.[0]?.username || 'Not available'}!
         </h1>
-        <p className="text-xs text-neutral-500">Today is {formattedDate}</p>
+        <p className="text-sm font-light text-neutral-400 sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
+          Today is {formattedDate}
+        </p>
       </SignedIn>
     </div>
   );

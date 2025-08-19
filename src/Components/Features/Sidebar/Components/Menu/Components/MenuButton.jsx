@@ -7,23 +7,33 @@ function MenuButton({
   onClick,
   notification,
   disabled = false,
-  downloadResume = false, // new prop
+  contact,
+  downloadResume = false,
 }) {
-  // comments in English
+  // click handler
   const handleClick = (e) => {
     if (disabled) return;
 
-    // If downloadResume is true, trigger download from /public
+    // contact email
+    if (contact) {
+      const subject = encodeURIComponent('Contacto desde el portafolio');
+      const body = encodeURIComponent(
+        'Hola Kox, me gustaría ponerme en contacto contigo.'
+      );
+      window.location.href = `mailto:admin@koxland.net?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    // resume download
     if (downloadResume) {
       const link = document.createElement('a');
-      link.href = '/resume.docx'; // /public/resume.docx
-      link.download = 'resume.docx'; // suggested filename
+      link.href = '/resume.docx';
+      link.download = 'resume.docx';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     }
 
-    // Preserve original onClick behavior if provided
     if (typeof onClick === 'function') {
       onClick(e);
     }

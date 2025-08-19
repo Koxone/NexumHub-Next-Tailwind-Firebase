@@ -6,6 +6,7 @@ import Avatar from './Components/Avatar/Avatar';
 import SidebarMenu from './Components/Menu/SidebarMenu';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
 import MobileSidebarToggleButton from './Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
+import PulseSignInButton from '../Dashboard/Custom/PulseSignInButton';
 
 // Clerk
 import {
@@ -15,7 +16,6 @@ import {
   UserButton,
   useUser,
 } from '@clerk/nextjs';
-import PulseSignInButton from '../../Custom/PulseSignInButton';
 
 function SideBar() {
   const { isOpen } = useMobileMenu();

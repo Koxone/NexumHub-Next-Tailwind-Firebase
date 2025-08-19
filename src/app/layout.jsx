@@ -3,8 +3,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import localFont from 'next/font/local';
 import I18nProvider from '@/components/providers/Languages/I18nProvider';
-import SideBar from '@/Components/Features/Dashboard/Sections/Sidebar/SideBar';
 import MobileSideBar from '@/Components/Features/Dashboard/Custom/MobileSideBar';
+
 import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
 import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/CreateProjectModal';
@@ -18,6 +18,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs';
+import SideBar from '@/Components/Features/Sidebar/SideBar';
 
 export const metadata = {
   title: {

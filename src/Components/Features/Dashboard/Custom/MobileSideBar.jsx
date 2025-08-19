@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
-import Logo from '../Sections/Sidebar/Components/Logo/Logo';
-import MobileSidebarToggleButton from '../Sections/Sidebar/Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
-import SidebarMenu from '../Sections/Sidebar/Components/Menu/SidebarMenu';
+import Logo from '@/Components/Features/Sidebar/Components/Logo/Logo';
+import SidebarMenu from '@/Components/Features/Sidebar/Components/Menu/SidebarMenu';
+import MobileSidebarToggleButton from '@/Components/Features/Sidebar/Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
 
 export default function MobileSideBar() {
   const { isOpen, toggle } = useMobileMenu();

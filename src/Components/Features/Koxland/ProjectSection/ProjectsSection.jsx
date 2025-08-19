@@ -4,7 +4,7 @@ import React from 'react';
 import ProjectCardKox from './ProjectCard/ProjectCardKox';
 import Title from '@/Components/Text/Title';
 
-function ProjectsSection() {
+function ProjectsSection({ className }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const cards = ['fws', 'sacbe', 'couponGenerator'];
@@ -16,7 +16,7 @@ function ProjectsSection() {
   return (
     <div
       id="projects"
-      className="relative flex w-full flex-col items-center gap-4 px-8"
+      className={`relative ${className} flex w-full flex-col items-center gap-4 px-8`}
     >
       {/* Título */}
       <Title title="Featured Projects" />
@@ -30,7 +30,7 @@ function ProjectsSection() {
             width: `${cards.length * 100}%`,
           }}
         >
-          {cards.map((key) => ( 
+          {cards.map((key) => (
             <div key={key} className="flex w-full flex-shrink-0 justify-center">
               <ProjectCardKox projectKey={key} />
             </div>

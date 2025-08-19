@@ -1,7 +1,7 @@
 import React from 'react';
-import Title from '@/Components/Text/Title';
+import Title from '@/Components/UI/Text/Title';
 import PendingCard from '../Cards/PendingCard';
-import TasksAnimatedList from '@/Components/Features/Dashboard/Custom/TasksAnimatedList';
+import TasksAnimatedList from '@/Components/Features/Firebase/TasksAnimatedList';
 import { useAuth } from '@clerk/nextjs';
 import GitRepoAnimatedList from './Components/GitRepoAnimatedList/GitRepoAnimatedList';
 

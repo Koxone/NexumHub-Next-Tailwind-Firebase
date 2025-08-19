@@ -5,10 +5,10 @@ import AddProjectButton from './Components/AddProjectButton';
 import NotificationBell from './Components/NotificationBell';
 import MobileSidebarToggleButton from '@/Components/Features/Sidebar/Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
 
-function TopBar({ padding = 'p-8', className }) {
+function TopBar({ padding = 'p-0', className }) {
   return (
     <div
-      className={`grid h-fit grid-cols-[1fr_auto] grid-rows-1 ${padding} ${className}`}
+      className={`grid h-fit w-full grid-cols-[1fr_auto] grid-rows-1 ${padding} ${className}`}
     >
       <div className="flex items-center gap-6">
         <MobileSidebarToggleButton />

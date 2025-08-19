@@ -1,26 +1,19 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import ProjectCard from './Components/ProjectCard';
-import Title from '@/Components/Text/Title';
+import Title from '@/Components/UI/Text/Title';
+import ManualProjectCard from '../../Features/ManualProjectCard/ManualProjectCard';
 
 // Zustand
 import { useProjectModal } from '@/Stores/useProjectModal';
 
-// Firebase
-import { useProjects } from '@/Hooks/Firebase/Projects/useProjects';
-import { db, storage } from '@/lib/firebase';
-import { doc, deleteDoc } from 'firebase/firestore';
-import { ref, deleteObject } from 'firebase/storage';
+// Lucide
 import { Plus } from 'lucide-react';
 
-export default function LatestProjects() {
+export default function FeaturedManualProjects() {
   const scrollerRef = useRef(null);
   const [dragging, setDragging] = useState(false);
   const [blockClick, setBlockClick] = useState(false);
-
-  // Zustand
-  const { toggleProject } = useProjectModal();
 
   const drag = useRef({
     id: null,
@@ -30,41 +23,6 @@ export default function LatestProjects() {
     moved: false,
     threshold: 6,
   });
-
-  // Firebase
-  const { data, loading } = useProjects();
-  if (loading) return <p className="text-gray-300">Loading projects…</p>;
-  if (!data.length) {
-    return (
-      <div className="flex flex-col gap-4 overflow-hidden px-8">
-        <Title title="Latest Projects" />
-        <div className="flex h-[300px] items-center justify-start">
-          <div
-            onClick={toggleProject}
-            className="flex aspect-square max-h-[300px] w-full max-w-[300px] cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed border-gray-600 p-4 text-gray-400"
-          >
-            <span className="flex flex-col items-center text-lg font-medium">
-              <Plus className="cursor-pointer" />
-              Agrega un proyecto
-            </span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const handleDelete = async (project) => {
-    try {
-      await deleteDoc(doc(db, 'projects', project.idDoc || project.id));
-
-      if (project.imageUrl) {
-        const fileRef = ref(storage, project.imageUrl);
-        await deleteObject(fileRef);
-      }
-    } catch (err) {
-      console.error('Delete failed:', err);
-    }
-  };
 
   const onPointerDown = (e) => {
     if (e.pointerType !== 'mouse') return;
@@ -103,8 +61,8 @@ export default function LatestProjects() {
   };
 
   return (
-    <div className="flex flex-col gap-4 overflow-hidden px-8">
-      <Title title="Latest Projects" />
+    <div className="mb-6 flex flex-col gap-4 overflow-hidden">
+      <Title title="Featured Projects" />
       <div
         ref={scrollerRef}
         onPointerDown={onPointerDown}
@@ -117,16 +75,23 @@ export default function LatestProjects() {
           dragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
       >
-        {data.map((p) => (
-          <ProjectCard
-            key={p.idDoc}
-            imageUrl={p.imageUrl}
-            color="border-gray-700"
-            path={`/projects/${p.id || p.idDoc}`}
-            alt={p.name}
-            onDelete={() => handleDelete(p)}
-          />
-        ))}
+        <ManualProjectCard
+          description="Humanitarian full-stack platform for Mexico’s missing persons crisis."
+          stack="Next.js · Tailwind CSS · Firebase · Clerk"
+          src="/Images/ProjectCards/testigo.svg"
+        />
+
+        <ManualProjectCard
+          description="Full-stack Headless Shopify e-commerce with a fast, modern storefront."
+          stack="Next.js · Tailwind CSS · Firebase · Shopify · Storefront API"
+          src="/Images/ProjectCards/fws.svg"
+        />
+
+        <ManualProjectCard
+          description="Full-stack coupon generator with Apple and Google Wallet passes."
+          stack="React · Tailwind CSS · API · Apple Wallet · Google Wallet"
+          src="/Images/ProjectCards/sacbe.svg"
+        />
       </div>
     </div>
   );

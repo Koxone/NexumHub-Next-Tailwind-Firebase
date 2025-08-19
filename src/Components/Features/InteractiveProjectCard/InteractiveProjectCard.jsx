@@ -8,10 +8,10 @@ import CardHeader from './Components/CardHeader';
 import ProjectText from './Components/ProjectText';
 import Technologies from './Components/Technologies';
 import Activity from './Components/Activity';
-import data from './Data/data.json';
+import data from '@/Data/Projects/data.json';
 import { useTranslation } from 'react-i18next';
 
-export default function ProjectCardKox({ projectKey }) {
+export default function InteractiveProjectCard({ projectKey }) {
   const { t } = useTranslation();
   const project = data.projects[projectKey];
 

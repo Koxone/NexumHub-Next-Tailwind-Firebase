@@ -8,7 +8,7 @@ import {
   UserButton,
   useUser,
 } from '@clerk/nextjs';
-import PulseSignInButton from '@/Components/Features/Dashboard/Custom/PulseSignInButton';
+import PulseSignInButton from '@/Components/UI/Buttons/PulseSignInButton';
 
 function DevMessageCard({ isSignedIn, isLoaded, loading, setLoading }) {
   return (

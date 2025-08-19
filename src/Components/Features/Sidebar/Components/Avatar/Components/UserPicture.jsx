@@ -1,6 +1,6 @@
 'use client';
 
-import OwnerLastLogin from '@/Components/Features/Dashboard/Custom/OwnerLastLogin';
+import OwnerLastLogin from '@/Components/Features/Dashboard/Status/OwnerLastLogin';
 import { AlarmClock } from 'lucide-react';
 import Image from 'next/image';
 import React, { useState } from 'react';

@@ -3,17 +3,13 @@
 
 import React, { useMemo } from 'react';
 import { useGithubRepos } from '@/Hooks/Github/useGithubRepos';
-import GitProjectCard from './Components/GitProjectCard/GitProjectCard';
+import GitProjectCard from '@/Components/Features/GitProjectCard/GitProjectCard';
 
 // Images by Github Repositorie
-const REPO_NAMES = [
-  ''
-];
+const REPO_NAMES = [''];
 
 // Images by URL
-const IMAGE_URLS = [
-  
-];
+const IMAGE_URLS = [];
 
 export default function GitFeatureProjects() {
   const { repos, loading, error } = useGithubRepos({ visibility: 'all' });

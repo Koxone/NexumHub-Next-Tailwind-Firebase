@@ -1,6 +1,6 @@
 'use client';
 
-import Title from '@/Components/Text/Title';
+import Title from '@/Components/UI/Text/Title';
 import { useEffect, useRef, useState } from 'react';
 import { useTaskModal } from '@/Stores/useTaskModal';
 import { X, Plus } from 'lucide-react';

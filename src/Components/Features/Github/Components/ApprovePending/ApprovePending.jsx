@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from '@/Components/Text/Title';
-import PendingAnimatedList from '@/Components/Features/Dashboard/Custom/PendingAnimatedList';
+import Title from '@/Components/UI/Text/Title';
+import PendingAnimatedList from '@/Components/Features/Firebase/PendingAnimatedList';
 
 function ApprovePending() {
   return (

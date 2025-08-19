@@ -5,7 +5,7 @@ import { motion, useInView } from 'motion/react';
 
 import ProjectCard from '@/Components/Features/Dashboard/Sections/CurrentFeedback/Components/ProjectCard';
 import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
-import Title from '@/Components/Text/Title';
+import Title from '@/Components/UI/Text/Title';
 
 // Firebase
 import { useProjects } from '@/Hooks/Firebase/Projects/useProjects';

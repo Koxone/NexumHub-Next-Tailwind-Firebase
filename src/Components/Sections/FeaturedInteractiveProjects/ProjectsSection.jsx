@@ -2,7 +2,8 @@
 import { useState } from 'react';
 import React from 'react';
 import ProjectCardKox from './ProjectCard/ProjectCardKox';
-import Title from '@/Components/Text/Title';
+import Title from '@/Components/UI/Text/Title';
+import InteractiveProjectCard from '@/Components/Features/InteractiveProjectCard/InteractiveProjectCard';
 
 function ProjectsSection({ className }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,10 +62,10 @@ function ProjectsSection({ className }) {
 
       {/* Regular */}
       <div className="mb-6 flex flex-col gap-10 md:hidden lg:hidden lg:flex-row xl:flex">
-        <ProjectCardKox projectKey="fws" />
-        <ProjectCardKox projectKey="sacbe" />
+        <InteractiveProjectCard projectKey="fws" />
+        <InteractiveProjectCard projectKey="sacbe" />
         <div className="lg:hidden xl:block">
-          <ProjectCardKox projectKey="couponGenerator" />
+          <InteractiveProjectCard projectKey="couponGenerator" />
         </div>
       </div>
 

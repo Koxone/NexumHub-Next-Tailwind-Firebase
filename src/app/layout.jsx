@@ -3,7 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import localFont from 'next/font/local';
 import I18nProvider from '@/components/providers/Languages/I18nProvider';
-import MobileSideBar from '@/Components/Features/Dashboard/Custom/MobileSideBar';
+import MobileSideBar from '@/Components/Features/Sidebar/MobileSideBar';
 
 import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
@@ -113,9 +113,9 @@ export default function RootLayout({ children }) {
         <body className="bg-bg-main h-screen overflow-x-hidden">
           <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
             <SideBar />
-            <div className="mx-auto grid w-full justify-center items-center grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
+            <main className="mx-auto grid w-full grid-rows-[auto_auto_1fr] p-8 items-center lg:col-start-2 lg:row-span-full lg:row-start-1">
               <I18nProvider>{children}</I18nProvider>
-            </div>
+            </main>
             <MobileSideBar />
             <CreateTaskModal />
             <TaskAndPendingModal />

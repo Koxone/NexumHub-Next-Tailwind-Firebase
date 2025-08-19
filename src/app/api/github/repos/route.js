@@ -2,33 +2,37 @@
 import { getAuth, clerkClient as nextClerkClient } from '@clerk/nextjs/server';
 
 const GITHUB_API = 'https://api.github.com';
-
-// Tu configuración por defecto
-const DEFAULT_GITHUB_USER = 'Koxone'; // Tu username de GitHub
+const DEFAULT_GITHUB_USER = 'Koxone';
 
 export async function GET(req) {
   try {
-    // 1) Check if user is authenticated
+    const url = new URL(req.url);
+    // visibility only matters for authenticated users
+    const qv = (url.searchParams.get('visibility') || 'all').toLowerCase();
+    const visibility = ['public', 'private', 'all'].includes(qv) ? qv : 'all';
+
     const { userId } = getAuth(req);
 
     if (userId) {
-      // Usuario autenticado - usar su token
-      return await getUserRepos(userId);
+      return await getUserRepos(userId, visibility);
     } else {
-      // Usuario no autenticado - mostrar tus repos
+      // unauthenticated can only see public repos of DEFAULT_GITHUB_USER
       return await getDefaultUserRepos();
     }
   } catch (error) {
     console.error('Error in GitHub repos API:', error);
     return new Response(JSON.stringify({ error: 'Internal server error' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store',
+      },
     });
   }
 }
 
-// Función para repos del usuario autenticado (tu código original)
-async function getUserRepos(userId) {
+// Authenticated user repos (supports public/private/all via visibility)
+async function getUserRepos(userId, visibility) {
   // Build a Clerk client that works across SDK shapes
   let client;
   if (typeof nextClerkClient === 'function') {
@@ -57,31 +61,30 @@ async function getUserRepos(userId) {
     return new Response(
       JSON.stringify({
         error: 'GitHub token not found',
-        hint: 'Asegúrate que el usuario conectó GitHub y aceptó los scopes; cierra sesión y vuelve a entrar.',
+        hint: 'User must connect GitHub with the required scopes.',
       }),
       {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-store',
+        },
       }
     );
   }
 
-  return await fetchGitHubRepos(accessToken, 'user');
+  return await fetchGitHubRepos(accessToken, visibility);
 }
 
-// Función para mostrar tus repos por defecto
+// Public default user repos
 async function getDefaultUserRepos() {
-  // Solo repos públicos - sin token necesario
   const endpoint = `${GITHUB_API}/users/${DEFAULT_GITHUB_USER}/repos?per_page=100&sort=updated&type=public`;
   const headers = {
     Accept: 'application/vnd.github+json',
     'User-Agent': 'Portfolio-Default-View',
   };
 
-  const gh = await fetch(endpoint, {
-    headers,
-    cache: 'no-store',
-  });
+  const gh = await fetch(endpoint, { headers, cache: 'no-store' });
 
   if (!gh.ok) {
     const details = await gh.text();
@@ -89,11 +92,13 @@ async function getDefaultUserRepos() {
       JSON.stringify({
         error: 'Failed to fetch default user repos',
         details,
-        hint: 'Verifica que el usuario por defecto existe y sus repos son públicos',
       }),
       {
         status: 502,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-store',
+        },
       }
     );
   }
@@ -103,13 +108,20 @@ async function getDefaultUserRepos() {
 
   return new Response(JSON.stringify(data), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+    },
   });
 }
 
-// Función reutilizable para fetch de GitHub
-async function fetchGitHubRepos(accessToken, type) {
-  const gh = await fetch(`${GITHUB_API}/user/repos?per_page=100&sort=updated`, {
+// Fetch repos for authenticated user with visibility filter
+async function fetchGitHubRepos(accessToken, visibility = 'all') {
+  const endpoint = `${GITHUB_API}/user/repos?per_page=100&sort=updated&visibility=${encodeURIComponent(
+    visibility
+  )}`;
+
+  const gh = await fetch(endpoint, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
       Accept: 'application/vnd.github+json',
@@ -124,7 +136,10 @@ async function fetchGitHubRepos(accessToken, type) {
       JSON.stringify({ error: 'GitHub fetch failed', details }),
       {
         status: 502,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-store',
+        },
       }
     );
   }
@@ -134,42 +149,58 @@ async function fetchGitHubRepos(accessToken, type) {
 
   return new Response(JSON.stringify(data), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+    },
   });
 }
 
-// Get Repo Logo
+// Build public logo URL from raw.githubusercontent.com
 function buildPublicLogoUrl(owner, repo, branch, updatedAt) {
   const base = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/.github/logo.svg`;
   const t = updatedAt ? `?t=${encodeURIComponent(updatedAt)}` : '';
   return `${base}${t}`;
 }
 
-// Función para normalizar repos
+// Build private logo URL through your internal proxy
+function buildPrivateLogoUrl(owner, repo, ref) {
+  const params = new URLSearchParams({
+    owner,
+    repo,
+    ref: ref || 'main',
+  }).toString();
+  return `/api/github/private-logo?${params}`;
+}
+
+// Normalize repos for the client
 function normalizeRepos(repos) {
   return repos
-    .map((r) => ({
-      id: r.id,
-      name: r.name,
-      full_name: r.full_name,
-      private: r.private,
-      description: r.description,
-      html_url: r.html_url,
-      language: r.language,
-      stargazers_count: r.stargazers_count,
-      forks_count: r.forks_count,
-      fork: r.fork,
-      pushed_at: r.pushed_at,
-      updated_at: r.updated_at,
-      owner_login: r.owner?.login,
-      topics: Array.isArray(r.topics) ? r.topics : [],
-      default_branch: r.default_branch,
-      logo_url: buildPublicLogoUrl(
-        r.owner?.login,
-        r.name,
-        r.default_branch,
-        r.updated_at
-      ),
-    }))
+    .map((r) => {
+      const owner = r.owner?.login;
+      const branch = r.default_branch || 'main';
+      const logoUrl = r.private
+        ? buildPrivateLogoUrl(owner, r.name, branch)
+        : buildPublicLogoUrl(owner, r.name, branch, r.updated_at);
+
+      return {
+        id: r.id,
+        name: r.name,
+        full_name: r.full_name,
+        private: r.private,
+        description: r.description,
+        html_url: r.html_url,
+        language: r.language,
+        stargazers_count: r.stargazers_count,
+        forks_count: r.forks_count,
+        fork: r.fork,
+        pushed_at: r.pushed_at,
+        updated_at: r.updated_at,
+        owner_login: owner,
+        topics: Array.isArray(r.topics) ? r.topics : [],
+        default_branch: r.default_branch,
+        logo_url: logoUrl,
+      };
+    })
     .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 }

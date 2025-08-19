@@ -1,6 +1,6 @@
 import FeatureProjects from '@/Components/Features/Dashboard/Sections/FeatureProjects/FeatureProjects';
 import GitFeatureProjects from '@/Components/Features/Dashboard/Sections/FeatureProjects/GitFeatureProjects';
-import ReposAndMore from '@/Components/Features/Dashboard/Sections/ReposAndMore/ReposAndMore';
+import ReposAndMore from '@/Components/Features/Github/ReposAndMore';
 import ProjectsSection from '@/Components/Features/Koxland/ProjectSection/ProjectsSection';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
 import TopBar from '@/Components/Features/Topbar/TopBar';

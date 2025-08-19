@@ -8,11 +8,11 @@ import TopBar from '@/Components/Features/Topbar/TopBar';
 export default function Home() {
   return (
     <div className="grid min-h-full w-full grid-rows-[auto_auto_1fr]">
-      <TopBar />
-      <ProjectsSection />
+      {/* <TopBar /> */}
+      {/* <ProjectsSection /> */}
       {/* <FeatureProjects /> */}
       {/* <GitFeatureProjects /> */}
-      <ReposAndMore />
+      {/* <ReposAndMore /> */}
     </div>
   );
 }

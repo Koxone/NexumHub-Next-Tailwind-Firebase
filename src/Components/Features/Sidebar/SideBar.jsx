@@ -17,7 +17,7 @@ import {
   useUser,
 } from '@clerk/nextjs';
 
-function SideBar() {
+function SideBar({ className }) {
   const { isOpen } = useMobileMenu();
   const { user } = useUser();
 
@@ -25,12 +25,14 @@ function SideBar() {
     <div
       id="mobile-menu"
       className={[
-        'bg-bg-main pointer-events-auto absolute z-50 hidden h-full max-h-[790px] w-fit scale-100 opacity-100 md:hidden md:max-h-full lg:relative lg:flex',
-        'flex grid-cols-1 grid-rows-[auto_auto_1fr] flex-col gap-6 md:grid',
-        'rounded-tl-lg rounded-bl-lg p-8',
-        'before:absolute before:top-[20px] before:right-0 before:bottom-[20px] before:w-px before:bg-gray-400/40',
-        'transition-all duration-200 ease-out',
-        'md:pointer-events-auto md:scale-100 md:opacity-100',
+        `${className}`,
+        'hidden md:grid lg:relative lg:flex',
+        'absolute z-50 flex grid-cols-1 grid-rows-[auto_auto_1fr] flex-col gap-6',
+        'bg-bg-main before:bg-gray-400/40',
+        'h-full max-h-[790px] w-fit p-8 md:max-h-full',
+        'rounded-tl-lg rounded-bl-lg',
+        'pointer-events-auto scale-100 opacity-100 transition-all duration-200 ease-out md:pointer-events-auto md:scale-100 md:opacity-100',
+        'before:absolute before:top-[20px] before:right-0 before:bottom-[20px] before:w-px',
       ].join(' ')}
     >
       <div className="grid w-full grid-cols-[auto_1fr] items-center gap-4">

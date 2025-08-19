@@ -16,7 +16,7 @@ function ProjectsSection() {
   return (
     <div
       id="projects"
-      className="relative flex w-full flex-col items-start gap-4 px-8"
+      className="relative flex w-full flex-col items-center gap-4 px-8"
     >
       {/* Título */}
       <Title title="Featured Projects" />
@@ -30,7 +30,7 @@ function ProjectsSection() {
             width: `${cards.length * 100}%`,
           }}
         >
-          {cards.map((key) => (
+          {cards.map((key) => ( 
             <div key={key} className="flex w-full flex-shrink-0 justify-center">
               <ProjectCardKox projectKey={key} />
             </div>

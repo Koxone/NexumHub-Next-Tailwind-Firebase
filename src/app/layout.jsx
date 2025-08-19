@@ -112,7 +112,7 @@ export default function RootLayout({ children }) {
         <body className="bg-bg-main h-screen overflow-x-hidden">
           <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
             <SideBar />
-            <div className="mx-auto grid w-full max-w-[1280px] grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
+            <div className="mx-auto grid w-full justify-center items-center grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
               <I18nProvider>{children}</I18nProvider>
             </div>
             <MobileSideBar />

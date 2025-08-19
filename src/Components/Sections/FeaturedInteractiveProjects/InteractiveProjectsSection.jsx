@@ -5,7 +5,7 @@ import ProjectCardKox from './ProjectCard/ProjectCardKox';
 import Title from '@/Components/UI/Text/Title';
 import InteractiveProjectCard from '@/Components/Features/InteractiveProjectCard/InteractiveProjectCard';
 
-function ProjectsSection({ className }) {
+function InteractiveProjectsSection({ className }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const cards = ['fws', 'sacbe', 'couponGenerator'];
@@ -20,7 +20,7 @@ function ProjectsSection({ className }) {
       className={`relative ${className} flex w-full flex-col items-center gap-4 px-8`}
     >
       {/* Título */}
-      <Title title="Featured Projects" />
+      {/* <Title title="Featured Projects" /> */}
 
       {/* Slider */}
       <div className="relative mb-6 hidden w-full justify-center md:flex xl:hidden">
@@ -76,4 +76,4 @@ function ProjectsSection({ className }) {
   );
 }
 
-export default ProjectsSection;
+export default InteractiveProjectsSection;

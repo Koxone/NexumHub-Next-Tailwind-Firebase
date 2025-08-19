@@ -14,6 +14,7 @@ import { ref, deleteObject } from 'firebase/storage';
 import { Plus } from 'lucide-react';
 import { useProjectModal } from '@/Stores/useProjectModal';
 import TopBar from '@/Components/Features/Topbar/TopBar';
+import InteractiveProjectsSection from '@/Components/Sections/FeaturedInteractiveProjects/InteractiveProjectsSection';
 
 function AnimatedItem({ children, index }) {
   const ref = useRef(null);
@@ -84,20 +85,10 @@ export default function Projects() {
       <TopBar padding="pt-8 pb-4" />
 
       <div className="no-scrollbar flex flex-col gap-4 overflow-y-auto [scroll-behavior:smooth]">
-        <Title title="All Projects" />
+        <Title title="Featured Private Projects" />
 
-        <div className="mx-auto grid w-full flex-1 grid-cols-1 gap-4 pb-8 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-          {/* {data.map((p) => (
-            <ProjectCard
-              key={p.idDoc}
-              imageUrl={p.imageUrl}
-              color="border-gray-700"
-              path={`/projects/${p.id || p.idDoc}`}
-              alt={p.name}
-              onDelete={() => handleDelete(p)}
-            />
-          ))} */}
-          {/* <ProjectsSection /> */}
+        <div className="max-h- flex border">
+          <InteractiveProjectsSection />
         </div>
       </div>
 

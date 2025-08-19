@@ -1,9 +1,9 @@
 import FeatureProjects from '@/Components/Features/Dashboard/Sections/FeatureProjects/FeatureProjects';
 import GitFeatureProjects from '@/Components/Features/Dashboard/Sections/FeatureProjects/GitFeatureProjects';
 import ReposAndMore from '@/Components/Features/Dashboard/Sections/ReposAndMore/ReposAndMore';
-import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
 import ProjectsSection from '@/Components/Features/Koxland/ProjectSection/ProjectsSection';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
+import TopBar from '@/Components/Features/Topbar/TopBar';
 
 export default function Home() {
   return (

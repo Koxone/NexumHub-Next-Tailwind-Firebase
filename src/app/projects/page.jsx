@@ -3,8 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 
-import ProjectCard from '@/Components/Features/Dashboard/Sections/CurrentFeedback/Components/ProjectCard';
-import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
+// import ProjectCard from '@/Components/Features/Dashboard/Sections/CurrentFeedback/Components/ProjectCard';
 import Title from '@/Components/UI/Text/Title';
 
 // Firebase
@@ -14,7 +13,7 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { ref, deleteObject } from 'firebase/storage';
 import { Plus } from 'lucide-react';
 import { useProjectModal } from '@/Stores/useProjectModal';
-import ProjectsSection from '@/Components/Features/Koxland/ProjectSection/ProjectsSection';
+import TopBar from '@/Components/Features/Topbar/TopBar';
 
 function AnimatedItem({ children, index }) {
   const ref = useRef(null);
@@ -88,7 +87,7 @@ export default function Projects() {
         <Title title="All Projects" />
 
         <div className="mx-auto grid w-full flex-1 grid-cols-1 gap-4 pb-8 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-          {data.map((p) => (
+          {/* {data.map((p) => (
             <ProjectCard
               key={p.idDoc}
               imageUrl={p.imageUrl}
@@ -97,7 +96,7 @@ export default function Projects() {
               alt={p.name}
               onDelete={() => handleDelete(p)}
             />
-          ))}
+          ))} */}
           {/* <ProjectsSection /> */}
         </div>
       </div>

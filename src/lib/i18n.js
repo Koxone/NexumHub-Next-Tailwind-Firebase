@@ -1,61 +1,39 @@
+// comments in English
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// Use dynamic imports with proper error handling for Vercel compatibility
+// static imports (Next.js will bundle them)
+import en from '../locales/en/translation.json';
+import es from '../locales/es/translation.json';
+import pt from '../locales/pt/translation.json';
+
 let isInitialized = false;
 
 const initializeI18n = async () => {
   if (isInitialized) return;
 
   try {
-    // Dynamic imports for better Vercel compatibility
-    const [enModule, esModule, ptModule] = await Promise.all([
-      import('../locales/en/translation.json'),
-      import('../locales/es/translation.json'),
-      import('../locales/pt/translation.json'),
-    ]);
-
-    const resources = {
-      en: { translation: enModule.default },
-      es: { translation: esModule.default },
-      pt: { translation: ptModule.default },
-    };
-
-    await i18n.use(initReactI18next).init({
-      resources,
-      lng: 'en',
-      fallbackLng: 'en',
-      interpolation: { escapeValue: false },
-      react: {
-        useSuspense: false,
-      },
-    });
-
-    isInitialized = true;
-  } catch (error) {
-    console.error('Failed to initialize i18n:', error);
-    // Fallback initialization with empty resources
     await i18n.use(initReactI18next).init({
       resources: {
-        en: { translation: {} },
-        es: { translation: {} },
-        pt: { translation: {} },
+        en: { translation: en },
+        es: { translation: es },
+        pt: { translation: pt },
       },
-      lng: 'en',
+      lng: 'en', // default language
       fallbackLng: 'en',
-      interpolation: { escapeValue: false },
+      interpolation: {
+        escapeValue: false, // react already escapes
+      },
       react: {
         useSuspense: false,
       },
     });
+
     isInitialized = true;
+  } catch (err) {
+    console.error('i18n init failed:', err);
   }
 };
 
-// Initialize on client side
-if (typeof window !== 'undefined') {
-  initializeI18n();
-}
-
-export default i18n;
 export { initializeI18n };
+export default i18n;

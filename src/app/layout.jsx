@@ -19,6 +19,7 @@ import {
   UserButton,
 } from '@clerk/nextjs';
 import SideBar from '@/Components/Features/Sidebar/SideBar';
+import StarFieldBackground from '@/Components/UI/Background/StarFieldBackground';
 
 export const metadata = {
   title: {
@@ -110,7 +111,8 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en" className={`${inter.className} h-screen`}>
-        <body className="bg-bg-main h-screen overflow-x-hidden">
+        <body className="bg-bg- h-screen ">
+          <StarFieldBackground />
           <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
             <SideBar />
             <main className="mx-auto grid w-full grid-rows-[auto_auto_1fr] items-center p-8 lg:col-start-2 lg:row-span-full lg:row-start-1">

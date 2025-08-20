@@ -15,7 +15,7 @@ const FeatureCard = ({ title, description }) => (
 
 const FeaturesGrid = ({ tFeatures, projectFeatures }) => {
   return (
-    <section>
+    <section className='b backdrop-blur-sm'>
       <div className="rounded-xl border border-blue-400/50 text-white shadow backdrop-blur-lg">
         <div className="flex flex-col space-y-1.5 p-6">
           <h2 className="flex items-center gap-3 text-2xl font-bold text-white">

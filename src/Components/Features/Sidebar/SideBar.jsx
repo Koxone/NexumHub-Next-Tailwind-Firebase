@@ -33,7 +33,7 @@ function SideBar({ className }) {
         // skin
         'bg-bg-main p-8',
         // divider
-        'before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40',
+        'before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40  backdrop-blur-sm',
         // reset
         'rounded-none',
       ].join(' ')}

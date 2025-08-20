@@ -22,7 +22,7 @@ export default function InteractiveProjectCard({ projectKey, className }) {
       <div
         className={[
           `${className}`,
-          'relative h-full cursor-pointer overflow-hidden rounded-xl',
+          'relative h-full  backdrop-blur-sm cursor-pointer overflow-hidden rounded-xl',
           'border border-blue-400/50 backdrop-blur-xl',
           'transition-all duration-500 ease-in-out',
           'hover:scale-[1.02] hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',

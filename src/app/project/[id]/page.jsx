@@ -59,6 +59,7 @@ export default function ProjectPage({ params }) {
             />
           </div>
           <ProjectSidebar
+            projectId={id}
             pageSize={3}
             technologies={project.technologies}
             url={project.url}

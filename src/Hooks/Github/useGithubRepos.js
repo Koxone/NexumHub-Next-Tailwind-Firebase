@@ -1,7 +1,7 @@
 // comments in English
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { useAuth } from '@clerk/nextjs';
 
 // --- Helpers: build logo urls ---
@@ -33,7 +33,7 @@ export function useGithubRepos({
   const timerRef = useRef(null);
 
   // Fetch once (and on auth or visibility change)
-  const load = async () => {
+  const load = useCallback(async () => {
     try {
       setError('');
       setLoading(true);
@@ -75,7 +75,7 @@ export function useGithubRepos({
     } finally {
       setLoading(false);
     }
-  };
+  }, [isSignedIn, pageSize, visibility]);
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -87,7 +87,7 @@ export function useGithubRepos({
       return () => clearInterval(timerRef.current);
     }
     return () => clearInterval(timerRef.current);
-  }, [isLoaded, isSignedIn, refreshMs, visibility]);
+  }, [isLoaded, isSignedIn, refreshMs, visibility, load]);
 
   // Pagination helpers
   const visibleRepos = useMemo(

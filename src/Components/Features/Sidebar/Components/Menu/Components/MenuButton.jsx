@@ -8,6 +8,7 @@ function MenuButton({
   notification,
   disabled = false,
   contact,
+  textColor = '',
   downloadResume = false,
 }) {
   // click handler
@@ -53,7 +54,9 @@ function MenuButton({
         }`}
       >
         <Icon className="h-5 w-5" />
-        <span className="ms-3 flex-1 whitespace-nowrap">{text}</span>
+        <span className={`ms-3 ${textColor} flex-1 whitespace-nowrap`}>
+          {text}
+        </span>
         {notification && !disabled && (
           <span className="ms-3 inline-flex h-3 w-3 items-center justify-center rounded-full bg-blue-100 p-3 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">
             3

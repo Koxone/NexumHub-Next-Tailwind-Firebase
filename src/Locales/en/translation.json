@@ -1,3 +1,236 @@
 {
-  "hello": "Hello"
+  "subtitle": {
+    "text": "Specializing in React, Next.js & Firebase integrations"
+  },
+  "resumeButton": {
+    "button": "Download Resume"
+  },
+  "header": {
+    "resume": "Resume"
+  },
+  "stack": {
+    "main": "Mainly working with:",
+    "also": "Also building with",
+    "tools": "Tools & Integrations"
+  },
+  "aboutMeSection": {
+    "hi": "Hi there! I'm",
+    "name": "Carlos De Leon",
+    "a": "a",
+    "student": "Software Engineer",
+    "currently": "currently completing a",
+    "internship": "development internship",
+    "atCompany": "at a tourism technology company serving",
+    "company": "Mexico and the Dominican Republic",
+    "transition": "Previously, I spent",
+    "experience": "10+ years as a COO and General Manager in the Hospitality Industry",
+    "where": "where I successfully led",
+    "teams": "teams of 100+ professionals",
+    "andManaged": "and managed operations generating",
+    "operations": "$1.5M USD in monthly revenue with 30% profit margins",
+    "today": "Today, I’m focused on building modern, scalable, and responsive web applications with",
+    "stack": "React, Next.js, Astro, Tailwind CSS, and Firebase",
+    "focusing": "with a strong emphasis on",
+    "focus": "clean code, performance, and intuitive UI/UX",
+    "background": "My leadership background adds proven strengths in",
+    "skills": "project management, data-driven decision making, and thriving under pressure",
+    "end": "which I bring to every technical challenge I take on."
+  },
+  "experienceSection": {
+    "title": "Experience",
+    "role": "Frontend Developer",
+    "company": "Tourism Tech Solutions • Mexico & Dominican Republic",
+    "points": {
+      "point1_part1": "Currently in a",
+      "point1_highlight1": "development internship",
+      "point1_part2": "building production-ready applications for airport and e-commerce clients using",
+      "point1_highlight2": "React, Tailwind CSS, Next.js, ASTRO and REST APIs",
+      "point2_part1": "Led the implementation of a",
+      "point2_highlight": "dynamic coupon system with Google Wallet and Apple Wallet integration",
+      "point2_part2": "collaborating with backend teams to deliver seamless payment flows.",
+      "point3_part1": "Self-taught developer",
+      "point3_part2": "advancing through hands-on projects, technical documentation, and structured online learning while pursuing formal certification.",
+      "point4_part1": "Multilingual communicator:",
+      "point4_highlight1": "Spanish (native)",
+      "point4_highlight2": "English (C1)",
+      "point4_highlight3": "Portuguese (B1)",
+      "point4_part2": "— enabling effective collaboration across international teams and clients.",
+      "point5_part1": "Leverage",
+      "point5_highlight": "10+ years of operations leadership",
+      "point5_part2": "to drive technical projects with clear architecture decisions, stakeholder alignment, and consistent delivery."
+    },
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "tags": {
+      "react": "React",
+      "next": "Next.js",
+      "tailwind": "Tailwind CSS",
+      "astro": "Astro",
+      "rest": "REST APIs",
+      "graphql": "GraphQL",
+      "firebase": "Firebase",
+      "shopify": "Shopify API",
+      "framer": "Framer Motion",
+      "i18n": "i18n",
+      "vercel": "Vercel",
+      "github": "GitHub API",
+      "zustand": "Zustand",
+      "context": "Context API",
+      "google": "Google Wallet",
+      "apple": "Apple Wallet"
+    }
+  },
+  "openGallery": "Click on the picture to start the slideshow",
+  "gallery": "Gallery",
+  "tOverview": "Project Overview",
+  "projects": {
+    "fws": {
+      "id": "fws",
+      "title": "Ecommerce Next.js, Shopify Headless API",
+      "description": "Modern, responsive e-commerce storefront built with Next.js, Tailwind CSS, and Shopify Storefront API. Features clean UI, advanced product browsing, customer reviews with images, wishlist via Firebase, and scalable PWA support with offline use and iOS 'Add to Home Screen' install.",
+      "updated": "Updated August 2025",
+      "date": "July 2025",
+      "techUsed": "Technologies Used",
+      "status": "Active Project",
+      "statusProject": "Completed",
+      "features": "Key Features",
+      "projectFeatures": [
+        {
+          "title": "Real Shopify API Integration",
+          "description": "Fetches live product data, prices, and inventory directly from the Shopify Storefront API."
+        },
+        {
+          "title": "Persistent Cart & Wishlist",
+          "description": "Stores user-specific carts and wishlists securely in Firebase Firestore for seamless shopping."
+        },
+        {
+          "title": "Cloudinary Image Handling",
+          "description": "Supports fast, optimized image uploads for product reviews and user-generated content."
+        },
+        {
+          "title": "i18n Multi-Language Support",
+          "description": "Built-in translation system with English and Spanish support using i18next."
+        },
+        {
+          "title": "Framer Motion Page Animations",
+          "description": "Smooth transitions and micro-interactions for a polished, modern shopping experience."
+        },
+        {
+          "title": "PWA with Offline Support",
+          "description": "App-like experience with offline browsing and “Add to Home Screen” on iOS and Android."
+        }
+      ],
+      "overview": "Koxland Ecommerce is a modern, fully responsive, PWA-ready online store built with Next.js 15, Tailwind CSS v4, Shopify Storefront API, and Firebase Firestore. It’s designed for high performance, scalability, and real-world production use, featuring a persistent shopping cart, user-specific wishlist, product reviews with images (via Cloudinary), and full Shopify checkout integration. The project includes internationalization (i18n), smooth page transitions with Framer Motion, offline support, and the ability to be installed as a mobile app on iOS/Android. It follows a clean, modular architecture optimized for SEO and SSR and is deployed on Vercel. It is an open-source, production-ready e-commerce template for building scalable storefronts with Next.js, Firebase, and Shopify, following best practices for performance, UX, and maintainability."
+    },
+
+    "sacbe": {
+      "title": "Sacbe Tours, Touristic tours booking",
+      "description": "Modern web app for booking tours worldwide. Offers real-time availability, dynamic pricing, and seamless booking through a custom API. Clean, intuitive, and fully responsive UI.",
+      "updated": "Updated August 2025",
+      "date": "July 2025",
+      "type": "WebApp",
+      "status": "Active Project",
+      "statusProject": "In Progress",
+      "features": "Key Features",
+      "projectFeatures": [
+        {
+          "title": "Real-Time Booking Validation",
+          "description": "Checks user eligibility with email and reservation code through a secure API request."
+        },
+        {
+          "title": "Region-Based Tour Filtering",
+          "description": "Browse tours by destination with dynamic filters for Mexico and Dominican Republic."
+        },
+        {
+          "title": "Apple & Google Wallet Support",
+          "description": "Save digital coupons directly to Apple Wallet or Google Wallet for easy access."
+        },
+        {
+          "title": "i18n Multi-Language System",
+          "description": "Seamless English and Spanish support using i18next for global travelers."
+        },
+        {
+          "title": "Responsive & Mobile-First UI",
+          "description": "Clean, optimized interface designed for travelers on any device."
+        },
+        {
+          "title": "Modular Component Architecture",
+          "description": "Scalable React structure for easy maintenance and feature expansion."
+        }
+      ],
+      "overview": "A modern, fully responsive tour booking platform built with Next.js, React, and Tailwind CSS, designed to deliver a seamless travel planning experience. The platform allows users to explore and book tours in top destinations across Mexico and selected locations worldwide. It features a clean, user-friendly interface, dynamic filtering options, and an optimized booking process for travelers on both desktop and mobile devices. Users can browse curated tours with detailed information, pricing, and real-time availability, making it easy to plan trips with confidence. The project is being developed with a scalable, modular architecture to ensure high performance, SEO optimization, and readiness for integrations with APIs such as payment gateways, real-time availability systems, and multi-language support. The platform is currently under active development, with upcoming features including user accounts, personalized recommendations, multi-language support (English/Spanish), and enhanced search capabilities."
+    },
+
+    "testigoMX": {
+      "title": "Humanitarian Platform for Missing Persons",
+      "description": "Humanitarian platform for documenting missing persons and forensic findings in Mexico. Built with Next.js, Tailwind CSS, and Firebase/Firestore. Features ethical moderation, advanced search and tagging, multilingual i18n, role-based access, and PWA support with offline use.",
+      "updated": "Updated August 2025",
+      "date": "July 2025",
+      "type": "WebApp",
+      "status": "Active Project",
+      "statusProject": "Completed",
+      "overview": "TestigoMX is a humanitarian initiative designed to centralize and digitize reports of missing persons and forensic findings in Mexico. It provides a respectful, transparent, and collaborative tool for families, collectives, and specialists.",
+      "features": "Key Features",
+      "projectFeatures": [
+        {
+          "title": "Centralized Database",
+          "description": "Organized and accessible records of missing persons and forensic findings."
+        },
+        {
+          "title": "Content Moderation",
+          "description": "Sensitive material is carefully moderated with dignity and ethical warnings."
+        },
+        {
+          "title": "Advanced Search",
+          "description": "Filter reports by name, location, date, objects, or specific attributes."
+        },
+        {
+          "title": "Multi-Role Access",
+          "description": "Designed for families, collectives, specialists, and civil society."
+        },
+        {
+          "title": "Responsive & Secure",
+          "description": "Optimized for use on desktop and mobile devices with strong privacy rules."
+        }
+      ]
+    },
+
+    "couponGenerator": {
+      "title": "Coupon Generator with API Integration",
+      "description": "A responsive web app that fetches promotional coupons from an API, lets users explore offers by region, and generate Apple/Google Wallet passes via dynamic integration.",
+      "updated": "Updated August 2025",
+      "date": "July 2025",
+      "type": "WebApp",
+      "status": "Active Project",
+      "statusProject": "Completed",
+      "features": "Key Features",
+      "projectFeatures": [
+        {
+          "title": "Secure API Reservation Check",
+          "description": "Verifies user eligibility using email and booking code before showing coupons."
+        },
+        {
+          "title": "Region-Based Coupon Filtering",
+          "description": "Browse and filter offers by destination like Cancún, Tulum, or Punta Cana."
+        },
+        {
+          "title": "Apple & Google Wallet Integration",
+          "description": "Save digital coupons directly to Apple Wallet or Google Wallet in one click."
+        },
+        {
+          "title": "i18n Multi-Language Support",
+          "description": "Easily switch between English and Spanish using i18next integration."
+        },
+        {
+          "title": "Responsive & Clean UI Design",
+          "description": "Optimized for mobile and desktop with a modern, tourist-friendly layout."
+        },
+        {
+          "title": "Component-Based React Structure",
+          "description": "Modular and scalable codebase built with React 19, Vite, and Tailwind CSS."
+        }
+      ],
+      "overview": "Coupon Cards is a responsive, multi-language digital coupon platform built with React 19, Vite, and Tailwind CSS 4. It provides tourists in Mexico and the Dominican Republic with easy access to promotional offers from major fast-food chains in premium destinations such as Cancún, Tulum, Los Cabos, Puerto Vallarta, and Punta Cana. The platform verifies user eligibility via an API call that checks the email and reservation code through Sacbe Transfers’ reservation endpoint. Eligible users can browse and filter coupons by region, view promotion details, and save offers directly to Apple Wallet or Google Wallet for convenience on the go. Key features include multi-language support (English/Spanish) using i18next, a clean and mobile-first UI, region-based filtering, and wallet integration. It follows a modular, component-based structure for scalability and maintainability. The project is deployed on Vercel, using ESLint, Prettier, and Tailwind’s Prettier plugin for consistent code formatting. Future improvements include user accounts, an admin panel for coupon management, analytics integration, and support for more tourist destinations."
+    }
+  }
 }

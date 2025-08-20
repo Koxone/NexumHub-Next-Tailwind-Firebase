@@ -2,11 +2,23 @@ import '@/app/globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import localFont from 'next/font/local';
-import SideBar from '@/Components/Features/Dashboard/Sections/Sidebar/SideBar';
-import MobileSideBar from '@/Components/Features/Dashboard/Custom/MobileSideBar';
+import I18nProvider from '@/Components/providers/Languages/I18nProvider';
+import MobileSideBar from '@/Components/Features/Sidebar/MobileSideBar';
+
 import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
 import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/CreateProjectModal';
+
+// Clerk
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs';
+import SideBar from '@/Components/Features/Sidebar/SideBar';
 
 export const metadata = {
   title: {
@@ -96,21 +108,23 @@ const inter = localFont({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.className} h-screen`}>
-      <body className="bg-bg-main h-screen overflow-x-hidden">
-        <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
-          <SideBar />
-          <div className="mx-auto grid w-full max-w-[1280px] grid-rows-[auto_auto_1fr] lg:col-start-2 lg:row-span-full lg:row-start-1">
-            {children}
+    <ClerkProvider>
+      <html lang="en" className={`${inter.className} h-screen`}>
+        <body className="bg-bg-main h-screen overflow-x-hidden">
+          <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
+            <SideBar />
+            <main className="mx-auto grid w-full grid-rows-[auto_auto_1fr] p-8 items-center lg:col-start-2 lg:row-span-full lg:row-start-1">
+              <I18nProvider>{children}</I18nProvider>
+            </main>
+            <MobileSideBar />
+            <CreateTaskModal />
+            <TaskAndPendingModal />
+            <CreateProjectModal />
           </div>
-          <MobileSideBar />
-          <CreateTaskModal />
-          <TaskAndPendingModal />
-          <CreateProjectModal />
-        </div>
-        <SpeedInsights />
-        <Analytics />
-      </body>
-    </html>
+          <SpeedInsights />
+          <Analytics />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

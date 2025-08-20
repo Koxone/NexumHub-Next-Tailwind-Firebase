@@ -9,7 +9,7 @@ export default function AboutMe() {
   return (
     <div
       className={[
-        'relative mx-auto mt-10 flex max-w-[300px] flex-col items-center gap-10',
+        'relative z-50 mx-auto mt-10 flex max-w-[300px] flex-col items-center gap-10',
         'sm:max-w-[575px]',
         'md:mt-0 md:h-full md:max-h-fit md:max-w-[450px] md:text-sm',
         'lg:mt-0 lg:max-h-full lg:max-w-lg lg:text-base',
@@ -25,8 +25,8 @@ export default function AboutMe() {
       </div>
       <div
         className={[
-          'group relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden',
-          'rounded-2xl border border-blue-400 bg-white/10 p-8 text-left leading-relaxed text-neutral-200',
+          'group relative z-50 flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden',
+          'rounded-2xl border border-blue-400 bg-white/5 p-8 text-left leading-relaxed text-neutral-200 backdrop-blur-sm',
           'transition-all duration-500 ease-in-out',
           'hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
           'sm:max-w-[575px] sm:border-neutral-500 sm:hover:border-blue-400',

@@ -75,6 +75,38 @@ html {
   --leading-body-2: 22px;
 }
 
+@keyframes star-blink {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes star-fall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(5vw);
+    opacity: 0;
+  }
+}
+
+.star-blink {
+  animation-name: star-blink;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
 /* Optional utilities for tracking classes if you want them as single tokens */
 @layer utilities {
   .tracking-h1 {

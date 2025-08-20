@@ -4,9 +4,9 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Import JSON translations using standard ES6 imports
-import en from '../locales/en/translation.json';
-import es from '../locales/es/translation.json';
-import pt from '../locales/pt/translation.json';
+import en from '../locales/en/english.json';
+import es from '../locales/es/spanish.json';
+import pt from '../locales/pt/portugues.json';
 
 // Configure i18n
 i18n

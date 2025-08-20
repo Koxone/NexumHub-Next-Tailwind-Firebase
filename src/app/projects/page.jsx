@@ -99,7 +99,7 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="no-scrollbar grid gap-8 [scroll-behavior:smooth] md:justify-center lg:grid-cols-2">
+      <div className="no-scrollbar grid gap-8 [scroll-behavior:smooth] md:justify-center lg:grid-cols-[auto_1fr]">
         {/* Projects */}
         <div className="flex flex-col gap-5">
           <Title title="Featured Private Projects" />
@@ -110,7 +110,7 @@ export default function Projects() {
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-4">
             {/* Title */}
-            <Title title="Latest Github Updates" className='ml-8' />
+            <Title title="Latest Github Updates" className="" />
 
             {/* State Indicator */}
             <div className="text-center">
@@ -120,7 +120,7 @@ export default function Projects() {
               </span>
             </div>
           </div>
-          <GithubRepos padding="p-8" />
+          <GithubRepos padding="" />
         </div>
       </div>
 

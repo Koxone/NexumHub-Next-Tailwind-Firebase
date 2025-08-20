@@ -73,7 +73,7 @@ function InteractiveProjectsSection({ className = '' }) {
       </div>
 
       {/* Cards Desktop */}
-      <div className="hidden grid-cols-2 gap-10 lg:grid">
+      <div className="hidden grid-cols-3 gap-10 lg:grid">
         <InteractiveProjectCard projectKey="testigoMX" />
         <InteractiveProjectCard projectKey="fws" />
         <InteractiveProjectCard projectKey="couponGenerator" />

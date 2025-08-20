@@ -2,7 +2,7 @@ import '@/app/globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import localFont from 'next/font/local';
-import I18nProvider from '@/components/providers/Languages/I18nProvider';
+import I18nProvider from '@/Components/providers/Languages/I18nProvider';
 import MobileSideBar from '@/Components/Features/Sidebar/MobileSideBar';
 
 import TaskAndPendingModal from '@/Components/Features/Modals/TaskAndPendingModal';

@@ -162,7 +162,7 @@
     },
 
     "testigoMX": {
-      "title": "TestigoMX, Humanitarian Platform for Missing Persons",
+      "title": "Humanitarian Platform for Missing Persons",
       "description": "Humanitarian platform for documenting missing persons and forensic findings in Mexico. Built with Next.js, Tailwind CSS, and Firebase/Firestore. Features ethical moderation, advanced search and tagging, multilingual i18n, role-based access, and PWA support with offline use.",
       "updated": "Updated August 2025",
       "date": "July 2025",

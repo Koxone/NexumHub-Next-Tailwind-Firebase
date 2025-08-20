@@ -7,6 +7,7 @@ const repoMap = {
   tetris: 'Tetris-Tailwind-Javascript',
   planet: 'Planet-Fact-React-Tailwind',
   tictactoe: 'TicTacToe-React-Tailwind',
+  learn: 'Learn-Frontend-Next-Tailwind-Firebase',
 };
 
 export default repoMap;

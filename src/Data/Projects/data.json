@@ -132,6 +132,38 @@
       "overview": "projects.couponGenerator.overview",
       "features": "projects.couponGenerator.features",
       "projectFeatures": "projects.couponGenerator.projectFeatures"
+    },
+
+    "learn": {
+      "id": "learn",
+      "titleKey": "projects.couponGenerator.title",
+      "descriptionKey": "projects.couponGenerator.description",
+      "url": "https://discounts.sacbetransfers.com/",
+      "urlGit": "https://github.com/Koxone/Sacbe-Coupon-Generator-React-Tailwind",
+      "image": "/coupons/1.webp",
+      "featured": true,
+      "logo": "/Images/ProjectCards/learn.svg",
+      "src": "coupons",
+      "completed": false,
+      "active": true,
+      "updated": "projects.couponGenerator.updated",
+      "date": "projects.couponGenerator.date",
+      "lastUpdated": "2025-08-01",
+      "typeKey": "projects.couponGenerator.type",
+      "statusKey": "projects.couponGenerator.status",
+      "status": "projects.couponGenerator.statusProject",
+      "technologies": [
+        "React",
+        "Tailwind",
+        "API",
+        "Google Wallet",
+        "Apple Wallet"
+      ],
+      "tags": ["PWA", "Coupons", "API"],
+      "teamSize": "1",
+      "overview": "projects.couponGenerator.overview",
+      "features": "projects.couponGenerator.features",
+      "projectFeatures": "projects.couponGenerator.projectFeatures"
     }
   }
 }

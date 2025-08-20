@@ -77,6 +77,7 @@ function InteractiveProjectsSection({ className = '' }) {
         <InteractiveProjectCard projectKey="testigoMX" />
         <InteractiveProjectCard projectKey="fws" />
         <InteractiveProjectCard projectKey="couponGenerator" />
+        <InteractiveProjectCard projectKey="learn" />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ export default function ProjectPage({ params }) {
 
   if (!project) {
     return (
-      <h1 className="mt-20 text-center text-2xl text-white">
+      <h1 className="text-text-primary mt-20 text-center text-2xl">
         Proyecto no encontrado
       </h1>
     );

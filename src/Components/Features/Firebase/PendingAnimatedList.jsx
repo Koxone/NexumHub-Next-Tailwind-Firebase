@@ -158,7 +158,7 @@ export default function PendingAnimatedList({
 
         {loading && (
           <div className="flex items-center justify-center p-8">
-            <div className="text-neutral-300">
+            <div className="text-text-body">
               Loading from {collectionName}...
             </div>
           </div>
@@ -228,16 +228,16 @@ export default function PendingAnimatedList({
                 onClick={() => setSelectedIndex(index)}
               >
                 <div
-                  className={`group rounded-xl border border-blue-400/50 bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]`}
+                  className={`group border-border-main/50 rounded-xl border bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]`}
                 >
                   <div className="mb-2">
                     <div className="mb-2 flex items-center justify-between">
-                      <h4 className="truncate text-base font-semibold text-white capitalize">
+                      <h4 className="text-text-primary truncate text-base font-semibold capitalize">
                         {title}
                       </h4>
                       {priority && priority !== 'normal' && (
                         <span
-                          className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white uppercase ${
+                          className={`text-text-primary ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium uppercase ${
                             priority === 'urgent'
                               ? 'bg-red-600'
                               : priority === 'high'
@@ -276,7 +276,7 @@ export default function PendingAnimatedList({
 
                   {/* Content section with description and image */}
                   <div className="flex items-start gap-3">
-                    <p className="line-clamp-3 flex-1 text-sm text-neutral-300">
+                    <p className="text-text-body line-clamp-3 flex-1 text-sm">
                       {description}
                     </p>
 
@@ -286,7 +286,7 @@ export default function PendingAnimatedList({
                         <img
                           src={imageUrl}
                           alt="Preview"
-                          className="h-16 w-16 cursor-pointer rounded-lg border border-neutral-700 object-cover transition-colors hover:border-neutral-500"
+                          className="border-border-strong h-16 w-16 cursor-pointer rounded-lg border object-cover transition-colors hover:border-neutral-500"
                           onClick={(e) => {
                             e.stopPropagation();
                             openImageModal(imageUrl);
@@ -303,7 +303,7 @@ export default function PendingAnimatedList({
                     {tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-neutral-300"
+                        className="text-text-body rounded-full bg-white/10 px-2 py-0.5 text-[10px]"
                       >
                         #{tag}
                       </span>
@@ -337,7 +337,7 @@ export default function PendingAnimatedList({
           <div className="relative max-w-[90vw] p-4">
             {/* Close button */}
             <button
-              className="absolute -top-2 -right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-white transition-colors hover:bg-red-700"
+              className="text-text-primary absolute -top-2 -right-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-red-600 transition-colors hover:bg-red-700"
               onClick={closeImageModal}
             >
               ✕

@@ -5,7 +5,7 @@ function FeatureBadge({ featured }) {
 
   return (
     <div className="absolute top-4 left-4 z-20">
-      <div className="inline-flex animate-pulse items-center rounded-md border-0 bg-gradient-to-r from-amber-400 via-blue-400 to-red-400 px-2.5 py-0.5 text-xs font-semibold text-white shadow-xl backdrop-blur-sm">
+      <div className="text-text-primary inline-flex animate-pulse items-center rounded-md border-0 bg-gradient-to-r from-amber-400 via-blue-400 to-red-400 px-2.5 py-0.5 text-xs font-semibold shadow-xl backdrop-blur-sm">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

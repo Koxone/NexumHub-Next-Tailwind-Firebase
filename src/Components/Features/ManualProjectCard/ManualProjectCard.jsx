@@ -25,14 +25,14 @@ export default function ManualProjectCard({
   return (
     <div
       onClick={handleClick}
-      className={`flex aspect-square max-h-[300px] w-full max-w-[300px] shrink-0 flex-col justify-between rounded-lg border border-blue-400/50 ${color} p-4 ${className}`}
+      className={`border-border-main/50 flex aspect-square max-h-[300px] w-full max-w-[300px] shrink-0 flex-col justify-between rounded-lg border ${color} p-4 ${className}`}
     >
       <div
         data-nodrag="true"
         className="flex items-center justify-between"
         onClick={(e) => e.stopPropagation()}
       >
-        <p className="ml-2 inline-block rounded-full bg-green-600 px-2 py-0.5 text-xs font-medium text-white uppercase">
+        <p className="text-text-primary ml-2 inline-block rounded-full bg-green-600 px-2 py-0.5 text-xs font-medium uppercase">
           Production Ready
         </p>
       </div>
@@ -51,13 +51,13 @@ export default function ManualProjectCard({
             className="object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
+          <div className="text-text-secondary flex h-full w-full items-center justify-center text-xs">
             No image
           </div>
         )}
       </div>
       <div>
-        <p className="mt-2 max-w-[28ch] text-center text-sm leading-snug tracking-tight text-gray-300">
+        <p className="text-text-subheading mt-2 max-w-[28ch] text-center text-sm leading-snug tracking-tight">
           {description}
           <span className="text-gray text-sm-300 rounded-full bg-violet-500/15 px-2 py-0.5">
             {stack}

@@ -12,7 +12,6 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { ref, deleteObject } from 'firebase/storage';
 import { Plus } from 'lucide-react';
 import { useProjectModal } from '@/Stores/useProjectModal';
-import TopBar from '@/Components/Features/Topbar/TopBar';
 import InteractiveProjectsSection from '@/Components/Sections/FeaturedInteractiveProjects/InteractiveProjectsSection';
 import GithubRepos from '@/Components/Features/Github/Components/Repos/GithubRepos';
 
@@ -47,7 +46,7 @@ export default function Projects() {
 
   // Firebase
   const { data, loading } = useProjects();
-  if (loading) return <p className="text-gray-300">Loading projects…</p>;
+  if (loading) return <p className="text-text-subheading">Loading projects…</p>;
   if (!data.length) {
     return (
       <div className="flex flex-col gap-4 overflow-hidden px-8">
@@ -55,7 +54,12 @@ export default function Projects() {
         <div className="flex h-[300px] items-center justify-start">
           <div
             onClick={toggleProject}
-            className="flex aspect-square max-h-[300px] w-full max-w-[300px] cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed border-gray-600 p-4 text-gray-400"
+            className={[
+              'flex aspect-square max-h-[300px] w-full max-w-[300px] cursor-pointer',
+              'flex-col items-center justify-center rounded-lg',
+              'border-border-strong border border-dashed',
+              'text-text-secondary p-4',
+            ].join(' ')}
           >
             <span className="flex flex-col items-center text-lg font-medium">
               <Plus className="cursor-pointer" />
@@ -84,16 +88,20 @@ export default function Projects() {
     <div className="flex min-h-0 w-full flex-col gap-8 justify-self-center lg:pl-64">
       {/* Presentation */}
       <div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-white capitalize md:text-4xl lg:text-4xl">
+        <h1 className="text-text-primary mb-4 text-4xl font-bold tracking-tight capitalize md:text-4xl lg:text-4xl">
           Projects
         </h1>
-        <p className="max-w-[1100px] text-sm font-light text-neutral-400 sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
+        <p className="text-text-secondary max-w-[1100px] text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
           Here you'll find my{' '}
-          <span className="font-semibold text-white">Featured Projects</span>,
-          currently live in production but kept private on GitHub. Although the
-          source code isn't public, you can still explore each project to
+          <span className="text-text-primary font-semibold">
+            Featured Projects
+          </span>
+          , currently live in production but kept private on GitHub. Although
+          the source code isn't public, you can still explore each project to
           discover its purpose, features, and technologies. You'll also see{' '}
-          <span className="font-semibold text-white">Real-time Updates</span>{' '}
+          <span className="text-text-primary font-semibold">
+            Real-time Updates
+          </span>{' '}
           from all my public repositories, showcasing my latest commits,
           progress, and ongoing development work.
         </p>
@@ -114,8 +122,8 @@ export default function Projects() {
 
             {/* State Indicator */}
             <div className="text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <span className="bg-bg-secondary text-text-body inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
+                <span className="h-2 w-2 rounded-full bg-bg-emerald"></span>
                 Real Time Updates
               </span>
             </div>

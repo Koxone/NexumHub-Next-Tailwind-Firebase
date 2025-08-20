@@ -32,7 +32,7 @@ function Technologies({ technologies = [] }) {
         {technologies.map((tech, index) => (
           <div
             key={index}
-            className="inline-flex items-center rounded-md border border-blue-500/20 bg-blue-400/60 px-2.5 py-0.5 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:scale-105 hover:bg-blue-500/20"
+            className="text-text-primary bg-accent-light/60 inline-flex items-center rounded-md border border-blue-500/20 px-2.5 py-0.5 text-xs font-semibold shadow-sm transition-all duration-300 hover:scale-105 hover:bg-blue-500/20"
           >
             {tech}
           </div>

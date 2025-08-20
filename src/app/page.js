@@ -1,8 +1,5 @@
 import TopBar from '@/Components/Features/Topbar/TopBar';
-import StackSection from '@/Components/Features/Stack/StackSection';
-import Avatar from '@/Components/UI/Avatar/Avatar';
 import HeroSection from '@/Components/Sections/Hero/HeroSection';
-import InteractiveProjectsSection from '@/Components/Sections/FeaturedInteractiveProjects/InteractiveProjectsSection';
 import ExperienceSection from '@/Components/Sections/Experience/ExperienceSection';
 export default function Home() {
   return (
@@ -15,7 +12,6 @@ export default function Home() {
       <TopBar />
       <HeroSection />
       <ExperienceSection />
-      {/* <InteractiveProjectsSection /> */}
     </div>
   );
 }

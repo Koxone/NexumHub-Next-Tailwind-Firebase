@@ -30,7 +30,7 @@ export default function StackSection({ className = '' }) {
     <section className={`flex ${className} flex-col items-center gap-10`}>
       {/* title */}
       <div>
-        <h2 className="mb-2 text-center text-4xl font-bold text-[#c2c6da]">
+        <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
           Stack
         </h2>
         <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-blue-800" />
@@ -38,7 +38,7 @@ export default function StackSection({ className = '' }) {
 
       {/* main */}
       <div className="flex flex-col items-center gap-3">
-        <h3 className="text-lg font-semibold text-[#c2c6da]">
+        <h3 className="text-text-body text-lg font-semibold">
           {t('stack.main')}
         </h3>
         <ul className="flex flex-wrap justify-center gap-5">
@@ -47,7 +47,7 @@ export default function StackSection({ className = '' }) {
               url: '/Assets/StackIcons/next.svg',
               tooltip: 'Next.js',
               border: 'border-white',
-              text: 'text-white',
+              text: 'text-text-primary',
               bg: 'bg-white/10',
               hover: 'hover-glow-white scale-110',
             },
@@ -81,7 +81,7 @@ export default function StackSection({ className = '' }) {
 
       {/* secondary */}
       <div className="flex flex-col items-center gap-3">
-        <h3 className="text-lg font-semibold text-[#c2c6da]">
+        <h3 className="text-text-body text-lg font-semibold">
           {t('stack.also')}
         </h3>
         <ul className="flex flex-wrap justify-center gap-5">
@@ -116,7 +116,7 @@ export default function StackSection({ className = '' }) {
 
       {/* tools */}
       <div className="flex flex-col items-center gap-3">
-        <h3 className="text-lg font-semibold text-[#c2c6da]">
+        <h3 className="text-text-body text-lg font-semibold">
           {t('stack.tools')}
         </h3>
         <ul className="grid grid-cols-5 justify-center gap-5">
@@ -197,7 +197,7 @@ export default function StackSection({ className = '' }) {
               url: '/Assets/StackIcons/Shadcn-UI.svg',
               tooltip: 'Shadcn/UI',
               border: 'border-white',
-              text: 'text-white',
+              text: 'text-text-primary',
               bg: 'bg-white/10',
               hover: 'hover-glow-white scale-110',
             },
@@ -245,7 +245,7 @@ export default function StackSection({ className = '' }) {
               url: '/Assets/StackIcons/vercel.svg',
               tooltip: 'Vercel',
               border: 'border-neutral-400',
-              text: 'text-neutral-300',
+              text: 'text-text-body',
               bg: 'bg-neutral-500/10',
               hover: 'hover-glow-white',
             },

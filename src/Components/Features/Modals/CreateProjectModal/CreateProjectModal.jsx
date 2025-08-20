@@ -128,7 +128,7 @@ export default function CreateProjectModal({ onSubmit }) {
           {/* Modal content */}
           <div className="bg-bg-main relative rounded-lg shadow-sm">
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-600 p-4 md:p-5">
+            <div className="border-border-strong flex items-center justify-between border-b p-4 md:p-5">
               <Title id="create-task-title" title="Create New Project" />
 
               {/* Close Modal Button */}
@@ -136,7 +136,7 @@ export default function CreateProjectModal({ onSubmit }) {
                 ref={closeBtnRef}
                 type="button"
                 onClick={closeProject}
-                className="ms-auto inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-sm text-gray-400 hover:bg-gray-600 hover:text-white"
+                className="hover:text-text-primary text-text-secondary ms-auto inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-sm hover:bg-gray-600"
                 aria-label="Close modal"
               >
                 <X />
@@ -150,7 +150,7 @@ export default function CreateProjectModal({ onSubmit }) {
                 <div className="col-span-2">
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Project Name
                   </label>
@@ -161,7 +161,7 @@ export default function CreateProjectModal({ onSubmit }) {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
+                    className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400"
                     placeholder="Type project name"
                   />
                 </div>
@@ -170,7 +170,7 @@ export default function CreateProjectModal({ onSubmit }) {
                 <div className="col-span-2">
                   <label
                     htmlFor="projectImage"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Upload Project Image
                   </label>
@@ -180,7 +180,7 @@ export default function CreateProjectModal({ onSubmit }) {
                     type="file"
                     accept="image/*"
                     onChange={handleChange}
-                    className="block w-full cursor-pointer rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-gray-500 file:px-4 file:py-2 file:text-sm file:font-medium hover:file:bg-gray-400"
+                    className="text-text-primary block w-full cursor-pointer rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-gray-500 file:px-4 file:py-2 file:text-sm file:font-medium hover:file:bg-gray-400"
                   />
                 </div>
 
@@ -188,7 +188,7 @@ export default function CreateProjectModal({ onSubmit }) {
                 <div className="col-span-2 sm:col-span-1">
                   <label
                     htmlFor="id"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Project ID
                   </label>
@@ -199,7 +199,7 @@ export default function CreateProjectModal({ onSubmit }) {
                     required
                     value={formData.id}
                     onChange={handleChange}
-                    className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
+                    className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400"
                     placeholder="Type project ID"
                   />
                 </div>
@@ -208,7 +208,7 @@ export default function CreateProjectModal({ onSubmit }) {
                 <div className="col-span-2 sm:col-span-1">
                   <label
                     htmlFor="url"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Project URL
                   </label>
@@ -219,7 +219,7 @@ export default function CreateProjectModal({ onSubmit }) {
                     required
                     value={formData.url}
                     onChange={handleChange}
-                    className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
+                    className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400"
                     placeholder="Type project URL"
                   />
                 </div>
@@ -229,9 +229,9 @@ export default function CreateProjectModal({ onSubmit }) {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className={`inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 ${
+                className={`text-text-primary inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-colors duration-300 ${
                   status === 'loading'
-                    ? 'cursor-not-allowed bg-blue-400'
+                    ? 'bg-accent-light cursor-not-allowed'
                     : status === 'success'
                       ? 'bg-green-600'
                       : status === 'error'
@@ -241,7 +241,7 @@ export default function CreateProjectModal({ onSubmit }) {
               >
                 {status === 'loading' && (
                   <svg
-                    className="h-4 w-4 animate-spin text-white"
+                    className="text-text-primary h-4 w-4 animate-spin"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -264,7 +264,7 @@ export default function CreateProjectModal({ onSubmit }) {
 
                 {status === 'success' && (
                   <svg
-                    className="h-4 w-4 text-white"
+                    className="text-text-primary h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -281,7 +281,7 @@ export default function CreateProjectModal({ onSubmit }) {
 
                 {status === 'error' && (
                   <svg
-                    className="h-4 w-4 text-white"
+                    className="text-text-primary h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

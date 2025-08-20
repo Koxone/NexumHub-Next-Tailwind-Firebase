@@ -108,7 +108,7 @@ export default function CreateTaskModal({ onSubmit }) {
           {/* Modal content */}
           <div className="bg-bg-main relative rounded-lg shadow-sm">
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-600 p-4 md:p-5">
+            <div className="border-border-strong flex items-center justify-between border-b p-4 md:p-5">
               <Title id="create-task-title" title="Create New Task" />
 
               {/* Close Modal Button */}
@@ -116,7 +116,7 @@ export default function CreateTaskModal({ onSubmit }) {
                 ref={closeBtnRef}
                 type="button"
                 onClick={close}
-                className="hover: ms-auto inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-sm text-gray-400 hover:bg-gray-600 hover:text-white"
+                className="hover: hover:text-text-primary text-text-secondary ms-auto inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-sm hover:bg-gray-600"
                 aria-label="Close modal"
               >
                 <X />
@@ -130,7 +130,7 @@ export default function CreateTaskModal({ onSubmit }) {
                 <div className="col-span-2">
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Name
                   </label>
@@ -141,7 +141,7 @@ export default function CreateTaskModal({ onSubmit }) {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
+                    className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400"
                     placeholder="Type task name"
                   />
                 </div>
@@ -150,7 +150,7 @@ export default function CreateTaskModal({ onSubmit }) {
                 <div className="col-span-2">
                   <label
                     htmlFor="project"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Select a Project
                   </label>
@@ -159,7 +159,7 @@ export default function CreateTaskModal({ onSubmit }) {
                     name="project"
                     value={formData.project}
                     onChange={handleChange}
-                    className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
+                    className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400"
                   >
                     <option value="" disabled>
                       Select project
@@ -174,7 +174,7 @@ export default function CreateTaskModal({ onSubmit }) {
                 <div className="col-span-2 sm:col-span-1">
                   <label
                     htmlFor="priority"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Priority
                   </label>
@@ -183,7 +183,7 @@ export default function CreateTaskModal({ onSubmit }) {
                     name="priority"
                     value={formData.priority}
                     onChange={handleChange}
-                    className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
+                    className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400"
                   >
                     <option value="" disabled>
                       Select Priority
@@ -199,7 +199,7 @@ export default function CreateTaskModal({ onSubmit }) {
                 <div className="col-span-2 sm:col-span-1">
                   <label
                     htmlFor="tags"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Tags
                   </label>
@@ -208,7 +208,7 @@ export default function CreateTaskModal({ onSubmit }) {
                     {/* Trigger button */}
                     <button
                       type="button"
-                      className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-left text-sm text-white"
+                      className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-left text-sm"
                       onClick={() => setOpen((prev) => !prev)}
                     >
                       {selectedTags.length > 0
@@ -223,7 +223,7 @@ export default function CreateTaskModal({ onSubmit }) {
                           (tag, i, arr) => (
                             <label
                               key={tag}
-                              className={`flex cursor-pointer items-center gap-2 p-2 text-sm text-white hover:bg-gray-600 ${i === 0 ? 'rounded-t-lg' : ''} ${i === arr.length - 1 ? 'rounded-b-lg' : ''}`}
+                              className={`text-text-primary flex cursor-pointer items-center gap-2 p-2 text-sm hover:bg-gray-600 ${i === 0 ? 'rounded-t-lg' : ''} ${i === arr.length - 1 ? 'rounded-b-lg' : ''}`}
                             >
                               <input
                                 type="checkbox"
@@ -253,7 +253,7 @@ export default function CreateTaskModal({ onSubmit }) {
                 <div className="col-span-2">
                   <label
                     htmlFor="description"
-                    className="mb-2 block text-sm font-medium text-white"
+                    className="text-text-primary mb-2 block text-sm font-medium"
                   >
                     Description
                   </label>
@@ -263,7 +263,7 @@ export default function CreateTaskModal({ onSubmit }) {
                     rows={4}
                     value={formData.description}
                     onChange={handleChange}
-                    className="block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm text-white placeholder-gray-400"
+                    className="text-text-primary block w-full rounded-lg border border-gray-500 bg-gray-600 p-2.5 text-sm placeholder-gray-400"
                     placeholder="Write task description here"
                   />
                 </div>
@@ -273,9 +273,9 @@ export default function CreateTaskModal({ onSubmit }) {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className={`inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 ${
+                className={`text-text-primary inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-colors duration-300 ${
                   status === 'loading'
-                    ? 'cursor-not-allowed bg-blue-400'
+                    ? 'bg-accent-light cursor-not-allowed'
                     : status === 'success'
                       ? 'bg-green-600'
                       : status === 'error'
@@ -285,7 +285,7 @@ export default function CreateTaskModal({ onSubmit }) {
               >
                 {status === 'loading' && (
                   <svg
-                    className="h-4 w-4 animate-spin text-white"
+                    className="text-text-primary h-4 w-4 animate-spin"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -308,7 +308,7 @@ export default function CreateTaskModal({ onSubmit }) {
 
                 {status === 'success' && (
                   <svg
-                    className="h-4 w-4 text-white"
+                    className="text-text-primary h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -325,7 +325,7 @@ export default function CreateTaskModal({ onSubmit }) {
 
                 {status === 'error' && (
                   <svg
-                    className="h-4 w-4 text-white"
+                    className="text-text-primary h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

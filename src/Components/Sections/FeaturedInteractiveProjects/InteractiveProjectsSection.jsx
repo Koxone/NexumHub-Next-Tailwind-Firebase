@@ -53,7 +53,7 @@ function InteractiveProjectsSection({ className = '' }) {
         <button
           onClick={handleNext}
           aria-label="Next projects"
-          className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer rounded-full bg-white/80 p-2 shadow-md transition hover:bg-blue-400 hover:text-white"
+          className="hover:text-text-primary hover:bg-accent-light absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer rounded-full bg-white/80 p-2 shadow-md transition"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

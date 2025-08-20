@@ -4,7 +4,7 @@ function Activity({ updated, active }) {
   const isActive = Boolean(active);
 
   return (
-    <div className="border-border/30 flex items-center justify-between border-t border-blue-400/40 pt-4 text-gray-400">
+    <div className="border-border/30 border-border-main/40 text-text-secondary flex items-center justify-between border-t pt-4">
       <div className="flex items-center gap-1 text-xs">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ function Activity({ updated, active }) {
       <div className="flex items-center gap-2 text-xs">
         <div
           className={`h-2 w-2 rounded-full ${
-            isActive ? 'animate-pulse bg-emerald-400' : 'bg-blue-400'
+            isActive ? 'animate-pulse bg-emerald-400' : 'bg-accent-light'
           }`}
         />
         <span className={isActive ? 'text-emerald-400' : 'text-blue-400'}>

@@ -171,14 +171,14 @@ export default function TasksAnimatedList({
             onClick={() => setSelectedIndex(index)}
           >
             <div
-              className={`group rounded-xl border border-blue-400/50 bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]`}
+              className={`group border-border-main/50 rounded-xl border bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]`}
             >
               <div className="mb-2 flex items-center justify-between">
-                <h4 className="truncate text-base font-semibold text-white">
+                <h4 className="text-text-primary truncate text-base font-semibold">
                   {task.name}
                 </h4>
                 <span
-                  className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white uppercase ${
+                  className={`text-text-primary ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium uppercase ${
                     task.priority === 'urgent'
                       ? 'bg-red-600'
                       : task.priority === 'high'
@@ -192,7 +192,7 @@ export default function TasksAnimatedList({
                 </span>
               </div>
 
-              <p className="line-clamp-3 text-sm text-neutral-300">
+              <p className="text-text-body line-clamp-3 text-sm">
                 {task.description}
               </p>
 
@@ -200,7 +200,7 @@ export default function TasksAnimatedList({
                 {task.tags?.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-neutral-300"
+                    className="text-text-body rounded-full bg-white/10 px-2 py-0.5 text-[10px]"
                   >
                     #{tag}
                   </span>

@@ -55,7 +55,7 @@ export default function GitRepoActivityList({
         }`}
       >
         {loading && (
-          <div className="py-6 text-center text-sm text-neutral-400">
+          <div className="text-text-secondary py-6 text-center text-sm">
             Loading…
           </div>
         )}
@@ -63,13 +63,13 @@ export default function GitRepoActivityList({
           <div className="py-2 text-center text-sm text-red-400">{error}</div>
         )}
         {!loading && !error && activity.length === 0 && (
-          <div className="py-6 text-center text-sm text-neutral-400">
+          <div className="text-text-secondary py-6 text-center text-sm">
             No activity.
           </div>
         )}
 
-        <ul className="backdrop-lg space-y-4 rounded-xl border border-blue-400/50 p-6 text-white shadow backdrop-blur-sm">
-          <h3 className="cur flex items-center gap-3 text-xl font-bold text-white">
+        <ul className="backdrop-lg text-text-primary border-border-main/50 space-y-4 rounded-xl border p-6 shadow backdrop-blur-sm">
+          <h3 className="cur text-text-primary flex items-center gap-3 text-xl font-bold">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20">
               <Github className="text-blue-400" />
             </div>
@@ -81,7 +81,7 @@ export default function GitRepoActivityList({
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group block rounded-xl border border-blue-400/50 p-4 transition-all duration-200 ease-in-out hover:scale-105 hover:bg-blue-500/20"
+                className="group border-border-main/50 block rounded-xl border p-4 transition-all duration-200 ease-in-out hover:scale-105 hover:bg-blue-500/20"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
@@ -91,13 +91,13 @@ export default function GitRepoActivityList({
                     <div className="truncate text-sm text-neutral-200">
                       {item.message}
                     </div>
-                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-neutral-400">
+                    <div className="text-text-secondary mt-1 flex flex-wrap items-center gap-2 text-xs">
                       <span>{item.author}</span>
                       <span>•</span>
                       <span className="font-mono">{item.sha?.slice(0, 7)}</span>
                     </div>
                   </div>
-                  <div className="shrink-0 text-xs text-neutral-400">
+                  <div className="text-text-secondary shrink-0 text-xs">
                     {timeAgo(item.date)}
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function GitRepoActivityList({
           <div className="flex justify-center py-4">
             <button
               onClick={onShowMore}
-              className="group flex cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-blue-600 px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:from-violet-500 hover:to-blue-500"
+              className="group text-text-primary flex cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-blue-600 px-6 py-2.5 text-sm font-medium transition-all duration-200 hover:scale-105 hover:from-violet-500 hover:to-blue-500"
             >
               <span>Show more</span>
               <svg

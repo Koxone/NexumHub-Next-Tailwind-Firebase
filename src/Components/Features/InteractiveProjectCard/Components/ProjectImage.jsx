@@ -22,7 +22,7 @@ function ProjectImage({ src, urlGit, id, className = '' }) {
           onClick={() => router.push(`/project/${id}`)}
           className={[
             'flex cursor-pointer items-center gap-3',
-            'rounded-2xl border border-blue-400 bg-blue-900/90',
+            'border-border-main rounded-2xl border bg-blue-900/90',
             'p-3 shadow-lg',
             'transition-colors duration-200',
             'group-hover:border-blue-300 hover:bg-blue-950/90',
@@ -66,7 +66,7 @@ function ProjectImage({ src, urlGit, id, className = '' }) {
         <a
           href={urlGit}
           target="_blank"
-          className="flex items-center gap-2 rounded-xl border border-blue-400 bg-blue-900/90 px-4 py-2 shadow-md transition-colors duration-200 group-hover:border-blue-300 hover:bg-blue-950/90"
+          className="border-border-main flex items-center gap-2 rounded-xl border bg-blue-900/90 px-4 py-2 shadow-md transition-colors duration-200 group-hover:border-blue-300 hover:bg-blue-950/90"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

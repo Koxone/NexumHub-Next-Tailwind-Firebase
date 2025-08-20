@@ -5,76 +5,167 @@ html {
   background-color: #101828;
 }
 
-/* Design System → Tailwind v4 tokens (IntelliSense-ready) */
 @theme {
-  /* --- Colors --- */
-  --color-primary: #ad1fea;
-  --color-secondary: #4661e6;
-  --color-navy: #3a4374;
-  --color-slate: #647196;
-  --color-sky: #62bcfa;
-  --color-peach: #f49f85;
-  --color-bg: #ebe3d8;
-  --color-bg-main: #101828;
-  --color-bg-secondary: #101328;
-  --color-bg-soft: #f2faff;
-  --color-white: #ffffff;
+  /* 🎨 Core Brand Colors */
+  --color-brand: #101828;
+  --color-accent: #1e90ff;
 
-  /* Optional aliases for semantics */
-  --color-text: var(--color-navy);
-  --color-text-muted: var(--color-slate);
+  /* 📝 Text Hierarchy */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a3a3a3;
+  --color-text-heading: #f8fafc;
+  --color-text-subheading: #e2e8f0;
+  --color-text-body: #cbd5e1;
+  --color-text-muted: #94a3b8;
 
-  /* --- Spacing (used by p-*, m-*, gap-* ) --- */
-  --spacing-1: 4px;
-  --spacing-2: 8px;
-  --spacing-3: 12px;
-  --spacing-4: 16px;
-  --spacing-6: 24px;
-  --spacing-8: 32px;
+  /* 🔘 Button States */
+  --color-button-primary: #1e3a8ae6;
+  --color-button-primary-hover: #172554e6;
 
-  /* --- Radius (used by rounded-*) --- */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-xl: 20px;
-  --radius-full: 9999px;
+  /* 🌈 Background Colors */
+  --color-bg-primary: #101828;
+  --color-bg-secondary: #0f172a;
+  --color-bg-emerald: #10b981;
 
-  /* --- Shadows (used by shadow-*) --- */
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.08);
-  --shadow-md: 0 8px 20px rgb(55 63 104 / 0.18);
-  --shadow-lg: 0 12px 30px rgb(0 0 0 / 0.2);
+  /* 🔲 Border Colors */
+  --color-border-main: #60a5fa80;
+  --color-border-strong: #475569;
 
-  /* --- Typography --- */
-  --font-sans:
-    'Jost', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
+  /* 🔥 State Colors */
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+  --color-warning: #facc15;
+  --color-info: #0ea5e9;
 
-  /* Headings */
-  --text-h1: 24px;
-  --leading-h1: 35px;
-  --tracking-h1: 0.25px;
+  /* 🌗 Brand Variants */
+  --color-brand-100: #e2e8f0;
+  --color-brand-200: #cbd5e1;
+  --color-brand-900: #0f172a;
 
-  --text-h2: 20px;
-  --leading-h2: 29px;
-  --tracking-h2: 0.25px;
+  /* 💫 Accent Variants */
+  --color-accent-light: #60a5fa;
+  --color-accent-dark: #1e3a8a;
 
-  --text-h3: 18px;
-  --leading-h3: 26px;
-  --tracking-h3: 0.25px;
+  /* ⚫⚪ Base Colors */
+  --color-black: #000;
+  --color-white: #fff;
 
-  --text-h4: 14px;
-  --leading-h4: 20px;
-  --tracking-h4: 0.2px;
-
-  /* Body */
-  --text-body-1: 16px;
-  --leading-body-1: 23px;
-
-  --text-body-2: 15px;
-  --leading-body-2: 22px;
+  /* 🎯 Common UI Colors */
+  --color-blue-bright: #3b82f6;
+  --color-gold: #ffd700;
+  --color-orange: #f05138;
+  --color-gray-dark: #1f2937;
+  --color-gray-medium: #737373;
+  --color-gray-light: #9ca3af;
 }
 
+@layer utilities {
+  /* 🎨 Core Brand Colors */
+  .text-brand { color: var(--color-brand); }
+  .bg-brand { background-color: var(--color-brand); }
+  .border-brand { border-color: var(--color-brand); }
+
+  .text-accent { color: var(--color-accent); }
+  .bg-accent { background-color: var(--color-accent); }
+  .border-accent { border-color: var(--color-accent); }
+
+  /* 📝 Text Hierarchy */
+  .text-primary { color: var(--color-text-primary); }
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-heading { color: var(--color-text-heading); }
+  .text-subheading { color: var(--color-text-subheading); }
+  .text-body { color: var(--color-text-body); }
+  .text-muted { color: var(--color-text-muted); }
+
+  /* 🔘 Button States */
+  .btn-primary { background-color: var(--color-button-primary); }
+  .btn-primary-hover:hover { background-color: var(--color-button-primary-hover); }
+
+  /* 🌈 Background Colors */
+  .bg-primary { background-color: var(--color-bg-primary); }
+  .bg-secondary { background-color: var(--color-bg-secondary); }
+  .bg-emerald { background-color: var(--color-bg-emerald); }
+
+  /* 🔲 Border Colors */
+  .border-main { border-color: var(--color-border-main); }
+  .border-strong { border-color: var(--color-border-strong); }
+
+  /* 🔥 State Colors */
+  .text-success { color: var(--color-success); }
+  .bg-success { background-color: var(--color-success); }
+  .border-success { border-color: var(--color-success); }
+
+  .text-error { color: var(--color-error); }
+  .bg-error { background-color: var(--color-error); }
+  .border-error { border-color: var(--color-error); }
+
+  .text-warning { color: var(--color-warning); }
+  .bg-warning { background-color: var(--color-warning); }
+  .border-warning { border-color: var(--color-warning); }
+
+  .text-info { color: var(--color-info); }
+  .bg-info { background-color: var(--color-info); }
+  .border-info { border-color: var(--color-info); }
+
+  /* 🌗 Brand Variants */
+  .text-brand-100 { color: var(--color-brand-100); }
+  .bg-brand-100 { background-color: var(--color-brand-100); }
+  .border-brand-100 { border-color: var(--color-brand-100); }
+
+  .text-brand-200 { color: var(--color-brand-200); }
+  .bg-brand-200 { background-color: var(--color-brand-200); }
+  .border-brand-200 { border-color: var(--color-brand-200); }
+
+  .text-brand-900 { color: var(--color-brand-900); }
+  .bg-brand-900 { background-color: var(--color-brand-900); }
+  .border-brand-900 { border-color: var(--color-brand-900); }
+
+  /* 💫 Accent Variants */
+  .text-accent-light { color: var(--color-accent-light); }
+  .bg-accent-light { background-color: var(--color-accent-light); }
+  .border-accent-light { border-color: var(--color-accent-light); }
+
+  .text-accent-dark { color: var(--color-accent-dark); }
+  .bg-accent-dark { background-color: var(--color-accent-dark); }
+  .border-accent-dark { border-color: var(--color-accent-dark); }
+
+  /* ⚫⚪ Base Colors */
+  .text-black { color: var(--color-black); }
+  .bg-black { background-color: var(--color-black); }
+  .border-black { border-color: var(--color-black); }
+
+  .text-white { color: var(--color-white); }
+  .bg-white { background-color: var(--color-white); }
+  .border-white { border-color: var(--color-white); }
+
+  /* 🎯 Common UI Colors */
+  .text-blue-bright { color: var(--color-blue-bright); }
+  .bg-blue-bright { background-color: var(--color-blue-bright); }
+  .border-blue-bright { border-color: var(--color-blue-bright); }
+
+  .text-gold { color: var(--color-gold); }
+  .bg-gold { background-color: var(--color-gold); }
+  .border-gold { border-color: var(--color-gold); }
+
+  .text-orange { color: var(--color-orange); }
+  .bg-orange { background-color: var(--color-orange); }
+  .border-orange { border-color: var(--color-orange); }
+
+  .text-gray-dark { color: var(--color-gray-dark); }
+  .bg-gray-dark { background-color: var(--color-gray-dark); }
+  .border-gray-dark { border-color: var(--color-gray-dark); }
+
+  .text-gray-medium { color: var(--color-gray-medium); }
+  .bg-gray-medium { background-color: var(--color-gray-medium); }
+  .border-gray-medium { border-color: var(--color-gray-medium); }
+
+  .text-gray-light { color: var(--color-gray-light); }
+  .bg-gray-light { background-color: var(--color-gray-light); }
+  .border-gray-light { border-color: var(--color-gray-light); }
+}
+
+
+/* #region Animation Stars */
 @keyframes star-blink {
   0%,
   100% {
@@ -122,8 +213,9 @@ html {
     letter-spacing: var(--tracking-h4);
   }
 }
+/* #endregion  */
 
-/* ScrollBar Styles */
+/* #region ScrollBar Styles */
 /* ===== Scrollbar Style Global ===== */
 ::-webkit-scrollbar {
   width: 8px; /* ancho vertical */
@@ -151,8 +243,9 @@ html {
   scrollbar-color: #a3a3a3 transparent; /* thumb | track */
 }
 
-/* Notification Bell */
-/* comment: Bell swing animation on hover */
+/*#endregion*/
+
+/* #region Notification Bell */
 @keyframes bell-swing {
   0% {
     transform: rotate(0);
@@ -191,8 +284,9 @@ html {
     animation: none;
   }
 }
+/*#endregion*/
 
-/* Clerk */
+/* #region Clerk */
 
 .cl-avatarBox,
 .cl-userButtonAvatarBox,
@@ -200,7 +294,9 @@ html {
   width: 56px;
   height: 56px;
 }
+/* #endregion  */
 
+/* #region Animations Portfolio */
 /* Spark Animation */
 @keyframes spark {
   0% {
@@ -255,8 +351,9 @@ html {
 .animate-float {
   animation: float-y 4s ease-in-out infinite;
 }
+/* #endregion  */
 
-/* Stack Section */
+/* #region Stack Section */
 
 .glow-card {
   @apply flex cursor-pointer flex-col items-center gap-2 rounded-2xl p-1 transition-all duration-300;
@@ -454,3 +551,5 @@ html {
   opacity: 1;
   visibility: visible;
 }
+
+/*#endregion*/

@@ -8,7 +8,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 const StatCard = ({ icon: Icon, label, value, iconBg, iconColor }) => (
-  <div className="backdrop-lg flex w-fit items-center justify-center rounded-xl border border-blue-400/50 px-2 py-1 text-white shadow backdrop-blur-sm">
+  <div className="backdrop-lg text-text-primary border-border-main/50 flex w-fit items-center justify-center rounded-xl border px-2 py-1 shadow backdrop-blur-sm">
     <div className="flex items-center gap-3">
       <div
         className={`h-10 w-10 rounded-xl ${iconBg} flex items-center justify-center`}
@@ -17,7 +17,7 @@ const StatCard = ({ icon: Icon, label, value, iconBg, iconColor }) => (
       </div>
       <div>
         <p className="text-xs text-slate-400">{label}</p>
-        <p className="text-sm font-semibold text-white">{value}</p>
+        <p className="text-text-primary text-sm font-semibold">{value}</p>
       </div>
     </div>
   </div>

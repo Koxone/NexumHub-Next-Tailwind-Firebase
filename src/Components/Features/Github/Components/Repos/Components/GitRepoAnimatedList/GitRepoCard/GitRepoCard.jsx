@@ -24,7 +24,7 @@ function GitRepoCard({ repo, index, setSelectedIndex }) {
         rel="noreferrer"
         className={[
           'group block rounded-xl',
-          'border border-blue-400/50',
+          'border-border-main/50 border',
           'p-4',
           'transition-all duration-200 ease-in-out',
           'hover:scale-105 hover:bg-slate-700/30',
@@ -46,7 +46,7 @@ function GitRepoCard({ repo, index, setSelectedIndex }) {
         {/* Description */}
         <RepoDescription repo={repo} />
 
-        <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-neutral-400">
+        <div className="text-text-secondary mt-4 flex flex-wrap items-center gap-2 text-xs">
           {/* Stars and Forks */}
           <RepoStarsAndForks repo={repo} />
 

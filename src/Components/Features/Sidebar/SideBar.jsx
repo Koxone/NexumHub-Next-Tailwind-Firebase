@@ -33,7 +33,7 @@ function SideBar({ className }) {
         // skin
         'bg-bg-main p-8',
         // divider
-        'before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40  backdrop-blur-sm',
+        'backdrop-blur-sm before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40',
         // reset
         'rounded-none',
       ].join(' ')}
@@ -49,7 +49,7 @@ function SideBar({ className }) {
       <div className="flex flex-col gap-4">
         <Avatar />
         {/* <PulseSignInButton>
-              <button className="w-full cursor-pointer rounded-md bg-[#4d74b8] px-3 py-2 text-sm text-white transition-all duration-200 ease-in-out hover:bg-[#2a3f61]">
+              <button className="w-full cursor-pointer rounded-md bg-[#4d74b8] px-3 py-2 text-sm text-text-primary transition-all duration-200 ease-in-out hover:bg-[#2a3f61]">
                 Sign In
               </button>
             </PulseSignInButton> */}
@@ -64,11 +64,14 @@ function SideBar({ className }) {
           <div>
             <h3
               title="Username"
-              className="text-center text-base font-medium text-white capitalize"
+              className="text-text-primary text-center text-base font-medium capitalize"
             >
               {user?.externalAccounts?.[0]?.username || 'Not available'}
             </h3>
-            <p title="User Email Address" className="text-xs text-neutral-400">
+            <p
+              title="User Email Address"
+              className="text-text-secondary text-xs"
+            >
               {user?.primaryEmailAddress?.emailAddress || ''}
             </p>
           </div>

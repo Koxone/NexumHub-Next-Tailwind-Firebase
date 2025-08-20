@@ -61,7 +61,7 @@ export default function ChatModal({
               <div className="mb-4 flex items-start gap-3">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600">
                   <svg
-                    className="h-4 w-4 text-white"
+                    className="text-text-primary h-4 w-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ export default function ChatModal({
                   </svg>
                 </div>
                 <div className="min-w-0">
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-text-primary text-lg font-semibold">
                     Live Chat System
                   </h3>
                   <p className="text-xs text-gray-400">
@@ -85,11 +85,11 @@ export default function ChatModal({
               </div>
 
               {/* What you're about to experience */}
-              <div className="mb-4 rounded-lg border border-blue-400/20 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-3">
+              <div className="border-border-main/20 mb-4 rounded-lg border bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-3">
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500">
                     <svg
-                      className="h-3 w-3 text-white"
+                      className="text-text-primary h-3 w-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -124,7 +124,7 @@ export default function ChatModal({
                 <div className="flex items-start gap-2">
                   <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-500">
                     <svg
-                      className="h-3 w-3 text-white"
+                      className="text-text-primary h-3 w-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -138,7 +138,7 @@ export default function ChatModal({
                     </svg>
                   </div>
                   <div className="min-w-0">
-                    <h5 className="mb-0.5 text-sm font-medium text-white">
+                    <h5 className="text-text-primary mb-0.5 text-sm font-medium">
                       Real-Time Architecture
                     </h5>
                     <p className="text-xs text-gray-400">
@@ -153,7 +153,7 @@ export default function ChatModal({
                 <div className="flex items-start gap-2">
                   <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-500">
                     <svg
-                      className="h-3 w-3 text-white"
+                      className="text-text-primary h-3 w-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -167,7 +167,7 @@ export default function ChatModal({
                     </svg>
                   </div>
                   <div className="min-w-0">
-                    <h5 className="mb-0.5 text-sm font-medium text-white">
+                    <h5 className="text-text-primary mb-0.5 text-sm font-medium">
                       Enterprise-Grade Security
                     </h5>
                     <p className="text-xs text-gray-400">
@@ -182,7 +182,7 @@ export default function ChatModal({
                 <div className="flex items-start gap-2">
                   <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-500">
                     <svg
-                      className="h-3 w-3 text-white"
+                      className="text-text-primary h-3 w-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -202,7 +202,7 @@ export default function ChatModal({
                     </svg>
                   </div>
                   <div className="min-w-0">
-                    <h5 className="mb-0.5 text-sm font-medium text-white">
+                    <h5 className="text-text-primary mb-0.5 text-sm font-medium">
                       Active Development Showcase
                     </h5>
                     <p className="text-xs text-gray-400">
@@ -219,7 +219,7 @@ export default function ChatModal({
                 <div className="flex items-start gap-2">
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-blue-500">
                     <svg
-                      className="h-3 w-3 text-white"
+                      className="text-text-primary h-3 w-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -262,10 +262,12 @@ export default function ChatModal({
               {/* note - Smaller text */}
               <div className="pt-3 text-center">
                 <p className="text-xs text-gray-400">
-                  <strong className="text-white">Personal Commitment:</strong> I
-                  will respond to your messages as promptly as possible. This is
-                  a direct line to discuss opportunities, technical questions,
-                  or project collaborations.
+                  <strong className="text-text-primary">
+                    Personal Commitment:
+                  </strong>{' '}
+                  I will respond to your messages as promptly as possible. This
+                  is a direct line to discuss opportunities, technical
+                  questions, or project collaborations.
                 </p>
               </div>
             </div>
@@ -273,21 +275,21 @@ export default function ChatModal({
             {/* Footer - Reduced padding and button sizes */}
             <div className="sticky bottom-0 flex flex-col gap-2 border-t border-white/10 bg-[#0b1020]/95 px-4 py-3 backdrop-blur sm:flex-row sm:justify-end">
               <button
-              title='Coming Soon'
+                title="Coming Soon"
                 disabled
                 type="button"
                 onClick={() => {
                   onAccept?.();
                   closeChatModal();
                 }}
-                className="cursor-not-allowed rounded-md bg-gray-800 px-4 py-2 text-xs font-medium text-white hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+                className="text-text-primary cursor-not-allowed rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
               >
                 Lets Chat!
               </button>
               <button
                 type="button"
                 onClick={closeChatModal}
-                className="cursor-pointer rounded-md border border-white/10 bg-neutral-500 px-4 py-2 text-xs font-medium text-white hover:bg-white/10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="text-text-primary cursor-pointer rounded-md border border-white/10 bg-neutral-500 px-4 py-2 text-xs font-medium hover:bg-white/10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               >
                 Close
               </button>

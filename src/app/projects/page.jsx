@@ -84,16 +84,20 @@ export default function Projects() {
     <div className="flex min-h-0 w-full flex-col gap-8 justify-self-center lg:pl-64">
       {/* Presentation */}
       <div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-white capitalize md:text-4xl lg:text-4xl">
+        <h1 className="text-text-primary mb-4 text-4xl font-bold tracking-tight capitalize md:text-4xl lg:text-4xl">
           Projects
         </h1>
-        <p className="max-w-[1100px] text-sm font-light text-neutral-400 sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
+        <p className="text-text-secondary max-w-[1100px] text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
           Here you'll find my{' '}
-          <span className="font-semibold text-white">Featured Projects</span>,
-          currently live in production but kept private on GitHub. Although the
-          source code isn't public, you can still explore each project to
+          <span className="text-text-primary font-semibold">
+            Featured Projects
+          </span>
+          , currently live in production but kept private on GitHub. Although
+          the source code isn't public, you can still explore each project to
           discover its purpose, features, and technologies. You'll also see{' '}
-          <span className="font-semibold text-white">Real-time Updates</span>{' '}
+          <span className="text-text-primary font-semibold">
+            Real-time Updates
+          </span>{' '}
           from all my public repositories, showcasing my latest commits,
           progress, and ongoing development work.
         </p>

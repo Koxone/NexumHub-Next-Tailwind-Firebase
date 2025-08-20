@@ -22,13 +22,13 @@ export default function InteractiveProjectCard({ projectKey, className }) {
       <div
         className={[
           `${className}`,
-          'relative h-full  backdrop-blur-sm cursor-pointer overflow-hidden rounded-xl',
-          'border border-blue-400/50 backdrop-blur-xl',
+          'relative h-full cursor-pointer overflow-hidden rounded-xl backdrop-blur-sm',
+          'border-border-main/50 border backdrop-blur-xl',
           'transition-all duration-500 ease-in-out',
-          'hover:scale-[1.02] hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
+          'hover:border-border-main hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
         ].join(' ')}
       >
-        <span className="animate-spark absolute z-20 hidden h-2 w-2 rounded-full opacity-100 group-hover:block hover:bg-blue-400"></span>
+        <span className="animate-spark hover:bg-accent-light absolute z-20 hidden h-2 w-2 rounded-full opacity-100 group-hover:block"></span>
 
         <div className="absolute inset-0 bg-gradient-to-br via-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
@@ -48,7 +48,7 @@ export default function InteractiveProjectCard({ projectKey, className }) {
         />
 
         {/* Card Content */}
-        <div className="space-y-6 p-6 text-white">
+        <div className="text-text-primary space-y-6 p-6">
           {/* Header */}
           <CardHeader date={t(project.date)} tags={project.tags} />
 

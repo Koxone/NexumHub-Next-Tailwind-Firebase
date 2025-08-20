@@ -38,7 +38,7 @@ export default function GitRepoAnimatedList({
         }`}
       >
         {loading && (
-          <div className="py-6 text-center text-sm text-neutral-400">
+          <div className="text-text-secondary py-6 text-center text-sm">
             Loading…
           </div>
         )}
@@ -46,7 +46,7 @@ export default function GitRepoAnimatedList({
           <div className="py-2 text-center text-sm text-red-400">{err}</div>
         )}
         {!loading && !err && visibleRepos.length === 0 && (
-          <div className="py-6 text-center text-sm text-neutral-400">
+          <div className="text-text-secondary py-6 text-center text-sm">
             No repositories.
           </div>
         )}
@@ -57,7 +57,7 @@ export default function GitRepoAnimatedList({
           <div className="flex justify-center py-4">
             <button
               onClick={onShowMore}
-              className="group flex cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-blue-600 px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:from-violet-500 hover:to-blue-500"
+              className="group text-text-primary flex cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-blue-600 px-6 py-2.5 text-sm font-medium transition-all duration-200 hover:scale-105 hover:from-violet-500 hover:to-blue-500"
             >
               <span>Show more</span>
               <svg

@@ -15,7 +15,7 @@ export default function StatsCard({
     >
       {/* Header */}
       <div className="mb-2 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-white">{title}</h3>
+        <h3 className="text-text-primary text-lg font-semibold">{title}</h3>
 
         {/* Render link only if provided */}
         {linkText && (
@@ -39,9 +39,13 @@ export default function StatsCard({
             <div className="flex items-center gap-2">
               {/* Color dot */}
               <span className={`h-2 w-2 rounded-full ${color}`}></span>
-              <span className="text-base font-medium text-white">{label}</span>
+              <span className="text-text-primary text-base font-medium">
+                {label}
+              </span>
             </div>
-            <span className="text-sm font-semibold text-white">{value}</span>
+            <span className="text-text-primary text-sm font-semibold">
+              {value}
+            </span>
           </li>
         ))}
       </ul>

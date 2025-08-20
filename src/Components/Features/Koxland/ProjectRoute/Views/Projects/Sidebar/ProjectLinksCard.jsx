@@ -18,10 +18,10 @@ const LinkCard = ({ href, icon: Icon, title, subtitle, iconBg, iconColor }) => (
       <Icon className={iconColor} />
     </div>
     <div className="flex-1">
-      <p className="font-medium text-white">{title}</p>
+      <p className="text-text-primary font-medium">{title}</p>
       <p className="text-sm text-slate-400">{subtitle}</p>
     </div>
-    <ArrowUpRightIcon className="text-slate-500 transition-colors group-hover:text-white" />
+    <ArrowUpRightIcon className="group-hover:text-text-primary text-slate-500 transition-colors" />
   </a>
 );
 
@@ -46,9 +46,9 @@ const ProjectLinksCard = ({ url, urlGit }) => {
   ];
 
   return (
-    <div className="backdrop-lg rounded-xl border border-blue-400/50 text-white shadow backdrop-blur-sm">
+    <div className="backdrop-lg text-text-primary border-border-main/50 rounded-xl border shadow backdrop-blur-sm">
       <div className="flex flex-col space-y-1.5 pt-6 pb-3 pl-6">
-        <h3 className="flex items-center gap-3 text-xl font-bold text-white">
+        <h3 className="text-text-primary flex items-center gap-3 text-xl font-bold">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20">
             <ExternalLinkIcon className="text-blue-400" />
           </div>

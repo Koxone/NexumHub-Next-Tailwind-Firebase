@@ -27,14 +27,14 @@ export default function GitPopoverButton({ onClick }) {
         aria-label="Project feedback menu (already submitted)"
         className="bg-bg-secondary z-50 cursor-pointer rounded-sm border border-neutral-500/40 px-1"
       >
-        <EllipsisVertical className="md:auto w-4 text-white" />
+        <EllipsisVertical className="md:auto text-text-primary w-4" />
       </button>
 
       {/* Popover */}
       {open && (
         <div className="absolute left-0 z-50 mt-2 w-64 rounded-lg border border-gray-600 bg-[#171e29] shadow-lg">
           <div className="rounded-t-lg border-b border-gray-600 bg-[#11151d] px-3 py-2">
-            <h3 className="font-semibold text-white">Project Menu</h3>
+            <h3 className="text-text-primary font-semibold">Project Menu</h3>
           </div>
           <div className="px-3 py-2 text-sm text-gray-200">
             <p>
@@ -46,7 +46,7 @@ export default function GitPopoverButton({ onClick }) {
           <div className="flex gap-2 border-t border-gray-600 p-2">
             <button
               onClick={onClick}
-              className="cursor-pointer rounded bg-red-600 px-3 py-1 text-xs text-white hover:bg-red-700"
+              className="text-text-primary cursor-pointer rounded bg-red-600 px-3 py-1 text-xs hover:bg-red-700"
             >
               Delete
             </button>

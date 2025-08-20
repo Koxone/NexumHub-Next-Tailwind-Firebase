@@ -42,7 +42,7 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
       {/* Main Image */}
       <div className="relative flex flex-col gap-4">
         <div
-          className="relative aspect-video cursor-pointer overflow-hidden rounded-3xl border border-blue-400/50 shadow-2xl backdrop-blur-lg"
+          className="border-border-main/50 relative aspect-video cursor-pointer overflow-hidden rounded-3xl border shadow-2xl backdrop-blur-lg"
           onClick={() => openSlideshow(0)}
         >
           <img
@@ -52,7 +52,7 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
           />
         </div>
         <div className="self-center text-center">
-          <p className="text-xl leading-tight font-bold tracking-tight text-white lg:text-3xl">
+          <p className="text-text-primary text-xl leading-tight font-bold tracking-tight lg:text-3xl">
             {gallery}
           </p>
           <p className="self-center text-sm text-gray-400">{slideshow}</p>
@@ -66,7 +66,7 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
           onClick={closeSlideshow}
         >
           <button
-            className="absolute top-6 right-6 cursor-pointer text-3xl font-bold text-white"
+            className="text-text-primary absolute top-6 right-6 cursor-pointer text-3xl font-bold"
             onClick={closeSlideshow}
           >
             ✕
@@ -77,7 +77,7 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
               e.stopPropagation();
               prevImage();
             }}
-            className="absolute left-6 cursor-pointer text-4xl font-bold text-white"
+            className="text-text-primary absolute left-6 cursor-pointer text-4xl font-bold"
           >
             ‹
           </button>
@@ -94,7 +94,7 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
               e.stopPropagation();
               nextImage();
             }}
-            className="absolute right-6 cursor-pointer text-4xl font-bold text-white"
+            className="text-text-primary absolute right-6 cursor-pointer text-4xl font-bold"
           >
             ›
           </button>

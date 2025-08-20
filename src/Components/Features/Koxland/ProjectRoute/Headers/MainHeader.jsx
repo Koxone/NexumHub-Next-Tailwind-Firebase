@@ -74,7 +74,7 @@ export default function MainHeader() {
           alt="logo icon"
         />
 
-        <div className="flex items-center gap-2 text-xs text-white sm:gap-8 sm:text-base">
+        <div className="text-text-primary flex items-center gap-2 text-xs sm:gap-8 sm:text-base">
           <a
             className="transition-transform duration-200 hover:scale-125 hover:text-[#FFD700]"
             target="_blank"

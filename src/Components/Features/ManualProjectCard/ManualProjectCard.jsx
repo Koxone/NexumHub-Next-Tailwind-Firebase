@@ -25,14 +25,14 @@ export default function ManualProjectCard({
   return (
     <div
       onClick={handleClick}
-      className={`flex aspect-square max-h-[300px] w-full max-w-[300px] shrink-0 flex-col justify-between rounded-lg border border-blue-400/50 ${color} p-4 ${className}`}
+      className={`border-border-main/50 flex aspect-square max-h-[300px] w-full max-w-[300px] shrink-0 flex-col justify-between rounded-lg border ${color} p-4 ${className}`}
     >
       <div
         data-nodrag="true"
         className="flex items-center justify-between"
         onClick={(e) => e.stopPropagation()}
       >
-        <p className="ml-2 inline-block rounded-full bg-green-600 px-2 py-0.5 text-xs font-medium text-white uppercase">
+        <p className="text-text-primary ml-2 inline-block rounded-full bg-green-600 px-2 py-0.5 text-xs font-medium uppercase">
           Production Ready
         </p>
       </div>

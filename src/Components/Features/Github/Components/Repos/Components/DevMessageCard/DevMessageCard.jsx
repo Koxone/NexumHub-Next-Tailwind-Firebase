@@ -47,7 +47,7 @@ function DevMessageCard({ isSignedIn, isLoaded, loading, setLoading }) {
               . Each one represents hours of passion, learning, and
               problem-solving.
             </p>
-            <div className="flex items-center justify-center gap-1 text-xs text-neutral-400">
+            <div className="text-text-secondary flex items-center justify-center gap-1 text-xs">
               <span>Want to showcase your own work?</span>
 
               <SignedOut>

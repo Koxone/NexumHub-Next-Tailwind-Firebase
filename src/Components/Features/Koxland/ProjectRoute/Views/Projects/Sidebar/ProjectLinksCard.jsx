@@ -10,7 +10,7 @@ const LinkCard = ({ href, icon: Icon, title, subtitle, iconBg, iconColor }) => (
   <a
     href={href}
     target="_blank"
-    className="group flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-slate-700/30"
+    className="group flex items-center gap-3 rounded-lg p-3 transition-all duration-200 ease-in-out hover:scale-105 hover:bg-slate-700/30"
   >
     <div
       className={`h-8 w-8 rounded-lg ${iconBg} flex items-center justify-center`}

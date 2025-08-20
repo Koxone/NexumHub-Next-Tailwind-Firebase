@@ -32,6 +32,7 @@ export default function AboutMe() {
           'sm:max-w-[575px] sm:border-neutral-500 sm:hover:border-blue-400',
         ].join(' ')}
       >
+        <span className="animate-spark absolute z-20 hidden h-2 w-2 rounded-full opacity-100 group-hover:block hover:bg-blue-400"></span>
         <p>
           {t('aboutMeSection.hi')}{' '}
           <span className="font-semibold text-[#1E90FF]">

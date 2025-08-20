@@ -84,7 +84,7 @@ function SidebarMenu() {
       />
 
       {/* wrapper relative */}
-      <div className="relative">
+      <div className="relative w-full">
         {/* halo */}
         {showHint && (
           <span
@@ -103,7 +103,7 @@ function SidebarMenu() {
         />
       </div>
 
-      <div className="relative">
+      <div className="relative w-full">
         {showHint && (
           <span
             aria-hidden

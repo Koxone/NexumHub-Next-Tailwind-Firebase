@@ -29,7 +29,7 @@ export default function GitRepoAnimatedList({
       />
 
       <div
-        className={`overflow-y-auto ${
+        className={`overflow-y-auto px-5 ${
           displayScrollbar
             ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-[4px] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-track]:bg-[#060010]'
             : 'no-scrollbar'
@@ -55,7 +55,7 @@ export default function GitRepoAnimatedList({
           <div className="flex justify-center py-4">
             <button
               onClick={onShowMore}
-              className="group flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-blue-600 px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:from-violet-500 hover:to-blue-500"
+              className="group flex cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-blue-600 px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:from-violet-500 hover:to-blue-500"
             >
               <span>Show more</span>
               <svg

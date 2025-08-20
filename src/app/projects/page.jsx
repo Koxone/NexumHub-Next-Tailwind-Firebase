@@ -15,6 +15,7 @@ import { Plus } from 'lucide-react';
 import { useProjectModal } from '@/Stores/useProjectModal';
 import TopBar from '@/Components/Features/Topbar/TopBar';
 import InteractiveProjectsSection from '@/Components/Sections/FeaturedInteractiveProjects/InteractiveProjectsSection';
+import GithubRepos from '@/Components/Features/Github/Components/Repos/GithubRepos';
 
 function AnimatedItem({ children, index }) {
   const ref = useRef(null);
@@ -81,14 +82,46 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex min-h-0 w-full flex-col gap-4 justify-self-center overflow-hidden px-8">
-      <TopBar padding="pt-8 pb-4" />
+    <div className="flex min-h-0 w-full flex-col gap-8 justify-self-center">
+      {/* Presentation */}
+      <div>
+        <h1 className="mb-4 text-4xl font-bold tracking-tight text-white capitalize md:text-4xl lg:text-4xl">
+          Projects
+        </h1>
+        <p className="max-w-[1100px] text-sm font-light text-neutral-400 sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
+          Here you'll find my{' '}
+          <span className="font-semibold text-white">Featured Projects</span>,
+          currently live in production but kept private on GitHub. Although the
+          source code isn't public, you can still explore each project to
+          discover its purpose, features, and technologies. You'll also see{' '}
+          <span className="font-semibold text-white">Real-time Updates</span>{' '}
+          from all my public repositories, showcasing my latest commits,
+          progress, and ongoing development work.
+        </p>
+      </div>
 
-      <div className="no-scrollbar flex flex-col gap-4 overflow-y-auto [scroll-behavior:smooth]">
-        <Title title="Featured Private Projects" />
-
-        <div className="max-h- flex border">
+      <div className="no-scrollbar grid  gap-8 [scroll-behavior:smooth] md:justify-center lg:grid-cols-2">
+        {/* Projects */}
+        <div className="flex flex-col gap-5">
+          <Title title="Featured Private Projects" />
           <InteractiveProjectsSection />
+        </div>
+
+        {/* Github Repos */}
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center gap-4">
+            {/* Title */}
+            <Title title="Latest Github Updates" />
+
+            {/* State Indicator */}
+            <div className="text-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                Real Time Updates
+              </span>
+            </div>
+          </div>
+          <GithubRepos />
         </div>
       </div>
 

@@ -11,15 +11,23 @@ import Activity from './Components/Activity';
 import data from '@/Data/Projects/data.json';
 import { useTranslation } from 'react-i18next';
 
-export default function InteractiveProjectCard({ projectKey }) {
+export default function InteractiveProjectCard({ projectKey, className }) {
   const { t } = useTranslation();
   const project = data.projects[projectKey];
 
   if (!project) return null;
 
   return (
-    <div className="group relative w-full max-w-[450px] lg:max-w-[430px]">
-      <div className="relative h-full cursor-pointer overflow-hidden rounded-xl border border-blue-400/50 backdrop-blur-xl transition-all duration-500 ease-in-out hover:scale-[1.02] hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+    <div className="group relative w-full max-w-[350px]">
+      <div
+        className={[
+          `${className}`,
+          'relative h-full cursor-pointer overflow-hidden rounded-xl',
+          'border border-blue-400/50 backdrop-blur-xl',
+          'transition-all duration-500 ease-in-out',
+          'hover:scale-[1.02] hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
+        ].join(' ')}
+      >
         <span className="animate-spark absolute z-20 hidden h-2 w-2 rounded-full opacity-100 group-hover:block hover:bg-blue-400"></span>
 
         <div className="absolute inset-0 bg-gradient-to-br via-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
@@ -36,6 +44,7 @@ export default function InteractiveProjectCard({ projectKey }) {
           url={project.url}
           urlGit={project.urlGit}
           id={project.id}
+          className="aspect-square w-full max-w-[200px] justify-self-center"
         />
 
         {/* Card Content */}

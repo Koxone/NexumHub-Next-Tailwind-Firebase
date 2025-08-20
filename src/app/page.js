@@ -13,7 +13,7 @@ export default function Home() {
     >
       <TopBar />
       <HeroSection />
-      <InteractiveProjectsSection />
+      {/* <InteractiveProjectsSection /> */}
     </div>
   );
 }

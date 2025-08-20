@@ -175,32 +175,39 @@ function buildPrivateLogoUrl(owner, repo, ref) {
 
 // Normalize repos for the client
 function normalizeRepos(repos) {
-  return repos
-    .map((r) => {
-      const owner = r.owner?.login;
-      const branch = r.default_branch || 'main';
-      const logoUrl = r.private
-        ? buildPrivateLogoUrl(owner, r.name, branch)
-        : buildPublicLogoUrl(owner, r.name, branch, r.updated_at);
+  return (
+    repos
+      .map((r) => {
+        const owner = r.owner?.login;
+        const branch = r.default_branch || 'main';
+        const logoUrl = r.private
+          ? buildPrivateLogoUrl(owner, r.name, branch)
+          : buildPublicLogoUrl(owner, r.name, branch, r.updated_at);
 
-      return {
-        id: r.id,
-        name: r.name,
-        full_name: r.full_name,
-        private: r.private,
-        description: r.description,
-        html_url: r.html_url,
-        language: r.language,
-        stargazers_count: r.stargazers_count,
-        forks_count: r.forks_count,
-        fork: r.fork,
-        pushed_at: r.pushed_at,
-        updated_at: r.updated_at,
-        owner_login: owner,
-        topics: Array.isArray(r.topics) ? r.topics : [],
-        default_branch: r.default_branch,
-        logo_url: logoUrl,
-      };
-    })
-    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        return {
+          id: r.id,
+          name: r.name,
+          full_name: r.full_name,
+          private: r.private,
+          description: r.description,
+          html_url: r.html_url,
+          language: r.language,
+          stargazers_count: r.stargazers_count,
+          forks_count: r.forks_count,
+          fork: r.fork,
+          pushed_at: r.pushed_at,
+          updated_at: r.updated_at,
+          owner_login: owner,
+          topics: Array.isArray(r.topics) ? r.topics : [],
+          default_branch: r.default_branch,
+          logo_url: logoUrl,
+        };
+      })
+      .sort((a, b) => {
+        const tb = new Date(b.pushed_at || b.updated_at).getTime();
+        const ta = new Date(a.pushed_at || a.updated_at).getTime();
+        if (tb !== ta) return tb - ta;
+        return (b.stargazers_count || 0) - (a.stargazers_count || 0);
+      })
+  );
 }

@@ -3,11 +3,11 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-function ProjectImage({ src, urlGit, id }) {
+function ProjectImage({ src, urlGit, id, className = '' }) {
   const router = useRouter();
 
   return (
-    <div className="relative h-72 overflow-hidden">
+    <div className={`relative ${className} overflow-hidden`}>
       {/* Imagen */}
       <img
         alt="Project Image"
@@ -17,9 +17,16 @@ function ProjectImage({ src, urlGit, id }) {
 
       {/* Contenedor del botón */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        {/* View Project Button */}
         <button
           onClick={() => router.push(`/project/${id}`)}
-          className="flex cursor-pointer items-center gap-3 rounded-2xl border border-blue-400 bg-blue-900/90 px-8 py-4 shadow-lg transition-colors duration-200 group-hover:border-blue-300 hover:bg-blue-950/90"
+          className={[
+            'flex cursor-pointer items-center gap-3',
+            'rounded-2xl border border-blue-400 bg-blue-900/90',
+            'p-3 shadow-lg',
+            'transition-colors duration-200',
+            'group-hover:border-blue-300 hover:bg-blue-950/90',
+          ].join(' ')}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

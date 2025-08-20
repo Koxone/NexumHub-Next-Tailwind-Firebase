@@ -1,46 +1,58 @@
 'use client';
+
 import { useState } from 'react';
 import React from 'react';
-import ProjectCardKox from './ProjectCard/ProjectCardKox';
-import Title from '@/Components/UI/Text/Title';
 import InteractiveProjectCard from '@/Components/Features/InteractiveProjectCard/InteractiveProjectCard';
 
-function InteractiveProjectsSection({ className }) {
+function InteractiveProjectsSection({ className = '' }) {
+  // state
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // data
   const cards = ['fws', 'sacbe', 'couponGenerator'];
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % cards.length);
-  };
+  // chunk by 2
+  const frames = [];
+  for (let i = 0; i < cards.length; i += 2) {
+    frames.push(cards.slice(i, i + 2));
+  }
+
+  // handlers
+  const handleNext = () => setCurrentIndex((i) => (i + 1) % frames.length);
 
   return (
     <div
       id="projects"
-      className={`relative ${className} flex w-full flex-col items-center gap-4 px-8`}
+      className={`relative ${className} w-full gap-4 lg:flex lg:flex-col`}
     >
-      {/* Título */}
-      {/* <Title title="Featured Projects" /> */}
-
-      {/* Slider */}
-      <div className="relative mb-6 hidden w-full justify-center md:flex xl:hidden">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-            width: `${cards.length * 100}%`,
-          }}
-        >
-          {cards.map((key) => (
-            <div key={key} className="flex w-full flex-shrink-0 justify-center">
-              <ProjectCardKox projectKey={key} />
-            </div>
-          ))}
+      {/* Card Slider for MD */}
+      <div className="relative hidden md:block xl:hidden">
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {frames.map((pair, idx) => (
+              <div key={idx} className="min-w-full">
+                <div className="grid grid-cols-2 justify-items-center gap-6">
+                  <InteractiveProjectCard projectKey={pair[0]} />
+                  {pair[1] ? (
+                    <InteractiveProjectCard projectKey={pair[1]} />
+                  ) : (
+                    <div className="pointer-events-none opacity-0">
+                      <InteractiveProjectCard projectKey={pair[0]} />
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Chevron en md */}
+        {/* Chevron */}
         <button
           onClick={handleNext}
+          aria-label="Next projects"
           className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer rounded-full bg-white/80 p-2 shadow-md transition hover:bg-blue-400 hover:text-white"
         >
           <svg
@@ -60,18 +72,12 @@ function InteractiveProjectsSection({ className }) {
         </button>
       </div>
 
-      {/* Regular */}
-      <div className="mb-6 flex flex-col gap-10 md:hidden lg:hidden lg:flex-row xl:flex">
+      {/* Cards Desktop */}
+      <div className="hidden grid-cols-2 gap-10 lg:grid">
         <InteractiveProjectCard projectKey="fws" />
         <InteractiveProjectCard projectKey="sacbe" />
-        <div className="lg:hidden xl:block">
-          <InteractiveProjectCard projectKey="couponGenerator" />
-        </div>
+        <InteractiveProjectCard projectKey="couponGenerator" />
       </div>
-
-      {/* <button className="hover:flash hidden w-fit cursor-pointer self-center rounded-[9999px] bg-white px-2 py-1.5 font-medium text-black transition-all duration-300 ease-in-out hover:bg-blue-400/80 hover:text-white lg:block">
-        View More
-      </button> */}
     </div>
   );
 }

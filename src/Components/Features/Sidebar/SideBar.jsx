@@ -26,7 +26,7 @@ function SideBar({ className }) {
       id="mobile-menu"
       className={[
         `${className}`,
-        'hidden md:grid lg:relative lg:flex',
+        'hidden lg:relative lg:flex',
         'absolute z-50 flex grid-cols-1 grid-rows-[auto_auto_1fr] flex-col gap-6',
         'bg-bg-main before:bg-gray-400/40',
         'h-full max-h-[790px] w-fit p-8 md:max-h-full',

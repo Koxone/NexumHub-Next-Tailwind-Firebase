@@ -55,9 +55,10 @@
         "React",
         "Tailwind",
         "Firebase",
-        "Shopify API",
+        "Firestore",
         "Framer",
-        "i18"
+        "i18",
+        "clerk"
       ],
       "tags": ["FullStack", "PWA", "Ecommerce"],
       "teamSize": "1",

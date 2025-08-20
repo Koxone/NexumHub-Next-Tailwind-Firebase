@@ -9,6 +9,7 @@ import {
   SunMoon,
   Github,
   Send,
+  MessageCircleMoreIcon,
   Linkedin,
   Download,
 } from 'lucide-react';
@@ -23,10 +24,14 @@ import {
   UserButton,
   useUser,
 } from '@clerk/nextjs';
+import ChatModal from '@/Components/Features/Modals/ChatModal';
+import { useChatModal } from '@/Stores/useChatModal';
 
-// component
 function SidebarMenu() {
   const router = useRouter();
+
+  // Zustand
+  const { openChatModal } = useChatModal();
 
   // clerk
   const { user } = useUser();
@@ -94,9 +99,26 @@ function SidebarMenu() {
           aria="Go to Projects Button"
           icon={Presentation}
           text="My Projects"
+          textColor='text-emerald-400'
         />
       </div>
 
+      <div className="relative">
+        {showHint && (
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 animate-pulse rounded-lg shadow-[0_0_0_10px_rgba(59,130,246,0.07),0_0_35px_10px_rgba(59,130,246,0.35)] ring-2 ring-blue-400/70"
+          />
+        )}
+
+        <MenuButton
+          onClick={openChatModal}
+          aria="Go to Projects Button"
+          icon={MessageCircleMoreIcon}
+          text="Chat with Me!"
+          textColor='text-emerald-400'
+        />
+      </div>
       <MenuButton
         onClick={handleGithub}
         aria="Go to Projects Button"

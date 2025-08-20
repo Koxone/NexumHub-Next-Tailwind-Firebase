@@ -41,8 +41,8 @@ function SideBar({ className }) {
       </div>
 
       {/* Clerk SignedOut */}
-      <SignedOut>
-        <SignInButton mode="modal">
+      {/* <SignedOut>
+        <SignInButton mode="modal"> */}
           <div className="flex flex-col gap-4">
             <Avatar />
             {/* <PulseSignInButton>
@@ -51,8 +51,8 @@ function SideBar({ className }) {
               </button>
             </PulseSignInButton> */}
           </div>
-        </SignInButton>
-      </SignedOut>
+        {/* </SignInButton>
+      </SignedOut> */}
 
       {/* Clerk SignedIn */}
       <SignedIn>

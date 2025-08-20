@@ -43,7 +43,7 @@ export default function ChatModal({
       {/* Backdrop */}
       <div
         className="fixed inset-0 z-50 bg-black/70 backdrop-blur-[1px]"
-        onClick={handleBackdrop}
+        onClick={closeChatModal}
         aria-hidden="true"
       />
 

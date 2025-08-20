@@ -73,7 +73,7 @@ export default function MobileSideBar() {
           type="button"
           onClick={toggle}
           aria-controls="mobile-menu"
-          className="absolute end-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-text-secondary hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-text-primary"
+          className="absolute end-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-text-secondary hover:bg-gray-200 hover:text-bg-secondary dark:hover:bg-gray-600 dark:hover:text-text-primary"
         >
           <svg
             aria-hidden="true"

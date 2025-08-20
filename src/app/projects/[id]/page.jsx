@@ -2,7 +2,6 @@
 
 import PendingAnimatedList from '@/Components/Features/Firebase/PendingAnimatedList';
 import TasksAnimatedList from '@/Components/Features/Firebase/TasksAnimatedList';
-import ProjectCard from '@/Components/Features/Dashboard/Sections/CurrentFeedback/Components/ProjectCard';
 import TopBar from '@/Components/Features/Dashboard/Sections/Topbar/TopBar';
 import StatsCard from '@/Components/Features/OpenProject/Cards/InfoCard';
 import Title from '@/Components/UI/Text/Title';

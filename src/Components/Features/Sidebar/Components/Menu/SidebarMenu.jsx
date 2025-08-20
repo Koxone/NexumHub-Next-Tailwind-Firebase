@@ -26,6 +26,7 @@ import {
 } from '@clerk/nextjs';
 import ChatModal from '@/Components/Features/Modals/ChatModal';
 import { useChatModal } from '@/Stores/useChatModal';
+import { useTranslation } from 'react-i18next';
 
 function SidebarMenu() {
   const router = useRouter();

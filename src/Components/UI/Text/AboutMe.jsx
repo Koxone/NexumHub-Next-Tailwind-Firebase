@@ -25,7 +25,7 @@ export default function AboutMe() {
       </div>
       <div
         className={[
-          'group relative flex h-fit w-full flex-col items-center justify-center gap-4 overflow-hidden',
+          'group relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden',
           'rounded-2xl border border-blue-400 bg-white/10 p-8 text-left leading-relaxed text-neutral-200',
           'transition-all duration-500 ease-in-out',
           'hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
@@ -34,46 +34,46 @@ export default function AboutMe() {
       >
         <p>
           {t('aboutMeSection.hi')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.name')}
           </span>
           , {t('aboutMeSection.a')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.student')}
           </span>{' '}
           {t('aboutMeSection.currently')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.internship')}
           </span>{' '}
           {t('aboutMeSection.atCompany')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.company')}
           </span>
           . {t('aboutMeSection.transition')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.experience')}
           </span>
           , {t('aboutMeSection.where')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.teams')}
           </span>{' '}
           {t('aboutMeSection.andManaged')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.operations')}
           </span>
           .
           <br />
           <br />
           {t('aboutMeSection.today')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.stack')}
           </span>
           , {t('aboutMeSection.focusing')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.focus')}
           </span>
           . {t('aboutMeSection.background')}{' '}
-          <span className="font-semibold text-[#FFD700]">
+          <span className="font-semibold text-[#1E90FF]">
             {t('aboutMeSection.skills')}
           </span>{' '}
           {t('aboutMeSection.end')}

@@ -5,6 +5,8 @@ import MenuButton from './Components/MenuButton';
 import {
   Home,
   Presentation,
+  Languages,
+  SunMoon,
   Github,
   Send,
   Linkedin,
@@ -117,6 +119,18 @@ function SidebarMenu() {
         aria="Go to Search Projects Button"
         icon={Send}
         text="Contact"
+        contact
+      />
+      <MenuButton
+        aria="Go to Search Projects Button"
+        icon={Languages}
+        text="English"
+        contact
+      />
+      <MenuButton
+        aria="Go to Search Projects Button"
+        icon={SunMoon}
+        text="Dark Mode"
         contact
       />
     </div>

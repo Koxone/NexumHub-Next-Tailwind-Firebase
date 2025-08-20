@@ -5,7 +5,7 @@ import React from 'react';
 
 function HeroSection() {
   return (
-    <div className="flex gap-12">
+    <div className="grid grid-cols-[auto_1fr_auto] justify-between">
       <div className="flex gap-15">
         <Avatar />
         <AboutMe />

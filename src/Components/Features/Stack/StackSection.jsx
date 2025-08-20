@@ -119,7 +119,7 @@ export default function StackSection({ className = '' }) {
         <h3 className="text-lg font-semibold text-[#c2c6da]">
           {t('stack.tools')}
         </h3>
-        <ul className="grid grid-cols-6 justify-center gap-5">
+        <ul className="grid grid-cols-5 justify-center gap-5">
           {renderItems([
             {
               url: '/Assets/StackIcons/html.png',

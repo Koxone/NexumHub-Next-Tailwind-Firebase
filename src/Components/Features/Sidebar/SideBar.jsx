@@ -45,11 +45,11 @@ function SideBar({ className }) {
         <SignInButton mode="modal">
           <div className="flex flex-col gap-4">
             <Avatar />
-            <PulseSignInButton>
+            {/* <PulseSignInButton>
               <button className="w-full cursor-pointer rounded-md bg-[#4d74b8] px-3 py-2 text-sm text-white transition-all duration-200 ease-in-out hover:bg-[#2a3f61]">
                 Sign In
               </button>
-            </PulseSignInButton>
+            </PulseSignInButton> */}
           </div>
         </SignInButton>
       </SignedOut>

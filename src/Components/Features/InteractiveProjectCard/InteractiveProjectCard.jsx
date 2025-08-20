@@ -40,7 +40,7 @@ export default function InteractiveProjectCard({ projectKey, className }) {
 
         {/* Image Section */}
         <ProjectImage
-          src={project.image}
+          src={project.logo}
           url={project.url}
           urlGit={project.urlGit}
           id={project.id}

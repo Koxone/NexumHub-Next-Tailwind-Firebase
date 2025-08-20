@@ -158,7 +158,7 @@ export default function PendingAnimatedList({
 
         {loading && (
           <div className="flex items-center justify-center p-8">
-            <div className="text-neutral-300">
+            <div className="text-text-body">
               Loading from {collectionName}...
             </div>
           </div>
@@ -276,7 +276,7 @@ export default function PendingAnimatedList({
 
                   {/* Content section with description and image */}
                   <div className="flex items-start gap-3">
-                    <p className="line-clamp-3 flex-1 text-sm text-neutral-300">
+                    <p className="text-text-body line-clamp-3 flex-1 text-sm">
                       {description}
                     </p>
 
@@ -303,7 +303,7 @@ export default function PendingAnimatedList({
                     {tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-neutral-300"
+                        className="text-text-body rounded-full bg-white/10 px-2 py-0.5 text-[10px]"
                       >
                         #{tag}
                       </span>

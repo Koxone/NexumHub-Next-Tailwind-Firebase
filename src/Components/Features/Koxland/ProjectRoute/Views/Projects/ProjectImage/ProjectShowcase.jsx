@@ -55,7 +55,7 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
           <p className="text-text-primary text-xl leading-tight font-bold tracking-tight lg:text-3xl">
             {gallery}
           </p>
-          <p className="self-center text-sm text-gray-400">{slideshow}</p>
+          <p className="text-text-secondary self-center text-sm">{slideshow}</p>
         </div>
       </div>
 

@@ -192,7 +192,7 @@ export default function TasksAnimatedList({
                 </span>
               </div>
 
-              <p className="line-clamp-3 text-sm text-neutral-300">
+              <p className="text-text-body line-clamp-3 text-sm">
                 {task.description}
               </p>
 
@@ -200,7 +200,7 @@ export default function TasksAnimatedList({
                 {task.tags?.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-neutral-300"
+                    className="text-text-body rounded-full bg-white/10 px-2 py-0.5 text-[10px]"
                   >
                     #{tag}
                   </span>

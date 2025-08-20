@@ -32,8 +32,8 @@ export default function PopoverButton({ onClick }) {
 
       {/* Popover */}
       {open && (
-        <div className="absolute left-0 z-50 mt-2 w-64 rounded-lg border border-gray-600 bg-[#171e29] shadow-lg">
-          <div className="rounded-t-lg border-b border-gray-600 bg-[#11151d] px-3 py-2">
+        <div className="border-border-strong absolute left-0 z-50 mt-2 w-64 rounded-lg border bg-[#171e29] shadow-lg">
+          <div className="border-border-strong rounded-t-lg border-b bg-[#11151d] px-3 py-2">
             <h3 className="text-text-primary font-semibold">Project Menu</h3>
           </div>
           <div className="px-3 py-2 text-sm text-gray-200">
@@ -43,7 +43,7 @@ export default function PopoverButton({ onClick }) {
           </div>
 
           {/* Ejemplo de botones de acción */}
-          <div className="flex gap-2 border-t border-gray-600 p-2">
+          <div className="border-border-strong flex gap-2 border-t p-2">
             <button
               onClick={onClick}
               className="text-text-primary cursor-pointer rounded bg-red-600 px-3 py-1 text-xs hover:bg-red-700"

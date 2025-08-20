@@ -123,7 +123,7 @@ export default function ExperienceSection() {
             </button>
           </div>
 
-          <div className="mt-8 border-t border-border-strong pt-6">
+          <div className="border-border-strong mt-8 border-t pt-6">
             <div className="flex flex-wrap gap-3">
               {[
                 { key: 'react', color: 'bg-accent-light/20 text-blue-300' },
@@ -136,7 +136,7 @@ export default function ExperienceSection() {
                 { key: 'shopify', color: 'bg-pink-400/20 text-pink-300' },
                 { key: 'framer', color: 'bg-red-400/20 text-red-300' },
                 { key: 'i18n', color: 'bg-teal-400/20 text-teal-300' },
-                { key: 'vercel', color: 'bg-gray-400/20 text-gray-300' },
+                { key: 'vercel', color: 'bg-gray-400/20 text-text-subheading' },
                 { key: 'github', color: 'bg-emerald-400/20 text-emerald-300' },
                 { key: 'zustand', color: 'bg-lime-400/20 text-lime-300' },
                 { key: 'context', color: 'bg-rose-400/20 text-rose-300' },

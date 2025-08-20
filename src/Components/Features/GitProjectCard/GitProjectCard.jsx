@@ -59,7 +59,7 @@ export default function GitProjectCard({
             className="object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
+          <div className="text-text-secondary flex h-full w-full items-center justify-center text-xs">
             No image
           </div>
         )}

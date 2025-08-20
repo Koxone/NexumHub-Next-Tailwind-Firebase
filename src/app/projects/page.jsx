@@ -12,7 +12,6 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { ref, deleteObject } from 'firebase/storage';
 import { Plus } from 'lucide-react';
 import { useProjectModal } from '@/Stores/useProjectModal';
-import TopBar from '@/Components/Features/Topbar/TopBar';
 import InteractiveProjectsSection from '@/Components/Sections/FeaturedInteractiveProjects/InteractiveProjectsSection';
 import GithubRepos from '@/Components/Features/Github/Components/Repos/GithubRepos';
 
@@ -47,7 +46,7 @@ export default function Projects() {
 
   // Firebase
   const { data, loading } = useProjects();
-  if (loading) return <p className="text-gray-300">Loading projects…</p>;
+  if (loading) return <p className="text-text-subheading">Loading projects…</p>;
   if (!data.length) {
     return (
       <div className="flex flex-col gap-4 overflow-hidden px-8">
@@ -55,7 +54,12 @@ export default function Projects() {
         <div className="flex h-[300px] items-center justify-start">
           <div
             onClick={toggleProject}
-            className="flex aspect-square max-h-[300px] w-full max-w-[300px] cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed border-gray-600 p-4 text-gray-400"
+            className={[
+              'flex aspect-square max-h-[300px] w-full max-w-[300px] cursor-pointer',
+              'flex-col items-center justify-center rounded-lg',
+              'border-border-strong border border-dashed',
+              'text-text-secondary p-4',
+            ].join(' ')}
           >
             <span className="flex flex-col items-center text-lg font-medium">
               <Plus className="cursor-pointer" />
@@ -118,8 +122,8 @@ export default function Projects() {
 
             {/* State Indicator */}
             <div className="text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <span className="bg-bg-secondary text-text-body inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
+                <span className="h-2 w-2 rounded-full bg-bg-emerald"></span>
                 Real Time Updates
               </span>
             </div>

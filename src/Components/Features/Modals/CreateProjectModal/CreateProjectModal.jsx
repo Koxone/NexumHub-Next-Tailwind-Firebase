@@ -128,7 +128,7 @@ export default function CreateProjectModal({ onSubmit }) {
           {/* Modal content */}
           <div className="bg-bg-main relative rounded-lg shadow-sm">
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-600 p-4 md:p-5">
+            <div className="border-border-strong flex items-center justify-between border-b p-4 md:p-5">
               <Title id="create-task-title" title="Create New Project" />
 
               {/* Close Modal Button */}
@@ -136,7 +136,7 @@ export default function CreateProjectModal({ onSubmit }) {
                 ref={closeBtnRef}
                 type="button"
                 onClick={closeProject}
-                className="hover:text-text-primary ms-auto inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-sm text-gray-400 hover:bg-gray-600"
+                className="hover:text-text-primary text-text-secondary ms-auto inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-sm hover:bg-gray-600"
                 aria-label="Close modal"
               >
                 <X />

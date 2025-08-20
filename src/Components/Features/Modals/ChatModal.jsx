@@ -78,7 +78,7 @@ export default function ChatModal({
                   <h3 className="text-text-primary text-lg font-semibold">
                     Live Chat System
                   </h3>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-text-secondary text-xs">
                     Real-time demonstration platform
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export default function ChatModal({
                     <h4 className="mb-1 text-sm font-medium text-blue-300">
                       What You're About to Experience
                     </h4>
-                    <p className="text-xs leading-relaxed text-gray-300">
+                    <p className="text-text-subheading text-xs leading-relaxed">
                       This isn't just another contact form. You're about to
                       interact with a{' '}
                       <strong>
@@ -141,7 +141,7 @@ export default function ChatModal({
                     <h5 className="text-text-primary mb-0.5 text-sm font-medium">
                       Real-Time Architecture
                     </h5>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-text-secondary text-xs">
                       Messages are delivered instantly using Firestore's
                       real-time listeners, providing a WhatsApp-like experience
                       with sub-second latency.
@@ -170,7 +170,7 @@ export default function ChatModal({
                     <h5 className="text-text-primary mb-0.5 text-sm font-medium">
                       Enterprise-Grade Security
                     </h5>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-text-secondary text-xs">
                       All communications are encrypted using SHA-256 hashing and
                       designed to be completely anonymous, ensuring privacy and
                       data protection.
@@ -205,7 +205,7 @@ export default function ChatModal({
                     <h5 className="text-text-primary mb-0.5 text-sm font-medium">
                       Active Development Showcase
                     </h5>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-text-secondary text-xs">
                       While the core functionality is production-ready, I'm
                       continuously refining the UI/UX. You're seeing my
                       development process in real-time.
@@ -236,12 +236,12 @@ export default function ChatModal({
                     <h4 className="mb-1 text-sm font-medium text-green-400">
                       Why This Matters for Recruiters
                     </h4>
-                    <p className="mb-2 text-xs leading-relaxed text-gray-300">
+                    <p className="text-text-subheading mb-2 text-xs leading-relaxed">
                       Rather than just describing my technical abilities, I've
                       embedded this interactive system directly into my
                       portfolio. This demonstrates my capacity to:
                     </p>
-                    <ul className="ml-3 space-y-0.5 text-xs text-gray-400">
+                    <ul className="text-text-secondary ml-3 space-y-0.5 text-xs">
                       <li>• Design and architect scalable real-time systems</li>
                       <li>
                         • Implement robust security practices in web
@@ -261,7 +261,7 @@ export default function ChatModal({
 
               {/* note - Smaller text */}
               <div className="pt-3 text-center">
-                <p className="text-xs text-gray-400">
+                <p className="text-text-secondary text-xs">
                   <strong className="text-text-primary">
                     Personal Commitment:
                   </strong>{' '}

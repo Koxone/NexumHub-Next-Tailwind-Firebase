@@ -51,7 +51,7 @@ function MenuButton({
         title={disabled ? 'Coming Soon' : ''}
         className={`group flex items-center rounded-lg p-2 ${
           disabled
-            ? 'cursor-not-allowed text-gray-400 opacity-50 dark:text-gray-500'
+            ? 'text-text-secondary cursor-not-allowed opacity-50 dark:text-gray-500'
             : 'dark:text-text-primary cursor-pointer text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700'
         }`}
       >

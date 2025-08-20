@@ -51,13 +51,13 @@ export default function ManualProjectCard({
             className="object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
+          <div className="text-text-secondary flex h-full w-full items-center justify-center text-xs">
             No image
           </div>
         )}
       </div>
       <div>
-        <p className="mt-2 max-w-[28ch] text-center text-sm leading-snug tracking-tight text-gray-300">
+        <p className="text-text-subheading mt-2 max-w-[28ch] text-center text-sm leading-snug tracking-tight">
           {description}
           <span className="text-gray text-sm-300 rounded-full bg-violet-500/15 px-2 py-0.5">
             {stack}

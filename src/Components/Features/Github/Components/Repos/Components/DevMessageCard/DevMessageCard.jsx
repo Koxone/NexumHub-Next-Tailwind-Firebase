@@ -19,10 +19,10 @@ function DevMessageCard({ isSignedIn, isLoaded, loading, setLoading }) {
           <div className="mb-4 rounded-lg border border-violet-500/20 bg-gradient-to-r from-violet-500/5 to-blue-500/5 p-4 text-center">
             {/* State Indicator  */}
             <div className="mb-4 text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+              <span className="bg-bg-secondary text-text-body inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
                 {isSignedIn ? (
                   <>
-                    <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                    <span className="bg-bg-emerald h-2 w-2 rounded-full"></span>
                     Your repositories
                   </>
                 ) : (
@@ -39,7 +39,7 @@ function DevMessageCard({ isSignedIn, isLoaded, loading, setLoading }) {
                 Welcome to my Developer Portfolio
               </span>
             </div>
-            <p className="mb-3 text-sm text-neutral-300">
+            <p className="text-text-body mb-3 text-sm">
               You're currently viewing{' '}
               <span className="font-semibold text-violet-400">
                 my projects and repositories

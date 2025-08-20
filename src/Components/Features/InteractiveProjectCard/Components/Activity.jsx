@@ -4,7 +4,7 @@ function Activity({ updated, active }) {
   const isActive = Boolean(active);
 
   return (
-    <div className="border-border/30 border-border-main/40 flex items-center justify-between border-t pt-4 text-gray-400">
+    <div className="border-border/30 border-border-main/40 text-text-secondary flex items-center justify-between border-t pt-4">
       <div className="flex items-center gap-1 text-xs">
         <svg
           xmlns="http://www.w3.org/2000/svg"

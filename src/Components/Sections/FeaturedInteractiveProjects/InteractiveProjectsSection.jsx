@@ -74,8 +74,8 @@ function InteractiveProjectsSection({ className = '' }) {
 
       {/* Cards Desktop */}
       <div className="hidden grid-cols-2 gap-10 lg:grid">
+        <InteractiveProjectCard projectKey="testigoMX" />
         <InteractiveProjectCard projectKey="fws" />
-        <InteractiveProjectCard projectKey="sacbe" />
         <InteractiveProjectCard projectKey="couponGenerator" />
       </div>
     </div>

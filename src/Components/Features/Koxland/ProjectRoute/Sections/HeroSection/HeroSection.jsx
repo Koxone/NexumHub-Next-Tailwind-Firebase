@@ -21,7 +21,7 @@ const HeroSection = ({
   srcSlide,
 }) => {
   return (
-    <section className="relative max-w-[1200px] justify-self-center overflow-hidden py-10">
+    <section className="relativejustify-self-center overflow-hidden py-10">
       <div className="relative container mx-auto px-6">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div className="space-y-8">

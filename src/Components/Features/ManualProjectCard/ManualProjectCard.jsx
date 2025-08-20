@@ -25,7 +25,7 @@ export default function ManualProjectCard({
   return (
     <div
       onClick={handleClick}
-      className={`flex aspect-square max-h-[300px] w-full max-w-[300px] shrink-0 flex-col justify-between rounded-lg border border-neutral-800 ${color} p-4 ${className}`}
+      className={`flex aspect-square max-h-[300px] w-full max-w-[300px] shrink-0 flex-col justify-between rounded-lg border border-blue-400/50 ${color} p-4 ${className}`}
     >
       <div
         data-nodrag="true"

@@ -8,8 +8,10 @@ import { useGithubRepos } from '@/Hooks/Github/useGithubRepos';
 export default function GitRepoAnimatedList({
   refreshMs = 1500000,
   displayScrollbar = false,
+  padding,
   className = '',
   showMore,
+  pageSizeNumber,
 }) {
   const {
     visibleRepos,
@@ -17,7 +19,7 @@ export default function GitRepoAnimatedList({
     showMore: onShowMore,
     loading,
     error: err,
-  } = useGithubRepos({ pageSize: 4, refreshMs });
+  } = useGithubRepos({ pageSize: pageSizeNumber, refreshMs });
 
   return (
     <div className={`relative w-full ${className}`}>
@@ -29,7 +31,7 @@ export default function GitRepoAnimatedList({
       />
 
       <div
-        className={`overflow-y-auto px-5 ${
+        className={`${padding} ${
           displayScrollbar
             ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-[4px] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-track]:bg-[#060010]'
             : 'no-scrollbar'

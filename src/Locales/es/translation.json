@@ -121,6 +121,41 @@
       ],
       "overview": "Koxland Ecommerce es una tienda en línea moderna, totalmente responsiva y lista para PWA, desarrollada con Next.js 15, Tailwind CSS v4, Shopify Storefront API y Firebase Firestore. Está diseñada para ofrecer alto rendimiento, escalabilidad y uso en entornos de producción reales, con funciones como carrito de compras persistente, lista de deseos por usuario, reseñas de productos con imágenes (mediante Cloudinary) e integración completa con el checkout de Shopify. El proyecto incluye internacionalización (i18n), transiciones de página fluidas con Framer Motion, soporte offline y la posibilidad de instalarse como aplicación móvil en iOS y Android. Sigue una arquitectura modular y limpia, optimizada para SEO y renderizado del lado del servidor (SSR), y está desplegado en Vercel. Es una plantilla de comercio electrónico de código abierto, lista para producción, para crear tiendas escalables con Next.js, Firebase y Shopify, siguiendo las mejores prácticas de rendimiento, experiencia de usuario (UX) y mantenibilidad."
     },
+
+    "testigoMX": {
+      "title": "TestigoMX, Plataforma Humanitaria para Personas Desaparecidas",
+      "description": "Plataforma humanitaria para documentar personas desaparecidas y hallazgos forenses en México. Construida con Next.js, Tailwind CSS y Firebase/Firestore. Incluye moderación ética, búsqueda y etiquetado avanzado, i18n multilenguaje, acceso por roles y soporte PWA sin conexión.",
+      "updated": "Actualizado Agosto 2025",
+      "date": "Julio 2025",
+      "type": "Aplicación Web",
+      "status": "Proyecto Activo",
+      "statusProject": "Completado",
+      "overview": "TestigoMX es una iniciativa humanitaria diseñada para centralizar y digitalizar reportes de personas desaparecidas y hallazgos forenses en México. Proporciona una herramienta respetuosa, transparente y colaborativa para familias, colectivos y especialistas.",
+      "features": "Características Clave",
+      "projectFeatures": [
+        {
+          "title": "Base de Datos Centralizada",
+          "description": "Registros organizados y accesibles de personas desaparecidas y hallazgos forenses."
+        },
+        {
+          "title": "Moderación de Contenido",
+          "description": "Material sensible moderado cuidadosamente con dignidad y advertencias éticas."
+        },
+        {
+          "title": "Búsqueda Avanzada",
+          "description": "Filtra reportes por nombre, ubicación, fecha, objetos o atributos específicos."
+        },
+        {
+          "title": "Acceso Multi-Rol",
+          "description": "Diseñado para familias, colectivos, especialistas y sociedad civil."
+        },
+        {
+          "title": "Responsivo y Seguro",
+          "description": "Optimizado para uso en dispositivos de escritorio y móviles con estrictas reglas de privacidad."
+        }
+      ]
+    },
+
     "sacbe": {
       "title": "Sacbe Tours, Reserva de tours turisticos",
       "description": "Aplicación web moderna para reservar tours en todo el mundo. Ofrece disponibilidad en tiempo real, precios dinámicos y reservas sin complicaciones a través de una API personalizada. Interfaz limpia, intuitiva y totalmente responsiva.",

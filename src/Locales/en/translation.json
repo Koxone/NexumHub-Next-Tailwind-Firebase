@@ -122,6 +122,7 @@
       ],
       "overview": "Koxland Ecommerce is a modern, fully responsive, PWA-ready online store built with Next.js 15, Tailwind CSS v4, Shopify Storefront API, and Firebase Firestore. It’s designed for high performance, scalability, and real-world production use, featuring a persistent shopping cart, user-specific wishlist, product reviews with images (via Cloudinary), and full Shopify checkout integration. The project includes internationalization (i18n), smooth page transitions with Framer Motion, offline support, and the ability to be installed as a mobile app on iOS/Android. It follows a clean, modular architecture optimized for SEO and SSR and is deployed on Vercel. It is an open-source, production-ready e-commerce template for building scalable storefronts with Next.js, Firebase, and Shopify, following best practices for performance, UX, and maintainability."
     },
+
     "sacbe": {
       "title": "Sacbe Tours, Touristic tours booking",
       "description": "Modern web app for booking tours worldwide. Offers real-time availability, dynamic pricing, and seamless booking through a custom API. Clean, intuitive, and fully responsive UI.",
@@ -159,6 +160,41 @@
       ],
       "overview": "A modern, fully responsive tour booking platform built with Next.js, React, and Tailwind CSS, designed to deliver a seamless travel planning experience. The platform allows users to explore and book tours in top destinations across Mexico and selected locations worldwide. It features a clean, user-friendly interface, dynamic filtering options, and an optimized booking process for travelers on both desktop and mobile devices. Users can browse curated tours with detailed information, pricing, and real-time availability, making it easy to plan trips with confidence. The project is being developed with a scalable, modular architecture to ensure high performance, SEO optimization, and readiness for integrations with APIs such as payment gateways, real-time availability systems, and multi-language support. The platform is currently under active development, with upcoming features including user accounts, personalized recommendations, multi-language support (English/Spanish), and enhanced search capabilities."
     },
+
+    "testigoMX": {
+      "title": "TestigoMX, Humanitarian Platform for Missing Persons",
+      "description": "Humanitarian platform for documenting missing persons and forensic findings in Mexico. Built with Next.js, Tailwind CSS, and Firebase/Firestore. Features ethical moderation, advanced search and tagging, multilingual i18n, role-based access, and PWA support with offline use.",
+      "updated": "Updated August 2025",
+      "date": "July 2025",
+      "type": "WebApp",
+      "status": "Active Project",
+      "statusProject": "Completed",
+      "overview": "TestigoMX is a humanitarian initiative designed to centralize and digitize reports of missing persons and forensic findings in Mexico. It provides a respectful, transparent, and collaborative tool for families, collectives, and specialists.",
+      "features": "Key Features",
+      "projectFeatures": [
+        {
+          "title": "Centralized Database",
+          "description": "Organized and accessible records of missing persons and forensic findings."
+        },
+        {
+          "title": "Content Moderation",
+          "description": "Sensitive material is carefully moderated with dignity and ethical warnings."
+        },
+        {
+          "title": "Advanced Search",
+          "description": "Filter reports by name, location, date, objects, or specific attributes."
+        },
+        {
+          "title": "Multi-Role Access",
+          "description": "Designed for families, collectives, specialists, and civil society."
+        },
+        {
+          "title": "Responsive & Secure",
+          "description": "Optimized for use on desktop and mobile devices with strong privacy rules."
+        }
+      ]
+    },
+
     "couponGenerator": {
       "title": "Coupon Generator with API Integration",
       "description": "A responsive web app that fetches promotional coupons from an API, lets users explore offers by region, and generate Apple/Google Wallet passes via dynamic integration.",

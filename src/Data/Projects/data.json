@@ -6,7 +6,7 @@
       "descriptionKey": "projects.fws.description",
       "url": "https://fitworldshop.com",
       "urlGit": "https://github.com/Koxone/FitWorldShop-Ecommerce-Next-Tailwind-Shopify-API",
-      "image": "/Images/ProjectCards/testigo.svg",
+      "image": "/Images/ProjectCards/fws.svg",
       "featured": true,
       "src": "fws",
       "completed": true,
@@ -31,6 +31,39 @@
       "overview": "projects.fws.overview",
       "features": "projects.fws.features",
       "projectFeatures": "projects.fws.projectFeatures"
+    },
+
+    "testigoMX": {
+      "id": "testigoMX",
+      "titleKey": "projects.testigoMX.title",
+      "descriptionKey": "projects.testigoMX.description",
+      "url": "https://www.testigo.mx/",
+      "urlGit": "https://github.com/Koxone/",
+      "image": "/Images/ProjectCards/testigo.svg",
+      "featured": true,
+      "src": "testigoMX",
+      "completed": true,
+      "active": true,
+      "updated": "projects.testigoMX.updated",
+      "date": "projects.testigoMX.date",
+      "lastUpdated": "2025-08-01",
+      "typeKey": "projects.testigoMX.type",
+      "statusKey": "projects.testigoMX.status",
+      "status": "projects.testigoMX.statusProject",
+      "technologies": [
+        "Next.js",
+        "React",
+        "Tailwind",
+        "Firebase",
+        "Shopify API",
+        "Framer",
+        "i18"
+      ],
+      "tags": ["FullStack", "PWA", "Ecommerce"],
+      "teamSize": "1",
+      "overview": "projects.testigoMX.overview",
+      "features": "projects.testigoMX.features",
+      "projectFeatures": "projects.testigoMX.projectFeatures"
     },
 
     "sacbe": {

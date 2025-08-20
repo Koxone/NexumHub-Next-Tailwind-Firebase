@@ -6,7 +6,7 @@ import HeroSection from '@/Components/Features/Koxland/ProjectRoute/Sections/Her
 import OverviewCard from '@/Components/Features/Koxland/ProjectRoute/Views/Projects/ProjectOverview/OverviewCard';
 import FeaturesGrid from '@/Components/Features/Koxland/ProjectRoute/Views/Projects/KeyFeatures/FeaturesGrid';
 import ProjectSidebar from '@/Components/Features/Koxland/ProjectRoute/Views/Projects/Sidebar/ProjectSidebar';
-import data from '@/Components/Features/Koxland/ProjectRoute/Cards/ProjectCard/Data/data';
+import data from '@/Data/Projects/data';
 import { useTranslation } from 'react-i18next';
 
 export default function ProjectPage({ params }) {
@@ -44,7 +44,7 @@ export default function ProjectPage({ params }) {
         srcSlide={project.src}
       />
 
-      <main className="container mx-auto max-w-[1200px] space-y-16 px-6 py-10">
+      <main className="container mx-auto space-y-16 px-6 py-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           <div className="space-y-12 lg:col-span-2">
             <OverviewCard
@@ -59,6 +59,7 @@ export default function ProjectPage({ params }) {
             />
           </div>
           <ProjectSidebar
+            pageSize={3}
             technologies={project.technologies}
             url={project.url}
             urlGit={project.urlGit}

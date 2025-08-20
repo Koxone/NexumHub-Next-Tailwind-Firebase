@@ -121,7 +121,7 @@ export default function Projects() {
               </span>
             </div>
           </div>
-          <GithubRepos />
+          <GithubRepos padding='p-8' />
         </div>
       </div>
 

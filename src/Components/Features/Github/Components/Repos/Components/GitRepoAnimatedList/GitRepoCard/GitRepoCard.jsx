@@ -22,7 +22,13 @@ function GitRepoCard({ repo, index, setSelectedIndex }) {
         href={repo.html_url}
         target="_blank"
         rel="noreferrer"
-        className="group block rounded-xl border border-neutral-800 bg-[#0d1117] p-4 transition-all duration-200 ease-in-out hover:scale-105 hover:bg-[#161b22]"
+        className={[
+          'group block rounded-xl',
+          'border border-blue-400/50',
+          'p-4',
+          'transition-all duration-200 ease-in-out',
+          'hover:scale-105 hover:bg-slate-700/30',
+        ].join(' ')}
       >
         <div className="mb-2 flex items-center justify-between">
           {/* Repo Name */}

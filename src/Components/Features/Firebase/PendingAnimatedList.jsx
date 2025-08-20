@@ -228,7 +228,7 @@ export default function PendingAnimatedList({
                 onClick={() => setSelectedIndex(index)}
               >
                 <div
-                  className={`group rounded-xl border border-neutral-800 bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]`}
+                  className={`group rounded-xl border border-blue-400/50 bg-[#0d1117] p-4 transition-colors duration-200 hover:bg-[#161b22]`}
                 >
                   <div className="mb-2">
                     <div className="mb-2 flex items-center justify-between">

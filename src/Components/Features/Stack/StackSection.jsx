@@ -13,7 +13,7 @@ export default function StackSection({ className = '' }) {
         key={i}
         className={`group glow-card relative border border-solid ${item.border} p-3 ${item.bg} flex flex-col items-center gap-2 rounded-2xl backdrop-blur-md ${item.hover}`}
       >
-        <div className="flex h-14 w-14 items-center justify-center p-1">
+        <div className="flex h-11 w-11 items-center justify-center p-1">
           <img
             src={item.url}
             alt={item.tooltip}

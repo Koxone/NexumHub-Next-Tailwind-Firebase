@@ -43,7 +43,7 @@ export default function PopoverHover({
         className={`dark:border-border-strong dark:text-text-secondary absolute z-10 inline-block w-64 rounded-lg border bg-white text-sm text-gray-500 shadow-xs transition-opacity duration-200 dark:bg-gray-800 ${open ? 'visible opacity-100' : 'invisible opacity-0'}`}
       >
         <div className="dark:border-border-strong rounded-t-lg border-b bg-gray-100 px-3 py-2 dark:bg-gray-700">
-          <h3 className="dark:text-text-primary font-semibold text-gray-900">
+          <h3 className="dark:text-text-primary text-bg-secondary font-semibold">
             {title}
           </h3>
         </div>

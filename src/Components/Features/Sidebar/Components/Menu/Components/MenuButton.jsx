@@ -43,7 +43,7 @@ function MenuButton({
   return (
     <li
       onClick={handleClick}
-      className="h-fit w-full cursor-pointer list-none rounded-lg hover:bg-gray-700"
+      className="hover:bg-gray-dark h-fit w-full cursor-pointer list-none rounded-lg"
     >
       <button
         aria-label={aria}
@@ -52,7 +52,7 @@ function MenuButton({
         className={`group flex items-center rounded-lg p-2 ${
           disabled
             ? 'text-text-secondary cursor-not-allowed opacity-50 dark:text-gray-500'
-            : 'dark:text-text-primary cursor-pointer text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700'
+            : 'dark:text-text-primary text-bg-secondary dark:hover:bg-gray-dark hover:bg-brand-100 cursor-pointer'
         }`}
       >
         <Icon className="h-5 w-5" />

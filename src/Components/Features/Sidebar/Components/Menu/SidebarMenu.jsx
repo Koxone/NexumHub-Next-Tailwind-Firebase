@@ -26,7 +26,7 @@ import {
 } from '@clerk/nextjs';
 import ChatModal from '@/Components/Features/Modals/ChatModal';
 import { useChatModal } from '@/Stores/useChatModal';
-import { useTranslation } from 'react-i18next';
+import LanguageButton from './Components/LanguageButton';
 
 function SidebarMenu() {
   const router = useRouter();
@@ -60,18 +60,15 @@ function SidebarMenu() {
     if (win) win.opener = null;
   };
 
-  // attention flag
-  const [showHint, setShowHint] = useState(true); // initial hint
+  const [showHint, setShowHint] = useState(true); 
 
-  // auto-hide
   useEffect(() => {
     const id = setTimeout(() => setShowHint(false), 14500);
     return () => clearTimeout(id);
   }, []);
 
-  // projects click
   const handleProjects = () => {
-    setShowHint(false); // stop hint
+    setShowHint(false);
     onLinkClick('/projects');
   };
 
@@ -84,9 +81,7 @@ function SidebarMenu() {
         text="Home"
       />
 
-      {/* wrapper relative */}
       <div className="relative w-full">
-        {/* halo */}
         {showHint && (
           <span
             aria-hidden
@@ -94,7 +89,6 @@ function SidebarMenu() {
           />
         )}
 
-        {/* button */}
         <MenuButton
           onClick={handleProjects}
           aria="Go to Projects Button"
@@ -144,7 +138,7 @@ function SidebarMenu() {
         text="Contact"
         contact
       />
-      <MenuButton
+      <LanguageButton
         aria="Go to Search Projects Button"
         icon={Languages}
         text="English"

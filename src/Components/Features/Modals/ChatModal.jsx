@@ -273,19 +273,21 @@ export default function ChatModal({
             {/* Footer - Reduced padding and button sizes */}
             <div className="sticky bottom-0 flex flex-col gap-2 border-t border-white/10 bg-[#0b1020]/95 px-4 py-3 backdrop-blur sm:flex-row sm:justify-end">
               <button
+              title='Coming Soon'
+                disabled
                 type="button"
                 onClick={() => {
                   onAccept?.();
                   closeChatModal();
                 }}
-                className="cursor-pointer rounded-md bg-green-700 px-4 py-2 text-xs font-medium text-white hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+                className="cursor-not-allowed rounded-md bg-gray-800 px-4 py-2 text-xs font-medium text-white hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
               >
                 Lets Chat!
               </button>
               <button
                 type="button"
                 onClick={closeChatModal}
-                className="cursor-pointer rounded-md border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white hover:bg-white/10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="cursor-pointer rounded-md border border-white/10 bg-neutral-500 px-4 py-2 text-xs font-medium text-white hover:bg-white/10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               >
                 Close
               </button>

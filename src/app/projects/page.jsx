@@ -81,7 +81,7 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex min-h-0 w-full flex-col gap-8 justify-self-center">
+    <div className="flex min-h-0 w-full flex-col gap-8 justify-self-center lg:pl-64">
       {/* Presentation */}
       <div>
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-white capitalize md:text-4xl lg:text-4xl">

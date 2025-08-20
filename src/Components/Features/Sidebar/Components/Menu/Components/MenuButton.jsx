@@ -41,9 +41,11 @@ function MenuButton({
   };
 
   return (
-    <li className="h-fit list-none">
+    <li
+      onClick={handleClick}
+      className="h-fit w-full cursor-pointer list-none rounded-lg hover:bg-gray-700"
+    >
       <button
-        onClick={handleClick}
         aria-label={aria}
         disabled={disabled}
         title={disabled ? 'Coming Soon' : ''}

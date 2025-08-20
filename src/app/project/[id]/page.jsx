@@ -24,7 +24,7 @@ export default function ProjectPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pl-56">
       <ProjectHeader />
 
       <HeroSection

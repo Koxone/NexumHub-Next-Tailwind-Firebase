@@ -26,13 +26,16 @@ function SideBar({ className }) {
       id="mobile-menu"
       className={[
         `${className}`,
-        'hidden lg:relative lg:flex',
-        'absolute z-50 flex grid-cols-1 grid-rows-[auto_auto_1fr] flex-col gap-6',
-        'bg-bg-main before:bg-gray-400/40',
-        'h-full max-h-[790px] w-fit p-8 md:max-h-full',
-        'rounded-tl-lg rounded-bl-lg',
-        'pointer-events-auto scale-100 opacity-100 transition-all duration-200 ease-out md:pointer-events-auto md:scale-100 md:opacity-100',
-        'before:absolute before:top-[20px] before:right-0 before:bottom-[20px] before:w-px',
+        // visible solo en desktop
+        'hidden lg:flex',
+        // fixed sidebar
+        'fixed top-0 left-0 z-50 h-screen w-64 flex-col gap-6 overflow-y-auto',
+        // skin
+        'bg-bg-main p-8',
+        // divider
+        'before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40',
+        // reset
+        'rounded-none',
       ].join(' ')}
     >
       <div className="grid w-full grid-cols-[auto_1fr] items-center gap-4">
@@ -43,15 +46,15 @@ function SideBar({ className }) {
       {/* Clerk SignedOut */}
       {/* <SignedOut>
         <SignInButton mode="modal"> */}
-          <div className="flex flex-col gap-4">
-            <Avatar />
-            {/* <PulseSignInButton>
+      <div className="flex flex-col gap-4">
+        <Avatar />
+        {/* <PulseSignInButton>
               <button className="w-full cursor-pointer rounded-md bg-[#4d74b8] px-3 py-2 text-sm text-white transition-all duration-200 ease-in-out hover:bg-[#2a3f61]">
                 Sign In
               </button>
             </PulseSignInButton> */}
-          </div>
-        {/* </SignInButton>
+      </div>
+      {/* </SignInButton>
       </SignedOut> */}
 
       {/* Clerk SignedIn */}

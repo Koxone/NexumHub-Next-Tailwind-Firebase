@@ -274,18 +274,26 @@ export default function ChatModal({
 
             {/* Footer - Reduced padding and button sizes */}
             <div className="sticky bottom-0 flex flex-col gap-2 border-t border-white/10 bg-[#0b1020]/95 px-4 py-3 backdrop-blur sm:flex-row sm:justify-end">
-              <button
-                title="Coming Soon"
-                disabled
-                type="button"
-                onClick={() => {
-                  onAccept?.();
-                  closeChatModal();
-                }}
-                className="text-text-primary cursor-not-allowed rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
-              >
-                Lets Chat!
-              </button>
+              <div className="group relative flex items-center">
+                <button
+                  title="Coming Soon"
+                  disabled
+                  type="button"
+                  onClick={() => {
+                    onAccept?.();
+                    closeChatModal();
+                  }}
+                  className="text-text-primary cursor-not-allowed rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+                >
+                  Lets Chat!
+                </button>
+
+                {/* Tooltip */}
+                <span className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 rounded-md bg-blue-500 px-2 py-1 text-xs text-white transition-all group-hover:scale-100">
+                  Coming Soon
+                </span>
+              </div>
+
               <button
                 type="button"
                 onClick={closeChatModal}

@@ -40,7 +40,7 @@
       "descriptionKey": "projects.testigoMX.description",
       "url": "https://www.testigo.mx/",
       "urlGit": "https://github.com/Koxone/",
-      "image": "/Images/ProjectCards/testigo.svg",
+      "image": "/testigo/testigo.gif",
       "featured": true,
       "logo": "Images/ProjectCards/testigo.svg",
       "src": "testigoMX",

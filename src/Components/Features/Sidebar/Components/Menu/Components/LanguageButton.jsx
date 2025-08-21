@@ -1,34 +1,61 @@
-import { LanguagesIcon } from 'lucide-react';
+'use client';
+
 import React from 'react';
+import { LanguagesIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-export default function LanguageButton({ text, textColor = '' }) {
-  //i18 Language
-  const { i18n, t, ready } = useTranslation();
+if (!i18next.isInitialized) {
+  i18next.use(initReactI18next).init({
+    resources: {
+      en: { translation: {} },
+      es: { translation: {} },
+      pt: { translation: {} },
+    },
+    lng: 'en',
+    fallbackLng: 'en',
+    interpolation: { escapeValue: false },
+    react: { useSuspense: false },
+  });
+}
 
+export default function LanguageButton({ textColor = '' }) {
+  const { i18n, ready } = useTranslation();
   if (!ready) return null;
 
-  const toggleLanguage = () => {
-    if (i18n.language === 'en') {
-      i18n.changeLanguage('es');
-    } else if (i18n.language === 'es') {
-      i18n.changeLanguage('pt');
-    } else {
-      i18n.changeLanguage('en');
-    }
+  const code = (i18n.language || 'en').slice(0, 2).toLowerCase();
+  const flagMap = {
+    en: '/Assets/Flags/en.png',
+    es: '/Assets/Flags/es.png',
+    pt: '/Assets/Flags/pt.png',
   };
+  const labelMap = { en: 'EN', es: 'ES', pt: 'PT' };
+  const flagSrc = flagMap[code] || flagMap.en;
+  const label = labelMap[code] || 'EN';
+
+  const toggleLanguage = () => {
+    if (code === 'en') i18n.changeLanguage('es');
+    else if (code === 'es') i18n.changeLanguage('pt');
+    else i18n.changeLanguage('en');
+  };
+
   return (
-    <li
-      onClick={toggleLanguage}
-      className="hover:bg-gray-dark h-fit w-full cursor-pointer list-none rounded-lg"
-    >
+    <li className="h-fit w-full list-none rounded-lg hover:bg-gray-700">
       <button
-        className={`group dark:text-text-primary text-bg-secondary dark:hover:bg-gray-dark hover:bg-brand-100 flex cursor-pointer items-center rounded-lg p-2`}
+        type="button"
+        onClick={toggleLanguage}
+        aria-label="Switch Language"
+        className="group flex cursor-pointer items-center rounded-lg p-2 text-gray-900 hover:bg-gray-100 dark:text-text-primary dark:hover:bg-gray-700"
       >
         <LanguagesIcon className="h-5 w-5" />
-        <span className={`ms-3 ${textColor} flex-1 whitespace-nowrap`}>
-          {i18n.language.toUpperCase()}
-        </span>
+        <span className={`ms-3 ${textColor} flex-1 whitespace-nowrap`}>{label}</span>
+        <img
+          src={flagSrc}
+          alt={label}
+          className="ms-2 h-5 w-7 rounded-[3px] object-cover"
+          loading="lazy"
+        />
       </button>
     </li>
   );

@@ -45,10 +45,13 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
           className="border-border-main/50 relative aspect-video cursor-pointer overflow-hidden rounded-3xl border shadow-2xl backdrop-blur-lg"
           onClick={() => openSlideshow(0)}
         >
-          <img
-            alt={alt}
-            className="h-full w-full object-cover transition-all duration-300 ease-in-out hover:scale-105"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             src={src}
+            className="h-full w-full object-cover transition-all duration-300 ease-in-out hover:scale-105"
           />
         </div>
         <div className="self-center text-center">

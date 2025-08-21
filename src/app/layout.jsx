@@ -111,7 +111,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en" className={`${inter.className} h-screen`}>
-        <body className="bg-bg- h-screen ">
+        <body className="bg-bg- h-screen overflow-x-hidden">
           <StarFieldBackground />
           <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
             <SideBar />

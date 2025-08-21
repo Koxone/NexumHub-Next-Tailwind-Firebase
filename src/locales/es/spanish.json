@@ -85,7 +85,7 @@
   "tOverview": "Descripcion del Proyecto",
   "projects": {
     "fws": {
-      "title": "Ecommerce Next.js, Shopify Headless API",
+      "title": "eCommerce Next.js, Shopify Headless API",
       "description": "Tienda en línea moderna y responsiva creada con Next.js, Tailwind CSS y Shopify Storefront API. Incluye UI limpia, navegación avanzada de productos, reseñas con imágenes, wishlist con Firebase y soporte PWA con uso offline e instalación en iOS.",
       "updated": "Actualizado Agosto 2025",
       "date": "Julio 2025",
@@ -119,7 +119,7 @@
           "description": "Experiencia tipo aplicación con navegación sin conexión y opción de “Agregar a la pantalla de inicio” en iOS y Android."
         }
       ],
-      "overview": "Koxland Ecommerce es una tienda en línea moderna, totalmente responsiva y lista para PWA, desarrollada con Next.js 15, Tailwind CSS v4, Shopify Storefront API y Firebase Firestore. Está diseñada para ofrecer alto rendimiento, escalabilidad y uso en entornos de producción reales, con funciones como carrito de compras persistente, lista de deseos por usuario, reseñas de productos con imágenes (mediante Cloudinary) e integración completa con el checkout de Shopify. El proyecto incluye internacionalización (i18n), transiciones de página fluidas con Framer Motion, soporte offline y la posibilidad de instalarse como aplicación móvil en iOS y Android. Sigue una arquitectura modular y limpia, optimizada para SEO y renderizado del lado del servidor (SSR), y está desplegado en Vercel. Es una plantilla de comercio electrónico de código abierto, lista para producción, para crear tiendas escalables con Next.js, Firebase y Shopify, siguiendo las mejores prácticas de rendimiento, experiencia de usuario (UX) y mantenibilidad."
+      "overview": "eCommerce es una tienda en línea moderna, totalmente responsiva y lista para PWA, desarrollada con Next.js 15, Tailwind CSS v4, Shopify Storefront API y Firebase Firestore. Está diseñada para ofrecer alto rendimiento, escalabilidad y uso en entornos de producción reales, con funciones como carrito de compras persistente, lista de deseos por usuario, reseñas de productos con imágenes (mediante Cloudinary) e integración completa con el checkout de Shopify. El proyecto incluye internacionalización (i18n), transiciones de página fluidas con Framer Motion, soporte offline y la posibilidad de instalarse como aplicación móvil en iOS y Android. Sigue una arquitectura modular y limpia, optimizada para SEO y renderizado del lado del servidor (SSR), y está desplegado en Vercel. Es una plantilla de comercio electrónico de código abierto, lista para producción, para crear tiendas escalables con Next.js, Firebase y Shopify, siguiendo las mejores prácticas de rendimiento, experiencia de usuario (UX) y mantenibilidad."
     },
 
     "testigoMX": {

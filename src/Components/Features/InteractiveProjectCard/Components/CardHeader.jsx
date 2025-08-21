@@ -2,9 +2,9 @@ import React from 'react';
 
 function CardHeader({ tags = [], date }) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-2 md:flex-nowrap">
+    <div className="flex items-center justify-between gap-2">
       {/* Tags */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2 max-w-[70%]">
         {tags.map((tag, index) => (
           <div
             key={index}
@@ -16,7 +16,7 @@ function CardHeader({ tags = [], date }) {
       </div>
 
       {/* Fecha */}
-      <div className="bg-muted/30 text-muted-foreground flex items-center rounded-full px-3 py-1 text-xs whitespace-nowrap">
+      <div className="flex-shrink-0 bg-muted/30 text-muted-foreground flex items-center rounded-full px-3 py-1 text-xs whitespace-nowrap">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

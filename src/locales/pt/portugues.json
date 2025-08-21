@@ -85,7 +85,7 @@
   "tOverview": "Descrição do Projeto",
   "projects": {
     "fws": {
-      "title": "Ecommerce Next.js, Shopify Headless API",
+      "title": "eCommerce Next.js, Shopify Headless API",
       "description": "Loja online moderna e responsiva criada com Next.js, Tailwind CSS e Shopify Storefront API. Inclui uma UI limpa, navegação avançada de produtos, avaliações com imagens, lista de desejos integrada ao Firebase e suporte a PWA com uso offline e instalação em iOS.",
       "updated": "Atualizado em agosto de 2025",
       "date": "Julho de 2025",
@@ -119,7 +119,7 @@
           "description": "Experiência similar a um aplicativo, com navegação offline e opção de 'Adicionar à tela inicial' em iOS e Android."
         }
       ],
-      "overview": "Koxland Ecommerce é uma loja online moderna, totalmente responsiva e pronta para PWA, desenvolvida com Next.js 15, Tailwind CSS v4, Shopify Storefront API e Firebase Firestore. Projetada para oferecer alto desempenho, escalabilidade e uso em ambientes de produção reais, inclui funcionalidades como carrinho de compras persistente, lista de desejos por usuário, avaliações de produtos com imagens (via Cloudinary) e integração completa com o checkout da Shopify. O projeto conta com internacionalização (i18n), transições de página suaves com Framer Motion, suporte offline e possibilidade de instalação como aplicativo móvel em iOS e Android. Segue uma arquitetura modular e limpa, otimizada para SEO e renderização no lado do servidor (SSR), e está hospedada na Vercel. É um template de e-commerce de código aberto, pronto para produção, para criar lojas escaláveis com Next.js, Firebase e Shopify, seguindo as melhores práticas de desempenho, experiência do usuário (UX) e manutenção."
+      "overview": "Koxland eCommerce é uma loja online moderna, totalmente responsiva e pronta para PWA, desenvolvida com Next.js 15, Tailwind CSS v4, Shopify Storefront API e Firebase Firestore. Projetada para oferecer alto desempenho, escalabilidade e uso em ambientes de produção reais, inclui funcionalidades como carrinho de compras persistente, lista de desejos por usuário, avaliações de produtos com imagens (via Cloudinary) e integração completa com o checkout da Shopify. O projeto conta com internacionalização (i18n), transições de página suaves com Framer Motion, suporte offline e possibilidade de instalação como aplicativo móvel em iOS e Android. Segue uma arquitetura modular e limpa, otimizada para SEO e renderização no lado do servidor (SSR), e está hospedada na Vercel. É um template de e-commerce de código aberto, pronto para produção, para criar lojas escaláveis com Next.js, Firebase e Shopify, seguindo as melhores práticas de desempenho, experiência do usuário (UX) e manutenção."
     },
 
     "testigoMX": {

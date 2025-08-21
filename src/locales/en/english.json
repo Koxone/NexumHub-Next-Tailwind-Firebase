@@ -86,7 +86,7 @@
   "projects": {
     "fws": {
       "id": "fws",
-      "title": "Ecommerce Next.js, Shopify Headless API",
+      "title": "eCommerce Next.js, Shopify Headless API",
       "description": "Modern, responsive e-commerce storefront built with Next.js, Tailwind CSS, and Shopify Storefront API. Features clean UI, advanced product browsing, customer reviews with images, wishlist via Firebase, and scalable PWA support with offline use and iOS 'Add to Home Screen' install.",
       "updated": "Updated August 2025",
       "date": "July 2025",
@@ -120,7 +120,7 @@
           "description": "App-like experience with offline browsing and “Add to Home Screen” on iOS and Android."
         }
       ],
-      "overview": "Koxland Ecommerce is a modern, fully responsive, PWA-ready online store built with Next.js 15, Tailwind CSS v4, Shopify Storefront API, and Firebase Firestore. It’s designed for high performance, scalability, and real-world production use, featuring a persistent shopping cart, user-specific wishlist, product reviews with images (via Cloudinary), and full Shopify checkout integration. The project includes internationalization (i18n), smooth page transitions with Framer Motion, offline support, and the ability to be installed as a mobile app on iOS/Android. It follows a clean, modular architecture optimized for SEO and SSR and is deployed on Vercel. It is an open-source, production-ready e-commerce template for building scalable storefronts with Next.js, Firebase, and Shopify, following best practices for performance, UX, and maintainability."
+      "overview": "Koxland eCommerce is a modern, fully responsive, PWA-ready online store built with Next.js 15, Tailwind CSS v4, Shopify Storefront API, and Firebase Firestore. It’s designed for high performance, scalability, and real-world production use, featuring a persistent shopping cart, user-specific wishlist, product reviews with images (via Cloudinary), and full Shopify checkout integration. The project includes internationalization (i18n), smooth page transitions with Framer Motion, offline support, and the ability to be installed as a mobile app on iOS/Android. It follows a clean, modular architecture optimized for SEO and SSR and is deployed on Vercel. It is an open-source, production-ready e-commerce template for building scalable storefronts with Next.js, Firebase, and Shopify, following best practices for performance, UX, and maintainability."
     },
 
     "sacbe": {

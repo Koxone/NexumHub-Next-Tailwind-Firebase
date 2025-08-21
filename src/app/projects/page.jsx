@@ -93,15 +93,11 @@ export default function Projects() {
         </h1>
         <p className="text-text-secondary max-w-[1100px] text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
           Here you'll find my{' '}
-          <span className="text-text-primary font-semibold">
-            Featured Projects
-          </span>
-          , currently live in production but kept private on GitHub. Although
-          the source code isn't public, you can still explore each project to
+          <span className="text-accent font-semibold">Featured Projects</span>,
+          currently live in production but kept private on GitHub. Although the
+          source code isn't public, you can still explore each project to
           discover its purpose, features, and technologies. You'll also see{' '}
-          <span className="text-text-primary font-semibold">
-            Real-time Updates
-          </span>{' '}
+          <span className="text-accent font-semibold">Real-time Updates</span>{' '}
           from all my public repositories, showcasing my latest commits,
           progress, and ongoing development work.
         </p>
@@ -122,8 +118,8 @@ export default function Projects() {
 
             {/* State Indicator */}
             <div className="text-center">
-              <span className="bg-bg-secondary text-text-body inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
-                <span className="h-2 w-2 rounded-full bg-bg-emerald"></span>
+              <span className="bg-button-primary text-text-body inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
+                <span className="bg-bg-emerald h-2 w-2 rounded-full"></span>
                 Real Time Updates
               </span>
             </div>

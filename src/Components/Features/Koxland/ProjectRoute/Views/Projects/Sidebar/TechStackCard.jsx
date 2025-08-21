@@ -15,7 +15,7 @@ const TechStackCard = ({ technologies }) => {
       <div className="flex flex-col space-y-1.5 p-6">
         <h3 className="cur text-text-primary flex items-center gap-3 text-xl font-bold">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20">
-            <LayersIcon className="text-blue-400" />
+            <LayersIcon className="text-accent-light" />
           </div>
           Tech Stack
         </h3>

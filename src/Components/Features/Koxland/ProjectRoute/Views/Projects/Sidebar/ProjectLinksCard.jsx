@@ -33,7 +33,7 @@ const ProjectLinksCard = ({ url, urlGit }) => {
       title: 'Live Demo',
       subtitle: url ? url.split('/').filter(Boolean).pop() : '',
       iconBg: 'bg-blue-500/20',
-      iconColor: 'text-blue-400',
+      iconColor: 'text-accent-light',
     },
     {
       href: urlGit,
@@ -41,7 +41,7 @@ const ProjectLinksCard = ({ url, urlGit }) => {
       title: 'Source Code',
       subtitle: urlGit ? urlGit.split('/').slice(4).join('/') : '',
       iconBg: 'bg-slate-700/50',
-      iconColor: 'text-slate-300',
+      iconColor: 'text-text-body',
     },
   ];
 
@@ -50,7 +50,7 @@ const ProjectLinksCard = ({ url, urlGit }) => {
       <div className="flex flex-col space-y-1.5 pt-6 pb-3 pl-6">
         <h3 className="text-text-primary flex items-center gap-3 text-xl font-bold">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20">
-            <ExternalLinkIcon className="text-blue-400" />
+            <ExternalLinkIcon className="text-accent-light" />
           </div>
           Links
         </h3>

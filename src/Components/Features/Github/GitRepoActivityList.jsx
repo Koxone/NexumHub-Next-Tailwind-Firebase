@@ -71,7 +71,7 @@ export default function GitRepoActivityList({
         <ul className="backdrop-lg text-text-primary border-border-main/50 space-y-4 rounded-xl border p-6 shadow backdrop-blur-sm">
           <h3 className="cur text-text-primary flex items-center gap-3 text-xl font-bold">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20">
-              <Github className="text-blue-400" />
+              <Github className="text-accent-light" />
             </div>
             Project Real Time Activity
           </h3>

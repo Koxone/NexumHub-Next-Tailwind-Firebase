@@ -4,11 +4,11 @@ function CardHeader({ tags = [], date }) {
   return (
     <div className="flex items-center justify-between gap-2">
       {/* Tags */}
-      <div className="flex flex-wrap gap-2 max-w-[70%]">
+      <div className="flex max-w-[70%] flex-wrap gap-2">
         {tags.map((tag, index) => (
           <div
             key={index}
-            className="inline-flex items-center rounded-md border border-blue-500/20 bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium text-blue-400 shadow-sm"
+            className="text-accent-light inline-flex items-center rounded-md border border-blue-500/20 bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium shadow-sm"
           >
             {tag}
           </div>
@@ -16,7 +16,7 @@ function CardHeader({ tags = [], date }) {
       </div>
 
       {/* Fecha */}
-      <div className="flex-shrink-0 bg-muted/30 text-muted-foreground flex items-center rounded-full px-3 py-1 text-xs whitespace-nowrap">
+      <div className="bg-muted/30 text-muted-foreground flex flex-shrink-0 items-center rounded-full px-3 py-1 text-xs whitespace-nowrap">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

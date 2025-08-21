@@ -115,7 +115,7 @@ export default function ExperienceSection() {
           <div className="mt-4 text-center md:hidden">
             <button
               onClick={() => setExpanded(!expanded)}
-              className="text-blue-400 underline transition hover:text-blue-300"
+              className="text-accent-light underline transition hover:text-blue-300"
             >
               {expanded
                 ? t('experienceSection.showLess')

@@ -32,7 +32,7 @@ const HeroSection = ({
                   {tags.map((tag, index) => (
                     <div
                       key={index}
-                      className="inline-flex items-center rounded-md border border-blue-500/20 bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium text-blue-400 shadow-sm"
+                      className="text-accent-light inline-flex items-center rounded-md border border-blue-500/20 bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium shadow-sm"
                     >
                       {tag}
                     </div>
@@ -52,7 +52,7 @@ const HeroSection = ({
                   {titleKey}
                 </span>
               </h1>
-              <p className="text-base leading-relaxed text-slate-300">
+              <p className="text-text-body text-base leading-relaxed">
                 {descriptionKey}
               </p>
             </div>

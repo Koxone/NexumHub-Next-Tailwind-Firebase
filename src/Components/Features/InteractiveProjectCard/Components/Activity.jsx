@@ -30,7 +30,7 @@ function Activity({ updated, active }) {
             isActive ? 'animate-pulse bg-emerald-400' : 'bg-accent-light'
           }`}
         />
-        <span className={isActive ? 'text-emerald-400' : 'text-blue-400'}>
+        <span className={isActive ? 'text-emerald-400' : 'text-accent-light'}>
           {isActive ? 'Active Project' : 'Inactive Project'}
         </span>
       </div>

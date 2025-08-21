@@ -173,24 +173,28 @@
       "features": "Key Features",
       "projectFeatures": [
         {
-          "title": "Centralized Database",
-          "description": "Organized and accessible records of missing persons and forensic findings."
+          "title": "Continuously Growing Database",
+          "description": "Our platform is constantly updated with new information, currently holding over 12,000 records of missing persons and more than 3,000 for individuals reported as lost. This dynamic expansion ensures the database remains accurate, relevant, and an essential resource for families, collectives, and specialists."
+        },
+        {
+          "title": "Centralized and Continuously Updated Database",
+          "description": "A comprehensive repository of missing persons and forensic findings, constantly enriched with new records to ensure accurate, accessible, and up-to-date information for families, collectives, and specialists."
         },
         {
           "title": "Content Moderation",
-          "description": "Sensitive material is carefully moderated with dignity and ethical warnings."
+          "description": "All sensitive material is reviewed and presented with dignity, incorporating ethical safeguards and clear warnings to protect users while ensuring access to critical information."
         },
         {
           "title": "Advanced Search",
-          "description": "Filter reports by name, location, date, objects, or specific attributes."
+          "description": "Powerful filters enable reports to be located by name, location, date, personal attributes, or objects, ensuring precise and efficient access to information."
         },
         {
           "title": "Multi-Role Access",
-          "description": "Designed for families, collectives, specialists, and civil society."
+          "description": "Built to serve families, collectives, specialists, and civil society, with tailored access levels that respect each group's needs and responsibilities."
         },
         {
           "title": "Responsive & Secure",
-          "description": "Optimized for use on desktop and mobile devices with strong privacy rules."
+          "description": "Optimized for desktop and mobile use, combining intuitive design with robust privacy standards and strong data protection."
         }
       ]
     },

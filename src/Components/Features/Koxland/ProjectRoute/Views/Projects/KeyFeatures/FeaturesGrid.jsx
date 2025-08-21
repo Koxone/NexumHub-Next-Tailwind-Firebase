@@ -4,11 +4,11 @@ import { ZapIcon, CircleCheckBigIcon } from '../../../Icons/LucideIcons';
 const FeatureCard = ({ title, description }) => (
   <div className="border-border-main/50 flex items-start gap-4 rounded-2xl border p-6 backdrop-blur-lg transition-all duration-300 hover:border-slate-600/50 hover:bg-slate-700/30">
     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-blue-500/20">
-      <CircleCheckBigIcon className="text-blue-400" />
+      <CircleCheckBigIcon className="text-accent-light" />
     </div>
     <div>
       <h3 className="text-text-primary mb-2 text-lg font-semibold">{title}</h3>
-      <p className="leading-relaxed text-slate-300">{description}</p>
+      <p className="text-text-body leading-relaxed">{description}</p>
     </div>
   </div>
 );
@@ -20,7 +20,7 @@ const FeaturesGrid = ({ tFeatures, projectFeatures }) => {
         <div className="flex flex-col space-y-1.5 p-6">
           <h2 className="text-text-primary flex items-center gap-3 text-2xl font-bold">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20">
-              <ZapIcon className="text-blue-400" />
+              <ZapIcon className="text-accent-light" />
             </div>
             {tFeatures}
           </h2>

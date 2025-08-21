@@ -32,21 +32,21 @@ const StatsGrid = ({ teamSize, technologies, status }) => {
       label: 'Team Size',
       value: teamSize,
       iconBg: 'bg-blue-500/20',
-      iconColor: 'text-blue-400',
+      iconColor: 'text-accent-light',
     },
     {
       icon: CodeXmlIcon,
       label: 'Technologies',
       value: technologies,
       iconBg: 'bg-blue-500/20',
-      iconColor: 'text-blue-400',
+      iconColor: 'text-accent-light',
     },
     {
       icon: AwardIcon,
       label: 'Status',
       value: status,
       iconBg: 'bg-blue-500/20',
-      iconColor: 'text-blue-400',
+      iconColor: 'text-accent-light',
     },
   ];
 

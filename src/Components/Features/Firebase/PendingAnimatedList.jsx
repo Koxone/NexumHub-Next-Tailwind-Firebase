@@ -262,7 +262,7 @@ export default function PendingAnimatedList({
                                 ? 'bg-red-600/20 text-red-400'
                                 : pending.collection === 'reportMissing'
                                   ? 'bg-orange-600/20 text-orange-400'
-                                  : 'bg-blue-600/20 text-blue-400'
+                                  : 'text-accent-light bg-blue-600/20'
                           }`}
                         >
                           {pending.collection}

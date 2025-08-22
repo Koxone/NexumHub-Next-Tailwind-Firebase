@@ -9,13 +9,7 @@ import MobileSidebarToggleButton from './Components/MobileSidebarToggleButton/Mo
 import PulseSignInButton from '../../UI/Buttons/PulseSignInButton';
 
 // Clerk
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  useUser,
-} from '@clerk/nextjs';
+import { SignedIn, UserButton, useUser } from '@clerk/nextjs';
 
 function SideBar({ className }) {
   const { isOpen } = useMobileMenu();
@@ -26,15 +20,10 @@ function SideBar({ className }) {
       id="mobile-menu"
       className={[
         `${className}`,
-        // visible solo en desktop
         'hidden lg:flex',
-        // fixed sidebar
         'fixed top-0 left-0 z-50 h-screen w-64 flex-col gap-6 overflow-y-auto',
-        // skin
         'bg-bg-main p-8',
-        // divider
         'backdrop-blur-sm before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40',
-        // reset
         'rounded-none',
       ].join(' ')}
     >

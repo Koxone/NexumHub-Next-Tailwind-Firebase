@@ -236,5 +236,75 @@
       ],
       "overview": "Coupon Cards is a responsive, multi-language digital coupon platform built with React 19, Vite, and Tailwind CSS 4. It provides tourists in Mexico and the Dominican Republic with easy access to promotional offers from major fast-food chains in premium destinations such as Cancún, Tulum, Los Cabos, Puerto Vallarta, and Punta Cana. The platform verifies user eligibility via an API call that checks the email and reservation code through Sacbe Transfers’ reservation endpoint. Eligible users can browse and filter coupons by region, view promotion details, and save offers directly to Apple Wallet or Google Wallet for convenience on the go. Key features include multi-language support (English/Spanish) using i18next, a clean and mobile-first UI, region-based filtering, and wallet integration. It follows a modular, component-based structure for scalability and maintainability. The project is deployed on Vercel, using ESLint, Prettier, and Tailwind’s Prettier plugin for consistent code formatting. Future improvements include user accounts, an admin panel for coupon management, analytics integration, and support for more tourist destinations."
     }
+  },
+  "projectsRoute": {
+    "title": "Projects",
+    "presentation": {
+      "1": "Here you'll find my ",
+      "2": "Featured Projects",
+      "3": " currently live in production but kept private on GitHub. Although the source code isn't public, you can still explore each project to discover its purpose, features, and technologies. You'll also see",
+      "4": " Real-time Updates",
+      "5": "from all my public repositories, showcasing my latest commits, progress, and ongoing development work."
+    },
+    "featured": "Private Projects",
+    "latest": "Github Updates",
+    "realTime": "Real Time Updates"
+  },
+  "githubAnimatedList": {
+    "showMore": "Show More"
+  },
+  "greeting": {
+    "subtitle": "Specializing in React, Next.js & Firebase integrations"
+  },
+  "aboutMe": {
+    "title": "About Me"
+  },
+  "sidebarMenu": {
+    "projects": "My Projects",
+    "chat": "Chat With Me!",
+    "github": "My Github",
+    "linkedin": "My Linkedin",
+    "resume": "My Resume",
+    "contact": "Contact"
+  },
+  "chatModal": {
+    "title": "Live Chat System",
+    "subtitle": "Real-time demonstration platform",
+    "experienceTitle": "What You're About to Experience",
+    "experienceText": "This isn't just another contact form. You're about to interact with a custom-built, production-grade chat engine I developed from scratch using Firebase Firestore as the backbone.",
+    "featureRealtimeTitle": "Real-Time Architecture",
+    "featureRealtimeText": "Messages are delivered instantly using Firestore's real-time listeners, providing a WhatsApp-like experience with sub-second latency.",
+    "featureSecurityTitle": "Enterprise-Grade Security",
+    "featureSecurityText": "All communications are encrypted using SHA-256 hashing and designed to be completely anonymous, ensuring privacy and data protection.",
+    "featureDevTitle": "Active Development Showcase",
+    "featureDevText": "While the core functionality is production-ready, I'm continuously refining the UI/UX. You're seeing my development process in real-time.",
+    "recruitersTitle": "Why This Matters for Recruiters",
+    "recruitersText": "Rather than just describing my technical abilities, I've embedded this interactive system directly into my portfolio. This demonstrates my capacity to:",
+    "recruitersList": [
+      "Design and architect scalable real-time systems",
+      "Implement robust security practices in web applications",
+      "Create intuitive user experiences with modern technologies",
+      "Deploy and maintain production-level applications"
+    ],
+    "commitment": "Personal Commitment: I will respond to your messages as promptly as possible. This is a direct line to discuss opportunities, technical questions, or project collaborations.",
+    "buttonChat": "Let's Chat!",
+    "tooltip": "Coming Soon",
+    "buttonClose": "Close"
+  },
+  "projectHeader": {
+    "back": "Back to Projects",
+    "badge": "Featured"
+  },
+  "projectButtons": {
+    "viewLive": "View Live Project",
+    "viewSource": "View Source Code"
+  },
+  "statsGrid": {
+    "team": "Team Size",
+    "tech": "Technologies"
+  },
+  "showcase": {
+    "gallery": "Gallery",
+    "subtitle": "Click on the picture to start the slideshow"
   }
 }

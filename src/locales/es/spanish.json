@@ -123,7 +123,7 @@
     },
 
     "testigoMX": {
-      "title": "TestigoMX, Plataforma Humanitaria para Personas Desaparecidas",
+      "title": "Plataforma Humanitaria para Personas Desaparecidas",
       "description": "TestigoMX es una plataforma humanitaria creada para enfrentar la crisis de personas desaparecidas en México, centralizando y digitalizando los reportes. Ofrece datos estructurados, cargas seguras de imágenes, búsqueda avanzada con filtros y soporte bilingüe, brindando a familias, colectivos e investigadores acceso a la información con respeto y transparencia.",
       "updated": "Actualizado Agosto 2025",
       "date": "Julio 2025",
@@ -230,5 +230,75 @@
       ],
       "overview": "Coupon Cards es una plataforma digital de cupones, responsiva y multilenguaje, desarrollada con React 19, Vite y Tailwind CSS 4. Proporciona a los turistas en México y la República Dominicana un acceso sencillo a ofertas promocionales de las principales cadenas de comida rápida en destinos premium como Cancún, Tulum, Los Cabos, Puerto Vallarta y Punta Cana. La plataforma verifica la elegibilidad del usuario mediante una llamada a una API que valida el correo electrónico y el código de reservación a través del endpoint de reservaciones de Sacbe Transfers. Los usuarios elegibles pueden explorar y filtrar cupones por región, ver los detalles de las promociones y guardar las ofertas directamente en Apple Wallet o Google Wallet para mayor comodidad durante su viaje. Sus principales características incluyen soporte multilenguaje (inglés/español) usando i18next, una interfaz limpia y enfocada en dispositivos móviles, filtrado por región e integración con Apple y Google Wallet. Sigue una estructura modular y basada en componentes para garantizar escalabilidad y facilidad de mantenimiento. El proyecto está desplegado en Vercel y utiliza ESLint, Prettier y el plugin de Prettier para Tailwind para mantener un formato de código consistente. Las futuras mejoras incluirán cuentas de usuario, un panel de administración para la gestión de cupones, integración de analíticas y soporte para más destinos turísticos."
     }
+  },
+  "projectsRoute": {
+    "title": "Proyectos",
+    "presentation": {
+      "1": "Aquí encontrarás mis ",
+      "2": "Proyectos Destacados",
+      "3": " que actualmente están en producción pero se mantienen privados en GitHub. Aunque el código fuente no es público, aún puedes explorar cada proyecto para descubrir su propósito, características y tecnologías. También verás",
+      "4": " Actualizaciones en Tiempo Real",
+      "5": "de todos mis repositorios públicos, mostrando mis últimos commits, avances y trabajo en desarrollo."
+    },
+    "featured": "Proyectos Privados",
+    "latest": "Github Repos",
+    "realTime": "Actualizaciones en Tiempo Real"
+  },
+  "githubAnimatedList": {
+    "showMore": "Ver Mas"
+  },
+  "greeting": {
+    "subtitle": "Especializado en integraciones con React, Next.js y Firebase"
+  },
+  "aboutMe": {
+    "title": "Sobre Mí"
+  },
+  "sidebarMenu": {
+    "projects": "Mis Proyectos",
+    "chat": "Habla Conmigo!",
+    "github": "Mi Github",
+    "linkedin": "Mi Linkedin",
+    "resume": "Mi Currículum",
+    "contact": "Contacto"
+  },
+  "chatModal": {
+    "title": "Sistema de Chat en Vivo",
+    "subtitle": "Plataforma de demostración en tiempo real",
+    "experienceTitle": "Lo Que Estás a Punto de Experimentar",
+    "experienceText": "Esto no es solo otro formulario de contacto. Estás por interactuar con un motor de chat personalizado y de nivel producción que desarrollé desde cero usando Firebase Firestore como base.",
+    "featureRealtimeTitle": "Arquitectura en Tiempo Real",
+    "featureRealtimeText": "Los mensajes se entregan al instante usando listeners en tiempo real de Firestore, ofreciendo una experiencia tipo WhatsApp con latencia de milisegundos.",
+    "featureSecurityTitle": "Seguridad de Nivel Empresarial",
+    "featureSecurityText": "Todas las comunicaciones están cifradas con hashing SHA-256 y diseñadas para ser completamente anónimas, garantizando privacidad y protección de datos.",
+    "featureDevTitle": "Muestra de Desarrollo Activo",
+    "featureDevText": "Aunque la funcionalidad principal está lista para producción, sigo refinando la UI/UX. Estás viendo mi proceso de desarrollo en tiempo real.",
+    "recruitersTitle": "Por Qué Esto Importa a los Reclutadores",
+    "recruitersText": "En lugar de solo describir mis habilidades técnicas, he integrado este sistema interactivo directamente en mi portafolio. Esto demuestra mi capacidad de:",
+    "recruitersList": [
+      "Diseñar y arquitectar sistemas escalables en tiempo real",
+      "Implementar prácticas sólidas de seguridad en aplicaciones web",
+      "Crear experiencias de usuario intuitivas con tecnologías modernas",
+      "Desplegar y mantener aplicaciones a nivel producción"
+    ],
+    "commitment": "Compromiso Personal: Responderé a tus mensajes lo antes posible. Esta es una línea directa para hablar de oportunidades, preguntas técnicas o colaboraciones en proyectos.",
+    "buttonChat": "Conversemos",
+    "tooltip": "Próximamente",
+    "buttonClose": "Cerrar"
+  },
+  "projectHeader": {
+    "back": "Volver a Proyectos",
+    "badge": "Destacado"
+  },
+  "projectButtons": {
+    "viewLive": "Ver Proyecto en Vivo",
+    "viewSource": "Ver Código Fuente"
+  },
+  "statsGrid": {
+    "team": "Tamaño del Equipo",
+    "tech": "Tecnologías"
+  },
+  "showcase": {
+    "gallery": "Galería",
+    "subtitle": "Haz clic en la imagen para iniciar la presentación"
   }
 }

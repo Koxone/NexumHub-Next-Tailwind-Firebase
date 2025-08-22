@@ -1,46 +1,19 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useInView } from 'motion/react';
-
 import Title from '@/Components/UI/Text/Title';
 
 // Firebase
 import { useProjects } from '@/Hooks/Firebase/Projects/useProjects';
-import { db, storage } from '@/lib/firebase';
-import { doc, deleteDoc } from 'firebase/firestore';
-import { ref, deleteObject } from 'firebase/storage';
 import { Plus } from 'lucide-react';
 import { useProjectModal } from '@/Stores/useProjectModal';
 import InteractiveProjectsSection from '@/Components/Sections/FeaturedInteractiveProjects/InteractiveProjectsSection';
 import GithubRepos from '@/Components/Features/Github/Components/Repos/GithubRepos';
-
-function AnimatedItem({ children, index }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.35, once: false });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ scale: 0.7, opacity: 0, y: 8 }}
-      animate={
-        inView
-          ? { scale: 1, opacity: 1, y: 0 }
-          : { scale: 0.7, opacity: 0, y: 8 }
-      }
-      transition={{
-        duration: 0.22,
-        delay: 0.01 * index,
-        ease: 'easeOut',
-      }}
-      className="will-change-transform"
-    >
-      {children}
-    </motion.div>
-  );
-}
+import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
+  // Language
+  const { t } = useTranslation();
+
   // Zustand
   const { toggleProject } = useProjectModal();
 
@@ -71,42 +44,30 @@ export default function Projects() {
     );
   }
 
-  const handleDelete = async (project) => {
-    try {
-      await deleteDoc(doc(db, 'projects', project.idDoc || project.id));
-
-      if (project.imageUrl) {
-        const fileRef = ref(storage, project.imageUrl);
-        await deleteObject(fileRef);
-      }
-    } catch (err) {
-      console.error('Delete failed:', err);
-    }
-  };
-
   return (
     <div className="flex min-h-0 w-full flex-col gap-8 justify-self-center lg:pl-64">
       {/* Presentation */}
       <div>
         <h1 className="text-text-primary mb-4 text-4xl font-bold tracking-tight capitalize md:text-4xl lg:text-4xl">
-          Projects
+          {t('projectsRoute.title')}
         </h1>
         <p className="text-text-secondary max-w-[1100px] text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
-          Here you'll find my{' '}
-          <span className="text-accent font-semibold">Featured Projects</span>,
-          currently live in production but kept private on GitHub. Although the
-          source code isn't public, you can still explore each project to
-          discover its purpose, features, and technologies. You'll also see{' '}
-          <span className="text-accent font-semibold">Real-time Updates</span>{' '}
-          from all my public repositories, showcasing my latest commits,
-          progress, and ongoing development work.
+          {t('projectsRoute.presentation.1')}{' '}
+          <span className="text-accent font-semibold">
+            {t('projectsRoute.presentation.2')}
+          </span>
+          ,{t('projectsRoute.presentation.3')}{' '}
+          <span className="text-accent font-semibold">
+            {t('projectsRoute.presentation.4')}
+          </span>{' '}
+          {t('projectsRoute.presentation.5')}
         </p>
       </div>
 
       <div className="no-scrollbar grid gap-8 [scroll-behavior:smooth] md:justify-center lg:grid-cols-[auto_1fr]">
         {/* Projects */}
         <div className="flex flex-col gap-5">
-          <Title title="Featured Private Projects" />
+          <Title title={t('projectsRoute.featured')} />
           <InteractiveProjectsSection />
         </div>
 
@@ -114,13 +75,13 @@ export default function Projects() {
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-4">
             {/* Title */}
-            <Title title="Latest Github Updates" className="" />
+            <Title title={t('projectsRoute.latest')} className="" />
 
             {/* State Indicator */}
             <div className="text-center">
               <span className="bg-button-primary text-text-body inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
                 <span className="bg-bg-emerald h-2 w-2 rounded-full"></span>
-                Real Time Updates
+                {t('projectsRoute.realTime')}
               </span>
             </div>
           </div>

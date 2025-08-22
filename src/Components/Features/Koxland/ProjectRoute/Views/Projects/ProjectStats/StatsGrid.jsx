@@ -29,14 +29,14 @@ const StatsGrid = ({ teamSize, technologies, status }) => {
   const stats = [
     {
       icon: UsersIcon,
-      label: 'Team Size',
+      label: t('statsGrid.team'),
       value: teamSize,
       iconBg: 'bg-blue-500/20',
       iconColor: 'text-accent-light',
     },
     {
       icon: CodeXmlIcon,
-      label: 'Technologies',
+      label: t('statsGrid.tech'),
       value: technologies,
       iconBg: 'bg-blue-500/20',
       iconColor: 'text-accent-light',

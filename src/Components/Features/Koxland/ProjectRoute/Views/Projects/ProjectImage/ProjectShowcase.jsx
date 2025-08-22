@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
+const ProjectShowcase = ({ src, gallery, slideshow, srcSlide }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -36,6 +37,8 @@ const ProjectShowcase = ({ alt, src, gallery, slideshow, srcSlide }) => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
+
+  const { t } = useTranslation();
 
   return (
     <>

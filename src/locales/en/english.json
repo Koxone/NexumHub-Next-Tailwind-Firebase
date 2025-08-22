@@ -290,5 +290,21 @@
     "buttonChat": "Let's Chat!",
     "tooltip": "Coming Soon",
     "buttonClose": "Close"
+  },
+  "projectHeader": {
+    "back": "Back to Projects",
+    "badge": "Featured"
+  },
+  "projectButtons": {
+    "viewLive": "View Live Project",
+    "viewSource": "View Source Code"
+  },
+  "statsGrid": {
+    "team": "Team Size",
+    "tech": "Technologies"
+  },
+  "showcase": {
+    "gallery": "Gallery",
+    "subtitle": "Click on the picture to start the slideshow"
   }
 }

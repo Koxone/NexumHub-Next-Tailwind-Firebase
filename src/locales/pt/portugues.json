@@ -123,7 +123,7 @@
     },
 
     "testigoMX": {
-      "title": "TestigoMX, Plataforma Humanitária para Pessoas Desaparecidas",
+      "title": "Plataforma Humanitária para Pessoas Desaparecidas",
       "description": "TestigoMX é uma plataforma humanitária criada para enfrentar a crise de pessoas desaparecidas no México, centralizando e digitalizando relatórios. Oferece dados estruturados, upload seguro de imagens, busca avançada com filtros e suporte bilíngue, proporcionando a famílias, coletivos e pesquisadores acesso à informação com respeito e transparência.",
       "updated": "Atualizado Agosto 2025",
       "date": "Julho 2025",
@@ -284,5 +284,21 @@
     "buttonChat": "Vamos Conversar",
     "tooltip": "Em Breve",
     "buttonClose": "Fechar"
+  },
+  "projectHeader": {
+    "back": "Voltar aos Projetos",
+    "badge": "Destaque"
+  },
+  "projectButtons": {
+    "viewLive": "Ver Projeto ao Vivo",
+    "viewSource": "Ver Código-Fonte"
+  },
+  "statsGrid": {
+    "team": "Tamanho da Equipe",
+    "tech": "Tecnologias"
+  },
+  "showcase": {
+    "gallery": "Galeria",
+    "subtitle": "Clique na imagem para iniciar a apresentação de slides"
   }
 }

@@ -38,8 +38,8 @@ export default function ProjectPage({ params }) {
         code={project.urlGit}
         alt={project.titleKey}
         src={project.image}
-        gallery={t('gallery')}
-        slideshow={t('openGallery')}
+        gallery={t('showcase.gallery')}
+        slideshow={t('showcase.subtitle')}
         teamSize={project.teamSize}
         srcSlide={project.src}
       />

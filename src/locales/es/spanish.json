@@ -300,5 +300,6 @@
   "showcase": {
     "gallery": "Galería",
     "subtitle": "Haz clic en la imagen para iniciar la presentación"
-  }
+  },
+  "projectRealTimeActivity": "Actividad en Tiempo Real"
 }

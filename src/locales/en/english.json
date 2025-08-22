@@ -306,5 +306,6 @@
   "showcase": {
     "gallery": "Gallery",
     "subtitle": "Click on the picture to start the slideshow"
-  }
+  },
+  "projectRealTimeActivity": "Project Real Time Activity"
 }

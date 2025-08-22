@@ -2,8 +2,8 @@
 'use client';
 
 import { useGithubActivity } from '@/Hooks/Github/useGithubActivity';
-import DevMessageCard from './Components/Repos/Components/DevMessageCard/DevMessageCard';
 import { Github } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 function timeAgo(iso) {
   if (!iso) return 'N/A';
@@ -45,6 +45,8 @@ export default function GitRepoActivityList({
     refreshMs,
   });
 
+  const { t } = useTranslation();
+
   return (
     <div className={`relative w-full max-w-[462px] ${className}`}>
       <div
@@ -73,7 +75,7 @@ export default function GitRepoActivityList({
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20">
               <Github className="text-accent-light" />
             </div>
-            Project Real Time Activity
+            {t('projectRealTimeActivity')}
           </h3>
           {activity.map((item) => (
             <li key={item.id}>

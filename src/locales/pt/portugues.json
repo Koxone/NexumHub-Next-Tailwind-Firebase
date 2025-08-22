@@ -246,5 +246,11 @@
   },
   "githubAnimatedList": {
     "showMore": "Mostrar Mais"
+  },
+  "greeting": {
+    "subtitle": "Especializado em integrações com React, Next.js e Firebase"
+  },
+  "aboutMe": {
+    "title": "Sobre Mim"
   }
 }

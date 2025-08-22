@@ -2,14 +2,11 @@
 import React from 'react';
 import MatrixText from '@/Components/UI/Text/MatrixText';
 
+//Language
+import { useTranslation } from 'react-i18next';
+
 // Clerk
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  useUser,
-} from '@clerk/nextjs';
+import { SignedIn, SignedOut, useUser } from '@clerk/nextjs';
 
 function Greeting() {
   const today = new Date();
@@ -23,6 +20,9 @@ function Greeting() {
   // Clerk
   const { user } = useUser();
 
+  //Language
+  const { t } = useTranslation();
+
   return (
     <div>
       <SignedOut>
@@ -34,7 +34,7 @@ function Greeting() {
         </div>
 
         <p className="text-text-secondary text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
-          Specializing in React, Next.js & Firebase integrations
+          {t('greeting.subtitle')}
         </p>
       </SignedOut>
       <SignedIn>

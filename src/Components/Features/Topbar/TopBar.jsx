@@ -1,8 +1,6 @@
 import React from 'react';
 import Greeting from './Components/Greeting';
-import { Search } from 'lucide-react';
-import AddProjectButton from './Components/AddProjectButton';
-import NotificationBell from './Components/NotificationBell';
+// import NotificationBell from './Components/NotificationBell';
 import MobileSidebarToggleButton from '@/Components/Features/Sidebar/Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
 
 function TopBar({ padding = 'p-0', className }) {

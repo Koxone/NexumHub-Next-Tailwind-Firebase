@@ -19,7 +19,7 @@ export default function AboutMe() {
       {/* title */}
       <div>
         <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
-          About Me
+          {t('aboutMe.title')}
         </h2>
         <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-blue-800" />
       </div>

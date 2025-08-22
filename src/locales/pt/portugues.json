@@ -252,5 +252,13 @@
   },
   "aboutMe": {
     "title": "Sobre Mim"
+  },
+  "sidebarMenu": {
+    "projects": "Meus Projetos",
+    "chat": "Fala Comigo!",
+    "github": "Meu Github",
+    "linkedin": "Meu Linkedin",
+    "resume": "Meu Currículo",
+    "contact": "Contato"
   }
 }

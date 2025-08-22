@@ -15,32 +15,21 @@ import {
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
-import { useTaskModal } from '@/Stores/useTaskModal';
-import { useProjectModal } from '@/Stores/useProjectModal';
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  useUser,
-} from '@clerk/nextjs';
-import ChatModal from '@/Components/Features/Modals/ChatModal';
 import { useChatModal } from '@/Stores/useChatModal';
 import LanguageButton from './Components/LanguageButton';
+import { useTranslation } from 'react-i18next';
 
 function SidebarMenu() {
   const router = useRouter();
 
+  //Language
+  const { t } = useTranslation();
+
   // Zustand
   const { openChatModal } = useChatModal();
 
-  // clerk
-  const { user } = useUser();
-
   // stores
   const { toggle } = useMobileMenu();
-  const { openTask } = useTaskModal();
-  const { openProject } = useProjectModal();
 
   // nav helper
   const onLinkClick = (path) => {
@@ -60,7 +49,7 @@ function SidebarMenu() {
     if (win) win.opener = null;
   };
 
-  const [showHint, setShowHint] = useState(true); 
+  const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
     const id = setTimeout(() => setShowHint(false), 14500);
@@ -93,8 +82,8 @@ function SidebarMenu() {
           onClick={handleProjects}
           aria="Go to Projects Button"
           icon={Presentation}
-          text="My Projects"
-          textColor='text-emerald-400'
+          text={t('sidebarMenu.projects')}
+          textColor="text-emerald-400"
         />
       </div>
 
@@ -110,32 +99,32 @@ function SidebarMenu() {
           onClick={openChatModal}
           aria="Go to Projects Button"
           icon={MessageCircleMoreIcon}
-          text="Chat with Me!"
-          textColor='text-emerald-400'
+          text={t('sidebarMenu.chat')}
+          textColor="text-emerald-400"
         />
       </div>
       <MenuButton
         onClick={handleGithub}
         aria="Go to Projects Button"
         icon={Github}
-        text="My Github"
+        text={t('sidebarMenu.github')}
       />
       <MenuButton
         aria="Go to User Account Button"
         icon={Linkedin}
-        text="My Linkedin"
+        text={t('sidebarMenu.linkedin')}
         onClick={handleLinkedIn}
       />
       <MenuButton
         aria="Go to Search Projects Button"
         icon={Download}
-        text="My Resume"
+        text={t('sidebarMenu.resume')}
         downloadResume
       />
       <MenuButton
         aria="Go to Search Projects Button"
         icon={Send}
-        text="Contact"
+        text={t('sidebarMenu.contact')}
         contact
       />
       <LanguageButton

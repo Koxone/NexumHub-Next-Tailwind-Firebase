@@ -5,7 +5,6 @@ import { useChatModal } from '@/Stores/useChatModal';
 
 export default function ChatModal({
   onAccept,
-  onDecline,
   staticBackdrop = true,
 }) {
   const { isOpen, closeChatModal } = useChatModal();
@@ -214,7 +213,7 @@ export default function ChatModal({
                 </div>
               </div>
 
-              {/* recruit card - Reduced padding */}
+              {/* For Recruiters */}
               <div className="rounded-lg border border-white/10 bg-white/5 p-3">
                 <div className="flex items-start gap-2">
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-blue-500">
@@ -259,7 +258,7 @@ export default function ChatModal({
                 </div>
               </div>
 
-              {/* note - Smaller text */}
+              {/* Personal Commitment */}
               <div className="pt-3 text-center">
                 <p className="text-text-secondary text-xs">
                   <strong className="text-text-primary">
@@ -272,7 +271,7 @@ export default function ChatModal({
               </div>
             </div>
 
-            {/* Footer - Reduced padding and button sizes */}
+            {/* Footer */}
             <div className="sticky bottom-0 flex flex-col gap-2 border-t border-white/10 bg-[#0b1020]/95 px-4 py-3 backdrop-blur sm:flex-row sm:justify-end">
               <div className="group relative flex items-center">
                 <button

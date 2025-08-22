@@ -230,5 +230,18 @@
       ],
       "overview": "Coupon Cards es una plataforma digital de cupones, responsiva y multilenguaje, desarrollada con React 19, Vite y Tailwind CSS 4. Proporciona a los turistas en México y la República Dominicana un acceso sencillo a ofertas promocionales de las principales cadenas de comida rápida en destinos premium como Cancún, Tulum, Los Cabos, Puerto Vallarta y Punta Cana. La plataforma verifica la elegibilidad del usuario mediante una llamada a una API que valida el correo electrónico y el código de reservación a través del endpoint de reservaciones de Sacbe Transfers. Los usuarios elegibles pueden explorar y filtrar cupones por región, ver los detalles de las promociones y guardar las ofertas directamente en Apple Wallet o Google Wallet para mayor comodidad durante su viaje. Sus principales características incluyen soporte multilenguaje (inglés/español) usando i18next, una interfaz limpia y enfocada en dispositivos móviles, filtrado por región e integración con Apple y Google Wallet. Sigue una estructura modular y basada en componentes para garantizar escalabilidad y facilidad de mantenimiento. El proyecto está desplegado en Vercel y utiliza ESLint, Prettier y el plugin de Prettier para Tailwind para mantener un formato de código consistente. Las futuras mejoras incluirán cuentas de usuario, un panel de administración para la gestión de cupones, integración de analíticas y soporte para más destinos turísticos."
     }
+  },
+  "projectsRoute": {
+    "title": "Proyectos",
+    "presentation": {
+      "1": "Aquí encontrarás mis ",
+      "2": "Proyectos Destacados",
+      "3": " que actualmente están en producción pero se mantienen privados en GitHub. Aunque el código fuente no es público, aún puedes explorar cada proyecto para descubrir su propósito, características y tecnologías. También verás",
+      "4": " Actualizaciones en Tiempo Real",
+      "5": "de todos mis repositorios públicos, mostrando mis últimos commits, avances y trabajo en desarrollo."
+    },
+    "featured": "Proyectos Privados",
+    "latest": "Github Repos",
+    "realTime": "Actualizaciones en Tiempo Real"
   }
 }

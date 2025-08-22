@@ -249,5 +249,8 @@
     "featured": "Private Projects",
     "latest": "Github Updates",
     "realTime": "Real Time Updates"
+  },
+  "githubAnimatedList": {
+    "showMore": "Show More"
   }
 }

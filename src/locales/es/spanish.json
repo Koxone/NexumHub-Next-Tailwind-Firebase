@@ -243,5 +243,8 @@
     "featured": "Proyectos Privados",
     "latest": "Github Repos",
     "realTime": "Actualizaciones en Tiempo Real"
+  },
+  "githubAnimatedList": {
+    "showMore": "Ver Mas"
   }
 }

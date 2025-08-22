@@ -260,5 +260,29 @@
     "linkedin": "Meu Linkedin",
     "resume": "Meu Currículo",
     "contact": "Contato"
+  },
+  "chatModal": {
+    "title": "Sistema de Chat ao Vivo",
+    "subtitle": "Plataforma de demonstração em tempo real",
+    "experienceTitle": "O Que Você Está Prestes a Experimentar",
+    "experienceText": "Isto não é apenas mais um formulário de contato. Você está prestes a interagir com um mecanismo de chat personalizado e de nível de produção que desenvolvi do zero usando o Firebase Firestore como base.",
+    "featureRealtimeTitle": "Arquitetura em Tempo Real",
+    "featureRealtimeText": "As mensagens são entregues instantaneamente usando listeners em tempo real do Firestore, proporcionando uma experiência semelhante ao WhatsApp com latência de milissegundos.",
+    "featureSecurityTitle": "Segurança em Nível Empresarial",
+    "featureSecurityText": "Todas as comunicações são criptografadas com SHA-256 e projetadas para serem completamente anônimas, garantindo privacidade e proteção de dados.",
+    "featureDevTitle": "Demonstração de Desenvolvimento Ativo",
+    "featureDevText": "Embora a funcionalidade principal esteja pronta para produção, continuo refinando a UI/UX. Você está vendo meu processo de desenvolvimento em tempo real.",
+    "recruitersTitle": "Por Que Isso Importa para Recrutadores",
+    "recruitersText": "Em vez de apenas descrever minhas habilidades técnicas, integrei este sistema interativo diretamente no meu portfólio. Isso demonstra minha capacidade de:",
+    "recruitersList": [
+      "Projetar e arquitetar sistemas escaláveis em tempo real",
+      "Implementar práticas robustas de segurança em aplicações web",
+      "Criar experiências de usuário intuitivas com tecnologias modernas",
+      "Implantar e manter aplicações em nível de produção"
+    ],
+    "commitment": "Compromisso Pessoal: Responderei às suas mensagens o mais rápido possível. Esta é uma linha direta para discutir oportunidades, questões técnicas ou colaborações em projetos.",
+    "buttonChat": "Vamos Conversar",
+    "tooltip": "Em Breve",
+    "buttonClose": "Fechar"
   }
 }

@@ -266,5 +266,29 @@
     "linkedin": "My Linkedin",
     "resume": "My Resume",
     "contact": "Contact"
+  },
+  "chatModal": {
+    "title": "Live Chat System",
+    "subtitle": "Real-time demonstration platform",
+    "experienceTitle": "What You're About to Experience",
+    "experienceText": "This isn't just another contact form. You're about to interact with a custom-built, production-grade chat engine I developed from scratch using Firebase Firestore as the backbone.",
+    "featureRealtimeTitle": "Real-Time Architecture",
+    "featureRealtimeText": "Messages are delivered instantly using Firestore's real-time listeners, providing a WhatsApp-like experience with sub-second latency.",
+    "featureSecurityTitle": "Enterprise-Grade Security",
+    "featureSecurityText": "All communications are encrypted using SHA-256 hashing and designed to be completely anonymous, ensuring privacy and data protection.",
+    "featureDevTitle": "Active Development Showcase",
+    "featureDevText": "While the core functionality is production-ready, I'm continuously refining the UI/UX. You're seeing my development process in real-time.",
+    "recruitersTitle": "Why This Matters for Recruiters",
+    "recruitersText": "Rather than just describing my technical abilities, I've embedded this interactive system directly into my portfolio. This demonstrates my capacity to:",
+    "recruitersList": [
+      "Design and architect scalable real-time systems",
+      "Implement robust security practices in web applications",
+      "Create intuitive user experiences with modern technologies",
+      "Deploy and maintain production-level applications"
+    ],
+    "commitment": "Personal Commitment: I will respond to your messages as promptly as possible. This is a direct line to discuss opportunities, technical questions, or project collaborations.",
+    "buttonChat": "Let's Chat!",
+    "tooltip": "Coming Soon",
+    "buttonClose": "Close"
   }
 }

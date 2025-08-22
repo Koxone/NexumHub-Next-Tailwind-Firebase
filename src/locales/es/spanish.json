@@ -260,5 +260,29 @@
     "linkedin": "Mi Linkedin",
     "resume": "Mi Currículum",
     "contact": "Contacto"
+  },
+  "chatModal": {
+    "title": "Sistema de Chat en Vivo",
+    "subtitle": "Plataforma de demostración en tiempo real",
+    "experienceTitle": "Lo Que Estás a Punto de Experimentar",
+    "experienceText": "Esto no es solo otro formulario de contacto. Estás por interactuar con un motor de chat personalizado y de nivel producción que desarrollé desde cero usando Firebase Firestore como base.",
+    "featureRealtimeTitle": "Arquitectura en Tiempo Real",
+    "featureRealtimeText": "Los mensajes se entregan al instante usando listeners en tiempo real de Firestore, ofreciendo una experiencia tipo WhatsApp con latencia de milisegundos.",
+    "featureSecurityTitle": "Seguridad de Nivel Empresarial",
+    "featureSecurityText": "Todas las comunicaciones están cifradas con hashing SHA-256 y diseñadas para ser completamente anónimas, garantizando privacidad y protección de datos.",
+    "featureDevTitle": "Muestra de Desarrollo Activo",
+    "featureDevText": "Aunque la funcionalidad principal está lista para producción, sigo refinando la UI/UX. Estás viendo mi proceso de desarrollo en tiempo real.",
+    "recruitersTitle": "Por Qué Esto Importa a los Reclutadores",
+    "recruitersText": "En lugar de solo describir mis habilidades técnicas, he integrado este sistema interactivo directamente en mi portafolio. Esto demuestra mi capacidad de:",
+    "recruitersList": [
+      "Diseñar y arquitectar sistemas escalables en tiempo real",
+      "Implementar prácticas sólidas de seguridad en aplicaciones web",
+      "Crear experiencias de usuario intuitivas con tecnologías modernas",
+      "Desplegar y mantener aplicaciones a nivel producción"
+    ],
+    "commitment": "Compromiso Personal: Responderé a tus mensajes lo antes posible. Esta es una línea directa para hablar de oportunidades, preguntas técnicas o colaboraciones en proyectos.",
+    "buttonChat": "Conversemos",
+    "tooltip": "Próximamente",
+    "buttonClose": "Cerrar"
   }
 }

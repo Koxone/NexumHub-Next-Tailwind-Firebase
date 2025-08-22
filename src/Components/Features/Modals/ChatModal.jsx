@@ -2,14 +2,13 @@
 
 import { useEffect, useRef } from 'react';
 import { useChatModal } from '@/Stores/useChatModal';
+import { useTranslation } from 'react-i18next';
 
-export default function ChatModal({
-  onAccept,
-  staticBackdrop = true,
-}) {
+export default function ChatModal({ onAccept }) {
   const { isOpen, closeChatModal } = useChatModal();
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
+  const { t } = useTranslation();
 
   // Esc Key
   useEffect(() => {
@@ -22,20 +21,16 @@ export default function ChatModal({
   // Focus + Lock Scroll
   useEffect(() => {
     if (!isOpen) return;
-    const t = setTimeout(() => closeBtnRef.current?.focus(), 0);
+    const tmo = setTimeout(() => closeBtnRef.current?.focus(), 0);
     const prev = document.documentElement.style.overflow;
     document.documentElement.style.overflow = 'hidden';
     return () => {
-      clearTimeout(t);
+      clearTimeout(tmo);
       document.documentElement.style.overflow = prev || '';
     };
   }, [isOpen]);
 
   if (!isOpen) return null;
-
-  const handleBackdrop = () => {
-    if (!staticBackdrop) closeChatModal();
-  };
 
   return (
     <>
@@ -75,10 +70,10 @@ export default function ChatModal({
                 </div>
                 <div className="min-w-0">
                   <h3 className="text-text-primary text-lg font-semibold">
-                    Live Chat System
+                    {t('chatModal.title')}
                   </h3>
                   <p className="text-text-secondary text-xs">
-                    Real-time demonstration platform
+                    {t('chatModal.subtitle')}
                   </p>
                 </div>
               </div>
@@ -103,16 +98,10 @@ export default function ChatModal({
                   </div>
                   <div className="min-w-0">
                     <h4 className="mb-1 text-sm font-medium text-blue-300">
-                      What You're About to Experience
+                      {t('chatModal.experienceTitle')}
                     </h4>
                     <p className="text-text-subheading text-xs leading-relaxed">
-                      This isn't just another contact form. You're about to
-                      interact with a{' '}
-                      <strong>
-                        custom-built, production-grade chat engine
-                      </strong>{' '}
-                      I developed from scratch using Firebase Firestore as the
-                      backbone.
+                      {t('chatModal.experienceText')}
                     </p>
                   </div>
                 </div>
@@ -138,12 +127,10 @@ export default function ChatModal({
                   </div>
                   <div className="min-w-0">
                     <h5 className="text-text-primary mb-0.5 text-sm font-medium">
-                      Real-Time Architecture
+                      {t('chatModal.featureRealtimeTitle')}
                     </h5>
                     <p className="text-text-secondary text-xs">
-                      Messages are delivered instantly using Firestore's
-                      real-time listeners, providing a WhatsApp-like experience
-                      with sub-second latency.
+                      {t('chatModal.featureRealtimeText')}
                     </p>
                   </div>
                 </div>
@@ -167,12 +154,10 @@ export default function ChatModal({
                   </div>
                   <div className="min-w-0">
                     <h5 className="text-text-primary mb-0.5 text-sm font-medium">
-                      Enterprise-Grade Security
+                      {t('chatModal.featureSecurityTitle')}
                     </h5>
                     <p className="text-text-secondary text-xs">
-                      All communications are encrypted using SHA-256 hashing and
-                      designed to be completely anonymous, ensuring privacy and
-                      data protection.
+                      {t('chatModal.featureSecurityText')}
                     </p>
                   </div>
                 </div>
@@ -202,12 +187,10 @@ export default function ChatModal({
                   </div>
                   <div className="min-w-0">
                     <h5 className="text-text-primary mb-0.5 text-sm font-medium">
-                      Active Development Showcase
+                      {t('chatModal.featureDevTitle')}
                     </h5>
                     <p className="text-text-secondary text-xs">
-                      While the core functionality is production-ready, I'm
-                      continuously refining the UI/UX. You're seeing my
-                      development process in real-time.
+                      {t('chatModal.featureDevText')}
                     </p>
                   </div>
                 </div>
@@ -233,26 +216,17 @@ export default function ChatModal({
                   </div>
                   <div className="min-w-0">
                     <h4 className="mb-1 text-sm font-medium text-green-400">
-                      Why This Matters for Recruiters
+                      {t('chatModal.recruitersTitle')}
                     </h4>
                     <p className="text-text-subheading mb-2 text-xs leading-relaxed">
-                      Rather than just describing my technical abilities, I've
-                      embedded this interactive system directly into my
-                      portfolio. This demonstrates my capacity to:
+                      {t('chatModal.recruitersText')}
                     </p>
                     <ul className="text-text-secondary ml-3 space-y-0.5 text-xs">
-                      <li>• Design and architect scalable real-time systems</li>
-                      <li>
-                        • Implement robust security practices in web
-                        applications
-                      </li>
-                      <li>
-                        • Create intuitive user experiences with modern
-                        technologies
-                      </li>
-                      <li>
-                        • Deploy and maintain production-level applications
-                      </li>
+                      {t('chatModal.recruitersList', {
+                        returnObjects: true,
+                      }).map((item, idx) => (
+                        <li key={idx}>• {item}</li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -261,12 +235,7 @@ export default function ChatModal({
               {/* Personal Commitment */}
               <div className="pt-3 text-center">
                 <p className="text-text-secondary text-xs">
-                  <strong className="text-text-primary">
-                    Personal Commitment:
-                  </strong>{' '}
-                  I will respond to your messages as promptly as possible. This
-                  is a direct line to discuss opportunities, technical
-                  questions, or project collaborations.
+                  {t('chatModal.commitment')}
                 </p>
               </div>
             </div>
@@ -275,7 +244,7 @@ export default function ChatModal({
             <div className="sticky bottom-0 flex flex-col gap-2 border-t border-white/10 bg-[#0b1020]/95 px-4 py-3 backdrop-blur sm:flex-row sm:justify-end">
               <div className="group relative flex items-center">
                 <button
-                  title="Coming Soon"
+                  title={t('chatModal.tooltip')}
                   disabled
                   type="button"
                   onClick={() => {
@@ -284,12 +253,12 @@ export default function ChatModal({
                   }}
                   className="text-text-primary cursor-not-allowed rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
                 >
-                  Lets Chat!
+                  {t('chatModal.buttonChat')}
                 </button>
 
                 {/* Tooltip */}
                 <span className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 rounded-md bg-blue-500 px-2 py-1 text-xs text-white transition-all group-hover:scale-100">
-                  Coming Soon
+                  {t('chatModal.tooltip')}
                 </span>
               </div>
 
@@ -298,7 +267,7 @@ export default function ChatModal({
                 onClick={closeChatModal}
                 className="text-text-primary cursor-pointer rounded-md border border-white/10 bg-neutral-500 px-4 py-2 text-xs font-medium hover:bg-white/10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               >
-                Close
+                {t('chatModal.buttonClose')}
               </button>
             </div>
           </div>

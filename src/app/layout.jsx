@@ -12,11 +12,6 @@ import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/
 // Clerk
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
 } from '@clerk/nextjs';
 import SideBar from '@/Components/Features/Sidebar/SideBar';
 import StarFieldBackground from '@/Components/UI/Background/StarFieldBackground';

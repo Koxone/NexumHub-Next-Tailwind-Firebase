@@ -22,7 +22,7 @@ function SideBar({ className }) {
         'rounded-none',
         'sm:',
         'md:',
-        'lg:',
+        'lg:hidden',
         'xl:flex',
         '2xl:flex',
       ].join(' ')}

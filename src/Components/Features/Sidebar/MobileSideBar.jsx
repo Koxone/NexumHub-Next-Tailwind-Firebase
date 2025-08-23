@@ -47,7 +47,14 @@ export default function MobileSideBar() {
       {isOpen && (
         <div
           onClick={toggle}
-          className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[1px] 2xl:hidden"
+          className={[
+            'mobile fixed inset-0 z-30 bg-black/40 backdrop-blur-[1px]',
+            'sm:',
+            'md:',
+            'lg:',
+            'xl:hidden',
+            '2xl:hidden',
+          ].join(' ')}
           aria-hidden="true"
         />
       )}

@@ -10,9 +10,7 @@ import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/Create
 import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/CreateProjectModal';
 
 // Clerk
-import {
-  ClerkProvider,
-} from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 import SideBar from '@/Components/Features/Sidebar/SideBar';
 import StarFieldBackground from '@/Components/UI/Background/StarFieldBackground';
 
@@ -110,7 +108,16 @@ export default function RootLayout({ children }) {
           <StarFieldBackground />
           <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
             <SideBar />
-            <main className="mx-auto grid w-full grid-rows-[auto_auto_1fr] items-center p-8 lg:col-start-2 lg:row-span-full lg:row-start-1">
+            <main
+              className={[
+                'mobile mx-auto grid w-full grid-rows-[auto_auto_1fr] items-center p-8',
+                'sm:',
+                'md:',
+                'lg:col-start-2 lg:row-span-full lg:row-start-1',
+                'xl:',
+                '2xl:',
+              ].join(' ')}
+            >
               <I18nProvider>{children}</I18nProvider>
             </main>
             <MobileSideBar />

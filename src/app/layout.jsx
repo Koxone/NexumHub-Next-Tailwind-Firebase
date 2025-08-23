@@ -106,15 +106,23 @@ export default function RootLayout({ children }) {
       <html lang="en" className={`${inter.className} h-screen`}>
         <body className="bg-bg- h-screen overflow-x-hidden">
           <StarFieldBackground />
-          <div className="grid h-screen w-screen lg:grid-cols-[auto_1fr]">
+          <div
+            className={[
+              'mobile layout grid h-screen w-screen',
+              'sm:',
+              'md:',
+              'lg:grid-cols-1',
+              'xl:grid-cols-[260px_1fr]',
+              '2xl:',
+            ].join(' ')}
+          >
             <SideBar />
             <main
               className={[
-                'mobile mx-auto grid w-full grid-rows-[auto_auto_1fr] items-center p-8',
+                'mobile mx-auto grid w-full items-center p-8',
                 'sm:',
                 'md:',
-                'lg:col-start-2 lg:row-span-full lg:row-start-1',
-                'xl:',
+                'xl:col-start-2 xl:row-span-full xl:row-start-1',
                 '2xl:',
               ].join(' ')}
             >

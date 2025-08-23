@@ -24,7 +24,7 @@ export default function StackSection({ className = '' }) {
         <div
           className={[
             'flex items-center justify-center p-1',
-            '2xl:h-10 2xl:w-10',
+            '2xl:h-14 2xl:w-14',
             'lg:h-13 lg:w-13',
           ].join(' ')}
         >

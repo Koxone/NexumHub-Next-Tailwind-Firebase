@@ -16,7 +16,6 @@ function HeroSection() {
         <TopBar />
         <div
           className={[
-            'border border-white',
             'lg:grid lg:grid-cols-[auto_1fr] lg:space-y-20',
             'xl:',
             '2xl:grid 2xl:grid-cols-[auto_1fr_1fr] 2xl:space-y-0',
@@ -28,8 +27,17 @@ function HeroSection() {
           </div>
 
           {/* About Me */}
-          <div className="h-full border 2xl:grid 2xl:grid-rows-[auto_1fr] 2xl:gap-10">
-            <div>
+          <div
+            className={[
+              'h-full',
+              'sm:',
+              'md:',
+              'lg:',
+              'xl:',
+              '2xl:grid 2xl:grid-rows-[auto_1fr] 2xl:gap-10',
+            ].join(' ')}
+          >
+            <div className="hidden 2xl:block">
               <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
                 {t('aboutMe.title')}
               </h2>
@@ -39,8 +47,17 @@ function HeroSection() {
           </div>
 
           {/* Experience */}
-          <div className="hidden h-full border 2xl:grid 2xl:grid-rows-[auto_1fr] 2xl:gap-10">
-            <div>
+          <div
+            className={[
+              'hidden h-full',
+              'sm:',
+              'md:',
+              'lg:',
+              'xl:',
+              '2xl:grid 2xl:grid-rows-[auto_1fr] 2xl:gap-10',
+            ].join(' ')}
+          >
+            <div className="hidden 2xl:block">
               <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
                 {t('experienceSection.title')}
               </h2>

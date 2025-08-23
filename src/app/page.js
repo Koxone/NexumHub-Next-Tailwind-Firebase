@@ -1,4 +1,3 @@
-import TopBar from '@/Components/Features/Topbar/TopBar';
 import HeroSection from '@/Components/Sections/Hero/HeroSection';
 import ExperienceSection from '@/Components/Sections/Experience/ExperienceSection';
 import StackSection from '@/Components/Features/Stack/StackSection';

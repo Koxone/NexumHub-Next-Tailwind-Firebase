@@ -9,23 +9,17 @@ export default function AboutMe() {
   return (
     <div
       className={[
-        'relative z-50 mx-auto mt-10 flex max-w-[300px] flex-col items-center gap-10',
+        'relative z-50 flex flex-col items-center gap-10',
         'sm:max-w-[575px]',
-        'md:mt-0 md:h-full md:max-h-fit md:max-w-[450px] md:text-sm',
-        'lg:mt-0 lg:max-h-full lg:max-w-lg lg:text-base',
-        'xl:mt-0',
+        'md:h-full md:max-h-fit md:max-w-[450px] md:text-sm',
+        'lg:max-h-full lg:max-w-lg lg:text-base',
+        'xl',
       ].join(' ')}
     >
-      {/* title */}
-      <div>
-        <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
-          {t('aboutMe.title')}
-        </h2>
-        <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-blue-800" />
-      </div>
+      {/* Main Container */}
       <div
         className={[
-          'group relative z-50 flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden',
+          'group relative z-50 flex h-fit w-full flex-col gap-4 overflow-hidden',
           'border-border-main rounded-2xl border bg-white/5 p-8 text-left leading-relaxed text-neutral-200 backdrop-blur-sm',
           'transition-all duration-500 ease-in-out',
           'hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
@@ -33,7 +27,7 @@ export default function AboutMe() {
         ].join(' ')}
       >
         <span className="animate-spark hover:bg-accent-light absolute z-20 hidden h-2 w-2 rounded-full opacity-100 group-hover:block"></span>
-        <p>
+        <p className="lg:text-sm 2xl:text-base">
           {t('aboutMeSection.hi')}{' '}
           <span className="text-accent font-semibold">
             {t('aboutMeSection.name')}

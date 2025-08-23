@@ -1,24 +1,16 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function ExperienceSection() {
-  const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation();
 
   return (
-    <section className="mx-auto flex h-[100dvh] flex-col items-center justify-center gap-8 sm:max-w-[575px] md:max-w-full">
-      <div>
-        <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
-          {t('experienceSection.title')}
-        </h2>
-        <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-blue-800" />
-      </div>
-
+    <section className="flex h-full flex-col gap-8">
       <div
         className={[
           'group relative flex w-full transform flex-col items-center justify-center overflow-hidden',
+          '2xl:',
           'border-border-main hover:border-border-main rounded-2xl border sm:border-neutral-600',
           'bg-white/5 p-10 text-left text-base leading-relaxed text-neutral-200',
           'backdrop-blur-sm transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
@@ -38,12 +30,8 @@ export default function ExperienceSection() {
             </p>
           </div>
 
-          <div
-            className={`overflow-hidden transition-all duration-500 md:max-h-none ${
-              expanded ? 'max-h-[2000px]' : 'max-h-[200px]'
-            }`}
-          >
-            <ul className="space-y-4">
+          <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-400/30 hover:scrollbar-thumb-blue-400/50 max-h-[200px] overflow-y-auto">
+            <ul className="space-y-4 pr-2 2xl:text-sm">
               <li className="flex items-start gap-3">
                 <div className="bg-accent-light mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>
                 <span>
@@ -112,17 +100,6 @@ export default function ExperienceSection() {
             </ul>
           </div>
 
-          <div className="mt-4 text-center md:hidden">
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="text-accent-light underline transition hover:text-blue-300"
-            >
-              {expanded
-                ? t('experienceSection.showLess')
-                : t('experienceSection.showMore')}
-            </button>
-          </div>
-
           <div className="border-border-strong mt-8 border-t pt-6">
             <div className="flex flex-wrap gap-3">
               {[
@@ -136,16 +113,16 @@ export default function ExperienceSection() {
                 { key: 'shopify', color: 'bg-pink-400/20 text-pink-300' },
                 { key: 'framer', color: 'bg-red-400/20 text-red-300' },
                 { key: 'i18n', color: 'bg-teal-400/20 text-teal-300' },
-                { key: 'vercel', color: 'bg-gray-400/20 text-text-subheading' },
-                { key: 'github', color: 'bg-emerald-400/20 text-emerald-300' },
                 { key: 'zustand', color: 'bg-lime-400/20 text-lime-300' },
-                { key: 'context', color: 'bg-rose-400/20 text-rose-300' },
-                { key: 'google', color: 'bg-amber-400/20 text-amber-300' },
-                { key: 'apple', color: 'bg-pink-400/20 text-pink-300' },
+                // { key: 'context', color: 'bg-rose-400/20 text-rose-300' },
+                // { key: 'google', color: 'bg-amber-400/20 text-amber-300' },
+                // { key: 'apple', color: 'bg-pink-400/20 text-pink-300' },
+                // { key: 'vercel', color: 'bg-gray-400/20 text-text-subheading' },
+                // { key: 'github', color: 'bg-emerald-400/20 text-emerald-300' },
               ].map((tag) => (
                 <span
                   key={tag.key}
-                  className={`rounded-full px-3 py-1 text-sm font-medium ${tag.color}`}
+                  className={`rounded-full px-3 py-1 font-medium 2xl:text-xs ${tag.color}`}
                 >
                   {t(`experienceSection.tags.${tag.key}`)}
                 </span>

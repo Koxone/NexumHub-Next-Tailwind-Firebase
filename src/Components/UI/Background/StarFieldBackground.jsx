@@ -8,7 +8,7 @@ export default function StarFieldBackground({
   const stars = Array.from({ length: count }).map((_, i) => {
     const size = Math.random() * (maxSize - minSize) + minSize;
     const color = colors[Math.floor(Math.random() * colors.length)];
-    const top = `${Math.random() * 100}vh`;
+    const top = `-${Math.random() * 10}vh`;
     const left = `${Math.random() * 100}vw`;
     const isFalling = Math.random() < fallPercentage;
 

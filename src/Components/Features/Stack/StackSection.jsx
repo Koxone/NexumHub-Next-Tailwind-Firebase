@@ -23,7 +23,7 @@ export default function StackSection({ className = '' }) {
       >
         <div
           className={[
-            'flex h-12 w-12 items-center justify-center p-1',
+            'flex h-10 w-10 items-center justify-center p-1',
             'sm:',
             'md:h-15 md:w-15',
             'lg:h-16 lg:w-16',
@@ -44,7 +44,7 @@ export default function StackSection({ className = '' }) {
     ));
 
   return (
-    <section className={`flex ${className} flex-col items-center gap-10`}>
+    <section className={`flex ${className} flex-col items-center gap-10 mb-20`}>
       {/* title */}
       <div>
         <h2 className="text-text-body mb-2 text-center text-4xl font-bold">

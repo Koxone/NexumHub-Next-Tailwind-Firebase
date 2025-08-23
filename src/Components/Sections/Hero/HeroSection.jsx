@@ -37,8 +37,8 @@ function HeroSection() {
         >
           <div
             className={[
-              'mb-25 justify-self-center',
-              'sm:mb-0',
+              '-mt-20 mb-25 flex justify-center justify-self-center',
+              'sm:-mt-0 sm:mb-0 sm:block',
               'md:',
               'lg:mr-10',
               'xl:',

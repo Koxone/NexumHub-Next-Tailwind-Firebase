@@ -18,8 +18,7 @@ function HeroSection() {
           className={[
             'lg:grid lg:grid-cols-[auto_1fr] lg:space-y-20',
             'xl:',
-            '2xl:grid 2xl:grid-cols-[auto_1fr_1fr] 2xl:space-y-0',
-            '2xl:gap-15',
+            '2xl:grid 2xl:grid-cols-[auto_1fr_1fr] 2xl:gap-15 2xl:space-y-0',
           ].join(' ')}
         >
           <div className="lg:mr-10 2xl:mr-0">

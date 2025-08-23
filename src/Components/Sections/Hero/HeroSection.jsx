@@ -1,6 +1,5 @@
 'use client';
 
-import StackSection from '@/Components/Features/Stack/StackSection';
 import TopBar from '@/Components/Features/Topbar/TopBar';
 import Avatar from '@/Components/UI/Avatar/Avatar';
 import AboutMe from '@/Components/UI/Text/AboutMe';

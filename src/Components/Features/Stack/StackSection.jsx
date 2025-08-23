@@ -23,7 +23,7 @@ export default function StackSection({ className = '' }) {
       >
         <div
           className={[
-            'flex items-center justify-center p-1',
+            'flex h-12 w-12 items-center justify-center p-1',
             'sm:',
             'md:h-15 md:w-15',
             'lg:h-16 lg:w-16',

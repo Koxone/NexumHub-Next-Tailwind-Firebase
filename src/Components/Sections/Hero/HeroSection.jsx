@@ -12,20 +12,39 @@ function HeroSection() {
   const { t } = useTranslation();
   return (
     <div className="grid md:justify-self-center">
-      <div className="flex flex-col gap-10">
+      <div
+        className={[
+          'flex flex-col gap-10',
+          'sm:',
+          'md:',
+          'lg:',
+          'xl:',
+          '2xl:',
+        ].join(' ')}
+      >
         <TopBar />
 
         {/* Main Content */}
         <div
           className={[
+            '',
             'sm:',
             'md:grid md:w-full md:grid-cols-[auto_1fr] md:gap-10 md:space-y-20 md:self-center md:justify-self-center',
-            'lg:grid lg:grid-cols-[auto_1fr] lg:space-y-20 lg:gap-0',
+            'lg:grid lg:grid-cols-[auto_1fr] lg:gap-0 lg:space-y-20',
             'xl:',
             '2xl:grid 2xl:grid-cols-[auto_1fr_1fr] 2xl:gap-15 2xl:space-y-0',
           ].join(' ')}
         >
-          <div className="lg:mr-10 2xl:mr-0">
+          <div
+            className={[
+              'mb-25 justify-self-center',
+              'sm:mb-0',
+              'md:',
+              'lg:mr-10',
+              'xl:',
+              '2xl:mr-0',
+            ].join(' ')}
+          >
             <Avatar />
           </div>
 

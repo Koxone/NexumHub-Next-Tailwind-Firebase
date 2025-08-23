@@ -11,14 +11,16 @@ import { useTranslation } from 'react-i18next';
 function HeroSection() {
   const { t } = useTranslation();
   return (
-    <div className="grid justify-between">
+    <div className="grid md:justify-self-center">
       <div className="flex flex-col gap-10">
         <TopBar />
+
+        {/* Main Content */}
         <div
           className={[
             'sm:',
-            'md:',
-            'lg:grid lg:grid-cols-[auto_1fr] lg:space-y-20',
+            'md:grid md:w-full md:grid-cols-[auto_1fr] md:gap-10 md:space-y-20 md:self-center md:justify-self-center',
+            'lg:grid lg:grid-cols-[auto_1fr] lg:space-y-20 lg:gap-0',
             'xl:',
             '2xl:grid 2xl:grid-cols-[auto_1fr_1fr] 2xl:gap-15 2xl:space-y-0',
           ].join(' ')}

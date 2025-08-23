@@ -6,7 +6,16 @@ export default function ExperienceSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="flex h-full flex-col gap-8">
+    <section
+      className={[
+        'flex h-full flex-col gap-8',
+        'sm:',
+        'md:p-7',
+        'lg:p-0',
+        'xl:',
+        '2xl:',
+      ].join(' ')}
+    >
       {/* Title */}
       <div className={['sm:', 'md:', 'lg:', 'xl:', '2xl:hidden'].join(' ')}>
         <h2 className="text-text-body mb-2 text-center text-4xl font-bold">

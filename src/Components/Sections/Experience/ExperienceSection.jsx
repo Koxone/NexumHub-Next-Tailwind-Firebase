@@ -7,6 +7,15 @@ export default function ExperienceSection() {
 
   return (
     <section className="flex h-full flex-col gap-8">
+      {/* Title */}
+      <div className={['sm:', 'md:', 'lg:', 'xl:', '2xl:hidden'].join(' ')}>
+        <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
+          {t('experienceSection.title')}
+        </h2>
+        <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-blue-800" />
+      </div>
+
+      {/* Main Container */}
       <div
         className={[
           'group relative flex w-full transform flex-col items-center justify-center overflow-hidden',
@@ -16,13 +25,6 @@ export default function ExperienceSection() {
           'backdrop-blur-sm transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]',
         ].join(' ')}
       >
-        {/* Title */}
-        <div className="2xl:hidden">
-          <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
-            {t('experienceSection.title')}
-          </h2>
-          <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-400 to-blue-800" />
-        </div>
         <span className="animate-spark hover:bg-accent-light absolute z-20 hidden h-2 w-2 rounded-full opacity-100 group-hover:block"></span>
 
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/5 to-purple-600/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>

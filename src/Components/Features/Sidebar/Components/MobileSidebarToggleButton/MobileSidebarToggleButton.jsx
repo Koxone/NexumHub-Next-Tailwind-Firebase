@@ -24,6 +24,10 @@ function MobileSidebarToggleButton() {
         'flex cursor-pointer',
         'rounded p-2',
         'outline-none focus-visible:ring-2 focus-visible:ring-white/60',
+        'sm:',
+        'md:',
+        'lg:',
+        'xl:hidden',
         '2xl:hidden',
       ].join(' ')}
     >

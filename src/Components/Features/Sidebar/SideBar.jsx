@@ -17,11 +17,15 @@ function SideBar({ className }) {
     <div
       className={[
         `${className}`,
-        'fixed top-0 left-0 z-50 h-screen w-64 flex-col gap-6 overflow-y-auto',
+        'fixed top-0 left-0 z-50 hidden h-screen w-64 flex-col gap-6 overflow-y-auto',
         'bg-bg-main p-8',
         'backdrop-blur-sm before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40',
         'rounded-none',
-        'hidden 2xl:flex',
+        'sm:',
+        'md:',
+        'lg:',
+        'xl:flex',
+        '2xl:flex',
       ].join(' ')}
     >
       <div className="grid w-full grid-cols-[auto_1fr] items-center gap-4">

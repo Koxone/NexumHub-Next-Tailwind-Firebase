@@ -24,8 +24,11 @@ export default function StackSection({ className = '' }) {
         <div
           className={[
             'flex items-center justify-center p-1',
-            '2xl:h-14 2xl:w-14',
+            'sm:',
+            'md:',
             'lg:h-13 lg:w-13',
+            'xl:h-17 xl:w-17',
+            '2xl:h-14 2xl:w-14',
           ].join(' ')}
         >
           <img

@@ -35,7 +35,11 @@ export default function AboutMe() {
         ].join(' ')}
       >
         <span className="animate-spark hover:bg-accent-light absolute z-20 hidden h-2 w-2 rounded-full opacity-100 group-hover:block"></span>
-        <p className="lg:text-sm 2xl:text-base">
+        <p
+          className={['sm:', 'md:', 'lg:text-sm', 'xl:', '2xl:text-base'].join(
+            ' '
+          )}
+        >
           {t('aboutMeSection.hi')}{' '}
           <span className="text-accent font-semibold">
             {t('aboutMeSection.name')}

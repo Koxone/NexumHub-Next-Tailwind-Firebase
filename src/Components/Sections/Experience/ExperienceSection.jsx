@@ -30,7 +30,7 @@ export default function ExperienceSection() {
             </p>
           </div>
 
-          <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-400/30 hover:scrollbar-thumb-blue-400/50 max-h-[200px] overflow-y-auto">
+          <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-400/30 hover:scrollbar-thumb-blue-400/50 max-h-[210px] overflow-y-auto">
             <ul className="space-y-4 pr-2 2xl:text-sm">
               <li className="flex items-start gap-3">
                 <div className="bg-accent-light mt-2 h-2 w-2 flex-shrink-0 rounded-full"></div>

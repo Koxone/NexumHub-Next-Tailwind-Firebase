@@ -19,7 +19,17 @@ function MobileSidebarToggleButton() {
       aria-label={isOpen ? 'Close mobile menu' : 'Open mobile menu'}
       aria-expanded={isOpen}
       aria-controls="mobile-menu"
-      className="text-text-primary flex cursor-pointer rounded p-2 outline-none focus-visible:ring-2 focus-visible:ring-white/60 lg:hidden"
+      className={[
+        'text-text-primary',
+        'flex cursor-pointer',
+        'rounded p-2',
+        'outline-none focus-visible:ring-2 focus-visible:ring-white/60',
+        'sm:',
+        'md:',
+        'lg:',
+        'xl:hidden',
+        '2xl:hidden',
+      ].join(' ')}
     >
       <Menu className="h-5 w-5" />
     </button>

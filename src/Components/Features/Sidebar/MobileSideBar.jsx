@@ -47,7 +47,7 @@ export default function MobileSideBar() {
       {isOpen && (
         <div
           onClick={toggle}
-          className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[1px] lg:hidden"
+          className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[1px] 2xl:hidden"
           aria-hidden="true"
         />
       )}
@@ -59,7 +59,7 @@ export default function MobileSideBar() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="drawer-navigation-label"
-        className={`bg-bg-main fixed top-0 left-0 z-40 h-screen w-fit overflow-y-auto p-8 transition-transform lg:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`bg-bg-primary 2xl::hidden fixed top-0 left-0 z-40 h-screen w-fit overflow-y-auto p-8 transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
         tabIndex={-1}
         onClickCapture={onLinkClick}
       >
@@ -67,29 +67,6 @@ export default function MobileSideBar() {
           <MobileSidebarToggleButton />
           <Logo />
         </div>
-
-        {/* <button
-          ref={closeBtnRef}
-          type="button"
-          onClick={toggle}
-          aria-controls="mobile-menu"
-          className="absolute end-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-text-secondary hover:bg-gray-200 hover:text-bg-secondary dark:hover:bg-gray-600 dark:hover:text-text-primary"
-        >
-          <svg
-            aria-hidden="true"
-            className="h-5 w-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-          <span className="sr-only">Close menu</span>
-        </button> */}
 
         <div className="overflow-y-auto py-4">
           <ul className="space-y-2 font-medium">

@@ -6,25 +6,26 @@ import Avatar from './Components/Avatar/Avatar';
 import SidebarMenu from './Components/Menu/SidebarMenu';
 import { useMobileMenu } from '@/Stores/useMobileMenu';
 import MobileSidebarToggleButton from './Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
-import PulseSignInButton from '../../UI/Buttons/PulseSignInButton';
 
 // Clerk
 import { SignedIn, UserButton, useUser } from '@clerk/nextjs';
 
 function SideBar({ className }) {
-  const { isOpen } = useMobileMenu();
   const { user } = useUser();
 
   return (
     <div
-      id="mobile-menu"
       className={[
         `${className}`,
-        'hidden lg:flex',
-        'fixed top-0 left-0 z-50 h-screen w-64 flex-col gap-6 overflow-y-auto',
+        'fixed top-0 left-0 z-50 hidden h-screen w-64 flex-col gap-6 overflow-y-auto',
         'bg-bg-main p-8',
         'backdrop-blur-sm before:absolute before:top-0 before:right-0 before:bottom-0 before:w-px before:bg-gray-400/40',
         'rounded-none',
+        'sm:',
+        'md:',
+        'lg:',
+        'xl:flex',
+        '2xl:flex',
       ].join(' ')}
     >
       <div className="grid w-full grid-cols-[auto_1fr] items-center gap-4">
@@ -32,19 +33,9 @@ function SideBar({ className }) {
         <Logo />
       </div>
 
-      {/* Clerk SignedOut */}
-      {/* <SignedOut>
-        <SignInButton mode="modal"> */}
       <div className="flex flex-col gap-4">
         <Avatar />
-        {/* <PulseSignInButton>
-              <button className="w-full cursor-pointer rounded-md bg-[#4d74b8] px-3 py-2 text-sm text-text-primary transition-all duration-200 ease-in-out hover:bg-[#2a3f61]">
-                Sign In
-              </button>
-            </PulseSignInButton> */}
       </div>
-      {/* </SignInButton>
-      </SignedOut> */}
 
       {/* Clerk SignedIn */}
       <SignedIn>

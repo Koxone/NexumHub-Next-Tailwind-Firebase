@@ -41,9 +41,9 @@ function Greeting() {
         <h1 className="text-text-primary text-4xl font-bold tracking-tight capitalize md:text-4xl lg:text-4xl">
           Hello {user?.externalAccounts?.[0]?.username || 'Not available'}!
         </h1>
-        <p className="text-text-secondary text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
+        {/* <p className="text-text-secondary text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
           Today is {formattedDate}
-        </p>
+        </p> */}
       </SignedIn>
     </div>
   );

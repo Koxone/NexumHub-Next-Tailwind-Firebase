@@ -11,9 +11,26 @@ export default function StackSection({ className = '' }) {
     items.map((item, i) => (
       <li
         key={i}
-        className={`group glow-card relative border border-solid ${item.border} p-3 ${item.bg} flex flex-col items-center gap-2 rounded-2xl backdrop-blur-md ${item.hover}`}
+        className={[
+          'group relative flex flex-col items-center gap-2',
+          'rounded-2xl p-3',
+          'border border-solid',
+          `${item.border}`,
+          `${item.bg}`,
+          'glow-card backdrop-blur-md',
+          `${item.hover}`,
+        ].join(' ')}
       >
-        <div className="flex h-11 w-11 items-center justify-center p-1">
+        <div
+          className={[
+            'flex h-10 w-10 items-center justify-center p-1',
+            'sm:',
+            'md:h-15 md:w-15',
+            'lg:h-16 lg:w-16',
+            'xl:h-17 xl:w-17',
+            '2xl:h-14 2xl:w-14',
+          ].join(' ')}
+        >
           <img
             src={item.url}
             alt={item.tooltip}
@@ -27,7 +44,7 @@ export default function StackSection({ className = '' }) {
     ));
 
   return (
-    <section className={`flex ${className} flex-col items-center gap-10`}>
+    <section className={`flex ${className} flex-col items-center gap-10 mb-20`}>
       {/* title */}
       <div>
         <h2 className="text-text-body mb-2 text-center text-4xl font-bold">

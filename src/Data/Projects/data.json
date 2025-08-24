@@ -40,7 +40,7 @@
       "titleKey": "projects.testigoMX.title",
       "descriptionKey": "projects.testigoMX.description",
       "url": "https://www.testigo.mx/",
-      "urlGit": "https://github.com/Koxone/",
+      "urlGit": "https://github.com/Koxone/TestigoMX-Private-Repository",
       "image": "/testigo/testigo.mp4",
       "featured": true,
       "logo": "Images/ProjectCards/testigo.svg",
@@ -167,6 +167,7 @@
       "features": "projects.couponGenerator.features",
       "projectFeatures": "projects.couponGenerator.projectFeatures"
     },
+
     "nexumHub": {
       "id": "nexumHub",
       "titleKey": "projects.nexumHub.title",

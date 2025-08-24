@@ -1,15 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from '@/lib/firebaseKxChat';
-import {
-  collection,
-  addDoc,
-  onSnapshot,
-  orderBy,
-  query,
-  serverTimestamp,
-} from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import crypto from 'crypto';
 import { sendDiscord } from '@/lib/sendDiscord';
 import MessagesList from './components/MessagesList';
@@ -30,14 +23,36 @@ const KxChatEngine = ({
 }) => {
   // Zustand
   const { isOpenKxChat, closeChat } = useKxChat();
-  const { isAccepted, permitted, notPermitted, toggleChat } = useOpenChatButton();
+  const { toggleChat } = useOpenChatButton();
 
-  // Estados
-  const [username, setUsername] = useState('');
-  const [usernameSet, setUsernameSet] = useState(false);
+  // Estados con persistencia en localStorage
+  const [username, setUsername] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('kxchat_username') || '';
+    }
+    return '';
+  });
+
+  const [usernameSet, setUsernameSet] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !!localStorage.getItem('kxchat_username');
+    }
+    return false;
+  });
+
+  const [userId] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('kxchat_userId');
+      if (stored) return stored;
+      const newId = crypto.randomBytes(16).toString('hex');
+      localStorage.setItem('kxchat_userId', newId);
+      return newId;
+    }
+    return crypto.randomBytes(16).toString('hex');
+  });
+
   const [newMessage, setNewMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [userId] = useState(() => crypto.randomBytes(16).toString('hex'));
 
   // Custom Hooks
   const { position, handleMouseDown } = useDraggable();
@@ -48,6 +63,15 @@ const KxChatEngine = ({
     userId,
   });
 
+  // Guardar username en localStorage al confirmar
+  const handleSetUsername = () => {
+    if (username.trim()) {
+      localStorage.setItem('kxchat_username', username.trim());
+      setUsernameSet(true);
+    }
+  };
+
+  // Enviar mensaje
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!newMessage.trim() || loading) return;
@@ -104,7 +128,7 @@ const KxChatEngine = ({
         <UsernameForm
           username={username}
           setUsername={setUsername}
-          onContinue={() => username.trim() && setUsernameSet(true)}
+          onContinue={handleSetUsername}
         />
       ) : (
         <>

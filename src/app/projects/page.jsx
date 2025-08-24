@@ -22,7 +22,7 @@ export default function Projects() {
   if (loading) return <p className="text-text-subheading">Loading projects…</p>;
   if (!data.length) {
     return (
-      <div className="flex flex-col gap-4 overflow-hidden px-8">
+      <div className="flex flex-col gap-4 overflow-hidden px-8  h-[100dvh]">
         <Title title="Latest Projects" />
         <div className="flex h-[300px] items-center justify-start">
           <div

@@ -9,6 +9,7 @@ import { useProjectModal } from '@/Stores/useProjectModal';
 import InteractiveProjectsSection from '@/Components/Sections/FeaturedInteractiveProjects/InteractiveProjectsSection';
 import GithubRepos from '@/Components/Features/Github/Components/Repos/GithubRepos';
 import { useTranslation } from 'react-i18next';
+import MobileSidebarToggleButton from '@/Components/Features/Sidebar/Components/MobileSidebarToggleButton/MobileSidebarToggleButton';
 
 export default function Projects() {
   // Language
@@ -22,7 +23,7 @@ export default function Projects() {
   if (loading) return <p className="text-text-subheading">Loading projects…</p>;
   if (!data.length) {
     return (
-      <div className="flex flex-col gap-4 overflow-hidden px-8  h-[100dvh]">
+      <div className="flex h-[100dvh] flex-col gap-4 overflow-hidden px-8">
         <Title title="Latest Projects" />
         <div className="flex h-[300px] items-center justify-start">
           <div
@@ -57,9 +58,12 @@ export default function Projects() {
     >
       {/* Presentation */}
       <div>
-        <h1 className="text-text-primary mb-4 text-4xl font-bold tracking-tight capitalize md:text-4xl lg:text-4xl">
-          {t('projectsRoute.title')}
-        </h1>
+        <div className="flex gap-4">
+          <MobileSidebarToggleButton />
+          <h1 className="text-text-primary mb-4 text-4xl font-bold tracking-tight capitalize md:text-4xl lg:text-4xl">
+            {t('projectsRoute.title')}
+          </h1>
+        </div>
         <p className="text-text-secondary max-w-[1100px] text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
           {t('projectsRoute.presentation.1')}{' '}
           <span className="text-accent font-semibold">

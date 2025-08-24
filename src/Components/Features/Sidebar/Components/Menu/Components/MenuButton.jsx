@@ -25,11 +25,9 @@ function MenuButton({
   const { isOpenKxChat, openChat, toggleChat } = useKxChat();
   const { isPermitted, permitted } = useOpenChatButton();
 
-  // click handler
   const handleClick = (e) => {
     if (disabled) return;
 
-    // contact email
     if (contact) {
       const subject = encodeURIComponent('Contacto desde el portafolio');
       const body = encodeURIComponent(
@@ -39,7 +37,7 @@ function MenuButton({
       return;
     }
 
-    // resume download
+    // Resume
     if (downloadResume) {
       const link = document.createElement('a');
       link.href = '/resume.docx';
@@ -50,7 +48,7 @@ function MenuButton({
       return;
     }
 
-    // 👉 abrir chat
+    // Chat
     if (openChatButton) {
       toggleChat();
       openChat();

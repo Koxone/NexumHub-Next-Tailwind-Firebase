@@ -13,9 +13,9 @@ function InteractiveProjectsSection({ className = '' }) {
   useEffect(() => {
     const updateSize = () => {
       if (window.innerWidth >= 1536) {
-        setChunkSize(3); // 2xl → 3 cards
+        setChunkSize(3); // 2xl → 3 cards visibles
       } else {
-        setChunkSize(2); // xl y menor → 2 cards
+        setChunkSize(2); // xl y menor → 2 cards visibles
       }
     };
     updateSize();
@@ -26,6 +26,7 @@ function InteractiveProjectsSection({ className = '' }) {
   // data
   const cards = ['testigoMX', 'fws', 'couponGenerator', 'testigoMX'];
 
+  // frames dinámicos
   const frames = [];
   for (let i = 0; i < cards.length; i += chunkSize) {
     frames.push(cards.slice(i, i + chunkSize));
@@ -38,7 +39,7 @@ function InteractiveProjectsSection({ className = '' }) {
     <div
       id="projects"
       className={[
-        'mobile relative w-full gap-4 overflow-visible overflow-x-auto',
+        'mobile relative w-full gap-4 transition-all duration-300 ease-in-out',
         className,
         'sm:',
         'md:',
@@ -47,7 +48,7 @@ function InteractiveProjectsSection({ className = '' }) {
         '2xl:',
       ].join(' ')}
     >
-      {/* Card Slider for XL */}
+      {/* Card Slider for XL/2XL */}
       <div
         className={[
           'mobile relative hidden',
@@ -55,47 +56,32 @@ function InteractiveProjectsSection({ className = '' }) {
           'md:block',
           'lg:',
           'xl:grid xl:grid-cols-[1fr_40px]',
-          '2xl:grid 2xl:grid-cols-[1fr_40px] gap-2',
+          'gap-2 2xl:grid 2xl:grid-cols-[1fr_40px]',
         ].join(' ')}
       >
-        {/* Cards Container */}
-        <div className="overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {frames.map((frame, idx) => (
-              <div key={idx} className="min-w-full">
-                {/* Cards Quantity Rendered */}
-                <div
-                  className={[
-                    'mobile grid justify-items-center gap-6',
-                    'sm:',
-                    'md:',
-                    'lg:',
-                    'xl:grid-cols-2',
-                    '2xl:grid-cols-3',
-                  ].join(' ')}
-                >
-                  {frame.map((project) => (
-                    <InteractiveProjectCard
-                      key={project}
-                      projectKey={project}
-                    />
-                  ))}
+        {/* Cards visibles */}
+        <div
+          className={[
+            'mobile grid justify-items-center gap-6',
+            'sm:',
+            'md:',
+            'lg:',
+            'xl:grid-cols-2',
+            '2xl:grid-cols-3',
+          ].join(' ')}
+        >
+          {frames[currentIndex].map((project) => (
+            <InteractiveProjectCard key={project} projectKey={project} />
+          ))}
 
-                  {/* relleno si faltan para completar frame */}
-                  {Array.from({ length: chunkSize - frame.length }).map(
-                    (_, idx) => (
-                      <div key={idx} className="pointer-events-none opacity-0">
-                        <InteractiveProjectCard projectKey={frame[0]} />
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* relleno si faltan para completar frame */}
+          {Array.from({
+            length: chunkSize - frames[currentIndex].length,
+          }).map((_, idx) => (
+            <div key={idx} className="pointer-events-none opacity-0">
+              <InteractiveProjectCard projectKey={frames[currentIndex][0]} />
+            </div>
+          ))}
         </div>
 
         {/* Chevron */}
@@ -103,11 +89,11 @@ function InteractiveProjectsSection({ className = '' }) {
           onClick={handleNext}
           aria-label="Next projects"
           className={[
-            'mobile hover:text-text-primary hover:bg-accent-light absolute top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white/80 p-2 shadow-md transition',
+            'mobile hover:text-text-primary hover:bg-accent-light absolute top-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white/80 p-2 shadow-md transition-all duration-200 ease-in-out',
             'sm:',
             'md:',
             'lg:',
-            'xl:',
+            'xl: right-0',
             '2xl: right-0',
           ].join(' ')}
         >

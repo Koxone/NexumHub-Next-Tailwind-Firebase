@@ -2,7 +2,6 @@
 'use client';
 
 import GitRepoCard from './GitRepoCard/GitRepoCard';
-import DevMessageCard from '../DevMessageCard/DevMessageCard';
 import { useGithubRepos } from '@/Hooks/Github/useGithubRepos';
 import { useTranslation } from 'react-i18next';
 
@@ -26,20 +25,7 @@ export default function GitRepoAnimatedList({
 
   return (
     <div className={`relative w-full ${className}`}>
-      <DevMessageCard
-        isLoaded={true}
-        isSignedIn={true}
-        loading={loading}
-        setLoading={() => {}}
-      />
-
-      <div
-        className={`${padding} ${
-          displayScrollbar
-            ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-[4px] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-track]:bg-[#060010]'
-            : 'no-scrollbar'
-        }`}
-      >
+      <div className={`${padding} `}>
         {loading && (
           <div className="text-text-secondary py-6 text-center text-sm">
             Loading…

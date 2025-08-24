@@ -13,9 +13,15 @@ function InteractiveProjectsSection({ className = '' }) {
   useEffect(() => {
     const updateSize = () => {
       if (window.innerWidth >= 1536) {
-        setChunkSize(3); // 2xl → 3 cards visibles
+        setChunkSize(2);
+      } else if (window.innerWidth >= 1280) {
+        setChunkSize(2);
+      } else if (window.innerWidth >= 1024) {
+        setChunkSize(1);
+      } else if (window.innerWidth >= 768) {
+        setChunkSize(2);
       } else {
-        setChunkSize(2); // xl y menor → 2 cards visibles
+        setChunkSize(1);
       }
     };
     updateSize();
@@ -53,8 +59,8 @@ function InteractiveProjectsSection({ className = '' }) {
         className={[
           'mobile relative hidden',
           'sm:',
-          'md:block',
-          'lg:',
+          'md:grid md:grid-cols-[1fr_40px]',
+          'lg:grid lg:grid-cols-[1fr_40px]',
           'xl:grid xl:grid-cols-[1fr_40px]',
           'gap-2 2xl:grid 2xl:grid-cols-[1fr_40px]',
         ].join(' ')}
@@ -64,10 +70,10 @@ function InteractiveProjectsSection({ className = '' }) {
           className={[
             'mobile grid justify-items-center gap-6',
             'sm:',
-            'md:',
-            'lg:',
+            'md:grid-cols-2',
+            'lg:grid-cols-1',
             'xl:grid-cols-2',
-            '2xl:grid-cols-3',
+            '2xl:grid-cols-2',
           ].join(' ')}
         >
           {frames[currentIndex].map((project) => (

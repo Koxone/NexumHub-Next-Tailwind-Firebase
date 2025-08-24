@@ -231,6 +231,7 @@
       ],
       "overview": "Coupon Cards é uma plataforma digital de cupons, responsiva e multilíngue, desenvolvida com React 19, Vite e Tailwind CSS 4. Proporciona aos turistas no México e na República Dominicana acesso fácil a ofertas promocionais das principais redes de fast food em destinos como Cancún, Tulum, Los Cabos, Puerto Vallarta e Punta Cana. A plataforma verifica a elegibilidade do usuário por meio de uma chamada a uma API que valida e-mail e código de reserva pelo endpoint de reservas da Sacbe Transfers. Usuários elegíveis podem explorar e filtrar cupons por região, visualizar detalhes das promoções e salvar as ofertas diretamente no Apple Wallet ou Google Wallet para maior conveniência durante a viagem. Entre as principais funcionalidades estão o suporte multilíngue (inglês/espanhol) usando i18next, interface limpa e mobile-first, filtragem por região e integração com Apple e Google Wallet. O projeto segue uma estrutura modular baseada em componentes, garantindo escalabilidade e facilidade de manutenção. Está hospedado na Vercel e utiliza ESLint, Prettier e o plugin Prettier para Tailwind para manter a consistência do código. Futuras melhorias incluirão contas de usuário, painel administrativo para gestão de cupons, integração de análises e suporte a mais destinos turísticos."
     },
+    
     "nexumHub": {
       "id": "nexumHub",
       "title": "Hub de Portfólio Profissional – Next.js, Firebase, Clerk, GitHub API",

@@ -176,7 +176,7 @@
       "image": "/nexum/nexumhub.mp4",
       "featured": true,
       "logo": "Images/ProjectCards/nexumhub.svg",
-      "src": "nexumHub",
+      "src": "nexum",
       "completed": "undefined",
       "active": true,
       "updated": "projects.nexumHub.updated",
@@ -197,7 +197,8 @@
       "teamSize": "1",
       "overview": "projects.nexumHub.overview",
       "features": "projects.nexumHub.features",
-      "projectFeatures": "projects.nexumHub.projectFeatures"
+      "projectFeatures": "projects.nexumHub.projectFeatures",
+      "imgNumber": 7
     }
   }
 }

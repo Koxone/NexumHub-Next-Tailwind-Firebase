@@ -1,46 +1,45 @@
 import { create } from 'zustand';
 
 export const useOpenChatButton = create((set) => ({
-  isPermitted:
-    typeof window !== 'undefined'
-      ? localStorage.getItem('isPermitted') === 'true'
-      : false,
-  hasAcceptedChat:
-    typeof window !== 'undefined'
-      ? localStorage.getItem('hasAcceptedChat') === 'true'
-      : false,
+  isPermitted: false,
+  hasAcceptedChat: false,
 
-  permitted: () =>
-    set(() => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('isPermitted', 'true');
-      }
-      return { isPermitted: true };
-    }),
+  hydrate: () => {
+    if (typeof window !== 'undefined') {
+      set({
+        isPermitted: localStorage.getItem('isPermitted') === 'true',
+        hasAcceptedChat: localStorage.getItem('hasAcceptedChat') === 'true',
+      });
+    }
+  },
 
-  notPermitted: () =>
-    set(() => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('isPermitted', 'false');
-      }
-      return { isPermitted: false };
-    }),
+  permitted: () => {
+    set({ isPermitted: true });
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('isPermitted', 'true');
+    }
+  },
+
+  notPermitted: () => {
+    set({ isPermitted: false });
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('isPermitted', 'false');
+    }
+  },
 
   toggleChat: () =>
     set((state) => {
-      const newValue = !state.isPermitted;
+      const newVal = !state.isPermitted;
       if (typeof window !== 'undefined') {
-        localStorage.setItem('isPermitted', newValue.toString());
+        localStorage.setItem('isPermitted', newVal ? 'true' : 'false');
       }
-      return { isPermitted: newValue };
+      return { isPermitted: newVal };
     }),
 
-  acceptChat: () =>
-    set(() => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('hasAcceptedChat', 'true');
-        localStorage.setItem('isPermitted', 'true');
-      }
-      return { hasAcceptedChat: true, isPermitted: true };
-    }),
+  acceptChat: () => {
+    set({ hasAcceptedChat: true });
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('hasAcceptedChat', 'true');
+    }
+  },
 }));

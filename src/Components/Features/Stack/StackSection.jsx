@@ -44,7 +44,7 @@ export default function StackSection({ className = '' }) {
     ));
 
   return (
-    <section className={`flex ${className} flex-col items-center gap-10 mb-20`}>
+    <section className={`flex ${className} mb-20 flex-col items-center gap-10`}>
       {/* title */}
       <div>
         <h2 className="text-text-body mb-2 text-center text-4xl font-bold">
@@ -136,7 +136,16 @@ export default function StackSection({ className = '' }) {
         <h3 className="text-text-body text-lg font-semibold">
           {t('stack.tools')}
         </h3>
-        <ul className="grid grid-cols-5 justify-center gap-5">
+        <ul
+          className={[
+            'mobile grid grid-cols-5 justify-center gap-5',
+            'sm:',
+            'md:',
+            'lg:',
+            'xl:',
+            '2xl:flex 2xl:max-w-[1000px] 2xl:flex-wrap',
+          ].join(' ')}
+        >
           {renderItems([
             {
               url: '/Assets/StackIcons/html.png',

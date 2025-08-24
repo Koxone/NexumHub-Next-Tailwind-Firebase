@@ -48,7 +48,17 @@ export default function GitRepoActivityList({
   const { t } = useTranslation();
 
   return (
-    <div className={`relative w-full max-w-[462px] ${className}`}>
+    <div
+      className={[
+        'mobile relative w-full',
+        className,
+        'sm:',
+        'md:',
+        'lg:max-w-[462px]',
+        'xl:',
+        '2xl:',
+      ].join(' ')}
+    >
       <div
         className={`${padding} ${
           displayScrollbar
@@ -83,7 +93,14 @@ export default function GitRepoActivityList({
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group border-border-main/50 block rounded-xl border p-4 transition-all duration-200 ease-in-out hover:scale-105 hover:bg-blue-500/20"
+                className={[
+                  'mobile group border-border-main/50 block rounded-xl border p-4 transition-all duration-200 ease-in-out hover:scale-105 hover:bg-blue-500/20',
+                  'sm:',
+                  'md:',
+                  'lg:max-w-[250px]',
+                  'xl:max-w-[300px]',
+                  '2xl:max-w-none',
+                ].join(' ')}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">

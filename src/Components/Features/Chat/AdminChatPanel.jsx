@@ -9,13 +9,14 @@ import {
   onSnapshot,
   addDoc,
   serverTimestamp,
+  doc,
+  updateDoc,
 } from 'firebase/firestore';
 import { getApp } from 'firebase/app';
 
-// Usa la app de chat ya creada
 const db = getFirestore(getApp('KxChatEngineApp'));
 
-function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Panel de Soporte' }) {
+function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Support Admin Panel' }) {
   const [chats, setChats] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
   const [newMessage, setNewMessage] = useState('');
@@ -54,9 +55,18 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Panel de Sopo
         text: newMessage,
         isAdmin: true,
         userId: selectedUser,
+        read: true,
         timestamp: serverTimestamp(),
-      }); 
+      });
       setNewMessage('');
+
+      // marcar mensajes previos como leídos
+      chats[selectedUser]
+        ?.filter((m) => !m.isAdmin && !m.read)
+        .forEach(async (m) => {
+          const ref = doc(db, 'chats', projectId, 'messages', m.id);
+          await updateDoc(ref, { read: true });
+        });
     } catch (error) {
       console.error('Error sending message:', error);
     } finally {
@@ -65,7 +75,7 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Panel de Sopo
   };
 
   return (
-    <div className="fixed left-4 bottom-4 z-50 flex h-[32rem] w-96 flex-col rounded-lg border border-gray-200 bg-white shadow-2xl">
+    <div className="fixed left-4 hidden bottom-4 z-50 flex h-[32rem] w-96 flex-col rounded-lg border border-gray-200 bg-white shadow-2xl">
       {/* Header */}
       <div className="flex items-center justify-between rounded-t-lg bg-blue-500 p-4 text-white">
         <h3 className="font-semibold">{chatTitle}</h3>
@@ -79,21 +89,32 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Panel de Sopo
         )}
       </div>
 
-      {/* Lista de usuarios o chat */}
+      {/* Lista de usuarios */}
       {!selectedUser ? (
         <div className="flex-1 overflow-y-auto bg-gray-50 p-4">
           <p className="mb-3 font-semibold text-gray-600">Active Users</p>
           <ul className="space-y-2">
-            {Object.keys(chats).map((user) => (
-              <li key={user}>
-                <button
-                  onClick={() => setSelectedUser(user)}
-                  className="w-full rounded-lg border bg-white px-4 py-2 text-left shadow hover:bg-gray-100"
-                >
-                  User {user.slice(0, 6)}…
-                </button>
-              </li>
-            ))}
+            {Object.keys(chats).map((user) => {
+              const msgs = chats[user] || [];
+              const unread = msgs.filter((m) => !m.isAdmin && !m.read).length;
+              const username = msgs[0]?.username || `User ${user.slice(0, 6)}…`;
+
+              return (
+                <li key={user}>
+                  <button
+                    onClick={() => setSelectedUser(user)}
+                    className="flex w-full items-center justify-between rounded-lg border bg-white px-4 py-2 text-left shadow hover:bg-gray-100"
+                  >
+                    <span>{username}</span>
+                    {unread > 0 && (
+                      <span className="ml-2 rounded-full bg-red-500 px-2 py-0.5 text-xs font-bold text-white">
+                        {unread}
+                      </span>
+                    )}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : (
@@ -132,13 +153,8 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Panel de Sopo
                 type="text"
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                    sendMessage();
-                  }
-                }}
-                placeholder="Escribe tu respuesta..."
+                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                placeholder="Type your reply..."
                 className="flex-1 rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 disabled={loading}
               />

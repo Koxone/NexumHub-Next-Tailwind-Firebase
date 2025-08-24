@@ -3,12 +3,15 @@
 import { useEffect, useRef } from 'react';
 import { useChatModal } from '@/Stores/useChatModal';
 import { useTranslation } from 'react-i18next';
+import { useKxChat } from '@/Stores/useKxChat';
 
 export default function ChatModal({ onAccept }) {
   const { isOpen, closeChatModal } = useChatModal();
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
   const { t } = useTranslation();
+    // Zustand
+    const { isOpenKxChat, openChat, closeChat, toggleChat } = useKxChat();
 
   // Esc Key
   useEffect(() => {
@@ -244,22 +247,15 @@ export default function ChatModal({ onAccept }) {
             <div className="sticky bottom-0 flex flex-col gap-2 border-t border-white/10 bg-[#0b1020]/95 px-4 py-3 backdrop-blur sm:flex-row sm:justify-end">
               <div className="group relative flex items-center">
                 <button
-                  title={t('chatModal.tooltip')}
-                  disabled
                   type="button"
                   onClick={() => {
-                    onAccept?.();
+                    openChat();
                     closeChatModal();
                   }}
-                  className="text-text-primary cursor-not-allowed rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+                  className="text-text-primary cursor-pointer rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
                 >
                   {t('chatModal.buttonChat')}
                 </button>
-
-                {/* Tooltip */}
-                <span className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 rounded-md bg-blue-500 px-2 py-1 text-xs text-white transition-all group-hover:scale-100">
-                  {t('chatModal.tooltip')}
-                </span>
               </div>
 
               <button

@@ -137,7 +137,7 @@ function SidebarMenu() {
         aria="Go to Search Projects Button"
         icon={SunMoon}
         text="Dark Mode"
-        contact
+        disabled
       />
     </div>
   );

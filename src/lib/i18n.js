@@ -1,17 +1,14 @@
-// lib/i18n.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Import JSON translations using standard ES6 imports
 import en from '../locales/en/english.json';
 import es from '../locales/es/spanish.json';
 import pt from '../locales/pt/portugues.json';
 
-// Configure i18n
 i18n
-  .use(LanguageDetector) // Detect user language
-  .use(initReactI18next) // Pass i18n instance to react-i18next
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
     resources: {
       en: { translation: en },
@@ -19,30 +16,25 @@ i18n
       pt: { translation: pt },
     },
 
-    // Default language
     lng: 'en',
     fallbackLng: 'en',
 
-    // Language detection options
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
 
     interpolation: {
-      escapeValue: false, // React already escapes values
+      escapeValue: false,
     },
 
-    // Additional configuration for better performance
     debug: process.env.NODE_ENV === 'development',
 
-    // Key separator and namespace separator
     keySeparator: '.',
     nsSeparator: false,
 
-    // React specific options
     react: {
-      useSuspense: false, // Set to false for SSR compatibility
+      useSuspense: false,
     },
   });
 

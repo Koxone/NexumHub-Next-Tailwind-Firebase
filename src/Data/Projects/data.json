@@ -45,7 +45,7 @@
       "featured": true,
       "logo": "Images/ProjectCards/testigo.svg",
       "src": "testigoMX",
-      "completed": true,
+      "completed": "undefined",
       "active": true,
       "updated": "projects.testigoMX.updated",
       "date": "projects.testigoMX.date",

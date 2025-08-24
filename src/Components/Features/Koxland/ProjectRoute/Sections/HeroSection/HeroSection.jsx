@@ -19,6 +19,7 @@ const HeroSection = ({
   gallery,
   slideshow,
   srcSlide,
+  imgNumber
 }) => {
   return (
     <section className="relativejustify-self-center overflow-hidden py-10">
@@ -71,6 +72,7 @@ const HeroSection = ({
           <ProjectShowcase
             src={src}
             alt={alt}
+            imgNumber={imgNumber}
             gallery={gallery}
             slideshow={slideshow}
             srcSlide={srcSlide}

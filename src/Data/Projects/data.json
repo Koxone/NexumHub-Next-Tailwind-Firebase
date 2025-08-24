@@ -5,7 +5,7 @@
       "titleKey": "projects.fws.title",
       "descriptionKey": "projects.fws.description",
       "url": "https://fitworldshop.com",
-      "urlGit": "https://github.com/Koxone/FitWorldShop-Ecommerce-Next-Tailwind-Shopify-API",
+      "urlGit": "https://github.com/Koxone/eCommerce-Private-Repository",
       "image": "/fws/fws.mp4",
       "featured": true,
       "logo": "/Images/ProjectCards/fws.svg",
@@ -31,7 +31,8 @@
       "teamSize": "1",
       "overview": "projects.fws.overview",
       "features": "projects.fws.features",
-      "projectFeatures": "projects.fws.projectFeatures"
+      "projectFeatures": "projects.fws.projectFeatures",
+      "imgNumber": 13
     },
 
     "testigoMX": {
@@ -131,7 +132,8 @@
       "teamSize": "1",
       "overview": "projects.couponGenerator.overview",
       "features": "projects.couponGenerator.features",
-      "projectFeatures": "projects.couponGenerator.projectFeatures"
+      "projectFeatures": "projects.couponGenerator.projectFeatures",
+      "imgNumber": 8
     },
 
     "learn": {

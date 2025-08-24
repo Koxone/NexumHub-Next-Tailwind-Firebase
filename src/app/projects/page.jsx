@@ -22,7 +22,7 @@ export default function Projects() {
   if (loading) return <p className="text-text-subheading">Loading projects…</p>;
   if (!data.length) {
     return (
-      <div className="flex flex-col gap-4 overflow-hidden px-8">
+      <div className="flex flex-col gap-4 overflow-hidden px-8  h-[100dvh]">
         <Title title="Latest Projects" />
         <div className="flex h-[300px] items-center justify-start">
           <div
@@ -45,7 +45,16 @@ export default function Projects() {
   }
 
   return (
-    <div className="flex min-h-0 w-full flex-col gap-8 justify-self-center lg:pl-64">
+    <div
+      className={[
+        'mobile flex min-h-0 w-full flex-col gap-8 justify-self-center',
+        'sm:',
+        'md:',
+        'lg:',
+        'xl:px-12 xl:py-10',
+        '2xl:px-16 2xl:py-10',
+      ].join(' ')}
+    >
       {/* Presentation */}
       <div>
         <h1 className="text-text-primary mb-4 text-4xl font-bold tracking-tight capitalize md:text-4xl lg:text-4xl">

@@ -13,6 +13,7 @@
 Humanitarian platform to **document and search forensic findings and reports related to missing persons in Mexico**, with **images on Cloudinary** and **metadata on Firestore**. Provides **advanced full-sentence search**, **combinable filters**, **privacy control**, and **bilingual support**.
 
 ## 🔗 Live Demo
+
 [Coming soon](https://www.testigo.mx/)
 
 ---
@@ -32,16 +33,28 @@ Humanitarian platform to **document and search forensic findings and reports rel
 
 ## 🛠 Tech Stack
 
-| Category            | Technology                                   |
-|---------------------|----------------------------------------------|
-| Framework           | Next.js and React                            |
-| Styling             | Tailwind CSS v4                              |
-| State               | React Context                                |
-| Authentication      | Clerk                                        |
-| Database            | Firebase Firestore                           |
-| Storage             | Cloudinary                                   |
-| i18n                | react-i18next                                |
-| Deploy              | Vercel                                       |
+| Category       | Technology         |
+| -------------- | ------------------ |
+| Framework      | Next.js and React  |
+| Styling        | Tailwind CSS v4    |
+| State          | React Context      |
+| Authentication | Clerk              |
+| Database       | Firebase Firestore |
+| Storage        | Cloudinary         |
+| i18n           | react-i18next      |
+| Deploy         | Vercel             |
+
+---
+
+## 🧩 Personal Coding Style
+
+- `className` always written as an **array format** for readability
+- First line always starts with `mobile` followed by general classes
+- Fixed breakpoint order maintained: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+- Conditional classes (e.g. `isOpen ? ... : ...`) always appended at the end of the `mobile` line
+- Some breakpoint classes are intentionally **repeated** (e.g. `xl:hidden` and `2xl:hidden`) for consistency, even if redundant
+- This is a **personal convention** for clarity in my own projects
+- In a **professional environment**, I strictly follow the team’s conventions and coding standards
 
 ---
 
@@ -85,6 +98,7 @@ src/
 ```
 
 Key notes
+
 - `tags` is the core for text search.
 - `image` stores the Cloudinary secure URL when applicable.
 - `isPrivate` enables access control for sensitive information.

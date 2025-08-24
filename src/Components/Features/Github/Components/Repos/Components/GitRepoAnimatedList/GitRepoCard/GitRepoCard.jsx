@@ -28,6 +28,8 @@ function GitRepoCard({ repo, index, setSelectedIndex }) {
           'p-4',
           'transition-all duration-200 ease-in-out',
           'hover:scale-105 hover:bg-slate-700/30',
+          'xl:max-w-[340px]',
+          '2xl:max-w-none',
         ].join(' ')}
       >
         <div className="mb-2 flex items-center justify-between">

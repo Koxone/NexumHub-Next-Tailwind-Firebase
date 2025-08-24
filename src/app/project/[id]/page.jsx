@@ -24,7 +24,7 @@ export default function ProjectPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen pl-56">
+    <div className="min-h-screen">
       <ProjectHeader />
 
       <HeroSection
@@ -42,6 +42,7 @@ export default function ProjectPage({ params }) {
         slideshow={t('showcase.subtitle')}
         teamSize={project.teamSize}
         srcSlide={project.src}
+        imgNumber={project.imgNumber}
       />
 
       <main className="container mx-auto space-y-16 px-6 py-10">

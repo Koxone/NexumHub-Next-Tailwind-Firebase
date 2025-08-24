@@ -193,6 +193,7 @@
       ],
       "overview": "Una plataforma moderna y totalmente responsiva para la reserva de tours, desarrollada con Next.js, React y Tailwind CSS, diseñada para ofrecer una experiencia de planificación de viajes fluida. La plataforma permite a los usuarios explorar y reservar tours en los principales destinos de México y en ubicaciones seleccionadas alrededor del mundo. Cuenta con una interfaz limpia y fácil de usar, opciones dinámicas de filtrado y un proceso de reservación optimizado para viajeros tanto en escritorio como en dispositivos móviles. Los usuarios pueden explorar tours seleccionados con detalles completos, precios y disponibilidad en tiempo real, facilitando la planificación de viajes con confianza. El proyecto está siendo desarrollado con una arquitectura modular y escalable, asegurando un alto rendimiento, optimización para SEO y preparación para integraciones con APIs como pasarelas de pago, sistemas de disponibilidad en tiempo real y soporte multilenguaje. Actualmente, la plataforma está en desarrollo activo, con próximas funciones que incluirán cuentas de usuario, recomendaciones personalizadas, soporte multilenguaje (inglés/español) y capacidades de búsqueda mejoradas."
     },
+    
     "couponGenerator": {
       "title": "Generador de Cupones e integracion de API",
       "description": "Aplicación web responsiva que obtiene cupones promocionales desde una API, permite explorar ofertas por región y generar pases de Apple/Google Wallet mediante integración dinámica.",
@@ -229,6 +230,49 @@
         }
       ],
       "overview": "Coupon Cards es una plataforma digital de cupones, responsiva y multilenguaje, desarrollada con React 19, Vite y Tailwind CSS 4. Proporciona a los turistas en México y la República Dominicana un acceso sencillo a ofertas promocionales de las principales cadenas de comida rápida en destinos premium como Cancún, Tulum, Los Cabos, Puerto Vallarta y Punta Cana. La plataforma verifica la elegibilidad del usuario mediante una llamada a una API que valida el correo electrónico y el código de reservación a través del endpoint de reservaciones de Sacbe Transfers. Los usuarios elegibles pueden explorar y filtrar cupones por región, ver los detalles de las promociones y guardar las ofertas directamente en Apple Wallet o Google Wallet para mayor comodidad durante su viaje. Sus principales características incluyen soporte multilenguaje (inglés/español) usando i18next, una interfaz limpia y enfocada en dispositivos móviles, filtrado por región e integración con Apple y Google Wallet. Sigue una estructura modular y basada en componentes para garantizar escalabilidad y facilidad de mantenimiento. El proyecto está desplegado en Vercel y utiliza ESLint, Prettier y el plugin de Prettier para Tailwind para mantener un formato de código consistente. Las futuras mejoras incluirán cuentas de usuario, un panel de administración para la gestión de cupones, integración de analíticas y soporte para más destinos turísticos."
+    },
+
+    "nexumHub": {
+      "id": "nexumHub",
+      "title": "Hub de Portafolio Profesional – Next.js, Firebase, Clerk, GitHub API",
+      "description": "Un portafolio profesional moderno y en tiempo real construido con Next.js, Tailwind CSS, Firebase Firestore, autenticación con Clerk e i18n (ES/EN/PT). Incluye un sistema de chat en tiempo real completamente personalizado con notificaciones en Discord, integración con la API de GitHub para mostrar actividad y actualizaciones de proyectos, diseño responsivo con animaciones de Framer Motion y soporte multilenguaje para alcance global.",
+      "updated": "Actualizado Agosto 2025",
+      "date": "Agosto 2025",
+      "techUsed": "Tecnologías Utilizadas",
+      "status": "Proyecto Activo",
+      "statusProject": "Completado",
+      "features": "Características Clave",
+      "projectFeatures": [
+        {
+          "title": "Chat en Tiempo Real Personalizado",
+          "description": "Sistema de chat propio utilizando Firebase Firestore con actualizaciones en tiempo real, UI arrastrable y confirmación de lectura."
+        },
+        {
+          "title": "Notificaciones en Discord",
+          "description": "Cada mensaje nuevo es enviado instantáneamente a Discord para comunicación en tiempo real."
+        },
+        {
+          "title": "Integración con GitHub API",
+          "description": "Muestra actividad de GitHub en tiempo real, incluyendo commits y actualizaciones de proyectos directamente en el portafolio."
+        },
+        {
+          "title": "Autenticación con Clerk",
+          "description": "Autenticación moderna y segura con Clerk, proporcionando áreas protegidas y manejo escalable de sesiones."
+        },
+        {
+          "title": "Soporte Multilenguaje i18n",
+          "description": "Internacionalización con soporte para Español, Inglés y Portugués utilizando i18next."
+        },
+        {
+          "title": "Animaciones con Framer Motion",
+          "description": "Transiciones y micro-interacciones suaves para una experiencia moderna y atractiva."
+        },
+        {
+          "title": "Diseño Responsivo PWA",
+          "description": "Optimizado para todos los dispositivos con capacidades PWA, asegurando velocidad y enfoque mobile-first."
+        }
+      ],
+      "overview": "NexumHub es un hub de portafolio profesional moderno y en tiempo real construido con Next.js 15, Tailwind CSS v4, Firebase Firestore, autenticación con Clerk e i18n con soporte para Español, Inglés y Portugués. Cuenta con un sistema de chat personalizado integrado con notificaciones en Discord, feeds de actividad de GitHub en tiempo real y animaciones con Framer Motion. Diseñado bajo principios PWA, NexumHub permite a reclutadores y colaboradores interactuar en vivo con el desarrollador, ver la actividad de código en tiempo real y explorar proyectos en una plataforma escalable y lista para producción desplegada en Vercel."
     }
   },
   "projectsRoute": {

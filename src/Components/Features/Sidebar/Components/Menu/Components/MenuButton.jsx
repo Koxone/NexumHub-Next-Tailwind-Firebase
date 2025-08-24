@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useKxChat } from '@/Stores/useKxChat';
 import { useOpenChatButton } from '@/Stores/useOpenChatButton';
 
@@ -14,8 +14,13 @@ function MenuButton({
   contact,
   textColor = '',
   downloadResume = false,
-  openChatButton = false, // 👉 nuevo prop
+  openChatButton = false,
 }) {
+  const { hydrate } = useOpenChatButton();
+  useEffect(() => {
+    hydrate();
+  }, [hydrate]);
+
   // Zustand
   const { isOpenKxChat, openChat, toggleChat } = useKxChat();
   const { isPermitted, permitted } = useOpenChatButton();

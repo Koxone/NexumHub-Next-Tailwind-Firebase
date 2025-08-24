@@ -30,6 +30,10 @@ import { useOpenChatButton } from '@/Stores/useOpenChatButton';
 
 function SidebarMenu() {
   const router = useRouter();
+  const { hydrate } = useOpenChatButton();
+  useEffect(() => {
+    hydrate();
+  }, [hydrate]);
 
   // Zustand
   const { isOpenAdminChat, openChat, closeChat, toggleChat } = useAdminChat();
@@ -74,6 +78,13 @@ function SidebarMenu() {
     onLinkClick('/projects');
   };
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="flex flex-col items-start gap-4">
       <MenuButton
@@ -112,7 +123,7 @@ function SidebarMenu() {
           {!hasAcceptedChat ? (
             <MenuButton
               onClick={openChatModal}
-              aria="Go to Projects Button"
+              aria="Abrir Chat"
               icon={MessageCircleMoreIcon}
               text={t('sidebarMenu.chat')}
               textColor="text-emerald-400"

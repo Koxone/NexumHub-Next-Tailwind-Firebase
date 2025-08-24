@@ -8,6 +8,7 @@ import MobileSidebarToggleButton from './Components/MobileSidebarToggleButton/Mo
 
 // Clerk
 import { SignedIn, UserButton, useUser } from '@clerk/nextjs';
+import OpenChatButton from '../Chat/ChatUser/Components/OpenChatButton';
 
 function SideBar({ className }) {
   const { user } = useUser();
@@ -59,6 +60,7 @@ function SideBar({ className }) {
 
       {/* Sidebar Menu */}
       <SidebarMenu />
+      <OpenChatButton />
     </div>
   );
 }

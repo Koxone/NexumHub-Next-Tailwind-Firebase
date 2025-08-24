@@ -1,8 +1,6 @@
 import HeroSection from '@/Components/Sections/Hero/HeroSection';
 import ExperienceSection from '@/Components/Sections/Experience/ExperienceSection';
 import StackSection from '@/Components/Features/Stack/StackSection';
-import AdminChatPanel from '@/Components/Features/Chat/AdminChatPanel';
-import KxChatEngine from '@/Components/Features/Chat/KxChatEngine';
 
 
 export default function Home() {
@@ -25,8 +23,6 @@ export default function Home() {
         <StackSection />
       </div>
       <div>
-        <KxChatEngine />
-        <AdminChatPanel />
       </div>
     </div>
   );

@@ -3,6 +3,8 @@
 import { useEffect, useRef } from 'react';
 import { useChatModal } from '@/Stores/useChatModal';
 import { useTranslation } from 'react-i18next';
+
+// Zustand
 import { useKxChat } from '@/Stores/useKxChat';
 
 export default function ChatModal({ onAccept }) {
@@ -10,8 +12,9 @@ export default function ChatModal({ onAccept }) {
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
   const { t } = useTranslation();
-    // Zustand
-    const { isOpenKxChat, openChat, closeChat, toggleChat } = useKxChat();
+
+  // Zustand
+  const { isOpenKxChat, openChat, closeChat, toggleChat } = useKxChat();
 
   // Esc Key
   useEffect(() => {

@@ -140,6 +140,13 @@ function SidebarMenu() {
         text="English"
         contact
       />
+      <MenuButton
+        icon={Languages}
+        text="Open Chat"
+        aria="Abrir chat"
+        openChatButton 
+      />
+
       <SignedIn>
         <MenuButton
           aria="Go to Search Projects Button"

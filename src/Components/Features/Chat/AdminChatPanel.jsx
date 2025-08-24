@@ -13,9 +13,12 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { getApp } from 'firebase/app';
+
+// Zustand
 import { useAdminChat } from '@/Stores/useAdminChat';
 
-const db = getFirestore(getApp('KxChatEngineApp'));
+// Firebase
+import { db } from '@/lib/firebaseKxChat';
 
 function AdminChatPanel({
   projectId = 'KxChatEngine',
@@ -30,7 +33,6 @@ function AdminChatPanel({
   // Zustand
   const { isOpenAdminChat, openChat, closeChat, toggleChat } = useAdminChat();
 
-  // Escuchar mensajes en tiempo real
   useEffect(() => {
     const messagesRef = collection(db, 'chats', projectId, 'messages');
     const q = query(messagesRef, orderBy('timestamp', 'asc'));
@@ -92,11 +94,11 @@ function AdminChatPanel({
   return (
     <div className="fixed bottom-4 left-4 z-50 flex h-[32rem] w-96 flex-col rounded-lg border border-gray-200 bg-white shadow-2xl">
       {/* Header */}
-      <div className="flex items-center justify-between rounded-t-lg bg-bg-primary p-4 text-white">
+      <div className="bg-bg-primary flex items-center justify-between rounded-t-lg p-4 text-white">
         {selectedUser && (
           <button
             onClick={() => setSelectedUser(null)}
-            className="text-sm cursor-pointer font-bold text-white hover:text-gray-200"
+            className="cursor-pointer text-sm font-bold text-white hover:text-gray-200"
           >
             ← Back
           </button>
@@ -105,7 +107,7 @@ function AdminChatPanel({
 
         <button
           onClick={() => closeChat()}
-          className="text-xl font-bold cursor-pointer text-white hover:text-gray-200"
+          className="cursor-pointer text-xl font-bold text-white hover:text-gray-200"
         >
           ×
         </button>
@@ -125,7 +127,7 @@ function AdminChatPanel({
                 <li key={user}>
                   <button
                     onClick={() => setSelectedUser(user)}
-                    className="flex w-full items-center cursor-pointer border-border-main justify-between rounded-lg border bg-white px-4 py-2 text-left shadow hover:bg-gray-100"
+                    className="border-border-main flex w-full cursor-pointer items-center justify-between rounded-lg border bg-white px-4 py-2 text-left shadow hover:bg-gray-100"
                   >
                     <span>{username}</span>
                     {unread > 0 && (

@@ -1,4 +1,8 @@
+'use client';
+
 import React from 'react';
+import { useKxChat } from '@/Stores/useKxChat';
+import { useOpenChatButton } from '@/Stores/useOpenChatButton';
 
 function MenuButton({
   icon: Icon,
@@ -10,7 +14,12 @@ function MenuButton({
   contact,
   textColor = '',
   downloadResume = false,
+  openChatButton = false, // 👉 nuevo prop
 }) {
+  // Zustand
+  const { isOpenKxChat, openChat, toggleChat } = useKxChat();
+  const { isPermitted, permitted } = useOpenChatButton();
+
   // click handler
   const handleClick = (e) => {
     if (disabled) return;
@@ -33,12 +42,24 @@ function MenuButton({
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      return;
+    }
+
+    // 👉 abrir chat
+    if (openChatButton) {
+      toggleChat();
+      openChat();
+      permitted(); 
+      return;
     }
 
     if (typeof onClick === 'function') {
       onClick(e);
     }
   };
+  if (openChatButton && (!isPermitted || isOpenKxChat)) {
+    return null;
+  }
 
   return (
     <li

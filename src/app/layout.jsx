@@ -5,6 +5,9 @@ import localFont from 'next/font/local';
 import I18nProvider from '@/Components/providers/languages/I18nProvider.jsx';
 import MobileSideBar from '@/Components/Features/Sidebar/MobileSideBar';
 
+import AdminChatPanel from '@/Components/Features/Chat/AdminChatPanel';
+import KxChatEngine from '@/Components/Features/Chat/ChatUser/KxChatEngine';
+
 import ChatModal from '@/Components/Features/Modals/ChatModal';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
 import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/CreateProjectModal';
@@ -132,6 +135,8 @@ export default function RootLayout({ children }) {
             <CreateTaskModal />
             <ChatModal />
             <CreateProjectModal />
+            <KxChatEngine />
+            <AdminChatPanel />
           </div>
           <SpeedInsights />
           <Analytics />

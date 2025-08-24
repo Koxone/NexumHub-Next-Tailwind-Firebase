@@ -291,7 +291,7 @@ This project is licensed under the **MIT License**.
 
 - **Portfolio**: [https://www.nexumhub.dev/](https://www.nexumhub.dev/)
 - **GitHub**: [@Koxone](https://github.com/Koxone)
-- **LinkedIn**: [Connect with me](https://linkedin.com/in/koxone)
+- **LinkedIn**: [Connect with me](https://www.linkedin.com/in/carlos-d-leon/)
 
 ---
 

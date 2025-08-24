@@ -13,15 +13,22 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { getApp } from 'firebase/app';
+import { useAdminChat } from '@/Stores/useAdminChat';
 
 const db = getFirestore(getApp('KxChatEngineApp'));
 
-function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Support Admin Panel' }) {
+function AdminChatPanel({
+  projectId = 'KxChatEngine',
+  chatTitle = 'Support Admin Panel',
+}) {
   const [chats, setChats] = useState({});
   const [selectedUser, setSelectedUser] = useState(null);
   const [newMessage, setNewMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
+
+  // Zustand
+  const { isOpenAdminChat, openChat, closeChat, toggleChat } = useAdminChat();
 
   // Escuchar mensajes en tiempo real
   useEffect(() => {
@@ -31,7 +38,11 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Support Admin
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const chatsData = {};
       snapshot.docs.forEach((doc) => {
-        const msg = { id: doc.id, ...doc.data(), timestamp: doc.data().timestamp?.toDate() };
+        const msg = {
+          id: doc.id,
+          ...doc.data(),
+          timestamp: doc.data().timestamp?.toDate(),
+        };
         if (!chatsData[msg.userId]) chatsData[msg.userId] = [];
         chatsData[msg.userId].push(msg);
       });
@@ -74,19 +85,30 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Support Admin
     }
   };
 
+  if (!isOpenAdminChat) {
+    return;
+  }
+
   return (
-    <div className="fixed left-4 hidden bottom-4 z-50 flex h-[32rem] w-96 flex-col rounded-lg border border-gray-200 bg-white shadow-2xl">
+    <div className="fixed bottom-4 left-4 z-50 flex h-[32rem] w-96 flex-col rounded-lg border border-gray-200 bg-white shadow-2xl">
       {/* Header */}
-      <div className="flex items-center justify-between rounded-t-lg bg-blue-500 p-4 text-white">
-        <h3 className="font-semibold">{chatTitle}</h3>
+      <div className="flex items-center justify-between rounded-t-lg bg-bg-primary p-4 text-white">
         {selectedUser && (
           <button
             onClick={() => setSelectedUser(null)}
-            className="text-sm font-bold text-white hover:text-gray-200"
+            className="text-sm cursor-pointer font-bold text-white hover:text-gray-200"
           >
             ← Back
           </button>
         )}
+        <h3 className="font-semibold">{chatTitle}</h3>
+
+        <button
+          onClick={() => closeChat()}
+          className="text-xl font-bold cursor-pointer text-white hover:text-gray-200"
+        >
+          ×
+        </button>
       </div>
 
       {/* Lista de usuarios */}
@@ -103,7 +125,7 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Support Admin
                 <li key={user}>
                   <button
                     onClick={() => setSelectedUser(user)}
-                    className="flex w-full items-center justify-between rounded-lg border bg-white px-4 py-2 text-left shadow hover:bg-gray-100"
+                    className="flex w-full items-center cursor-pointer border-border-main justify-between rounded-lg border bg-white px-4 py-2 text-left shadow hover:bg-gray-100"
                   >
                     <span>{username}</span>
                     {unread > 0 && (
@@ -128,7 +150,9 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Support Admin
               >
                 <div
                   className={`max-w-[80%] rounded-lg p-3 shadow-sm ${
-                    msg.isAdmin ? 'bg-gray-200 text-gray-800' : 'bg-blue-500 text-white'
+                    msg.isAdmin
+                      ? 'bg-gray-200 text-gray-800'
+                      : 'bg-blue-500 text-white'
                   }`}
                 >
                   <p className="text-sm">{msg.text}</p>
@@ -172,7 +196,12 @@ function AdminChatPanel({ projectId = 'KxChatEngine', chatTitle = 'Support Admin
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    />
                   </svg>
                 )}
               </button>

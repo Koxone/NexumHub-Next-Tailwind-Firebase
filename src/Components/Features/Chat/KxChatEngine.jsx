@@ -111,11 +111,11 @@ const KxChatEngine = ({
   return (
     <div className="fixed right-4 bottom-4 z-50 flex h-[32rem] w-96 flex-col rounded-lg border border-gray-200 bg-white shadow-2xl">
       {/* Header */}
-      <div className="flex items-center justify-between rounded-t-lg bg-blue-500 p-4 text-white">
+      <div className="flex items-center justify-between rounded-t-lg bg-bg-primary p-4 text-white">
         <h3 className="font-semibold">{chatTitle}</h3>
         <button
           onClick={() => closeChat()}
-          className="text-xl font-bold text-white hover:text-gray-200"
+          className="cursor-pointer text-xl font-bold text-white hover:text-gray-200"
         >
           ×
         </button>
@@ -134,7 +134,7 @@ const KxChatEngine = ({
           />
           <button
             onClick={() => username.trim() && setUsernameSet(true)}
-            className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+            className="rounded-lg bg-bg-primary cursor-pointer px-4 py-2 text-white hover:bg-blue-600"
           >
             Continue
           </button>
@@ -204,7 +204,7 @@ const KxChatEngine = ({
               <button
                 onClick={sendMessage}
                 disabled={loading || !newMessage.trim()}
-                className="rounded-lg bg-blue-500 p-2 text-white transition-colors duration-200 hover:bg-blue-600 disabled:bg-gray-300"
+                className="rounded-lg bg-bg-primary cursor-pointer p-2 text-white transition-colors duration-200 hover:bg-blue-600 disabled:bg-gray-300"
               >
                 {loading ? (
                   <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>

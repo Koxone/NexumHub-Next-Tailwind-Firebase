@@ -9,6 +9,7 @@ import {
   SunMoon,
   Github,
   User,
+  MessageCircle,
   Send,
   MessageCircleMoreIcon,
   Linkedin,
@@ -19,15 +20,20 @@ import { useMobileMenu } from '@/Stores/useMobileMenu';
 import { useChatModal } from '@/Stores/useChatModal';
 import LanguageButton from './Components/LanguageButton';
 import { useTranslation } from 'react-i18next';
+
 // Clerk
 import { SignedIn, UserButton, useUser } from '@clerk/nextjs';
 import { useAdminChat } from '@/Stores/useAdminChat';
+
+// Zustand
+import { useOpenChatButton } from '@/Stores/useOpenChatButton';
 
 function SidebarMenu() {
   const router = useRouter();
 
   // Zustand
   const { isOpenAdminChat, openChat, closeChat, toggleChat } = useAdminChat();
+  const { hasAcceptedChat } = useOpenChatButton();
 
   //Language
   const { t } = useTranslation();
@@ -102,13 +108,25 @@ function SidebarMenu() {
           />
         )}
 
-        <MenuButton
-          onClick={openChatModal}
-          aria="Go to Projects Button"
-          icon={MessageCircleMoreIcon}
-          text={t('sidebarMenu.chat')}
-          textColor="text-emerald-400"
-        />
+        <div className="relative w-full">
+          {!hasAcceptedChat ? (
+            <MenuButton
+              onClick={openChatModal}
+              aria="Go to Projects Button"
+              icon={MessageCircleMoreIcon}
+              text={t('sidebarMenu.chat')}
+              textColor="text-emerald-400"
+            />
+          ) : (
+            <MenuButton
+              icon={MessageCircle}
+              text="Open Chat"
+              aria="Abrir chat"
+              openChatButton
+              textColor="text-emerald-400"
+            />
+          )}
+        </div>
       </div>
       <MenuButton
         onClick={handleGithub}
@@ -139,12 +157,6 @@ function SidebarMenu() {
         icon={Languages}
         text="English"
         contact
-      />
-      <MenuButton
-        icon={Languages}
-        text="Open Chat"
-        aria="Abrir chat"
-        openChatButton 
       />
 
       <SignedIn>

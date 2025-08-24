@@ -60,7 +60,6 @@ function SideBar({ className }) {
 
       {/* Sidebar Menu */}
       <SidebarMenu />
-      <OpenChatButton />
     </div>
   );
 }

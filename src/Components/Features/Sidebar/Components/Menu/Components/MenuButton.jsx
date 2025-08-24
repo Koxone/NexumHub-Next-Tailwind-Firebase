@@ -49,7 +49,7 @@ function MenuButton({
     if (openChatButton) {
       toggleChat();
       openChat();
-      permitted(); 
+      permitted();
       return;
     }
 
@@ -57,7 +57,7 @@ function MenuButton({
       onClick(e);
     }
   };
-  if (openChatButton && (!isPermitted || isOpenKxChat)) {
+  if (openChatButton && !isPermitted) {
     return null;
   }
 

@@ -30,7 +30,7 @@ function InteractiveProjectsSection({ className = '' }) {
   }, []);
 
   // data
-  const cards = ['testigoMX', 'fws', 'couponGenerator', 'testigoMX'];
+  const cards = ['fws', 'testigoMX', 'couponGenerator', 'testigoMX'];
 
   // frames dinámicos
   const frames = [];

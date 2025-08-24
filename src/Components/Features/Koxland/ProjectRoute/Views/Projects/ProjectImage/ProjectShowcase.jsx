@@ -3,12 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const ProjectShowcase = ({ src, gallery, slideshow, srcSlide }) => {
+const ProjectShowcase = ({ src, gallery, slideshow, srcSlide, imgNumber }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = Array.from(
-    { length: 13 },
+    { length: imgNumber },
     (_, i) => `/${srcSlide}/${i + 1}.webp`
   );
 

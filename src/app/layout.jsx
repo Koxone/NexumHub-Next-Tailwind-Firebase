@@ -5,7 +5,8 @@ import localFont from 'next/font/local';
 import I18nProvider from '@/Components/providers/languages/I18nProvider.jsx';
 import MobileSideBar from '@/Components/Features/Sidebar/MobileSideBar';
 
-import AdminChatPanel from '@/Components/Features/Chat/AdminChatPanel';
+// Chat Firebase
+import AdminChatPanel from '@/Components/Features/Chat/ChatAdmin/AdminChatPanel';
 import KxChatEngine from '@/Components/Features/Chat/ChatUser/KxChatEngine';
 
 import ChatModal from '@/Components/Features/Modals/ChatModal';

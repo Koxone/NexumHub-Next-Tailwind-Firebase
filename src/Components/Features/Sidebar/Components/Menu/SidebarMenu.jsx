@@ -8,6 +8,7 @@ import {
   Languages,
   SunMoon,
   Github,
+  User,
   Send,
   MessageCircleMoreIcon,
   Linkedin,
@@ -18,9 +19,15 @@ import { useMobileMenu } from '@/Stores/useMobileMenu';
 import { useChatModal } from '@/Stores/useChatModal';
 import LanguageButton from './Components/LanguageButton';
 import { useTranslation } from 'react-i18next';
+// Clerk
+import { SignedIn, UserButton, useUser } from '@clerk/nextjs';
+import { useAdminChat } from '@/Stores/useAdminChat';
 
 function SidebarMenu() {
   const router = useRouter();
+
+  // Zustand
+  const { isOpenAdminChat, openChat, closeChat, toggleChat } = useAdminChat();
 
   //Language
   const { t } = useTranslation();
@@ -133,12 +140,14 @@ function SidebarMenu() {
         text="English"
         contact
       />
-      <MenuButton
-        aria="Go to Search Projects Button"
-        icon={SunMoon}
-        text="Dark Mode"
-        disabled
-      />
+      <SignedIn>
+        <MenuButton
+          aria="Go to Search Projects Button"
+          icon={User}
+          text="Admin Chat"
+          onClick={openChat}
+        />
+      </SignedIn>
     </div>
   );
 }

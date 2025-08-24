@@ -235,6 +235,48 @@
         }
       ],
       "overview": "Coupon Cards is a responsive, multi-language digital coupon platform built with React 19, Vite, and Tailwind CSS 4. It provides tourists in Mexico and the Dominican Republic with easy access to promotional offers from major fast-food chains in premium destinations such as Cancún, Tulum, Los Cabos, Puerto Vallarta, and Punta Cana. The platform verifies user eligibility via an API call that checks the email and reservation code through Sacbe Transfers’ reservation endpoint. Eligible users can browse and filter coupons by region, view promotion details, and save offers directly to Apple Wallet or Google Wallet for convenience on the go. Key features include multi-language support (English/Spanish) using i18next, a clean and mobile-first UI, region-based filtering, and wallet integration. It follows a modular, component-based structure for scalability and maintainability. The project is deployed on Vercel, using ESLint, Prettier, and Tailwind’s Prettier plugin for consistent code formatting. Future improvements include user accounts, an admin panel for coupon management, analytics integration, and support for more tourist destinations."
+    },
+    "nexumHub": {
+      "id": "nexumHub",
+      "title": "Professional Portfolio",
+      "description": "A modern, real-time professional portfolio built with Next.js, Tailwind CSS, Firebase Firestore, Clerk authentication, and i18n (EN/ES/PT). Features a fully custom real-time chat system with Discord notifications, live GitHub API integration to display activity and project updates, responsive design with Framer Motion animations, and multilingual support for global reach.",
+      "updated": "Updated August 2025",
+      "date": "August 2025",
+      "techUsed": "Technologies Used",
+      "status": "Active Project",
+      "statusProject": "Completed",
+      "features": "Key Features",
+      "projectFeatures": [
+        {
+          "title": "Custom Real-Time Chat",
+          "description": "Fully custom chat system using Firebase Firestore with real-time updates, draggable UI, and read receipts."
+        },
+        {
+          "title": "Discord Notifications",
+          "description": "Every new chat message is instantly sent as a Discord notification for real-time communication."
+        },
+        {
+          "title": "GitHub API Integration",
+          "description": "Displays real-time GitHub activity, including commits and project-specific updates, directly on the portfolio."
+        },
+        {
+          "title": "Clerk Authentication",
+          "description": "Secure and modern authentication with Clerk, providing protected areas and scalable session management."
+        },
+        {
+          "title": "i18n Multi-Language Support",
+          "description": "Internationalization with English, Spanish, and Portuguese translations powered by i18next."
+        },
+        {
+          "title": "Framer Motion Animations",
+          "description": "Smooth micro-interactions and transitions for a modern and engaging portfolio experience."
+        },
+        {
+          "title": "Responsive PWA Design",
+          "description": "Optimized for all devices with PWA capabilities, ensuring fast load times and mobile-first design."
+        }
+      ],
+      "overview": "NexumHub is a modern, real-time professional portfolio hub built with Next.js 15, Tailwind CSS v4, Firebase Firestore, Clerk authentication, and i18n with support for English, Spanish, and Portuguese. It features a fully custom chat engine integrated with Discord for notifications, real-time GitHub API activity feeds, and Framer Motion for animations. Designed with responsive PWA principles, NexumHub allows recruiters and collaborators to interact live with the developer, view coding activity in real-time, and explore projects in a scalable, production-ready platform deployed on Vercel."
     }
   },
   "projectsRoute": {

@@ -166,6 +166,38 @@
       "overview": "projects.couponGenerator.overview",
       "features": "projects.couponGenerator.features",
       "projectFeatures": "projects.couponGenerator.projectFeatures"
+    },
+    "nexumHub": {
+      "id": "nexumHub",
+      "titleKey": "projects.nexumHub.title",
+      "descriptionKey": "projects.nexumHub.description",
+      "url": "https://www.nexumhub.dev/",
+      "urlGit": "https://github.com/Koxone/NexumHub-Next-Tailwind-Firebase",
+      "image": "/nexum/nexumhub.mp4",
+      "featured": true,
+      "logo": "Images/ProjectCards/nexumhub.svg",
+      "src": "nexumHub",
+      "completed": "undefined",
+      "active": true,
+      "updated": "projects.nexumHub.updated",
+      "date": "projects.nexumHub.date",
+      "lastUpdated": "2025-08-23",
+      "typeKey": "projects.nexumHub.type",
+      "statusKey": "projects.nexumHub.status",
+      "status": "projects.nexumHub.statusProject",
+      "technologies": [
+        "Next.js",
+        "Tailwind",
+        "Firebase",
+        "Clerk",
+        "Discord API",
+        "GitHub API"
+      ],
+      "tags": ["PWA", "Fullstack", "Realtime"],
+      "teamSize": "1",
+      "overview": "projects.nexumHub.overview",
+      "features": "projects.nexumHub.features",
+      "projectFeatures": "projects.nexumHub.projectFeatures"
     }
   }
 }

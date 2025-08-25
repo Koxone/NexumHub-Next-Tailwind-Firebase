@@ -87,7 +87,7 @@ export default function ChatModal({ onAccept }) {
               </div>
 
               {/* What you're about to experience */}
-              <div className="border-border-main/20 mb-4 rounded-lg border bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-3">
+              <div className="border-border-main/20 mb-4 hidden rounded-lg border bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-3 md:block">
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500">
                     <svg
@@ -144,7 +144,7 @@ export default function ChatModal({ onAccept }) {
                 </div>
 
                 {/* Security */}
-                <div className="flex items-start gap-2">
+                {/* <div className="flex items-start gap-2">
                   <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-500">
                     <svg
                       className="text-text-primary h-3 w-3"
@@ -168,7 +168,7 @@ export default function ChatModal({ onAccept }) {
                       {t('chatModal.featureSecurityText')}
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Dev status */}
                 <div className="flex items-start gap-2">
@@ -241,7 +241,7 @@ export default function ChatModal({ onAccept }) {
               </div>
 
               {/* Personal Commitment */}
-              <div className="pt-3 text-center">
+              <div className="hidden pt-3 text-center md:block">
                 <p className="text-text-secondary text-xs">
                   {t('chatModal.commitment')}
                 </p>
@@ -259,7 +259,14 @@ export default function ChatModal({ onAccept }) {
                     closeChatModal();
                     acceptChat();
                   }}
-                  className="text-text-primary cursor-pointer rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+                  className={[
+                    'mobile text-text-primary w-full cursor-pointer rounded-md bg-gray-800 px-4 py-2 text-xs font-medium hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:outline-none',
+                    'sm:',
+                    'md:w-fit',
+                    'lg:',
+                    'xl:',
+                    '2xl:',
+                  ].join(' ')}
                 >
                   {t('chatModal.buttonChat')}
                 </button>

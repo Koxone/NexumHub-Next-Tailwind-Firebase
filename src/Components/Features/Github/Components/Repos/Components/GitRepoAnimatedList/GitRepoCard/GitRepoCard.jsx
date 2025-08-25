@@ -23,11 +23,8 @@ function GitRepoCard({ repo, index, setSelectedIndex }) {
         target="_blank"
         rel="noreferrer"
         className={[
-          'group block rounded-xl',
-          'border-border-main/50 border',
-          'p-4',
-          'transition-all duration-200 ease-in-out',
-          'hover:scale-105 hover:bg-slate-700/30',
+          'mobile group border-border-main/50 block max-w-[350px] rounded-xl border p-4 transition-all duration-200 ease-in-out hover:scale-105 hover:bg-slate-700/30',
+          'sm:max-w-[340px]',
           'xl:max-w-[340px]',
           '2xl:max-w-none',
         ].join(' ')}

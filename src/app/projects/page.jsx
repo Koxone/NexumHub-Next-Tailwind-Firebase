@@ -1,3 +1,4 @@
+//Projects Page
 'use client';
 
 import Title from '@/Components/UI/Text/Title';
@@ -86,10 +87,11 @@ export default function Projects() {
         </p>
       </div>
 
+      {/* Main Content */}
       <div
         className={[
-          'mobile no-scrollbar grid [scroll-behavior:smooth]',
-          'md:justify-center md:gap-8',
+          'mobile no-scrollbar flex [scroll-behavior:smooth]',
+          'md:grid md:justify-center md:gap-8',
           'lg:grid-cols-[auto_1fr]',
         ].join(' ')}
       >

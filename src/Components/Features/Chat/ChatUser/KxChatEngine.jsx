@@ -116,7 +116,14 @@ const KxChatEngine = ({
   return (
     <div
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
-      className="border-border-main fixed right-4 bottom-4 z-50 flex h-[32rem] w-96 flex-col rounded-lg border bg-white shadow-2xl"
+      className={[
+        'mobile border-border-main fixed right-4 bottom-4 z-50 flex flex-col rounded-lg border bg-white shadow-2xl',
+        'sm:',
+        'md:h-[32rem] md:w-96',
+        'lg:',
+        'xl:',
+        '2xl:',
+      ].join(' ')}
     >
       <ChatHeader
         title={chatTitle}

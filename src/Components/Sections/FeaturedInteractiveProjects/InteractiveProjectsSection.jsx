@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import InteractiveProjectCard from '@/Components/Features/InteractiveProjectCard/InteractiveProjectCard';
 
-function InteractiveProjectsSection({ className = '' }) {
+function InteractiveProjectsSection() {
   // state
   const [currentIndex, setCurrentIndex] = useState(0);
   const [chunkSize, setChunkSize] = useState(2);
@@ -46,7 +46,6 @@ function InteractiveProjectsSection({ className = '' }) {
       id="projects"
       className={[
         'mobile relative w-full gap-4 transition-all duration-300 ease-in-out',
-        className,
         'sm:',
         'md:',
         'lg:flex lg:flex-col',
@@ -57,7 +56,7 @@ function InteractiveProjectsSection({ className = '' }) {
       {/* Card Slider for XL/2XL */}
       <div
         className={[
-          'mobile relative hidden',
+          'mobile relative',
           'sm:',
           'md:grid md:grid-cols-[1fr_40px]',
           'lg:grid lg:grid-cols-[1fr_40px]',

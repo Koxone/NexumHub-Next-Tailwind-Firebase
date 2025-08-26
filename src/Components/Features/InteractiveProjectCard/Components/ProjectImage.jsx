@@ -7,7 +7,7 @@ function ProjectImage({ src, urlGit, id, className = '' }) {
   const router = useRouter();
 
   return (
-    <div className={`relative ${className} overflow-hidden`}>
+    <div className={`relative ${className} overflow-hidden flex items-center`}>
       {/* Imagen */}
       <img
         alt="Project Image"

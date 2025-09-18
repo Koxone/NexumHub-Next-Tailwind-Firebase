@@ -236,6 +236,52 @@
       ],
       "overview": "Coupon Cards is a responsive, multi-language digital coupon platform built with React 19, Vite, and Tailwind CSS 4. It provides tourists in Mexico and the Dominican Republic with easy access to promotional offers from major fast-food chains in premium destinations such as Cancún, Tulum, Los Cabos, Puerto Vallarta, and Punta Cana. The platform verifies user eligibility via an API call that checks the email and reservation code through Sacbe Transfers’ reservation endpoint. Eligible users can browse and filter coupons by region, view promotion details, and save offers directly to Apple Wallet or Google Wallet for convenience on the go. Key features include multi-language support (English/Spanish) using i18next, a clean and mobile-first UI, region-based filtering, and wallet integration. It follows a modular, component-based structure for scalability and maintainability. The project is deployed on Vercel, using ESLint, Prettier, and Tailwind’s Prettier plugin for consistent code formatting. Future improvements include user accounts, an admin panel for coupon management, analytics integration, and support for more tourist destinations."
     },
+    "threadhive": {
+      "id": "threadhive",
+      "title": "ThreadHive, Community Platform",
+      "description": "A modern, community-driven discussion platform built with Next.js, Tailwind CSS, MongoDB, JWT authentication, and Redux. Features threaded comments with visual connectors, real-time voting, subhive communities with privacy controls, rich media posts with galleries, and a responsive UI enhanced by Framer Motion animations.",
+      "updated": "Updated September 2025",
+      "date": "September 2025",
+      "techUsed": "Technologies Used",
+      "status": "Active Project",
+      "statusProject": "In Progress",
+      "features": "Key Features",
+      "projectFeatures": [
+        {
+          "title": "Threaded Comments",
+          "description": "Interactive comment system with nested replies, visual connectors between users, collapsing threads, and flexible sorting options."
+        },
+        {
+          "title": "Voting System",
+          "description": "Upvote and downvote functionality on both posts and comments, encouraging community-driven ranking of content."
+        },
+        {
+          "title": "Subhive Communities",
+          "description": "Independent communities with their own branding, privacy levels, member management, and moderation tools."
+        },
+        {
+          "title": "Rich Media Posts",
+          "description": "Support for multi-image galleries, responsive embeds, and formatted text content inside posts."
+        },
+        {
+          "title": "Authentication and Roles",
+          "description": "JWT-based authentication with role management for users, moderators, and admins to secure communities."
+        },
+        {
+          "title": "Real-Time Experience",
+          "description": "Dynamic updates for votes, comments, and community stats without page reloads, enhancing engagement."
+        },
+        {
+          "title": "Framer Motion Animations",
+          "description": "Smooth transitions and micro-interactions for a modern and polished user experience across the platform."
+        },
+        {
+          "title": "Session Caching",
+          "description": "Smart sessionStorage caching for posts and communities, reducing load times and improving overall performance."
+        }
+      ],
+      "overview": "ThreadHive is a modern, fully responsive, community-driven discussion platform built with Next.js 15, Tailwind CSS v4, MongoDB, and JWT authentication. It is designed for scalability, performance, and real-world production use, featuring threaded comments with visual connectors, real-time voting, subhive communities with privacy controls, and rich media posts with multi-image galleries. The project includes internationalization (i18n), smooth page transitions with Framer Motion, offline support, and responsive design optimized for all devices. It follows a clean, modular architecture with SSR for SEO optimization and is deployed on Vercel. It is an open-source, production-ready social platform template for building scalable online communities with Next.js, MongoDB, and JWT, following best practices for performance, UX, and maintainability."
+    },
     "nexumHub": {
       "id": "nexumHub",
       "title": "Professional Portfolio",

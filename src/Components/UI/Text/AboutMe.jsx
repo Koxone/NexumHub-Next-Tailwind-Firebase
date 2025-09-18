@@ -9,7 +9,7 @@ export default function AboutMe() {
   return (
     <div
       className={[
-        'relative z-50 flex flex-col items-center gap-10',
+        'relative z-40 flex flex-col items-center gap-10',
         'sm:max-w-[575px]',
         'md:h-full md:max-h-fit md:max-w-[450px] md:text-sm',
         'lg:max-h-full lg:max-w-lg lg:text-base',

@@ -275,6 +275,14 @@ export default function StackSection({ className = '' }) {
               bg: 'bg-neutral-500/10',
               hover: 'hover-glow-white',
             },
+            {
+              url: '/Assets/StackIcons/mongo.svg',
+              tooltip: 'MongoDB',
+              border: 'border-neutral-400',
+              text: 'text-text-body',
+              bg: 'bg-neutral-500/10',
+              hover: 'hover-glow-white',
+            },
           ])}
         </ul>
       </div>

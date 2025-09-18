@@ -11,7 +11,11 @@ import Activity from './Components/Activity';
 import data from '@/Data/Projects/data.json';
 import { useTranslation } from 'react-i18next';
 
-export default function InteractiveProjectCard({ projectKey, className }) {
+export default function InteractiveProjectCard({
+  projectKey,
+  className,
+  threadhive,
+}) {
   const { t } = useTranslation();
   const project = data.projects[projectKey];
 
@@ -44,6 +48,7 @@ export default function InteractiveProjectCard({ projectKey, className }) {
           url={project.url}
           urlGit={project.urlGit}
           id={project.id}
+          threadhive={threadhive}
           className="aspect-square w-full max-w-[200px] justify-self-center"
         />
 

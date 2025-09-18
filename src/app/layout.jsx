@@ -9,7 +9,7 @@ import MobileSideBar from '@/Components/Features/Sidebar/MobileSideBar';
 import AdminChatPanel from '@/Components/Features/Chat/ChatAdmin/AdminChatPanel';
 import KxChatEngine from '@/Components/Features/Chat/ChatUser/KxChatEngine';
 
-import ChatModal from '@/Components/Features/Modals/ChatModal';
+import ChatModal from '@/Components/Features/Chat/ChatModal';
 import CreateTaskModal from '@/Components/Features/Modals/CreateTaskModal/CreateTaskModal';
 import CreateProjectModal from '@/Components/Features/Modals/CreateProjectModal/CreateProjectModal';
 

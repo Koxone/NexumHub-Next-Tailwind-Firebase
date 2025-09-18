@@ -1,3 +1,4 @@
+//Projects Page
 'use client';
 
 import Title from '@/Components/UI/Text/Title';
@@ -64,7 +65,16 @@ export default function Projects() {
             {t('projectsRoute.title')}
           </h1>
         </div>
-        <p className="text-text-secondary max-w-[1100px] text-sm font-light sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl">
+        <p
+          className={[
+            'mobile text-text-secondary max-w-[370px] text-sm font-light',
+            'sm:text-xl',
+            'md:max-w-[700px] md:text-xl',
+            'lg:max-w-[1100px] lg:text-xl',
+            'xl:text-xl',
+            '2xl:text-xl',
+          ].join(' ')}
+        >
           {t('projectsRoute.presentation.1')}{' '}
           <span className="text-accent font-semibold">
             {t('projectsRoute.presentation.2')}
@@ -77,7 +87,14 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="no-scrollbar grid gap-8 [scroll-behavior:smooth] md:justify-center lg:grid-cols-[auto_1fr]">
+      {/* Main Content */}
+      <div
+        className={[
+          'mobile no-scrollbar flex [scroll-behavior:smooth]',
+          'md:grid md:justify-center md:gap-8',
+          'lg:grid-cols-[auto_1fr]',
+        ].join(' ')}
+      >
         {/* Projects */}
         <div className="flex flex-col gap-5">
           <Title title={t('projectsRoute.featured')} />
@@ -85,7 +102,7 @@ export default function Projects() {
         </div>
 
         {/* Github Repos */}
-        <div className="flex flex-col gap-5">
+        <div className={['mobile hidden flex-col gap-5', 'md:flex'].join(' ')}>
           <div className="flex items-center gap-4">
             {/* Title */}
             <Title title={t('projectsRoute.latest')} className="" />

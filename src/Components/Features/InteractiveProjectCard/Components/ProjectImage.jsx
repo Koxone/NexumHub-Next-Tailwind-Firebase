@@ -3,16 +3,16 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-function ProjectImage({ src, urlGit, id, className = '' }) {
+function ProjectImage({ src, urlGit, id, className = '', threadhive }) {
   const router = useRouter();
 
   return (
-    <div className={`relative ${className} overflow-hidden flex items-center`}>
+    <div className={`relative ${className} flex items-center overflow-hidden`}>
       {/* Imagen */}
       <img
         alt="Project Image"
         src={src}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+        className={`absolute ${threadhive} inset-0 h-full w-full object-contain transition-transform duration-500 hover:scale-110`}
       />
 
       {/* Contenedor del botón */}

@@ -200,6 +200,40 @@
       "features": "projects.nexumHub.features",
       "projectFeatures": "projects.nexumHub.projectFeatures",
       "imgNumber": 7
+    },
+    "threadhive": {
+      "id": "threadhive",
+      "titleKey": "projects.threadhive.title",
+      "descriptionKey": "projects.threadhive.description",
+      "url": "https://www.threadhive.net/",
+      "urlGit": "https://github.com/Koxone/ThreadHive-Private-Repository",
+      "image": "/threadhive/threadhive.mp4",
+      "featured": true,
+      "logo": "/Images/ProjectCards/threadhive.png",
+      "src": "threadhive",
+      "completed": false,
+      "active": true,
+      "updated": "projects.threadhive.updated",
+      "date": "projects.threadhive.date",
+      "lastUpdated": "2025-09-17",
+      "typeKey": "projects.threadhive.type",
+      "statusKey": "projects.threadhive.status",
+      "status": "projects.threadhive.statusProject",
+      "technologies": [
+        "Next.js",
+        "Tailwind",
+        "MongoDB",
+        "JWT",
+        "API",
+        "Zustand",
+        "Next API Routes"
+      ],
+      "tags": ["FullStack", "PWA", "API"],
+      "teamSize": "1",
+      "overview": "projects.threadhive.overview",
+      "features": "projects.threadhive.features",
+      "projectFeatures": "projects.threadhive.projectFeatures",
+      "imgNumber": 1
     }
   }
 }

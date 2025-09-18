@@ -30,7 +30,7 @@ function InteractiveProjectsSection() {
   }, []);
 
   // data
-  const cards = ['fws', 'testigoMX', 'couponGenerator', 'nexumHub'];
+  const cards = ['fws', 'threadhive', 'couponGenerator', 'nexumHub'];
 
   // frames dinámicos
   const frames = [];
@@ -76,7 +76,7 @@ function InteractiveProjectsSection() {
           ].join(' ')}
         >
           {frames[currentIndex].map((project) => (
-            <InteractiveProjectCard key={project} projectKey={project} />
+            <InteractiveProjectCard  key={project} projectKey={project} />
           ))}
 
           {/* relleno si faltan para completar frame */}
